@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MDDataManger.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    MDDataManger *test = [[MDDataManger alloc] init];
+    [test createDB];
+    [test readAllFromDBAndSetCollection];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
