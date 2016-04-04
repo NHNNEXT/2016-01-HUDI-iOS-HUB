@@ -8,27 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
+#import "MDMoodmon.h"
 
 
-extern NSString *const kComment;
-extern NSString *const kYear;
-extern NSString *const kDateTime;
-extern NSString *const kChosen1;
-extern NSString *const kChosen2;
-extern NSString *const kChosen3;
-extern NSString *const kIsDeleted;
 
 @interface MDDataManger : NSObject
 
 @property(strong, nonatomic) NSString *dataBasePath;
 @property(nonatomic) sqlite3 *moodmonDB;
 
-@property NSMutableArray *moodCollection;
+@property NSMutableArray<MDMoodmon *> *moodCollection;
+//index는 한번 만들면 지워지지 않는다.
+//sql디비와 콜렉션 id 일치 
+//인덱스 당 데이터는 대부분 시간순서로 되어있을 것이라 예상
+
 
 - (void)createDB;
 - (void)readAllFromDBAndSetCollection;
-- (void)saveNewMoodmonIntoDB; //and collection
+- (void)savaNewMoodMon;
 
-//-recentMoodFromCollection
+- (void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon;
 
+-(NSUInteger)recentMood;
 @end

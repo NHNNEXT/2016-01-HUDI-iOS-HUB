@@ -18,6 +18,7 @@
 		CE4A8A6B1CABCDC6006B73B7 /* MDDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A6A1CABCDC6006B73B7 /* MDDataManger.m */; };
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
+		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		CE4A8A6A1CABCDC6006B73B7 /* MDDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataManger.m; sourceTree = "<group>"; };
 		CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
+		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 			children = (
 				CE4A8A691CABCDC6006B73B7 /* MDDataManger.h */,
 				CE4A8A6A1CABCDC6006B73B7 /* MDDataManger.m */,
+				CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */,
+				CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			files = (
 				CE4A8A3E1CABCCB1006B73B7 /* ViewController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
+				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManger.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 			);
@@ -436,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = moodMon/Info.plist;
+				"LD_MAP_FILE_PATH[arch=*]" = "-lsqlite3";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = next16.moodMon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
