@@ -112,7 +112,7 @@
                 7 - isDeleted / bool
              */
             
-            if(sqlite3_step(statement) == SQLITE_ROW){
+            while(sqlite3_step(statement) <= SQLITE_ROW){
                 
                 int idint = sqlite3_column_int(statement, 0);
                 NSLog(@"%d", idint);
@@ -148,10 +148,9 @@
                 
                 NSLog(@"Success to add : %@" ,[self.moodCollection objectAtIndex:idint]);
                 //@"SUCCESS";
-            } else {
-                //@"FAIL";
-                
             }
+            
+            
             
             sqlite3_finalize(statement);
         }
@@ -168,7 +167,22 @@
 - (void)saveNewMoodMonOfComment:(NSString*)comment asFirstChosen:(int)first SecondChosen:(int)second andThirdChosen:(int)third{
     
     NSLog(@"yes4 : Start to save new !!!");
-
+    
+    if(!first){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"moodNotChosen" object:self userInfo:@{@"message" : @"please choose a moodmon"}];
+    }
+    if(first < 0 || second < 0 || third < 0){
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"moodNotChosen" object:self userInfo:@{@"message" : @"wrong input"}];
+    }
+    /*
+     mood int 확인,
+     MDDateManager saveNewMoodMonOfComment~ 메소드에서 하고 있습니다.
+     여기서 하는 게 제일 좋은 건지는 아직 모르겠네요. 방어차 남겨 놓는 것도 좋은 것 같아요.
+     
+     그 전에, 위 메소드 부르기 전에도 체크 하는 게 좋을 것 같아요~
+     newMoodmon view에서 mood int가 어떻게 정해지는 지, 어디에 그 데이터가 남는지 아직 모르겠지만, 해당 코드 완성되면, 이 부분 한번 정하면 좋을 것 같아요.
+    */
+    
     
     unsigned units = NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit;
     NSDate *now = [NSDate date];
@@ -232,6 +246,8 @@
           
             
         } else {
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"failTosaveIntoSql" object:self userInfo:@{@"message" : @"Fail to save into Sqlite"}];
             printf("??? %d   zzz\n", sqlite3_step(statement) );
             NSLog(@"ERRor : %s", sqlite3_errmsg(_moodmonDB));
         }

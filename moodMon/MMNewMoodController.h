@@ -37,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet MMNewMoodButtonView *tired;
 - (IBAction)saveNewMoodMon:(id)sender;
 
+-(void) showAlertOfMessage:(NSNotification*)notification;
 -(void) presentCalendar;
 @end
 
