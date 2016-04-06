@@ -188,16 +188,10 @@
 		CE4A8A351CABCCB1006B73B7 /* moodMon */ = {
 			isa = PBXGroup;
 			children = (
-				658BE7081CB4CE98006EB718 /* angry_selected@2x.png */,
-				658BE7091CB4CE98006EB718 /* angry_unselect@2x.png */,
-				658BE70A1CB4CE98006EB718 /* angry_wheel@2x.png */,
-				658BE70B1CB4CE98006EB718 /* circle@2x.png */,
-				658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */,
-				658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */,
-				658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */,
-				658BE70F1CB4CE98006EB718 /* joy_selected@2x.png */,
-				658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */,
-				658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */,
+				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
+				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
+				CE4A8A3C1CABCCB1006B73B7 /* ViewController.h */,
+				CE4A8A3D1CABCCB1006B73B7 /* ViewController.m */,
 				658BE7131CB4CE98006EB718 /* MMMoodModel.h */,
 				658BE7141CB4CE98006EB718 /* MMMoodModel.m */,
 				658BE7151CB4CE98006EB718 /* MMNewMoodButtonView.h */,
@@ -206,20 +200,7 @@
 				658BE7181CB4CE98006EB718 /* MMNewMoodController.m */,
 				658BE7191CB4CE98006EB718 /* MMWheelView.h */,
 				658BE71A1CB4CE98006EB718 /* MMWheelView.m */,
-				658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */,
-				658BE71C1CB4CE98006EB718 /* Quicksand-Light.otf */,
-				658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */,
-				658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */,
-				658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */,
-				658BE7201CB4CE98006EB718 /* sad_wheel@2x.png */,
-				658BE7211CB4CE98006EB718 /* tired_selected@2x.png */,
-				658BE7221CB4CE98006EB718 /* tired_unselect@2x.png */,
-				658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */,
 				6575788C1CB4BE7600D75D5E /* year */,
-				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
-				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-				CE4A8A3C1CABCCB1006B73B7 /* ViewController.h */,
-				CE4A8A3D1CABCCB1006B73B7 /* ViewController.m */,
 				CE0C92CD1CAE56A60037E749 /* data */,
 				CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */,
 				658BE7121CB4CE98006EB718 /* Main.storyboard */,
@@ -233,6 +214,8 @@
 		CE4A8A361CABCCB1006B73B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9CC1F521CB4D347003099D8 /* fonts */,
+				E9CC1F511CB4D324003099D8 /* emotions */,
 				CE4A8A371CABCCB1006B73B7 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -254,6 +237,39 @@
 				CE4A8A5D1CABCCB1006B73B7 /* Info.plist */,
 			);
 			path = moodMonUITests;
+			sourceTree = "<group>";
+		};
+		E9CC1F511CB4D324003099D8 /* emotions */ = {
+			isa = PBXGroup;
+			children = (
+				658BE70B1CB4CE98006EB718 /* circle@2x.png */,
+				658BE7081CB4CE98006EB718 /* angry_selected@2x.png */,
+				658BE7091CB4CE98006EB718 /* angry_unselect@2x.png */,
+				658BE70A1CB4CE98006EB718 /* angry_wheel@2x.png */,
+				658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */,
+				658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */,
+				658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */,
+				658BE70F1CB4CE98006EB718 /* joy_selected@2x.png */,
+				658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */,
+				658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */,
+				658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */,
+				658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */,
+				658BE7201CB4CE98006EB718 /* sad_wheel@2x.png */,
+				658BE7211CB4CE98006EB718 /* tired_selected@2x.png */,
+				658BE7221CB4CE98006EB718 /* tired_unselect@2x.png */,
+				658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */,
+			);
+			name = emotions;
+			sourceTree = "<group>";
+		};
+		E9CC1F521CB4D347003099D8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */,
+				658BE71C1CB4CE98006EB718 /* Quicksand-Light.otf */,
+				658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
