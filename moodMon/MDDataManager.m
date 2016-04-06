@@ -6,19 +6,30 @@
 //  Copyright © 2016 Lee Kyu-Won. All rights reserved.
 //
 
-#import "MDDataManger.h"
+#import "MDDataManager.h"
 #import "MDMoodmon.h"
 
 
+@implementation MDDataManager
 
 
-@implementation MDDataManger
+
++(MDDataManager*)sharedDataManager{
+    static MDDataManager *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[self alloc] init];
+    });
+    
+    return _sharedInstance;
+}
 
 
 - (instancetype)init{
     self = [super init];
     if(self){
         self.moodCollection = [[NSMutableArray alloc] init];
+        [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
     }
     return self;
 }
@@ -63,11 +74,16 @@
             //@"Failed to open/create datebase";
         }
         
+        NSLog(@"yes1 : SQL created");
+
+        
+    } else {
+       
+        NSLog(@"yes1 : read data from SQL ");
+         [self readAllFromDBAndSetCollection];
+        
     }
     
-    NSLog(@"yes1");
-    
-    [self savaNewMoodMon]; //test
     
     
 }
@@ -77,14 +93,14 @@
     const char *dbpath = [_dataBasePath UTF8String];
     
     if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
-        NSLog(@"yes2");
+        NSLog(@"yes2 : start reading from SQL");
         NSString *querySQL = @"SELECT * FROM moodmon";
         
         const char *query_stmt = [querySQL UTF8String];
         
         if(sqlite3_prepare_v2(_moodmonDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
             
-            NSLog(@"yes3");
+            NSLog(@"yes3 : sql function in progress");
             /* COLUME_NUM & property
                 0 - id / int
                 1 - moodComment / varchar(150)
@@ -99,7 +115,7 @@
             if(sqlite3_step(statement) == SQLITE_ROW){
                 
                 int idint = sqlite3_column_int(statement, 0);
-                
+                NSLog(@"%d", idint);
                 NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
                 NSInteger year = sqlite3_column_int(statement, 2);
                 NSInteger dateTime = sqlite3_column_int(statement, 3);
@@ -149,7 +165,10 @@
 
 
 
-- (void)savaNewMoodMon{
+- (void)saveNewMoodMonOfComment:(NSString*)comment asFirstChosen:(int)first SecondChosen:(int)second andThirdChosen:(int)third{
+    
+    NSLog(@"yes4 : Start to save new !!!");
+
     
     unsigned units = NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit;
     NSDate *now = [NSDate date];
@@ -160,21 +179,21 @@
     NSInteger day = [comp day];
     NSInteger year = [comp year];
     
-    MDMoodmon *newMD = [MDMoodmon alloc];
+    MDMoodmon *newMD = [[MDMoodmon alloc] init];
     
     [newMD setValue:[NSNumber numberWithInteger:year] forKey:kYear];
     [newMD setValue:[NSNumber numberWithInteger:day] forKey:kDateTime]; //시간정보도 추가해야함.
     [newMD setValue:@NO forKey:kIsDeleted];
     
-    /*
-     [newMD setValue:uitextfield.text forKey:kComment];
-     [newMD setValue: ? forKey:kChosen1];
-     [newMD setValue: ? forKey:kChosen2];
-     [newMD setValue: ? forKey:kChosen3];
-     */
     
-    [newMD setValue:[[NSString alloc] initWithFormat:@"hello"] forKey:kComment];
-    newMD.moodChosen1 = 11; // test
+    [newMD setValue:comment forKey:kComment];
+    [newMD setValue: [NSNumber numberWithInt:first] forKey:kChosen1];
+    [newMD setValue: [NSNumber numberWithInt:second] forKey:kChosen2];
+    [newMD setValue: [NSNumber numberWithInt: third] forKey:kChosen3];
+    
+    
+    //[newMD setValue:[[NSString alloc] initWithFormat:@"hello"] forKey:kComment]; - test
+    
     [self.moodCollection insertObject:newMD atIndex:[self.moodCollection count]];
     [self saveIntoDBNewMoodmon: newMD];
     
@@ -186,7 +205,7 @@
     const char *dbpath = [_dataBasePath UTF8String];
     
     if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
-        NSLog(@"yes4");
+        NSLog(@"yes5 : Start to save new into SQL");
         
         /* COLUME_NUM & property
          0 - id / int

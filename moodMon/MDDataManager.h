@@ -12,7 +12,10 @@
 
 
 
-@interface MDDataManger : NSObject
+@interface MDDataManager : NSObject{
+    NSString *dataBasePath;
+    sqlite3 *moodmonDB;
+}
 
 @property(strong, nonatomic) NSString *dataBasePath;
 @property(nonatomic) sqlite3 *moodmonDB;
@@ -23,9 +26,11 @@
 //인덱스 당 데이터는 대부분 시간순서로 되어있을 것이라 예상
 
 
++(MDDataManager*)sharedDataManager; //DataManager is a singleton.
+
 - (void)createDB;
 - (void)readAllFromDBAndSetCollection;
-- (void)savaNewMoodMon;
+- (void)saveNewMoodMonOfComment:(NSString*)comment asFirstChosen:(int)first SecondChosen:(int)second andThirdChosen:(int)third;
 
 - (void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon;
 

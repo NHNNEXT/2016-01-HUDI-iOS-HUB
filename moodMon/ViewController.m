@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MDDataManger.h"
+#import "MDDataManager.h"
 #import "MDMoodmon.h"
 
 @interface ViewController ()
@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MDDataManger *test = [[MDDataManger alloc] init];
+    MDDataManager *test = [[MDDataManager alloc] init];
     [test createDB];
     [test readAllFromDBAndSetCollection];
     NSLog(@"%lu", (unsigned long)[test recentMood]);
