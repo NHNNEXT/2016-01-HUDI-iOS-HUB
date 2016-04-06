@@ -10,12 +10,18 @@
 #import "MMMoodModel.h"
 #import "MMNewMoodButtonView.h"
 #import "MMWheelView.h"
+#import "MDDataManager.h"
+
 
 @interface MMNewMoodController : UIViewController
 
 /* Model */
 @property MMMoodModel *mood;
 @property int moodCount;
+
+/*DataManager for save new moodmon*/
+@property MDDataManager *moodmonDM;
+
 
 /* IBOutlet */
 @property (strong, nonatomic) IBOutlet UILabel *day;
@@ -29,6 +35,9 @@
 @property (strong, nonatomic) IBOutlet MMNewMoodButtonView *sad;
 @property (strong, nonatomic) IBOutlet MMNewMoodButtonView *excited;
 @property (strong, nonatomic) IBOutlet MMNewMoodButtonView *tired;
+- (IBAction)saveNewMoodMon:(id)sender;
 
+-(void) showAlertOfMessage:(NSNotification*)notification;
+-(void) presentCalendar;
 @end
 

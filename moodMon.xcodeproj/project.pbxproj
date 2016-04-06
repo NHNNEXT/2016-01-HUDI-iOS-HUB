@@ -34,12 +34,11 @@
 		658BE73B1CB4CE98006EB718 /* tired_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */; };
 		CE4A8A381CABCCB1006B73B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A371CABCCB1006B73B7 /* main.m */; };
 		CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */; };
-		CE4A8A3E1CABCCB1006B73B7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A3D1CABCCB1006B73B7 /* ViewController.m */; };
 		CE4A8A431CABCCB1006B73B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */; };
 		CE4A8A461CABCCB1006B73B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4A8A441CABCCB1006B73B7 /* LaunchScreen.storyboard */; };
 		CE4A8A511CABCCB1006B73B7 /* moodMonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A501CABCCB1006B73B7 /* moodMonTests.m */; };
 		CE4A8A5C1CABCCB1006B73B7 /* moodMonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A5B1CABCCB1006B73B7 /* moodMonUITests.m */; };
-		CE4A8A6B1CABCDC6006B73B7 /* MDDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A6A1CABCDC6006B73B7 /* MDDataManger.m */; };
+		CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A6A1CABCDC6006B73B7 /* MDDataManager.m */; };
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
@@ -97,8 +96,6 @@
 		CE4A8A371CABCCB1006B73B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE4A8A3C1CABCCB1006B73B7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CE4A8A3D1CABCCB1006B73B7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4A8A451CABCCB1006B73B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4A8A471CABCCB1006B73B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,8 +105,8 @@
 		CE4A8A571CABCCB1006B73B7 /* moodMonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moodMonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A8A5B1CABCCB1006B73B7 /* moodMonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moodMonUITests.m; sourceTree = "<group>"; };
 		CE4A8A5D1CABCCB1006B73B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE4A8A691CABCDC6006B73B7 /* MDDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDataManger.h; sourceTree = "<group>"; };
-		CE4A8A6A1CABCDC6006B73B7 /* MDDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataManger.m; sourceTree = "<group>"; };
+		CE4A8A691CABCDC6006B73B7 /* MDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDataManager.h; sourceTree = "<group>"; };
+		CE4A8A6A1CABCDC6006B73B7 /* MDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataManager.m; sourceTree = "<group>"; };
 		CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
@@ -155,8 +152,8 @@
 		CE0C92CD1CAE56A60037E749 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				CE4A8A691CABCDC6006B73B7 /* MDDataManger.h */,
-				CE4A8A6A1CABCDC6006B73B7 /* MDDataManger.m */,
+				CE4A8A691CABCDC6006B73B7 /* MDDataManager.h */,
+				CE4A8A6A1CABCDC6006B73B7 /* MDDataManager.m */,
 				CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */,
 				CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */,
 			);
@@ -190,8 +187,6 @@
 			children = (
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-				CE4A8A3C1CABCCB1006B73B7 /* ViewController.h */,
-				CE4A8A3D1CABCCB1006B73B7 /* ViewController.m */,
 				658BE7131CB4CE98006EB718 /* MMMoodModel.h */,
 				658BE7141CB4CE98006EB718 /* MMMoodModel.m */,
 				658BE7151CB4CE98006EB718 /* MMNewMoodButtonView.h */,
@@ -422,12 +417,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				658BE7321CB4CE98006EB718 /* MMWheelView.m in Sources */,
-				CE4A8A3E1CABCCB1006B73B7 /* ViewController.m in Sources */,
 				658BE7311CB4CE98006EB718 /* MMNewMoodController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
 				658BE7301CB4CE98006EB718 /* MMNewMoodButtonView.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
-				CE4A8A6B1CABCDC6006B73B7 /* MDDataManger.m in Sources */,
+				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 				658BE72F1CB4CE98006EB718 /* MMMoodModel.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* YearViewController.m in Sources */,

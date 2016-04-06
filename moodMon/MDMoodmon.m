@@ -7,7 +7,7 @@
 //
 
 #import "MDMoodmon.h"
-#import "MDDataManger.h"
+#import "MDDataManager.h"
 
 NSString *const kComment = @"moodComment";
 NSString *const kYear = @"moodYear";
@@ -22,8 +22,7 @@ NSString *const kIsDeleted = @"isDeleted";
 -(instancetype)init{
     self = [super self];
     if(self){
-        
-      //  self.moodComment = [NSString alloc];
+     
         [self setValue:@NO forKey:kIsDeleted];
         
     }
