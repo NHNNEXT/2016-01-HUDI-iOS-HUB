@@ -1,5 +1,5 @@
 //
-//  MMMoodModel.h
+//  MDMoodModel.h
 //  MoodMon
 //
 //  Created by 김기범 on 2016. 4. 4..
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MMMoodModel : NSObject
+@interface MDMoodModel : NSObject
 
 @property int subMood1;
 @property int subMood2;

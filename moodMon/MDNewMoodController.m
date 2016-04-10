@@ -1,18 +1,18 @@
 //
-//  MMNewMoodController.m
+//  MDNewMoodController.m
 //  MoodMon
 //
 //  Created by 김기범 on 2016. 3. 27..
 //  Copyright © 2016년 김기범. All rights reserved.
 //
 
-#import "MMNewMoodController.h"
+#import "MDNewMoodController.h"
 
-@interface MMNewMoodController ()
+@interface MDNewMoodController ()
 
 @end
 
-@implementation MMNewMoodController
+@implementation MDNewMoodController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,14 +57,14 @@
 }
 
 - (void)tapped:(UIGestureRecognizer *)tap {
-    MMNewMoodButtonView *imageView = (MMNewMoodButtonView *)tap.view;
+    MDNewMoodButtonView *imageView = (MDNewMoodButtonView *)tap.view;
     NSString *imageName = imageView.name;
     NSString *isSelected = (imageView.isSelected)? @"unselect" : @"selected";
     //moodCount가 3보다 큰 경우 (selected) 이미지는 그리지 말아야. 그냥 이미지 안 그리면 됨.
     imageView.image = [UIImage imageNamed:[[NSString alloc]initWithFormat:@"%@_%@", imageName, isSelected]];
     imageView.isSelected = (imageView.isSelected)? NO : YES;
     (imageView.isSelected)? self.moodCount++ : self.moodCount--;
-    for(MMNewMoodButtonView *moodView in self.moodViews) {
+    for(MDNewMoodButtonView *moodView in self.moodViews) {
         moodView.hidden = YES;
     }
     [self.wheel showWheelView:imageView];

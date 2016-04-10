@@ -19,10 +19,10 @@
 		658BE72C1CB4CE98006EB718 /* joy_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */; };
 		658BE72D1CB4CE98006EB718 /* joy_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */; };
 		658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7121CB4CE98006EB718 /* Main.storyboard */; };
-		658BE72F1CB4CE98006EB718 /* MMMoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7141CB4CE98006EB718 /* MMMoodModel.m */; };
-		658BE7301CB4CE98006EB718 /* MMNewMoodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7161CB4CE98006EB718 /* MMNewMoodButtonView.m */; };
-		658BE7311CB4CE98006EB718 /* MMNewMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7181CB4CE98006EB718 /* MMNewMoodController.m */; };
-		658BE7321CB4CE98006EB718 /* MMWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE71A1CB4CE98006EB718 /* MMWheelView.m */; };
+		658BE72F1CB4CE98006EB718 /* MDMoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7141CB4CE98006EB718 /* MDMoodModel.m */; };
+		658BE7301CB4CE98006EB718 /* MDNewMoodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7161CB4CE98006EB718 /* MDNewMoodButtonView.m */; };
+		658BE7311CB4CE98006EB718 /* MDNewMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7181CB4CE98006EB718 /* MDNewMoodController.m */; };
+		658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE71A1CB4CE98006EB718 /* MDWheelView.m */; };
 		658BE7331CB4CE98006EB718 /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */; };
 		658BE7341CB4CE98006EB718 /* Quicksand-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71C1CB4CE98006EB718 /* Quicksand-Light.otf */; };
 		658BE7351CB4CE98006EB718 /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */; };
@@ -75,14 +75,14 @@
 		658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_unselect@2x.png"; sourceTree = "<group>"; };
 		658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_wheel@2x.png"; sourceTree = "<group>"; };
 		658BE7121CB4CE98006EB718 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		658BE7131CB4CE98006EB718 /* MMMoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMoodModel.h; sourceTree = "<group>"; };
-		658BE7141CB4CE98006EB718 /* MMMoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMoodModel.m; sourceTree = "<group>"; };
-		658BE7151CB4CE98006EB718 /* MMNewMoodButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNewMoodButtonView.h; sourceTree = "<group>"; };
-		658BE7161CB4CE98006EB718 /* MMNewMoodButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNewMoodButtonView.m; sourceTree = "<group>"; };
-		658BE7171CB4CE98006EB718 /* MMNewMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNewMoodController.h; sourceTree = "<group>"; };
-		658BE7181CB4CE98006EB718 /* MMNewMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNewMoodController.m; sourceTree = "<group>"; };
-		658BE7191CB4CE98006EB718 /* MMWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWheelView.h; sourceTree = "<group>"; };
-		658BE71A1CB4CE98006EB718 /* MMWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWheelView.m; sourceTree = "<group>"; };
+		658BE7131CB4CE98006EB718 /* MDMoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodModel.h; sourceTree = "<group>"; };
+		658BE7141CB4CE98006EB718 /* MDMoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodModel.m; sourceTree = "<group>"; };
+		658BE7151CB4CE98006EB718 /* MDNewMoodButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNewMoodButtonView.h; sourceTree = "<group>"; };
+		658BE7161CB4CE98006EB718 /* MDNewMoodButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNewMoodButtonView.m; sourceTree = "<group>"; };
+		658BE7171CB4CE98006EB718 /* MDNewMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNewMoodController.h; sourceTree = "<group>"; };
+		658BE7181CB4CE98006EB718 /* MDNewMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNewMoodController.m; sourceTree = "<group>"; };
+		658BE7191CB4CE98006EB718 /* MDWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWheelView.h; sourceTree = "<group>"; };
+		658BE71A1CB4CE98006EB718 /* MDWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWheelView.m; sourceTree = "<group>"; };
 		658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
 		658BE71C1CB4CE98006EB718 /* Quicksand-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.otf"; sourceTree = "<group>"; };
 		658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
@@ -187,14 +187,14 @@
 			children = (
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-				658BE7131CB4CE98006EB718 /* MMMoodModel.h */,
-				658BE7141CB4CE98006EB718 /* MMMoodModel.m */,
-				658BE7151CB4CE98006EB718 /* MMNewMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MMNewMoodButtonView.m */,
-				658BE7171CB4CE98006EB718 /* MMNewMoodController.h */,
-				658BE7181CB4CE98006EB718 /* MMNewMoodController.m */,
-				658BE7191CB4CE98006EB718 /* MMWheelView.h */,
-				658BE71A1CB4CE98006EB718 /* MMWheelView.m */,
+				658BE7131CB4CE98006EB718 /* MDMoodModel.h */,
+				658BE7141CB4CE98006EB718 /* MDMoodModel.m */,
+				658BE7151CB4CE98006EB718 /* MDNewMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDNewMoodButtonView.m */,
+				658BE7171CB4CE98006EB718 /* MDNewMoodController.h */,
+				658BE7181CB4CE98006EB718 /* MDNewMoodController.m */,
+				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
+				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
 				6575788C1CB4BE7600D75D5E /* year */,
 				CE0C92CD1CAE56A60037E749 /* data */,
 				CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */,
@@ -416,14 +416,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				658BE7321CB4CE98006EB718 /* MMWheelView.m in Sources */,
-				658BE7311CB4CE98006EB718 /* MMNewMoodController.m in Sources */,
+				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
+				658BE7311CB4CE98006EB718 /* MDNewMoodController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
-				658BE7301CB4CE98006EB718 /* MMNewMoodButtonView.m in Sources */,
+				658BE7301CB4CE98006EB718 /* MDNewMoodButtonView.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
-				658BE72F1CB4CE98006EB718 /* MMMoodModel.m in Sources */,
+				658BE72F1CB4CE98006EB718 /* MDMoodModel.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* YearViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

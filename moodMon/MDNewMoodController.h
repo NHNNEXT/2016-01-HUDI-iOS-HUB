@@ -1,5 +1,5 @@
 //
-//  MMNewMoodController.h
+//  MDNewMoodController.h
 //  MoodMon
 //
 //  Created by 김기범 on 2016. 3. 27..
@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MMMoodModel.h"
-#import "MMNewMoodButtonView.h"
-#import "MMWheelView.h"
+#import "MDMoodModel.h"
+#import "MDNewMoodButtonView.h"
+#import "MDWheelView.h"
 #import "MDDataManager.h"
 
 
-@interface MMNewMoodController : UIViewController
+@interface MDNewMoodController : UIViewController
 
 /* Model */
-@property MMMoodModel *mood;
+@property MDMoodModel *mood;
 @property int moodCount;
 
 /*DataManager for save new moodmon*/
@@ -28,13 +28,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UIView *container;
 @property (strong, nonatomic) IBOutlet UIImageView *circle;
-@property (strong, nonatomic) IBOutlet MMWheelView *wheel;
+@property (strong, nonatomic) IBOutlet MDWheelView *wheel;
 @property NSArray *moodViews;
-@property (strong, nonatomic) IBOutlet MMNewMoodButtonView *angry;
-@property (strong, nonatomic) IBOutlet MMNewMoodButtonView *joy;
-@property (strong, nonatomic) IBOutlet MMNewMoodButtonView *sad;
-@property (strong, nonatomic) IBOutlet MMNewMoodButtonView *excited;
-@property (strong, nonatomic) IBOutlet MMNewMoodButtonView *tired;
+@property (strong, nonatomic) IBOutlet MDNewMoodButtonView *angry;
+@property (strong, nonatomic) IBOutlet MDNewMoodButtonView *joy;
+@property (strong, nonatomic) IBOutlet MDNewMoodButtonView *sad;
+@property (strong, nonatomic) IBOutlet MDNewMoodButtonView *excited;
+@property (strong, nonatomic) IBOutlet MDNewMoodButtonView *tired;
 - (IBAction)saveNewMoodMon:(id)sender;
 
 -(void) showAlertOfMessage:(NSNotification*)notification;
