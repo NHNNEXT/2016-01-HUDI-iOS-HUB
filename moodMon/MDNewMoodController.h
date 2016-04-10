@@ -16,11 +16,11 @@
 @interface MDNewMoodController : UIViewController
 
 /* Model */
-@property MDMoodModel *mood;
+@property MDMoodmon *mood;
 @property int moodCount;
 
 /*DataManager for save new moodmon*/
-@property MDDataManager *moodmonDM;
+@property MDDataManager *dataManager;
 
 
 /* IBOutlet */
@@ -37,7 +37,8 @@
 @property (strong, nonatomic) IBOutlet MDNewMoodButtonView *tired;
 - (IBAction)saveNewMoodMon:(id)sender;
 
--(void) showAlertOfMessage:(NSNotification*)notification;
+-(void) showAlert:(NSNotification*)notification;
 -(void) presentCalendar;
+
 @end
 

@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.moodmonDM = [MDDataManager sharedDataManager];
-    [self.moodmonDM createDB];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertOfMessage:) name:@"failTosaveIntoSql" object:self.moodmonDM ];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertOfMessage:) name:@"moodNotChosen" object:self.moodmonDM ];
+    self.dataManager = [MDDataManager sharedDataManager];
+    [self.dataManager createDB];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertOfMessage:) name:@"failTosaveIntoSql" object:self.dataManager ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertOfMessage:) name:@"moodNotChosen" object:self.dataManager ];
     
     [self initializeMoods];
     self.moodCount = 0;
@@ -28,7 +28,7 @@
     [self addTapGestureRecognizer];
 }
 
--(void) showAlertOfMessage:(NSNotification*)notification{
+-(void) showAlert:(NSNotification*)notification{
     
     NSDictionary *userInfo = [notification userInfo];
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -93,7 +93,7 @@
 - (IBAction)saveNewMoodMon:(id)sender {
     
     //test data
-    [self.moodmonDM saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:11 andThirdChosen:11];
+    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:11 andThirdChosen:11];
     
     /*
      mood int 확인,
