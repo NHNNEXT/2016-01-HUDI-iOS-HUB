@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDNewMoodButtonView.h"
+#import "MDMoodButtonView.h"
 
 @interface MDWheelView : UIImageView
 
-- (void)showWheelView:(MDNewMoodButtonView *)selectedMood;
+- (void)showWheelView:(MDMoodButtonView *)selectedMood;
 
 @end

@@ -19,27 +19,27 @@
     
     self.dataManager = [MDDataManager sharedDataManager];
     [self.dataManager createDB];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertOfMessage:) name:@"failTosaveIntoSql" object:self.dataManager ];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertOfMessage:) name:@"moodNotChosen" object:self.dataManager ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     
-    [self initializeMoods];
     self.moodCount = 0;
-    self.moodViews = @[self.angry, self.joy, self.sad, self.excited, self.tired];
+    self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
+    self.centerMood.hidden = YES;
+    [self initiateMoodButtonsName];
     [self addTapGestureRecognizer];
 }
 
+
 -(void) showAlert:(NSNotification*)notification{
-    
     NSDictionary *userInfo = [notification userInfo];
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
     [alertC addAction:defaultAction];
     [self presentViewController:alertC animated:YES completion:nil];
-    
 }
 
 
--(void)initializeMoods {
+-(void)initiateMoodButtonsName {
     self.angry.name = @"angry";
     self.joy.name = @"joy";
     self.sad.name = @"sad";
@@ -47,27 +47,48 @@
     self.tired.name = @"tired";
 }
 
+
 - (void)addTapGestureRecognizer {
-    for(UIImageView *emotion in self.moodViews){
-        emotion.userInteractionEnabled = YES;
+    for(UIImageView *mood in self.moodButtons){
+        mood.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(tapped:)];
-        [emotion addGestureRecognizer:tap];
+        [mood addGestureRecognizer:tap];
     }
 }
 
+
 - (void)tapped:(UIGestureRecognizer *)tap {
-    MDNewMoodButtonView *imageView = (MDNewMoodButtonView *)tap.view;
-    NSString *imageName = imageView.name;
-    NSString *isSelected = (imageView.isSelected)? @"unselect" : @"selected";
-    //moodCount가 3보다 큰 경우 (selected) 이미지는 그리지 말아야. 그냥 이미지 안 그리면 됨.
-    imageView.image = [UIImage imageNamed:[[NSString alloc]initWithFormat:@"%@_%@", imageName, isSelected]];
-    imageView.isSelected = (imageView.isSelected)? NO : YES;
-    (imageView.isSelected)? self.moodCount++ : self.moodCount--;
-    for(MDNewMoodButtonView *moodView in self.moodViews) {
-        moodView.hidden = YES;
+    MDMoodButtonView *imageView = (MDMoodButtonView *)tap.view;
+    [self setMoodButtonImage:imageView];
+    self.centerMood.hidden = (self.moodCount<1)? YES:NO;
+    if(imageView.isSelected && self.moodCount<4) {
+        [self showWheelView:imageView.name];
     }
-    [self.wheel showWheelView:imageView];
+}
+
+- (void)showWheelView:(NSString *)wheelName {
+    self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", wheelName]];
+    for(MDMoodButtonView *moodButton in self.moodButtons) {
+        moodButton.hidden = YES;
+    }
+}
+
+- (void)setMoodButtonImage:(MDMoodButtonView *)imageView {
+    imageView.isSelected = !imageView.isSelected;
+    imageView.isSelected ? self.moodCount++ : self.moodCount--;
+    NSString *surfix = (imageView.isSelected && self.moodCount<4) ? @"selected" : @"unselect";
+    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", imageView.name, surfix];
+    imageView.image = [UIImage imageNamed:imageName];
+}
+
+
+//차후 휠 제스쳐 끝날 때 실행해야하는 메서드
+- (IBAction)resetViews:(id)sender {
+    self.wheel.image = [UIImage imageNamed:@"circle"];
+    for(MDMoodButtonView *moodButton in self.moodButtons) {
+        moodButton.hidden = NO;
+    }
 }
 
 /*
@@ -87,7 +108,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)saveNewMoodMon:(id)sender {
@@ -123,5 +143,4 @@
 -(void) presentCalendar{
     
 }
-
 @end

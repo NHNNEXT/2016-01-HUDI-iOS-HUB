@@ -1,5 +1,5 @@
 //
-//  MDNewMoodButtonView.h
+//  MDMoodButtonView.h
 //  MoodMon
 //
 //  Created by 김기범 on 2016. 3. 28..
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MDNewMoodButtonView : UIImageView
+@interface MDMoodButtonView : UIImageView
 
 @property int num;
 @property NSString *name; // imageName 분기문에서 활용
