@@ -1,5 +1,5 @@
 //
-//  MMWheelView.h
+//  MDWheelView.h
 //  MoodMon
 //
 //  Created by 김기범 on 2016. 4. 6..
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MMNewMoodButtonView.h"
+#import "MDNewMoodButtonView.h"
 
-@interface MMWheelView : UIImageView
+@interface MDWheelView : UIImageView
 
-- (void)showWheelView:(MMNewMoodButtonView *)selectedMood;
+- (void)showWheelView:(MDNewMoodButtonView *)selectedMood;
 
 @end
