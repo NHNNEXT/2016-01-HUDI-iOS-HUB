@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XeT-CV-5As">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TL5-nJ-UfS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -215,16 +215,6 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-HZ-nST">
-                                        <rect key="frame" x="234" y="214" width="73" height="30"/>
-                                        <state key="normal" title="save - test"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="227" y="0.0" width="73" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="saveNewMoodMon:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="dBO-d4-kgP"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joy_degree1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SdP-bN-ebp" userLabel="center mood.png">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
@@ -299,7 +289,6 @@
                                         <exclude reference="uUR-Qm-e63"/>
                                         <exclude reference="zNn-AG-cqa"/>
                                         <exclude reference="aL2-3u-dsJ"/>
-                                        <exclude reference="IVh-HZ-nST"/>
                                         <exclude reference="SdP-bN-ebp"/>
                                     </mask>
                                     <mask key="constraints">
@@ -329,7 +318,6 @@
                                         <include reference="uUR-Qm-e63"/>
                                         <include reference="zNn-AG-cqa"/>
                                         <include reference="aL2-3u-dsJ"/>
-                                        <include reference="IVh-HZ-nST"/>
                                         <include reference="SdP-bN-ebp"/>
                                     </mask>
                                     <mask key="constraints">
@@ -375,6 +363,16 @@
                                     <action selector="resetViews:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="TJ9-fB-W7x"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-HZ-nST">
+                                <rect key="frame" x="234" y="214" width="73" height="30"/>
+                                <state key="normal" title="save - test"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="307" y="41" width="73" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="saveNewMoodMon:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="dBO-d4-kgP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -409,6 +407,7 @@
                                 <exclude reference="96Q-cZ-hzE"/>
                                 <exclude reference="8WY-Ar-NXR"/>
                                 <exclude reference="BHN-k1-D2d"/>
+                                <exclude reference="IVh-HZ-nST"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Keo-Kf-dBj"/>
@@ -431,6 +430,7 @@
                                 <include reference="96Q-cZ-hzE"/>
                                 <include reference="8WY-Ar-NXR"/>
                                 <include reference="BHN-k1-D2d"/>
+                                <include reference="IVh-HZ-nST"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Keo-Kf-dBj"/>
@@ -467,7 +467,7 @@
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">
             <objects>
-                <viewController id="COX-hV-sA8" customClass="MDYearViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yearVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="COX-hV-sA8" customClass="MDYearViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8t1-wd-Ki5"/>
                         <viewControllerLayoutGuide type="bottom" id="GOc-Jo-X0z"/>
@@ -482,9 +482,29 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHV-Zv-B8s">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="go to Month View"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="20" width="121" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="XeT-CV-5As" kind="show" id="zjh-rx-jOf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lHV-Zv-B8s"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lHV-Zv-B8s"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QP7-7f-6Mr" appends="YES" id="GYL-xs-v67"/>
                             <outletCollection property="gestureRecognizers" destination="kxC-bZ-R20" appends="YES" id="Sga-dJ-wvg"/>
@@ -507,12 +527,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="713" y="64"/>
+            <point key="canvasLocation" x="897" y="66"/>
         </scene>
         <!--Month View Controller-->
         <scene sceneID="fHh-ad-Qp7">
             <objects>
-                <viewController id="XeT-CV-5As" customClass="MDMonthViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="monthVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XeT-CV-5As" customClass="MDMonthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eXz-kO-qpe"/>
                         <viewControllerLayoutGuide type="bottom" id="hmy-DR-MdY"/>
@@ -575,9 +595,41 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-xG-B3o">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="go to Year View"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="37" y="38" width="107" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="COX-hV-sA8" kind="show" id="VzE-kx-u5e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKO-Bh-anj">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="go to New Mood View"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="15" y="76" width="151" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="TL5-nJ-UfS" kind="show" id="Ehx-1q-ogs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Oha-xG-B3o"/>
+                                <exclude reference="HKO-Bh-anj"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Oha-xG-B3o"/>
+                                <include reference="HKO-Bh-anj"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="HWu-4r-vdX" appends="YES" id="mFR-6j-VCn"/>
                             <outletCollection property="gestureRecognizers" destination="pbH-7b-tmq" appends="YES" id="Hed-IB-2oh"/>
