@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface YearViewController : UIViewController
+@interface MDYearViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *yearly;
 
