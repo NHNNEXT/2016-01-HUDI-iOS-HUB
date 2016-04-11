@@ -307,18 +307,18 @@
                                         <exclude reference="g1y-Tr-e6e"/>
                                         <exclude reference="234-pA-cgI"/>
                                         <exclude reference="NHo-Cv-oyF"/>
-                                        <exclude reference="I1d-xt-i4g"/>
-                                        <exclude reference="xu2-On-SmK"/>
-                                        <exclude reference="8WS-5h-PKT"/>
-                                        <exclude reference="lEt-PD-DyC"/>
                                         <exclude reference="cBa-uh-8ze"/>
                                         <exclude reference="wpH-7e-4x4"/>
-                                        <exclude reference="hCl-u1-aIw"/>
-                                        <exclude reference="ht2-sA-fNz"/>
+                                        <exclude reference="8WS-5h-PKT"/>
+                                        <exclude reference="lEt-PD-DyC"/>
                                         <exclude reference="UMP-7k-feT"/>
                                         <exclude reference="lco-y4-dJi"/>
                                         <exclude reference="BaL-DU-MJu"/>
                                         <exclude reference="uK8-bW-lyk"/>
+                                        <exclude reference="I1d-xt-i4g"/>
+                                        <exclude reference="xu2-On-SmK"/>
+                                        <exclude reference="hCl-u1-aIw"/>
+                                        <exclude reference="ht2-sA-fNz"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -337,18 +337,18 @@
                                         <include reference="g1y-Tr-e6e"/>
                                         <include reference="234-pA-cgI"/>
                                         <include reference="NHo-Cv-oyF"/>
-                                        <include reference="I1d-xt-i4g"/>
-                                        <include reference="xu2-On-SmK"/>
-                                        <include reference="8WS-5h-PKT"/>
-                                        <include reference="lEt-PD-DyC"/>
                                         <include reference="cBa-uh-8ze"/>
                                         <include reference="wpH-7e-4x4"/>
-                                        <include reference="hCl-u1-aIw"/>
-                                        <include reference="ht2-sA-fNz"/>
+                                        <include reference="8WS-5h-PKT"/>
+                                        <include reference="lEt-PD-DyC"/>
                                         <include reference="UMP-7k-feT"/>
                                         <include reference="lco-y4-dJi"/>
                                         <include reference="BaL-DU-MJu"/>
                                         <include reference="uK8-bW-lyk"/>
+                                        <include reference="I1d-xt-i4g"/>
+                                        <include reference="xu2-On-SmK"/>
+                                        <include reference="hCl-u1-aIw"/>
+                                        <include reference="ht2-sA-fNz"/>
                                     </mask>
                                 </variation>
                             </view>
