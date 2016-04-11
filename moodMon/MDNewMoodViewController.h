@@ -1,9 +1,9 @@
 //
-//  MDNewMoodController.h
+//  MDNewMoodViewController.h
 //  MoodMon
 //
-//  Created by 김기범 on 2016. 3. 27..
-//  Copyright © 2016년 김기범. All rights reserved.
+//  Created by Kibeom Kim on 2016. 3. 27..
+//  Copyright © 2016년 Kibeom Kim. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,9 +11,10 @@
 #import "MDMoodButtonView.h"
 #import "MDWheelView.h"
 #import "MDDataManager.h"
+#import "MDWheelGestureRecognizer.h"
 
 
-@interface MDNewMoodController : UIViewController
+@interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate>
 
 /* Model */
 @property MDMoodmon *mood;
@@ -21,7 +22,6 @@
 
 /* DataManager to save new moodmon */
 @property MDDataManager *dataManager;
-
 
 /* IBOutlet */
 @property (strong, nonatomic) IBOutlet UILabel *day;

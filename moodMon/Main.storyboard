@@ -16,7 +16,7 @@
         <!--New MoodMon Controller-->
         <scene sceneID="TM4-wl-Rhp">
             <objects>
-                <viewController id="TL5-nJ-UfS" userLabel="New MoodMon Controller" customClass="MDNewMoodController" sceneMemberID="viewController">
+                <viewController id="TL5-nJ-UfS" userLabel="New MoodMon Controller" customClass="MDNewMoodViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3bK-JH-HWk"/>
                         <viewControllerLayoutGuide type="bottom" id="Z7r-3v-MSx"/>
@@ -215,6 +215,16 @@
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-HZ-nST">
+                                        <rect key="frame" x="234" y="214" width="73" height="30"/>
+                                        <state key="normal" title="save - test"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="227" y="0.0" width="73" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="saveNewMoodMon:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="dBO-d4-kgP"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joy_degree1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SdP-bN-ebp" userLabel="center mood.png">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
@@ -234,29 +244,24 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-HZ-nST">
-                                        <rect key="frame" x="234" y="214" width="73" height="30"/>
-                                        <state key="normal" title="save - test"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="227" y="0.0" width="73" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="saveNewMoodMon:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="dBO-d4-kgP"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ar2-m9-yL3" firstAttribute="centerY" secondItem="8WY-Ar-NXR" secondAttribute="centerY" id="234-pA-cgI"/>
-                                    <constraint firstItem="SdP-bN-ebp" firstAttribute="centerY" secondItem="8WY-Ar-NXR" secondAttribute="centerY" id="30q-xX-1N4"/>
+                                    <constraint firstItem="Ar2-m9-yL3" firstAttribute="centerY" secondItem="8WY-Ar-NXR" secondAttribute="centerY" id="234-pA-cgI">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstItem="SdP-bN-ebp" firstAttribute="centerY" secondItem="Ar2-m9-yL3" secondAttribute="centerY" id="8WS-5h-PKT">
+                                        <variation key="widthClass=compact" constant="-1"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="aL2-3u-dsJ" secondAttribute="trailing" constant="41" id="BaL-DU-MJu">
                                         <variation key="widthClass=compact" constant="43"/>
                                     </constraint>
-                                    <constraint firstItem="SdP-bN-ebp" firstAttribute="centerX" secondItem="8WY-Ar-NXR" secondAttribute="centerX" id="CBv-We-vY2"/>
                                     <constraint firstAttribute="height" constant="267" id="Fw8-yE-V36">
                                         <variation key="widthClass=compact" constant="300"/>
                                     </constraint>
                                     <constraint firstItem="uUR-Qm-e63" firstAttribute="top" secondItem="8WY-Ar-NXR" secondAttribute="top" constant="72" id="I1d-xt-i4g"/>
-                                    <constraint firstItem="Ar2-m9-yL3" firstAttribute="centerX" secondItem="8WY-Ar-NXR" secondAttribute="centerX" id="NHo-Cv-oyF"/>
+                                    <constraint firstItem="Ar2-m9-yL3" firstAttribute="centerX" secondItem="8WY-Ar-NXR" secondAttribute="centerX" id="NHo-Cv-oyF">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="Y6E-gj-7fr" secondAttribute="trailing" constant="8" id="UMP-7k-feT">
                                         <variation key="widthClass=compact" constant="9"/>
                                     </constraint>
@@ -271,6 +276,9 @@
                                     </constraint>
                                     <constraint firstAttribute="bottom" secondItem="zNn-AG-cqa" secondAttribute="bottom" constant="23" id="ht2-sA-fNz">
                                         <variation key="widthClass=compact" constant="26"/>
+                                    </constraint>
+                                    <constraint firstItem="SdP-bN-ebp" firstAttribute="centerX" secondItem="Ar2-m9-yL3" secondAttribute="centerX" id="lEt-PD-DyC">
+                                        <variation key="widthClass=compact" constant="-1"/>
                                     </constraint>
                                     <constraint firstItem="Y6E-gj-7fr" firstAttribute="top" secondItem="8WY-Ar-NXR" secondAttribute="top" constant="72" id="lco-y4-dJi"/>
                                     <constraint firstAttribute="bottom" secondItem="aL2-3u-dsJ" secondAttribute="bottom" constant="23" id="uK8-bW-lyk">
@@ -291,26 +299,26 @@
                                         <exclude reference="uUR-Qm-e63"/>
                                         <exclude reference="zNn-AG-cqa"/>
                                         <exclude reference="aL2-3u-dsJ"/>
-                                        <exclude reference="SdP-bN-ebp"/>
                                         <exclude reference="IVh-HZ-nST"/>
+                                        <exclude reference="SdP-bN-ebp"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="Fw8-yE-V36"/>
                                         <exclude reference="g1y-Tr-e6e"/>
                                         <exclude reference="234-pA-cgI"/>
                                         <exclude reference="NHo-Cv-oyF"/>
+                                        <exclude reference="I1d-xt-i4g"/>
+                                        <exclude reference="xu2-On-SmK"/>
+                                        <exclude reference="8WS-5h-PKT"/>
+                                        <exclude reference="lEt-PD-DyC"/>
                                         <exclude reference="cBa-uh-8ze"/>
                                         <exclude reference="wpH-7e-4x4"/>
-                                        <exclude reference="30q-xX-1N4"/>
-                                        <exclude reference="CBv-We-vY2"/>
+                                        <exclude reference="hCl-u1-aIw"/>
+                                        <exclude reference="ht2-sA-fNz"/>
                                         <exclude reference="UMP-7k-feT"/>
                                         <exclude reference="lco-y4-dJi"/>
                                         <exclude reference="BaL-DU-MJu"/>
                                         <exclude reference="uK8-bW-lyk"/>
-                                        <exclude reference="I1d-xt-i4g"/>
-                                        <exclude reference="xu2-On-SmK"/>
-                                        <exclude reference="hCl-u1-aIw"/>
-                                        <exclude reference="ht2-sA-fNz"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -321,26 +329,26 @@
                                         <include reference="uUR-Qm-e63"/>
                                         <include reference="zNn-AG-cqa"/>
                                         <include reference="aL2-3u-dsJ"/>
-                                        <include reference="SdP-bN-ebp"/>
                                         <include reference="IVh-HZ-nST"/>
+                                        <include reference="SdP-bN-ebp"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="Fw8-yE-V36"/>
                                         <include reference="g1y-Tr-e6e"/>
                                         <include reference="234-pA-cgI"/>
                                         <include reference="NHo-Cv-oyF"/>
+                                        <include reference="I1d-xt-i4g"/>
+                                        <include reference="xu2-On-SmK"/>
+                                        <include reference="8WS-5h-PKT"/>
+                                        <include reference="lEt-PD-DyC"/>
                                         <include reference="cBa-uh-8ze"/>
                                         <include reference="wpH-7e-4x4"/>
-                                        <include reference="30q-xX-1N4"/>
-                                        <include reference="CBv-We-vY2"/>
+                                        <include reference="hCl-u1-aIw"/>
+                                        <include reference="ht2-sA-fNz"/>
                                         <include reference="UMP-7k-feT"/>
                                         <include reference="lco-y4-dJi"/>
                                         <include reference="BaL-DU-MJu"/>
                                         <include reference="uK8-bW-lyk"/>
-                                        <include reference="I1d-xt-i4g"/>
-                                        <include reference="xu2-On-SmK"/>
-                                        <include reference="hCl-u1-aIw"/>
-                                        <include reference="ht2-sA-fNz"/>
                                     </mask>
                                 </variation>
                             </view>

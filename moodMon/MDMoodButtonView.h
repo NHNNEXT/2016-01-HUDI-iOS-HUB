@@ -2,8 +2,8 @@
 //  MDMoodButtonView.h
 //  MoodMon
 //
-//  Created by 김기범 on 2016. 3. 28..
-//  Copyright © 2016년 김기범. All rights reserved.
+//  Created by Kibeom Kim on 2016. 3. 28..
+//  Copyright © 2016년 Kibeom Kim. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,5 +13,6 @@
 @property int num;
 @property NSString *name; // imageName 분기문에서 활용
 @property BOOL isSelected;
+@property float startingDegree; // wheel starting angle
 
 @end

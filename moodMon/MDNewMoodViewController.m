@@ -1,18 +1,20 @@
 //
-//  MDNewMoodController.m
+//  MDNewMoodViewController.m
 //  MoodMon
 //
-//  Created by 김기범 on 2016. 3. 27..
-//  Copyright © 2016년 김기범. All rights reserved.
+//  Created by Kibeom Kim on 2016. 3. 27..
+//  Copyright © 2016년 Kibeom Kim. All rights reserved.
 //
 
-#import "MDNewMoodController.h"
+#import "MDNewMoodViewController.h"
 
-@interface MDNewMoodController ()
-
+@interface MDNewMoodViewController () {
+    float _bearing;
+}
+    
 @end
 
-@implementation MDNewMoodController
+@implementation MDNewMoodViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,30 +24,41 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     
-    self.moodCount = 0;
-    self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
-    self.centerMood.hidden = YES;
-    [self initiateMoodButtonsName];
+    [self initiateMoodViews];
     [self addTapGestureRecognizer];
+    [self addWheelGestureRecognizer];
 }
 
 
--(void) showAlert:(NSNotification*)notification{
-    NSDictionary *userInfo = [notification userInfo];
-    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-    [alertC addAction:defaultAction];
-    [self presentViewController:alertC animated:YES completion:nil];
-}
 
-
--(void)initiateMoodButtonsName {
+-(void)initiateMoodViews {
+    self.moodCount = 0;
+    self.centerMood.hidden = YES;
+    
     self.angry.name = @"angry";
     self.joy.name = @"joy";
     self.sad.name = @"sad";
     self.excited.name = @"excited";
     self.tired.name = @"tired";
+    self.angry.startingDegree = 0;
+    self.joy.startingDegree = 1.2;
+    self.sad.startingDegree = 2.47;
+    self.excited.startingDegree = 3.8;
+    self.tired.startingDegree = 5.1;
+    
+    self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
 }
+
+
+
+-(void) showAlert:(NSNotification*)notification{
+    NSDictionary *userInfo = [notification userInfo];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:defaultAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 
 
 - (void)addTapGestureRecognizer {
@@ -58,29 +71,65 @@
 }
 
 
+
 - (void)tapped:(UIGestureRecognizer *)tap {
-    MDMoodButtonView *imageView = (MDMoodButtonView *)tap.view;
-    [self setMoodButtonImage:imageView];
+    MDMoodButtonView *moodButton = (MDMoodButtonView *)tap.view;
+    if(moodButton.isSelected || self.moodCount<3){
+        [self setMoodButtonImage:moodButton];
+    }
     self.centerMood.hidden = (self.moodCount<1)? YES:NO;
-    if(imageView.isSelected && self.moodCount<4) {
-        [self showWheelView:imageView.name];
+    if(moodButton.isSelected && self.moodCount<4) {
+        [self showWheelView:moodButton];
     }
 }
 
-- (void)showWheelView:(NSString *)wheelName {
-    self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", wheelName]];
+
+
+- (void)showWheelView:(MDMoodButtonView *)moodButton {
+    self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
+    self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
+    _bearing = moodButton.startingDegree;
+    
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = YES;
     }
 }
 
-- (void)setMoodButtonImage:(MDMoodButtonView *)imageView {
-    imageView.isSelected = !imageView.isSelected;
-    imageView.isSelected ? self.moodCount++ : self.moodCount--;
-    NSString *surfix = (imageView.isSelected && self.moodCount<4) ? @"selected" : @"unselect";
-    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", imageView.name, surfix];
-    imageView.image = [UIImage imageNamed:imageName];
+
+
+- (void)setMoodButtonImage:(MDMoodButtonView *)moodButton {
+    moodButton.isSelected = !moodButton.isSelected;
+    moodButton.isSelected ? self.moodCount++ : self.moodCount--;
+    NSString *surfix = (moodButton.isSelected) ? @"selected" : @"unselect";
+    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", moodButton.name, surfix];
+    moodButton.image = [UIImage imageNamed:imageName];
 }
+
+
+
+- (void)addWheelGestureRecognizer {
+    MDWheelGestureRecognizer *recognizer = [[MDWheelGestureRecognizer alloc] initWithTarget:self action:@selector(rotateWheel:)];
+    [recognizer setDelegate:self];
+    [self.container addGestureRecognizer:recognizer];
+}
+
+
+
+- (void)rotateWheel:(id)sender {
+    MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
+    CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
+    if(_bearing < 0.01) {
+        _bearing += M_PI;
+    }
+    else if (_bearing > 2*M_PI) {
+        _bearing -= 360;
+    }
+    
+    CGAffineTransform wheelTransform = self.wheel.transform;
+    CGAffineTransform newWheelTransform = CGAffineTransformRotate(wheelTransform, angle);
+    [self.wheel setTransform:newWheelTransform];
+}
+
 
 
 //차후 휠 제스쳐 끝날 때 실행해야하는 메서드
