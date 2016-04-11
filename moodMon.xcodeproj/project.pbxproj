@@ -11,7 +11,6 @@
 		658BE7241CB4CE98006EB718 /* angry_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7081CB4CE98006EB718 /* angry_selected@2x.png */; };
 		658BE7251CB4CE98006EB718 /* angry_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7091CB4CE98006EB718 /* angry_unselect@2x.png */; };
 		658BE7261CB4CE98006EB718 /* angry_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE70A1CB4CE98006EB718 /* angry_wheel@2x.png */; };
-		658BE7271CB4CE98006EB718 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE70B1CB4CE98006EB718 /* circle@2x.png */; };
 		658BE7281CB4CE98006EB718 /* excited_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */; };
 		658BE7291CB4CE98006EB718 /* excited_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */; };
 		658BE72A1CB4CE98006EB718 /* excited_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */; };
@@ -20,15 +19,14 @@
 		658BE72D1CB4CE98006EB718 /* joy_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */; };
 		658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7121CB4CE98006EB718 /* Main.storyboard */; };
 		658BE72F1CB4CE98006EB718 /* MDMoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7141CB4CE98006EB718 /* MDMoodModel.m */; };
-		658BE7301CB4CE98006EB718 /* MDNewMoodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7161CB4CE98006EB718 /* MDNewMoodButtonView.m */; };
-		658BE7311CB4CE98006EB718 /* MDNewMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7181CB4CE98006EB718 /* MDNewMoodController.m */; };
+		658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */; };
+		658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */; };
 		658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE71A1CB4CE98006EB718 /* MDWheelView.m */; };
 		658BE7331CB4CE98006EB718 /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */; };
 		658BE7341CB4CE98006EB718 /* Quicksand-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71C1CB4CE98006EB718 /* Quicksand-Light.otf */; };
 		658BE7351CB4CE98006EB718 /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */; };
 		658BE7361CB4CE98006EB718 /* sad_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */; };
 		658BE7371CB4CE98006EB718 /* sad_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */; };
-		658BE7381CB4CE98006EB718 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7201CB4CE98006EB718 /* sad_wheel@2x.png */; };
 		658BE7391CB4CE98006EB718 /* tired_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7211CB4CE98006EB718 /* tired_selected@2x.png */; };
 		658BE73A1CB4CE98006EB718 /* tired_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7221CB4CE98006EB718 /* tired_unselect@2x.png */; };
 		658BE73B1CB4CE98006EB718 /* tired_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */; };
@@ -42,6 +40,10 @@
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
+		E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */; };
+		E93523F81CBAB8E4005AC613 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */; };
+		E97495AF1CBA35F60000E389 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97495AE1CBA35F60000E389 /* circle@2x.png */; };
+		E97495B61CBA44980000E389 /* joy_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97495B51CBA44980000E389 /* joy_degree1@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +69,6 @@
 		658BE7081CB4CE98006EB718 /* angry_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_selected@2x.png"; sourceTree = "<group>"; };
 		658BE7091CB4CE98006EB718 /* angry_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_unselect@2x.png"; sourceTree = "<group>"; };
 		658BE70A1CB4CE98006EB718 /* angry_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_wheel@2x.png"; sourceTree = "<group>"; };
-		658BE70B1CB4CE98006EB718 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_selected@2x.png"; sourceTree = "<group>"; };
 		658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_unselect@2x.png"; sourceTree = "<group>"; };
 		658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_wheel@2x.png"; sourceTree = "<group>"; };
@@ -77,10 +78,10 @@
 		658BE7121CB4CE98006EB718 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		658BE7131CB4CE98006EB718 /* MDMoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodModel.h; sourceTree = "<group>"; };
 		658BE7141CB4CE98006EB718 /* MDMoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodModel.m; sourceTree = "<group>"; };
-		658BE7151CB4CE98006EB718 /* MDNewMoodButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNewMoodButtonView.h; sourceTree = "<group>"; };
-		658BE7161CB4CE98006EB718 /* MDNewMoodButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNewMoodButtonView.m; sourceTree = "<group>"; };
-		658BE7171CB4CE98006EB718 /* MDNewMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNewMoodController.h; sourceTree = "<group>"; };
-		658BE7181CB4CE98006EB718 /* MDNewMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNewMoodController.m; sourceTree = "<group>"; };
+		658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodButtonView.h; sourceTree = "<group>"; };
+		658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodButtonView.m; sourceTree = "<group>"; };
+		658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNewMoodViewController.h; sourceTree = "<group>"; };
+		658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNewMoodViewController.m; sourceTree = "<group>"; };
 		658BE7191CB4CE98006EB718 /* MDWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWheelView.h; sourceTree = "<group>"; };
 		658BE71A1CB4CE98006EB718 /* MDWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWheelView.m; sourceTree = "<group>"; };
 		658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
 		658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_selected@2x.png"; sourceTree = "<group>"; };
 		658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_unselect@2x.png"; sourceTree = "<group>"; };
-		658BE7201CB4CE98006EB718 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
 		658BE7211CB4CE98006EB718 /* tired_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_selected@2x.png"; sourceTree = "<group>"; };
 		658BE7221CB4CE98006EB718 /* tired_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_unselect@2x.png"; sourceTree = "<group>"; };
 		658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_wheel@2x.png"; sourceTree = "<group>"; };
@@ -111,6 +111,11 @@
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
+		E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWheelGestureRecognizer.h; sourceTree = "<group>"; };
+		E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWheelGestureRecognizer.m; sourceTree = "<group>"; };
+		E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
+		E97495AE1CBA35F60000E389 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle@2x.png"; path = "../../../../../Volumes/Mac HD/iOS 휴디프/디자인 리소스/circle@2x.png"; sourceTree = "<group>"; };
+		E97495B51CBA44980000E389 /* joy_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_degree1@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,10 +194,12 @@
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
 				658BE7131CB4CE98006EB718 /* MDMoodModel.h */,
 				658BE7141CB4CE98006EB718 /* MDMoodModel.m */,
-				658BE7151CB4CE98006EB718 /* MDNewMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDNewMoodButtonView.m */,
-				658BE7171CB4CE98006EB718 /* MDNewMoodController.h */,
-				658BE7181CB4CE98006EB718 /* MDNewMoodController.m */,
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
+				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
+				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
+				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
 				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
 				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
 				6575788C1CB4BE7600D75D5E /* year */,
@@ -234,25 +241,66 @@
 			path = moodMonUITests;
 			sourceTree = "<group>";
 		};
-		E9CC1F511CB4D324003099D8 /* emotions */ = {
+		E97495B01CBA44330000E389 /* angry */ = {
 			isa = PBXGroup;
 			children = (
-				658BE70B1CB4CE98006EB718 /* circle@2x.png */,
 				658BE7081CB4CE98006EB718 /* angry_selected@2x.png */,
 				658BE7091CB4CE98006EB718 /* angry_unselect@2x.png */,
 				658BE70A1CB4CE98006EB718 /* angry_wheel@2x.png */,
-				658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */,
-				658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */,
-				658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */,
-				658BE70F1CB4CE98006EB718 /* joy_selected@2x.png */,
-				658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */,
-				658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */,
-				658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */,
-				658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */,
-				658BE7201CB4CE98006EB718 /* sad_wheel@2x.png */,
+			);
+			name = angry;
+			sourceTree = "<group>";
+		};
+		E97495B11CBA44440000E389 /* tired */ = {
+			isa = PBXGroup;
+			children = (
 				658BE7211CB4CE98006EB718 /* tired_selected@2x.png */,
 				658BE7221CB4CE98006EB718 /* tired_unselect@2x.png */,
 				658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */,
+			);
+			name = tired;
+			sourceTree = "<group>";
+		};
+		E97495B21CBA44460000E389 /* excited */ = {
+			isa = PBXGroup;
+			children = (
+				658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */,
+				658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */,
+				658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */,
+			);
+			name = excited;
+			sourceTree = "<group>";
+		};
+		E97495B31CBA44480000E389 /* sad */ = {
+			isa = PBXGroup;
+			children = (
+				658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */,
+				658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */,
+				E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */,
+			);
+			name = sad;
+			sourceTree = "<group>";
+		};
+		E97495B41CBA444A0000E389 /* joy */ = {
+			isa = PBXGroup;
+			children = (
+				E97495B51CBA44980000E389 /* joy_degree1@2x.png */,
+				658BE70F1CB4CE98006EB718 /* joy_selected@2x.png */,
+				658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */,
+				658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */,
+			);
+			name = joy;
+			sourceTree = "<group>";
+		};
+		E9CC1F511CB4D324003099D8 /* emotions */ = {
+			isa = PBXGroup;
+			children = (
+				E97495B01CBA44330000E389 /* angry */,
+				E97495B41CBA444A0000E389 /* joy */,
+				E97495B31CBA44480000E389 /* sad */,
+				E97495B21CBA44460000E389 /* excited */,
+				E97495B11CBA44440000E389 /* tired */,
+				E97495AE1CBA35F60000E389 /* circle@2x.png */,
 			);
 			name = emotions;
 			sourceTree = "<group>";
@@ -329,8 +377,9 @@
 		CE4A8A2B1CABCCB1006B73B7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MD;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Lee Kyu-Won";
+				ORGANIZATIONNAME = HUB;
 				TargetAttributes = {
 					CE4A8A321CABCCB1006B73B7 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -371,19 +420,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				658BE7371CB4CE98006EB718 /* sad_unselect@2x.png in Resources */,
-				658BE7381CB4CE98006EB718 /* sad_wheel@2x.png in Resources */,
 				658BE7291CB4CE98006EB718 /* excited_unselect@2x.png in Resources */,
 				658BE72A1CB4CE98006EB718 /* excited_wheel@2x.png in Resources */,
 				658BE7391CB4CE98006EB718 /* tired_selected@2x.png in Resources */,
 				658BE7341CB4CE98006EB718 /* Quicksand-Light.otf in Resources */,
 				CE4A8A461CABCCB1006B73B7 /* LaunchScreen.storyboard in Resources */,
 				658BE7251CB4CE98006EB718 /* angry_unselect@2x.png in Resources */,
+				E93523F81CBAB8E4005AC613 /* sad_wheel@2x.png in Resources */,
 				658BE7281CB4CE98006EB718 /* excited_selected@2x.png in Resources */,
 				658BE72D1CB4CE98006EB718 /* joy_wheel@2x.png in Resources */,
 				CE4A8A431CABCCB1006B73B7 /* Assets.xcassets in Resources */,
 				658BE7361CB4CE98006EB718 /* sad_selected@2x.png in Resources */,
 				658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */,
 				658BE7331CB4CE98006EB718 /* Quicksand-Bold.otf in Resources */,
+				E97495AF1CBA35F60000E389 /* circle@2x.png in Resources */,
+				E97495B61CBA44980000E389 /* joy_degree1@2x.png in Resources */,
 				658BE7261CB4CE98006EB718 /* angry_wheel@2x.png in Resources */,
 				658BE7351CB4CE98006EB718 /* Quicksand-Regular.otf in Resources */,
 				658BE72C1CB4CE98006EB718 /* joy_unselect@2x.png in Resources */,
@@ -391,7 +442,6 @@
 				658BE72B1CB4CE98006EB718 /* joy_selected@2x.png in Resources */,
 				658BE7241CB4CE98006EB718 /* angry_selected@2x.png in Resources */,
 				658BE73A1CB4CE98006EB718 /* tired_unselect@2x.png in Resources */,
-				658BE7271CB4CE98006EB718 /* circle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,9 +467,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
-				658BE7311CB4CE98006EB718 /* MDNewMoodController.m in Sources */,
+				658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
-				658BE7301CB4CE98006EB718 /* MDNewMoodButtonView.m in Sources */,
+				658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */,
+				E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
@@ -512,6 +563,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 			};
 			name = Debug;
 		};
@@ -550,6 +602,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 			};
 			name = Release;
 		};

@@ -15,7 +15,7 @@
 }
 
 
-- (void)showWheelView:(MDNewMoodButtonView *)selectedMood {
+- (void)showWheelView:(MDMoodButtonView *)selectedMood {
     //knob이미지 += wheel이미지.  wheel이미지 = circle이미지. CGRect좌표값으로 knob위치 설정하지 말고 돌리기.
     self.hidden = NO;
     self.image = [UIImage imageNamed:[[NSString alloc]initWithFormat:@"%@_knob",selectedMood.name]];
