@@ -16,7 +16,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    
+    
+    UIStoryboard *storyboard = self.window.rootViewController.storyboard;
+    
+    
+    UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
+    [newMoodmonVC setModalPresentationStyle: UIModalPresentationCurrentContext];
+    [self.window makeKeyAndVisible];
+    [self.window.rootViewController presentViewController:newMoodmonVC animated:YES completion:nil];
     return YES;
 }
 

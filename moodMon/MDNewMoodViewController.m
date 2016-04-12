@@ -161,8 +161,19 @@
 
 - (IBAction)saveNewMoodMon:(id)sender {
     
+    /**********************************************************
+     *                                                        *
+     *                                                        *
+     *  form형식이 완료되기 전까지, 테스트 데이터는 여기서 넣으면 됩니다.    *
+     *                                                        *
+     *                                                        *
+     * ********************************************************
+     */
     //test data
-    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:11 andThirdChosen:11];
+    
+    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:24 andThirdChosen:54];
+    [self.dataManager saveNewMoodMonOfComment:@"test2" asFirstChosen:12 SecondChosen:33 andThirdChosen:33];
+    [self.dataManager saveNewMoodMonOfComment:@"test3" asFirstChosen:13 SecondChosen:41 andThirdChosen:21];
     
     /*
      mood int 확인,
@@ -173,20 +184,11 @@
      newMoodmon view에서 mood int가 어떻게 정해지는 지, 어디에 그 데이터가 남는지 아직 모르겠지만, 해당 코드 완성되면, 이 부분 한번 정하면 좋을 것 같아요.
      */
     
+   
+    NSLog(@"Saving new Mood mon");
     
-    
-//    [[self presentingViewController] dismissViewControllerAnimated:YES
-//                                                        completion:^{
-//                                                            [self.presentingViewController performSelector:@selector(presentCalendar)
-//                                                                                                withObject:nil];
-//                                                        }];
-//    
 
-    NSLog(@"no");
-    UIViewController *calendarVC = [self.storyboard instantiateViewControllerWithIdentifier:@"monthVC"];
-    //[calendarVC setModalPresentationStyle: UIModalTransitionStyleFlipHorizontal];
-    [self presentViewController:calendarVC animated:YES completion:nil];
-
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 -(void) presentCalendar{
