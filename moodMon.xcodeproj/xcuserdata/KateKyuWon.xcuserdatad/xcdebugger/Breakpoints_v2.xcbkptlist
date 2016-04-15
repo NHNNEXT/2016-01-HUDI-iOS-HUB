@@ -136,27 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "moodMon/MDDataManager.m"
-            timestampString = "482425229.997845"
+            timestampString = "482426980.799158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-saveNewMoodMonOfComment:asFirstChosen:SecondChosen:andThirdChosen:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "moodMon/MDDataManager.m"
-            timestampString = "482425229.997845"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-saveNewMoodMonOfComment:asFirstChosen:SecondChosen:andThirdChosen:"
             landmarkType = "5">
          </BreakpointContent>

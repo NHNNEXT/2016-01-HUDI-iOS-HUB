@@ -131,8 +131,7 @@
                                      initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
                 NSDateComponents *comp = [myCal components:units fromDate:myDate];
                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                formatter.timeStyle = NSDateFormatterMediumStyle;
-                formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ko_KR"];
+                //formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ko_KR"];
                 NSString *timeString = [formatter stringFromDate:myDate];
             
                 MDMoodmon *moodmon = [MDMoodmon alloc];
@@ -208,13 +207,8 @@
     NSInteger minute = [comp minute];
     NSInteger secondTime = [comp second];
     
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.timeStyle = NSDateFormatterMediumStyle;
-    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ko_KR"];
-    NSString *timeString = [formatter stringFromDate:now];
-    NSLog(@"%@", timeString);
-    //NSString *friendlyDate = [formatter setingFromDate:now];
+
+    NSString *timeString = [NSString stringWithFormat:@"%ld:%ld:%ld", hour, minute, secondTime];
     
     NSLog(@"month : %ld, day : %ld, year : %ld , %ld: %ld: %ld", (long)month,  day, (long)year, hour, minute, (long)secondTime);
     MDMoodmon *newMD = [[MDMoodmon alloc] init];
