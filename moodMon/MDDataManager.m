@@ -13,7 +13,6 @@
 @implementation MDDataManager
 
 
-
 +(MDDataManager*)sharedDataManager{
     static MDDataManager *_sharedInstance = nil;
     static dispatch_once_t oncePredicate;
