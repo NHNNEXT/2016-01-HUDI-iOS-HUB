@@ -184,6 +184,8 @@
     [self dismissViewControllerAnimated:self.presentedViewController completion:^{
        [self.tableView reloadData];
     }];
+    
+    //[self.dataManager getFilteredMoodmons]; for test
 }
 
 -(void)selectAllMood{

@@ -321,6 +321,49 @@
     return (int)sum/(int)chosenCount;
 }
 
+/*
+ 0 - angry - 11~15
+ 1 - happy - 21~25
+ 2 - sad - 31~35
+ 3 - excited - 41~45
+ 4 - exhausted - 51~55
+ */
+-(NSArray<MDMoodmon*>*)getFilteredMoodmons{
+    
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSMutableSet *chosenMoodInteger = [[NSMutableSet alloc]initWithCapacity:_chosenMoodCount];
+    
+    for(int i = 0 ; i<5 ; i++){
+        if ([_isChecked[i] isEqual:@YES]){
+            [chosenMoodInteger addObject: [NSNumber numberWithInteger:(i+1)]];
+        }
+    }
+
+    
+    NSEnumerator *enumerator = [_moodCollection objectEnumerator];
+    MDMoodmon *object;
+    NSMutableSet *objectInteger =[[NSMutableSet alloc]init];
+    while ((object = [enumerator nextObject])) {
+        NSNumber *first = [NSNumber numberWithInteger:[[object valueForKey:kChosen1] integerValue]/ 10];
+        [objectInteger addObject:  first];
+        NSNumber *second = [NSNumber numberWithInteger:[[object valueForKey:kChosen2] integerValue]/ 10];
+        [objectInteger addObject:  second];
+        NSNumber *third = [NSNumber numberWithInteger:[[object valueForKey:kChosen3] integerValue]/ 10];
+        [objectInteger addObject:  third];
+        [objectInteger intersectSet:chosenMoodInteger];
+        
+        if([objectInteger count]>= _chosenMoodCount){
+            [result addObject:object];
+         }
+        [objectInteger removeAllObjects];
+    }
+    
+    NSLog(@"filtered: %@", result);
+    
+    
+    return NULL;
+}
+
 
 
 @end

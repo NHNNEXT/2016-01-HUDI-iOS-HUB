@@ -17,6 +17,6 @@
 
 -(void)moodDidChoose;
 -(void)selectAllMood;
--(void) showAlert:(NSNotification*)notification;
+-(void)showAlert:(NSNotification*)notification;
 
 @end

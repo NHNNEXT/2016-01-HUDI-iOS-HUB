@@ -171,8 +171,8 @@
      */
     //test data
     
-    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:24 andThirdChosen:54];
-    [self.dataManager saveNewMoodMonOfComment:@"test2" asFirstChosen:12 SecondChosen:33 andThirdChosen:33];
+    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:24 andThirdChosen:31];
+    [self.dataManager saveNewMoodMonOfComment:@"test2" asFirstChosen:12 SecondChosen:33 andThirdChosen:45];
     [self.dataManager saveNewMoodMonOfComment:@"test3" asFirstChosen:13 SecondChosen:41 andThirdChosen:21];
     
     /*
