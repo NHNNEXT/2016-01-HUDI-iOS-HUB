@@ -24,6 +24,8 @@
 //index는 한번 만들면 지워지지 않는다.
 //sql디비와 콜렉션 id 일치 
 //인덱스 당 데이터는 대부분 시간순서로 되어있을 것이라 예상
+@property NSMutableArray *isChecked; //filter
+@property int chosenMoodCount;
 
 
 +(MDDataManager*)sharedDataManager; //DataManager is a singleton.

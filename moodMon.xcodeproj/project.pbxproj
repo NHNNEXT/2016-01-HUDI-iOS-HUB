@@ -40,6 +40,8 @@
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
+		CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */; };
+		CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */; };
 		E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */; };
 		E93523F81CBAB8E4005AC613 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */; };
 		E93525241CBB74DF005AC613 /* MDMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93525231CBB74DF005AC613 /* MDMonthViewController.m */; };
@@ -111,6 +113,10 @@
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
+		CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodFilterTableViewController.h; sourceTree = "<group>"; };
+		CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodFilterTableViewController.m; sourceTree = "<group>"; };
+		CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodFilterTableViewCell.h; sourceTree = "<group>"; };
+		CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodFilterTableViewCell.m; sourceTree = "<group>"; };
 		E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWheelGestureRecognizer.h; sourceTree = "<group>"; };
 		E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWheelGestureRecognizer.m; sourceTree = "<group>"; };
 		E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
@@ -205,6 +211,10 @@
 				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
 				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
 				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+				CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */,
+				CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */,
+				CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */,
+				CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */,
 				6575788C1CB4BE7600D75D5E /* year */,
 				CE0C92CD1CAE56A60037E749 /* data */,
 				CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */,
@@ -477,7 +487,9 @@
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 				658BE72F1CB4CE98006EB718 /* MDMoodModel.m in Sources */,
+				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */,
+				CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

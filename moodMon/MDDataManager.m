@@ -28,6 +28,8 @@
     if(self){
         self.moodCollection = [[NSMutableArray alloc] init];
         [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
+        self.isChecked = [@[ @NO, @NO,@NO,@NO,@NO ] mutableCopy];
+        self.chosenMoodCount = 0;
     }
     return self;
 }
