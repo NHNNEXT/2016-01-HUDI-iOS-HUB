@@ -23,8 +23,10 @@ extern int tag;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+    MDDataManager *mddm = [[MDDataManager alloc]init];
+    [mddm createDB];
+    [mddm saveNewMoodMonOfComment:@"abc" asFirstChosen:1 SecondChosen:11 andThirdChosen:13];
+    [mddm readAllFromDBAndSetCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 

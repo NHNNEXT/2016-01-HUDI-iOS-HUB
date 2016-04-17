@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MDMonthTimeLineCellTableViewCell.h"
+#import "MDDataManager.h"
+
 @interface MDMonthViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *monthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
