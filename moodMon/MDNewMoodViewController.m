@@ -9,8 +9,8 @@
 #import "MDNewMoodViewController.h"
 
 @interface MDNewMoodViewController ()
-@property float wheelDegree;
-@property int moodCount;
+@property CGFloat wheelDegree;
+@property NSInteger moodCount;
 @property NSArray *moodButtons;
 @property NSMutableArray *chosenMoods;
 @end
@@ -18,6 +18,7 @@
 
 
 @implementation MDNewMoodViewController
+@synthesize wheelDegree;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,14 +84,28 @@
 
 - (void)tapped:(UIGestureRecognizer *)tap {
     MDMoodButtonView *moodButton = (MDMoodButtonView *)tap.view;
-    if(moodButton.isSelected || self.moodCount<3){
+    if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
     }
     self.centerMood.hidden = (self.moodCount<1)? YES:NO;
-    if(moodButton.isSelected && self.moodCount<4) {
+    
+    if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
         [self showWheelView:moodButton];
         [self addNewChosenMood:moodButton.num];
     }
+    else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
+        [self deleteFromChosenMoods:moodButton.num];
+    }
+}
+
+
+
+- (void)changeMoodButtonImage:(MDMoodButtonView *)moodButton {
+    moodButton.isSelected = !moodButton.isSelected;
+    moodButton.isSelected ? self.moodCount++ : self.moodCount--;
+    NSString *surfix = (moodButton.isSelected) ? @"selected" : @"unselect";
+    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", moodButton.name, surfix];
+    moodButton.image = [UIImage imageNamed:imageName];
 }
 
 
@@ -115,12 +130,10 @@
 
 
 
-- (void)changeMoodButtonImage:(MDMoodButtonView *)moodButton {
-    moodButton.isSelected = !moodButton.isSelected;
-    moodButton.isSelected ? self.moodCount++ : self.moodCount--;
-    NSString *surfix = (moodButton.isSelected) ? @"selected" : @"unselect";
-    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", moodButton.name, surfix];
-    moodButton.image = [UIImage imageNamed:imageName];
+- (void)deleteFromChosenMoods:(NSNumber *)moodNum {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"moodNum != %@", moodNum];
+    self.chosenMoods = [[self.chosenMoods filteredArrayUsingPredicate:predicate] mutableCopy];
+    NSLog(@"%@", self.chosenMoods);
 }
 
 
@@ -136,7 +149,14 @@
 - (void)rotateWheel:(id)sender {
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
-    
+    [self setWheelDegreeWithAngle:angle];
+    [self transformWheelWithAngle:angle];
+    [self setMoodIntensity];
+}
+
+
+
+- (void)setWheelDegreeWithAngle:(CGFloat)angle {
     self.wheelDegree += angle * 180 / M_PI;
     if(self.wheelDegree < -0.5) {
         self.wheelDegree += 360;
@@ -144,11 +164,16 @@
     else if (self.wheelDegree > 359.5) {
         self.wheelDegree -= 360;
     }
+}
+
+
+
+- (void)transformWheelWithAngle:(CGFloat)angle {
     CGAffineTransform wheelTransform = self.wheel.transform;
     CGAffineTransform newWheelTransform = CGAffineTransformRotate(wheelTransform, angle);
     [self.wheel setTransform:newWheelTransform];
-    [self setMoodIntensity];
 }
+
 
 
 
