@@ -214,10 +214,19 @@
 }
 
 - (IBAction)saveNewMoodMon:(id)sender {
+    NSString *comment = @"test";
+    int firstChosen=0, secondChosen=0, thirdChosen=0;
     
-    //test data
-    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:11 andThirdChosen:11];
+    firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
+    if([self.chosenMoods count]>=2) {
+        secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
+    }
+    if([self.chosenMoods count]>=3) {
+        thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
+    }
     
+    NSLog(@"%d, %d, %d", firstChosen, secondChosen, thirdChosen);
+    [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
     /*
      mood int 확인,
      MDDateManager saveNewMoodMonOfComment~ 메소드에서 하고 있습니다.
