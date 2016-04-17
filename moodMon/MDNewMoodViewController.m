@@ -8,11 +8,14 @@
 
 #import "MDNewMoodViewController.h"
 
-@interface MDNewMoodViewController () {
-    float _bearing;
-}
-    
+@interface MDNewMoodViewController ()
+@property float wheelDegree;
+@property int moodCount;
+@property NSArray *moodButtons;
+@property NSMutableArray *chosenMoods;
 @end
+
+
 
 @implementation MDNewMoodViewController
 
@@ -27,6 +30,7 @@
     [self initiateMoodViews];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
+    self.chosenMoods = [[NSMutableArray alloc] init];
 }
 
 
@@ -35,6 +39,11 @@
     self.moodCount = 0;
     self.centerMood.hidden = YES;
     
+    self.angry.num = @10;
+    self.joy.num = @20;
+    self.sad.num = @30;
+    self.excited.num = @40;
+    self.tired.num = @50;
     self.angry.name = @"angry";
     self.joy.name = @"joy";
     self.sad.name = @"sad";
@@ -75,11 +84,12 @@
 - (void)tapped:(UIGestureRecognizer *)tap {
     MDMoodButtonView *moodButton = (MDMoodButtonView *)tap.view;
     if(moodButton.isSelected || self.moodCount<3){
-        [self setMoodButtonImage:moodButton];
+        [self changeMoodButtonImage:moodButton];
     }
     self.centerMood.hidden = (self.moodCount<1)? YES:NO;
     if(moodButton.isSelected && self.moodCount<4) {
         [self showWheelView:moodButton];
+        [self addNewChosenMood:moodButton.num];
     }
 }
 
@@ -88,8 +98,7 @@
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
     self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
-    _bearing = moodButton.startingDegree;
-    
+    self.wheelDegree = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = YES;
     }
@@ -97,7 +106,16 @@
 
 
 
-- (void)setMoodButtonImage:(MDMoodButtonView *)moodButton {
+- (void)addNewChosenMood:(NSNumber *)moodNum {
+    // 새로 선택한 감정을 chosenMoods에 추가.
+    // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
+    NSMutableDictionary *chosenMood = [@{@"moodNum" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    [self.chosenMoods addObject:chosenMood];
+}
+
+
+
+- (void)changeMoodButtonImage:(MDMoodButtonView *)moodButton {
     moodButton.isSelected = !moodButton.isSelected;
     moodButton.isSelected ? self.moodCount++ : self.moodCount--;
     NSString *surfix = (moodButton.isSelected) ? @"selected" : @"unselect";
@@ -118,16 +136,27 @@
 - (void)rotateWheel:(id)sender {
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
-    if(_bearing < 0.01) {
-        _bearing += M_PI;
-    }
-    else if (_bearing > 2*M_PI) {
-        _bearing -= 360;
-    }
     
+    self.wheelDegree += angle * 180 / M_PI;
+    if(self.wheelDegree < -0.5) {
+        self.wheelDegree += 360;
+    }
+    else if (self.wheelDegree > 359.5) {
+        self.wheelDegree -= 360;
+    }
     CGAffineTransform wheelTransform = self.wheel.transform;
     CGAffineTransform newWheelTransform = CGAffineTransformRotate(wheelTransform, angle);
     [self.wheel setTransform:newWheelTransform];
+    [self setMoodIntensity];
+}
+
+
+
+- (void)setMoodIntensity {
+    NSNumber *moodIntensity = [[NSNumber alloc] initWithInt:self.wheelDegree/72 + 1];
+    [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
+    NSLog(@"%@", [self.chosenMoods lastObject]);
+    
 }
 
 

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -240,7 +241,7 @@
                                         <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="SdP-bN-ebp" firstAttribute="centerY" secondItem="Ar2-m9-yL3" secondAttribute="centerY" id="8WS-5h-PKT">
-                                        <variation key="widthClass=compact" constant="-1"/>
+                                        <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="aL2-3u-dsJ" secondAttribute="trailing" constant="41" id="BaL-DU-MJu">
                                         <variation key="widthClass=compact" constant="43"/>
@@ -268,7 +269,7 @@
                                         <variation key="widthClass=compact" constant="26"/>
                                     </constraint>
                                     <constraint firstItem="SdP-bN-ebp" firstAttribute="centerX" secondItem="Ar2-m9-yL3" secondAttribute="centerX" id="lEt-PD-DyC">
-                                        <variation key="widthClass=compact" constant="-1"/>
+                                        <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="Y6E-gj-7fr" firstAttribute="top" secondItem="8WY-Ar-NXR" secondAttribute="top" constant="72" id="lco-y4-dJi"/>
                                     <constraint firstAttribute="bottom" secondItem="aL2-3u-dsJ" secondAttribute="bottom" constant="23" id="uK8-bW-lyk">
@@ -409,19 +410,19 @@
                                 <exclude reference="BHN-k1-D2d"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="54e-1P-TKD"/>
+                                <exclude reference="Keo-Kf-dBj"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="TGl-4p-dfl"/>
                                 <exclude reference="i8Y-k2-Qie"/>
                                 <exclude reference="2Vq-8b-mt7"/>
                                 <exclude reference="F6H-Rc-2HM"/>
                                 <exclude reference="Fe9-bu-35b"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="gVc-f9-LvK"/>
                                 <exclude reference="zNd-Em-1VE"/>
                                 <exclude reference="29L-CH-wVC"/>
                                 <exclude reference="gZn-MV-PkK"/>
-                                <exclude reference="Keo-Kf-dBj"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -434,19 +435,19 @@
                                 <include reference="BHN-k1-D2d"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="54e-1P-TKD"/>
+                                <include reference="Keo-Kf-dBj"/>
+                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="TGl-4p-dfl"/>
                                 <include reference="i8Y-k2-Qie"/>
                                 <include reference="2Vq-8b-mt7"/>
                                 <include reference="F6H-Rc-2HM"/>
                                 <include reference="Fe9-bu-35b"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="gVc-f9-LvK"/>
                                 <include reference="zNd-Em-1VE"/>
                                 <include reference="29L-CH-wVC"/>
                                 <include reference="gZn-MV-PkK"/>
-                                <include reference="Keo-Kf-dBj"/>
-                                <include reference="Mhj-Re-3Dr"/>
                             </mask>
                         </variation>
                     </view>
