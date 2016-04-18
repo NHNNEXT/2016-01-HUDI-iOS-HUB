@@ -35,7 +35,7 @@
 }
 
 
-
+/*
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -43,7 +43,7 @@
     NSUInteger recentMood = [self.dataManager recentMood];
     NSLog(@"%lu", (unsigned long)recentMood);
 }
-
+*/
 
 
 -(void)initiateMoodViews {
