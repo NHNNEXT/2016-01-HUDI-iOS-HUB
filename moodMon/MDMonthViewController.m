@@ -27,7 +27,7 @@ NSMutableArray *moodmonConf;
 - (void)viewDidLoad {
     count=0;
     [super viewDidLoad];
-    MDDataManager *mddm = [[MDDataManager alloc]init];
+    MDDataManager *mddm = [MDDataManager sharedDataManager];
     [mddm createDB];
     [mddm readAllFromDBAndSetCollection];
     createdAt=[mddm moodCollection];
@@ -133,9 +133,9 @@ NSMutableArray *moodmonConf;
         dayButton.tag=tag++;
         for(int parseNum=0; parseNum<createdAt.count; parseNum++){
             NSDictionary *parseDate = createdAt[parseNum];
-           int parseMonth=4;
+           int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
             int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
-            int parseDay=[[parseDate valueForKey:@"_moodDateTime"] intValue];
+            int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
             if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
                 dayButton.backgroundColor =[UIColor redColor];
@@ -173,7 +173,7 @@ NSMutableArray *moodmonConf;
         NSDictionary *parseDate = createdAt[parseNum];
         int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
         int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
-        int parseDay=[[parseDate valueForKey:@"_moodDateTime"] intValue];
+        int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
         
         if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==btn.currentTitle.intValue)){
             
