@@ -170,7 +170,7 @@ NSMutableArray *moodmonConf;
     count=0;
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
-        int parseMonth=4;
+        int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
         int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
         int parseDay=[[parseDate valueForKey:@"_moodDateTime"] intValue];
         
@@ -178,16 +178,15 @@ NSMutableArray *moodmonConf;
             
             moodmonConfig[count]=createdAt[parseNum];
             count++;
-            
         }
     }
     moodmonConf=moodmonConfig;
     [_tableViews reloadData];
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
 
 
 @end
