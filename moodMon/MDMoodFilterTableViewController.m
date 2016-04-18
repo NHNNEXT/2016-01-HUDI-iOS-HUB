@@ -25,7 +25,7 @@
     
     self.dataManager = [MDDataManager sharedDataManager];
     
-    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 88)];
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Filter"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(moodDidChoose)];
     navItems.rightBarButtonItem = doneBtn;
@@ -152,6 +152,7 @@
         self.dataManager.isChecked[indexPath.row] = @NO;
     }
 
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
    
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
