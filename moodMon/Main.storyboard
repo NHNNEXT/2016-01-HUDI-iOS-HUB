@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TL5-nJ-UfS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XeT-CV-5As">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,13 +17,13 @@
         <!--New MoodMon Controller-->
         <scene sceneID="TM4-wl-Rhp">
             <objects>
-                <viewController id="TL5-nJ-UfS" userLabel="New MoodMon Controller" customClass="MDNewMoodViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newMoodmonVC" id="TL5-nJ-UfS" userLabel="New MoodMon Controller" customClass="MDNewMoodViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3bK-JH-HWk"/>
                         <viewControllerLayoutGuide type="bottom" id="Z7r-3v-MSx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J26-NR-hzB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmx-3E-Jpj">
@@ -409,19 +410,19 @@
                                 <exclude reference="BHN-k1-D2d"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="54e-1P-TKD"/>
+                                <exclude reference="Keo-Kf-dBj"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="TGl-4p-dfl"/>
                                 <exclude reference="i8Y-k2-Qie"/>
                                 <exclude reference="2Vq-8b-mt7"/>
                                 <exclude reference="F6H-Rc-2HM"/>
                                 <exclude reference="Fe9-bu-35b"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="gVc-f9-LvK"/>
                                 <exclude reference="zNd-Em-1VE"/>
                                 <exclude reference="29L-CH-wVC"/>
                                 <exclude reference="gZn-MV-PkK"/>
-                                <exclude reference="Keo-Kf-dBj"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -434,19 +435,19 @@
                                 <include reference="BHN-k1-D2d"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="54e-1P-TKD"/>
+                                <include reference="Keo-Kf-dBj"/>
+                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="TGl-4p-dfl"/>
                                 <include reference="i8Y-k2-Qie"/>
                                 <include reference="2Vq-8b-mt7"/>
                                 <include reference="F6H-Rc-2HM"/>
                                 <include reference="Fe9-bu-35b"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="gVc-f9-LvK"/>
                                 <include reference="zNd-Em-1VE"/>
                                 <include reference="29L-CH-wVC"/>
                                 <include reference="gZn-MV-PkK"/>
-                                <include reference="Keo-Kf-dBj"/>
-                                <include reference="Mhj-Re-3Dr"/>
                             </mask>
                         </variation>
                     </view>
@@ -465,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE9-5G-fU8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="493"/>
+            <point key="canvasLocation" x="549" y="-221"/>
         </scene>
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">
@@ -530,7 +531,35 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="897" y="66"/>
+            <point key="canvasLocation" x="577" y="645"/>
+        </scene>
+        <!--Mood Filter Table View Controller-->
+        <scene sceneID="9Dh-Nr-3zA">
+            <objects>
+                <tableViewController id="m9e-6S-CAL" customClass="MDMoodFilterTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="GMe-Sm-coF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="moodCell" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" editingAccessoryType="detailButton" id="39R-Zo-Qa7" customClass="MDMoodFilterTableViewCell">
+                                <rect key="frame" x="0.0" y="50" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="39R-Zo-Qa7" id="1P1-o7-vk0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="m9e-6S-CAL" id="4OQ-DL-wtC"/>
+                            <outlet property="delegate" destination="m9e-6S-CAL" id="iyR-Oj-KMG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wK-Ho-QHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="680"/>
         </scene>
         <!--Month View Controller-->
         <scene sceneID="fHh-ad-Qp7">
@@ -598,6 +627,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-yH-qOD">
+                                <rect key="frame" x="176" y="644" width="32" height="30"/>
+                                <state key="normal" title="filter"/>
+                                <connections>
+                                    <segue destination="m9e-6S-CAL" kind="presentation" id="5p1-50-QHC"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-xG-B3o">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="go to Year View"/>
@@ -656,7 +692,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1293" y="-224"/>
+            <point key="canvasLocation" x="1054" y="-167"/>
         </scene>
     </scenes>
     <resources>

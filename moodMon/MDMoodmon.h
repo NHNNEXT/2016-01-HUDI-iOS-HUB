@@ -10,7 +10,9 @@
 
 extern NSString *const kComment;
 extern NSString *const kYear;
-extern NSString *const kDateTime;
+extern NSString *const kMonth;
+extern NSString *const kDay;
+extern NSString *const kTime;
 extern NSString *const kChosen1;
 extern NSString *const kChosen2;
 extern NSString *const kChosen3;
@@ -34,7 +36,9 @@ extern NSString *const kIsDeleted;
 
 @property NSString *moodComment;
 @property NSInteger moodYear;
-@property NSInteger moodDateTime;
+@property NSInteger moodMonth;
+@property NSInteger moodDay;
+@property NSString *moodTime;
 @property NSUInteger moodChosen1;
 @property NSUInteger moodChosen2;
 @property NSUInteger moodChosen3;
