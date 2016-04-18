@@ -45,6 +45,7 @@
 		E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */; };
 		E93523F81CBAB8E4005AC613 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */; };
 		E93525241CBB74DF005AC613 /* MDMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93525231CBB74DF005AC613 /* MDMonthViewController.m */; };
+		E935252B1CBC8507005AC613 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E935252A1CBC8507005AC613 /* circle@2x.png */; };
 		E97495B61CBA44980000E389 /* joy_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97495B51CBA44980000E389 /* joy_degree1@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
 		E93525221CBB74DF005AC613 /* MDMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMonthViewController.h; sourceTree = "<group>"; };
 		E93525231CBB74DF005AC613 /* MDMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMonthViewController.m; sourceTree = "<group>"; };
+		E935252A1CBC8507005AC613 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		E97495B51CBA44980000E389 /* joy_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_degree1@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,6 +310,7 @@
 		E9CC1F511CB4D324003099D8 /* emotions */ = {
 			isa = PBXGroup;
 			children = (
+				E935252A1CBC8507005AC613 /* circle@2x.png */,
 				E97495B01CBA44330000E389 /* angry */,
 				E97495B41CBA444A0000E389 /* joy */,
 				E97495B31CBA44480000E389 /* sad */,
@@ -434,6 +437,7 @@
 				658BE7371CB4CE98006EB718 /* sad_unselect@2x.png in Resources */,
 				658BE7291CB4CE98006EB718 /* excited_unselect@2x.png in Resources */,
 				658BE72A1CB4CE98006EB718 /* excited_wheel@2x.png in Resources */,
+				E935252B1CBC8507005AC613 /* circle@2x.png in Resources */,
 				658BE7391CB4CE98006EB718 /* tired_selected@2x.png in Resources */,
 				658BE7341CB4CE98006EB718 /* Quicksand-Light.otf in Resources */,
 				CE4A8A461CABCCB1006B73B7 /* LaunchScreen.storyboard in Resources */,
