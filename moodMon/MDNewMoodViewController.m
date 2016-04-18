@@ -232,10 +232,13 @@
      * ********************************************************
      */
     //test data
-    
-    [self.dataManager saveNewMoodMonOfComment:@"test" asFirstChosen:11 SecondChosen:24 andThirdChosen:31];
-    [self.dataManager saveNewMoodMonOfComment:@"test2" asFirstChosen:12 SecondChosen:33 andThirdChosen:45];
-    [self.dataManager saveNewMoodMonOfComment:@"test3" asFirstChosen:13 SecondChosen:41 andThirdChosen:21];
+    firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
+    if([self.chosenMoods count]>=2) {
+        secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
+    }
+    if([self.chosenMoods count]>=3) {
+        thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
+    }
     
     NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
     [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
