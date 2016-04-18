@@ -114,14 +114,11 @@
             while(sqlite3_step(statement) <= SQLITE_ROW){
                 
                 int idint = sqlite3_column_int(statement, 0);
-                NSLog(@"%d", idint);
                 NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
                 NSUInteger moodChosen1 = sqlite3_column_int(statement, 3);
                 NSUInteger moodChosen2 = sqlite3_column_int(statement, 4);
                 NSUInteger moodChosen3 = sqlite3_column_int(statement, 5);
                 BOOL isDeleted = sqlite3_column_value(statement, 6);
-                
-                NSLog(@"is deleted : %d", isDeleted);
                 
                 NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
                 [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -158,8 +155,6 @@
                 }
                 
                 [self.moodCollection insertObject:moodmon atIndex:idint];
-                NSLog(@"Moodmon: %@, %@ %@ %@ %@ , [ %@, %@, %@]",[moodmon valueForKey:kComment], [moodmon valueForKey:kYear], [moodmon valueForKey:kMonth], [moodmon valueForKey:kDay], [moodmon valueForKey:kTime] , [moodmon valueForKey:kChosen1], [moodmon valueForKey:kChosen2], [moodmon valueForKey:kChosen3] );
-                NSLog(@"Success to add : %@" ,[self.moodCollection objectAtIndex:idint]);
                 //@"SUCCESS";
             }
             
