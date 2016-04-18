@@ -29,7 +29,6 @@ NSMutableArray *moodmonConf;
     [super viewDidLoad];
     MDDataManager *mddm = [[MDDataManager alloc]init];
     [mddm createDB];
-    [mddm saveNewMoodMonOfComment:@"abc" asFirstChosen:1 SecondChosen:11 andThirdChosen:13];
     [mddm readAllFromDBAndSetCollection];
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
