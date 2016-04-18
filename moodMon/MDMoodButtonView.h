@@ -10,7 +10,7 @@
 
 @interface MDMoodButtonView : UIImageView
 
-@property int num;
+@property NSNumber *num;
 @property NSString *name; // imageName 분기문에서 활용
 @property BOOL isSelected;
 @property float startingDegree; // wheel starting angle

@@ -241,7 +241,7 @@
                                         <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="SdP-bN-ebp" firstAttribute="centerY" secondItem="Ar2-m9-yL3" secondAttribute="centerY" id="8WS-5h-PKT">
-                                        <variation key="widthClass=compact" constant="-1"/>
+                                        <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="aL2-3u-dsJ" secondAttribute="trailing" constant="41" id="BaL-DU-MJu">
                                         <variation key="widthClass=compact" constant="43"/>
@@ -269,7 +269,7 @@
                                         <variation key="widthClass=compact" constant="26"/>
                                     </constraint>
                                     <constraint firstItem="SdP-bN-ebp" firstAttribute="centerX" secondItem="Ar2-m9-yL3" secondAttribute="centerX" id="lEt-PD-DyC">
-                                        <variation key="widthClass=compact" constant="-1"/>
+                                        <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="Y6E-gj-7fr" firstAttribute="top" secondItem="8WY-Ar-NXR" secondAttribute="top" constant="72" id="lco-y4-dJi"/>
                                     <constraint firstAttribute="bottom" secondItem="aL2-3u-dsJ" secondAttribute="bottom" constant="23" id="uK8-bW-lyk">

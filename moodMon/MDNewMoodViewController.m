@@ -8,13 +8,17 @@
 
 #import "MDNewMoodViewController.h"
 
-@interface MDNewMoodViewController () {
-    float _bearing;
-}
-    
+@interface MDNewMoodViewController ()
+@property CGFloat wheelDegree;
+@property NSInteger moodCount;
+@property NSArray *moodButtons;
+@property NSMutableArray *chosenMoods;
 @end
 
+
+
 @implementation MDNewMoodViewController
+@synthesize wheelDegree;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,14 +31,30 @@
     [self initiateMoodViews];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
+    self.chosenMoods = [[NSMutableArray alloc] init];
 }
 
+
+/*
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.dataManager readAllFromDBAndSetCollection];
+    NSUInteger recentMood = [self.dataManager recentMood];
+    NSLog(@"%lu", (unsigned long)recentMood);
+}
+*/
 
 
 -(void)initiateMoodViews {
     self.moodCount = 0;
     self.centerMood.hidden = YES;
     
+    self.angry.num = @10;
+    self.joy.num = @20;
+    self.sad.num = @30;
+    self.excited.num = @40;
+    self.tired.num = @50;
     self.angry.name = @"angry";
     self.joy.name = @"joy";
     self.sad.name = @"sad";
@@ -74,13 +94,28 @@
 
 - (void)tapped:(UIGestureRecognizer *)tap {
     MDMoodButtonView *moodButton = (MDMoodButtonView *)tap.view;
-    if(moodButton.isSelected || self.moodCount<3){
-        [self setMoodButtonImage:moodButton];
+    if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
+        [self changeMoodButtonImage:moodButton];
     }
     self.centerMood.hidden = (self.moodCount<1)? YES:NO;
-    if(moodButton.isSelected && self.moodCount<4) {
+    
+    if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
         [self showWheelView:moodButton];
+        [self addNewChosenMood:moodButton.num];
     }
+    else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
+        [self deleteFromChosenMoods:moodButton.num];
+    }
+}
+
+
+
+- (void)changeMoodButtonImage:(MDMoodButtonView *)moodButton {
+    moodButton.isSelected = !moodButton.isSelected;
+    moodButton.isSelected ? self.moodCount++ : self.moodCount--;
+    NSString *surfix = (moodButton.isSelected) ? @"selected" : @"unselect";
+    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", moodButton.name, surfix];
+    moodButton.image = [UIImage imageNamed:imageName];
 }
 
 
@@ -88,8 +123,7 @@
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
     self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
-    _bearing = moodButton.startingDegree;
-    
+    self.wheelDegree = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = YES;
     }
@@ -97,12 +131,18 @@
 
 
 
-- (void)setMoodButtonImage:(MDMoodButtonView *)moodButton {
-    moodButton.isSelected = !moodButton.isSelected;
-    moodButton.isSelected ? self.moodCount++ : self.moodCount--;
-    NSString *surfix = (moodButton.isSelected) ? @"selected" : @"unselect";
-    NSString *imageName = [[NSString alloc]initWithFormat:@"%@_%@", moodButton.name, surfix];
-    moodButton.image = [UIImage imageNamed:imageName];
+- (void)addNewChosenMood:(NSNumber *)moodNum {
+    // 새로 선택한 감정을 chosenMoods에 추가.
+    // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
+    NSMutableDictionary *chosenMood = [@{@"moodNum" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    [self.chosenMoods addObject:chosenMood];
+}
+
+
+
+- (void)deleteFromChosenMoods:(NSNumber *)moodNum {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"moodNum != %@", moodNum];
+    self.chosenMoods = [[self.chosenMoods filteredArrayUsingPredicate:predicate] mutableCopy];
 }
 
 
@@ -118,16 +158,36 @@
 - (void)rotateWheel:(id)sender {
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
-    if(_bearing < 0.01) {
-        _bearing += M_PI;
+    [self setWheelDegreeWithAngle:angle];
+    [self transformWheelWithAngle:angle];
+    [self setMoodIntensity];
+}
+
+
+
+- (void)setWheelDegreeWithAngle:(CGFloat)angle {
+    self.wheelDegree += angle * 180 / M_PI;
+    if(self.wheelDegree < -0.5) {
+        self.wheelDegree += 360;
     }
-    else if (_bearing > 2*M_PI) {
-        _bearing -= 360;
+    else if (self.wheelDegree > 359.5) {
+        self.wheelDegree -= 360;
     }
-    
+}
+
+
+
+- (void)transformWheelWithAngle:(CGFloat)angle {
     CGAffineTransform wheelTransform = self.wheel.transform;
     CGAffineTransform newWheelTransform = CGAffineTransformRotate(wheelTransform, angle);
     [self.wheel setTransform:newWheelTransform];
+}
+
+
+
+- (void)setMoodIntensity {
+    NSNumber *moodIntensity = [[NSNumber alloc] initWithInt:self.wheelDegree/72 + 1];
+    [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
 }
 
 
@@ -160,6 +220,8 @@
 }
 
 - (IBAction)saveNewMoodMon:(id)sender {
+    NSString *comment = @"test";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
+    int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     /**********************************************************
      *                                                        *
@@ -175,6 +237,8 @@
     [self.dataManager saveNewMoodMonOfComment:@"test2" asFirstChosen:12 SecondChosen:33 andThirdChosen:45];
     [self.dataManager saveNewMoodMonOfComment:@"test3" asFirstChosen:13 SecondChosen:41 andThirdChosen:21];
     
+    NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
+    [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
     /*
      mood int 확인,
      MDDateManager saveNewMoodMonOfComment~ 메소드에서 하고 있습니다.
