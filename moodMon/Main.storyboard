@@ -542,7 +542,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="moodCell" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" editingAccessoryType="detailButton" id="39R-Zo-Qa7" customClass="MDMoodFilterTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="moodCell" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="moodCell" editingAccessoryType="detailButton" id="39R-Zo-Qa7" customClass="MDMoodFilterTableViewCell">
                                 <rect key="frame" x="0.0" y="50" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="39R-Zo-Qa7" id="1P1-o7-vk0">
