@@ -17,16 +17,21 @@ extern int thisYear;
 int thisMonth;
 extern int weekday;
 extern int tag;
+NSArray *createdAt;
+int count;
+NSMutableArray *moodmonConf;
 
 @implementation MDMonthViewController
 
 
 - (void)viewDidLoad {
+    count=0;
     [super viewDidLoad];
     MDDataManager *mddm = [[MDDataManager alloc]init];
     [mddm createDB];
     [mddm saveNewMoodMonOfComment:@"abc" asFirstChosen:1 SecondChosen:11 andThirdChosen:13];
     [mddm readAllFromDBAndSetCollection];
+    createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
@@ -124,7 +129,18 @@ extern int tag;
         [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
         [dayButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [dayButton addTarget:self action:@selector(buttonTouch:) forControlEvents:UIControlEventTouchUpInside];
         dayButton.tag=tag++;
+        for(int parseNum=0; parseNum<createdAt.count; parseNum++){
+            NSDictionary *parseDate = createdAt[parseNum];
+           int parseMonth=4;
+            int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
+            int parseDay=[[parseDate valueForKey:@"_moodDateTime"] intValue];
+            
+            if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
+                dayButton.backgroundColor =[UIColor redColor];
+            }
+        }
         [self.view addSubview:dayButton];
     }
 }
@@ -136,7 +152,7 @@ extern int tag;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 10;
+    return moodmonConf.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -145,12 +161,34 @@ extern int tag;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
-        return cell;
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
+    return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)buttonTouch:(id)sender{
+    UIButton* btn = (UIButton *)sender;
+    NSMutableArray* moodmonConfig = [[NSMutableArray alloc]init];
+    count=0;
+    for(int parseNum=0; parseNum<createdAt.count; parseNum++){
+        NSDictionary *parseDate = createdAt[parseNum];
+        int parseMonth=4;
+        int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
+        int parseDay=[[parseDate valueForKey:@"_moodDateTime"] intValue];
+        
+        if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==btn.currentTitle.intValue)){
+            
+            moodmonConfig[count]=createdAt[parseNum];
+            count++;
+            
+        }
+    }
+    moodmonConf=moodmonConfig;
+    [_tableViews reloadData];
 }
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//}
 
 
 @end
