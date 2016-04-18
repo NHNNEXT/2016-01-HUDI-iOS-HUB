@@ -287,6 +287,8 @@
      exhausted - 51~55
     */
     
+    // 만약 최근에 angry와 exhausted가 있으면 그 평균은 sad가 됨... 단순히 평균을 가지고 최근 감정이라고 판단해선 안될 듯.
+    
     int count = (int)[self.moodCollection count];
     int chosenCount = 0;
     int sum = 0;

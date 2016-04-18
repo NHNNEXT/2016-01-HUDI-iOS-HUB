@@ -33,18 +33,23 @@
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     self.chosenMoods = [[NSMutableArray alloc] init];
+    [self drawRecentMoodView];
 }
 
 
-/*
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
+}
+
+
+-(void)drawRecentMoodView {
     [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
     NSLog(@"%lu", (unsigned long)recentMood);
+    self.recentMoodView.recentMood = recentMood;
+    [self.recentMoodView setNeedsDisplay];
 }
-*/
 
 
 -(void)initiateMoodViews {

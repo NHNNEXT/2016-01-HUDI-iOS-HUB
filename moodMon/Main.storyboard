@@ -371,6 +371,25 @@
                                     <action selector="resetViews:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="TJ9-fB-W7x"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHR-wz-XeA" customClass="MDRecentMoodView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3B1-KO-Yzf">
+                                        <variation key="widthClass=compact" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3B1-KO-Yzf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="3B1-KO-Yzf"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -384,11 +403,16 @@
                             <constraint firstItem="BHN-k1-D2d" firstAttribute="top" secondItem="3bK-JH-HWk" secondAttribute="bottom" constant="130" id="TGl-4p-dfl">
                                 <variation key="widthClass=compact" constant="120"/>
                             </constraint>
+                            <constraint firstItem="dHR-wz-XeA" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="YQ0-gl-eM6"/>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Yc1-MW-s0P"/>
+                            <constraint firstItem="dHR-wz-XeA" firstAttribute="width" secondItem="J26-NR-hzB" secondAttribute="width" id="Zil-cv-FOb"/>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="cJM-bG-KaB">
                                 <variation key="widthClass=compact" constant="21.5"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="IVh-HZ-nST" secondAttribute="trailing" constant="29" id="gZn-MV-PkK"/>
+                            <constraint firstItem="Z7r-3v-MSx" firstAttribute="top" secondItem="dHR-wz-XeA" secondAttribute="bottom" constant="752" id="gcM-WE-PDN">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="gmx-3E-Jpj" secondAttribute="bottom" constant="65" id="h7d-63-w48"/>
                             <constraint firstItem="BHN-k1-D2d" firstAttribute="leading" secondItem="J26-NR-hzB" secondAttribute="leadingMargin" constant="87" id="i8Y-k2-Qie">
                                 <variation key="widthClass=compact" constant="46"/>
@@ -403,8 +427,11 @@
                                 <exclude reference="8WY-Ar-NXR"/>
                                 <exclude reference="IVh-HZ-nST"/>
                                 <exclude reference="BHN-k1-D2d"/>
+                                <exclude reference="dHR-wz-XeA"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="YQ0-gl-eM6"/>
+                                <exclude reference="Zil-cv-FOb"/>
                                 <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="TGl-4p-dfl"/>
                                 <exclude reference="i8Y-k2-Qie"/>
@@ -417,6 +444,7 @@
                                 <exclude reference="gZn-MV-PkK"/>
                                 <exclude reference="Keo-Kf-dBj"/>
                                 <exclude reference="Mhj-Re-3Dr"/>
+                                <exclude reference="gcM-WE-PDN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -427,8 +455,11 @@
                                 <include reference="8WY-Ar-NXR"/>
                                 <include reference="IVh-HZ-nST"/>
                                 <include reference="BHN-k1-D2d"/>
+                                <include reference="dHR-wz-XeA"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="YQ0-gl-eM6"/>
+                                <include reference="Zil-cv-FOb"/>
                                 <include reference="54e-1P-TKD"/>
                                 <include reference="TGl-4p-dfl"/>
                                 <include reference="i8Y-k2-Qie"/>
@@ -441,6 +472,7 @@
                                 <include reference="gZn-MV-PkK"/>
                                 <include reference="Keo-Kf-dBj"/>
                                 <include reference="Mhj-Re-3Dr"/>
+                                <include reference="gcM-WE-PDN"/>
                             </mask>
                         </variation>
                     </view>
@@ -452,6 +484,7 @@
                         <outlet property="day" destination="gmx-3E-Jpj" id="9Mg-Kq-zS4"/>
                         <outlet property="excited" destination="zNn-AG-cqa" id="tm3-k1-sOD"/>
                         <outlet property="joy" destination="Y6E-gj-7fr" id="tnH-qs-8Mr"/>
+                        <outlet property="recentMoodView" destination="dHR-wz-XeA" id="TIe-y4-2oe"/>
                         <outlet property="sad" destination="aL2-3u-dsJ" id="Oy1-AK-E04"/>
                         <outlet property="tired" destination="uUR-Qm-e63" id="Mwg-0Z-CKg"/>
                         <outlet property="wheel" destination="Ar2-m9-yL3" id="VgK-Gr-rM6"/>

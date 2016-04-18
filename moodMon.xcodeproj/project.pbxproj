@@ -46,6 +46,7 @@
 		E93523F81CBAB8E4005AC613 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */; };
 		E935252B1CBC8507005AC613 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E935252A1CBC8507005AC613 /* circle@2x.png */; };
 		E941A21C1CC2644C00D742A9 /* angry_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E941A21B1CC2644C00D742A9 /* angry_wheel@2x.png */; };
+		E95EB77F1CC4BCAB00141FBF /* MDRecentMoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */; };
 		E97495B61CBA44980000E389 /* joy_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97495B51CBA44980000E389 /* joy_degree1@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,8 @@
 		E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
 		E935252A1CBC8507005AC613 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		E941A21B1CC2644C00D742A9 /* angry_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_wheel@2x.png"; sourceTree = "<group>"; };
+		E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRecentMoodView.h; sourceTree = "<group>"; };
+		E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRecentMoodView.m; sourceTree = "<group>"; };
 		E97495B51CBA44980000E389 /* joy_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_degree1@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,14 +208,16 @@
 			children = (
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
 				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
 				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
 				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
 				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
 				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
 				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
+				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
 				CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */,
 				CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */,
 				CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */,
@@ -486,12 +491,12 @@
 				65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
 				658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */,
+				E95EB77F1CC4BCAB00141FBF /* MDRecentMoodView.m in Sources */,
 				E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */,
 				65980E2D1CC0D1DF0092EA18 /* MDMonthTimeLineCellTableViewCell.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
-				658BE72F1CB4CE98006EB718 /* MDMoodModel.m in Sources */,
 				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */,
 				CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */,
