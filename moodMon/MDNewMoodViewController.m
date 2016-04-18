@@ -36,6 +36,16 @@
 
 
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.dataManager readAllFromDBAndSetCollection];
+    NSUInteger recentMood = [self.dataManager recentMood];
+    NSLog(@"%lu", (unsigned long)recentMood);
+}
+
+
+
 -(void)initiateMoodViews {
     self.moodCount = 0;
     self.centerMood.hidden = YES;
@@ -133,7 +143,6 @@
 - (void)deleteFromChosenMoods:(NSNumber *)moodNum {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"moodNum != %@", moodNum];
     self.chosenMoods = [[self.chosenMoods filteredArrayUsingPredicate:predicate] mutableCopy];
-    NSLog(@"%@", self.chosenMoods);
 }
 
 
@@ -176,12 +185,9 @@
 
 
 
-
 - (void)setMoodIntensity {
     NSNumber *moodIntensity = [[NSNumber alloc] initWithInt:self.wheelDegree/72 + 1];
     [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
-    NSLog(@"%@", [self.chosenMoods lastObject]);
-    
 }
 
 
@@ -214,7 +220,7 @@
 }
 
 - (IBAction)saveNewMoodMon:(id)sender {
-    NSString *comment = @"test";
+    NSString *comment = @"test";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
@@ -225,7 +231,7 @@
         thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
     }
     
-    NSLog(@"%d, %d, %d", firstChosen, secondChosen, thirdChosen);
+    NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
     [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
     /*
      mood int 확인,
