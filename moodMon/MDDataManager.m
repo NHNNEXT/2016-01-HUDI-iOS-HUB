@@ -222,9 +222,9 @@
     [newMD setValue:@NO forKey:kIsDeleted];
     
     
-    [newMD setValue:comment forKey:kComment];
-    [newMD setValue: [NSNumber numberWithInt:first] forKey:kChosen1];
-    [newMD setValue: [NSNumber numberWithInt:second] forKey:kChosen2];
+    [newMD setValue: comment forKey:kComment];
+    [newMD setValue: [NSNumber numberWithInt: first] forKey:kChosen1];
+    [newMD setValue: [NSNumber numberWithInt: second] forKey:kChosen2];
     [newMD setValue: [NSNumber numberWithInt: third] forKey:kChosen3];
     
     

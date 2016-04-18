@@ -27,6 +27,7 @@
     [self.dataManager createDB];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
     
     [self initiateMoodViews];
     [self addTapGestureRecognizer];
@@ -223,25 +224,20 @@
     NSString *comment = @"test";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
-    /**********************************************************
-     *                                                        *
-     *                                                        *
-     *  form형식이 완료되기 전까지, 테스트 데이터는 여기서 넣으면 됩니다.    *
-     *                                                        *
-     *                                                        *
-     * ********************************************************
-     */
-    //test data
-    firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
-    if([self.chosenMoods count]>=2) {
-        secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
-    }
-    if([self.chosenMoods count]>=3) {
-        thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
-    }
     
-    NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
-    [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
+    if([self.chosenMoods count] > 0){
+        
+        
+        firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
+        if([self.chosenMoods count]>=2) {
+            secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
+        }
+        if([self.chosenMoods count]>=3) {
+            thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
+        }
+        
+        NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
+        [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
     /*
      mood int 확인,
      MDDateManager saveNewMoodMonOfComment~ 메소드에서 하고 있습니다.
@@ -252,9 +248,9 @@
      */
     
    
-    NSLog(@"Saving new Mood mon");
+        NSLog(@"Saving new Mood mon");
     
-
+    }
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
