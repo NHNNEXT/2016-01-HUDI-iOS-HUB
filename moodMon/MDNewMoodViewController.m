@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.dataManager = [MDDataManager sharedDataManager];
-    [self.dataManager createDB];
+   
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
@@ -33,18 +33,23 @@
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     self.chosenMoods = [[NSMutableArray alloc] init];
+    [self drawRecentMoodView];
 }
 
 
-/*
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
+}
+
+
+-(void)drawRecentMoodView {
     [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
-    NSLog(@"%lu", (unsigned long)recentMood);
+    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
+    self.recentMoodView.recentMood = recentMood;
+    [self.recentMoodView setNeedsDisplay];
 }
-*/
 
 
 -(void)initiateMoodViews {
@@ -224,10 +229,7 @@
     NSString *comment = @"test";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
-    
     if([self.chosenMoods count] > 0){
-        
-        
         firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
         if([self.chosenMoods count]>=2) {
             secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
@@ -235,22 +237,18 @@
         if([self.chosenMoods count]>=3) {
             thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
         }
-        
         NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
         [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
     /*
      mood int 확인,
      MDDateManager saveNewMoodMonOfComment~ 메소드에서 하고 있습니다.
      여기서 하는 게 제일 좋은 건지는 아직 모르겠네요. 방어차 남겨 놓는 것도 좋은 것 같아요.
-     
      그 전에, 위 메소드 부르기 전에도  mood int 체크 하는 게 좋을 것 같아요~
      newMoodmon view에서 mood int가 어떻게 정해지는 지, 어디에 그 데이터가 남는지 아직 모르겠지만, 해당 코드 완성되면, 이 부분 한번 정하면 좋을 것 같아요.
      */
-    
-   
         NSLog(@"Saving new Mood mon");
-    
     }
+    
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

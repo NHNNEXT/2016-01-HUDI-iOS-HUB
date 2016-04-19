@@ -54,7 +54,7 @@
         if(sqlite3_open(dbpath, &_moodmonDB) == SQLITE_OK){
             char *errMsg;
             
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS moodmon(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, moodComment VARCHAR(150) NULL, moodDate Datetime NOT NULL, moodChosen1 INTEGER NOT NULL DEFAULT 0, moodChosen2 INTEGER NOT NULL DEFAULT 0, moodChosen3 INTEGER NOT NULL DEFAULT 0, isDeleted BOOL DEFAULT false);";
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS moodmon(id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, moodComment VARCHAR(150) NULL, moodDate Datetime NOT NULL, moodChosen1 INTEGER NOT NULL DEFAULT 0, moodChosen2 INTEGER NOT NULL DEFAULT 0, moodChosen3 INTEGER NOT NULL DEFAULT 0, isDeleted BOOL DEFAULT false);";
             
             /* 
              moodChosen CHECK은 만들었지만 조건이 나중에 바뀔수도 있으니, 앱내에서 확인하는 게 나을 것 같아 생략
@@ -82,7 +82,7 @@
         NSLog(@"yes1 : read data from SQL ");
          [self readAllFromDBAndSetCollection];
         
-    }
+}
     
     
     
@@ -114,14 +114,14 @@
             while(sqlite3_step(statement) <= SQLITE_ROW){
                 
                 int idint = sqlite3_column_int(statement, 0);
-                NSLog(@"%d", idint);
+                if(idint == 0) continue;
+                
+                NSLog(@"INDEX %d is saving", idint);
                 NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
                 NSUInteger moodChosen1 = sqlite3_column_int(statement, 3);
                 NSUInteger moodChosen2 = sqlite3_column_int(statement, 4);
                 NSUInteger moodChosen3 = sqlite3_column_int(statement, 5);
                 BOOL isDeleted = sqlite3_column_value(statement, 6);
-                
-                NSLog(@"is deleted : %d", isDeleted);
                 
                 NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
                 [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -158,8 +158,6 @@
                 }
                 
                 [self.moodCollection insertObject:moodmon atIndex:idint];
-                NSLog(@"Moodmon: %@, %@ %@ %@ %@ , [ %@, %@, %@]",[moodmon valueForKey:kComment], [moodmon valueForKey:kYear], [moodmon valueForKey:kMonth], [moodmon valueForKey:kDay], [moodmon valueForKey:kTime] , [moodmon valueForKey:kChosen1], [moodmon valueForKey:kChosen2], [moodmon valueForKey:kChosen3] );
-                NSLog(@"Success to add : %@" ,[self.moodCollection objectAtIndex:idint]);
                 //@"SUCCESS";
             }
             
@@ -211,8 +209,8 @@
     
 
     NSString *timeString = [NSString stringWithFormat:@"%ld:%ld:%ld", hour, minute, secondTime];
-    
-    NSLog(@"month : %ld, day : %ld, year : %ld , %ld: %ld: %ld", (long)month,  day, (long)year, hour, minute, (long)secondTime);
+   
+   // NSLog(@"month : %ld, day : %ld, year : %ld , %ld: %ld: %ld", (long)month,  day, (long)year, hour, minute, (long)secondTime);
     MDMoodmon *newMD = [[MDMoodmon alloc] init];
     
     [newMD setValue:[NSNumber numberWithInteger:year] forKey:kYear];
@@ -255,7 +253,7 @@
         
         NSString *dateString = [NSString stringWithFormat:@"%ld-%ld-%ld %@", moodmon.moodYear, moodmon.moodMonth, moodmon.moodDay, moodmon.moodTime] ;
         
-        NSLog(@"BIG TEST HERE : %@",dateString);
+        NSLog(@"now : %@",dateString);
         NSString *insertSQL =  [NSString stringWithFormat:@"INSERT INTO moodmon(moodComment, moodDate, moodChosen1, moodChosen2, moodChosen3) VALUES(\"%@\",\"%@\", %d,%d,%d);", moodmon.moodComment,  dateString ,(int)moodmon.moodChosen1,(int)moodmon.moodChosen2,(int)moodmon.moodChosen3];
         // 흠.... insert문 4,5,6(>=0 && <56)은 확인하고 넣어야 해.
         
@@ -264,7 +262,7 @@
         
         
         if(sqlite3_step(statement) == SQLITE_DONE){
-            NSLog(@"NEW  moodmon added %@", moodmon.moodTime);
+            NSLog(@"NEW  moodmon added, the time of %@", moodmon.moodTime);
           
             
         } else {
@@ -292,12 +290,15 @@
      exhausted - 51~55
     */
     
+    // 만약 최근에 angry와 exhausted가 있으면 그 평균은 sad가 됨... 단순히 평균을 가지고 최근 감정이라고 판단해선 안될 듯.
+    
     int count = (int)[self.moodCollection count];
+    if(count == 1) return 0;
     int chosenCount = 0;
     int sum = 0;
     
-    if(count < 5){
-        for(int i = count -1 ; i >= 0 ; i--){
+    if(count < 6){
+        for(int i = count -1 ; i >= 1 ; i--){
             MDMoodmon *temp = [self.moodCollection objectAtIndex:i];
             if((int)temp.moodChosen1) chosenCount ++;
             if((int)temp.moodChosen2) chosenCount ++;

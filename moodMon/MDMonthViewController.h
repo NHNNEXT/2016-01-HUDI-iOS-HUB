@@ -16,4 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *monthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
 
+
+
+-(void) showAlert:(NSNotification*)notification;
 @end
