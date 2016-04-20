@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.dataManager = [MDDataManager sharedDataManager];
-    [self.dataManager createDB];
+   
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
@@ -46,7 +46,7 @@
 -(void)drawRecentMoodView {
     [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
-    NSLog(@"%lu", (unsigned long)recentMood);
+    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
     self.recentMoodView.recentMood = recentMood;
     [self.recentMoodView setNeedsDisplay];
 }

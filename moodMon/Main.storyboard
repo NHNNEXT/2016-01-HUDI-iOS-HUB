@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XeT-CV-5As">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XeT-CV-5As">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -430,21 +430,21 @@
                                 <exclude reference="dHR-wz-XeA"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="YQ0-gl-eM6"/>
-                                <exclude reference="Zil-cv-FOb"/>
-                                <exclude reference="54e-1P-TKD"/>
+                                <exclude reference="gcM-WE-PDN"/>
+                                <exclude reference="Keo-Kf-dBj"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="TGl-4p-dfl"/>
                                 <exclude reference="i8Y-k2-Qie"/>
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
+                                <exclude reference="YQ0-gl-eM6"/>
+                                <exclude reference="Zil-cv-FOb"/>
                                 <exclude reference="29L-CH-wVC"/>
                                 <exclude reference="gZn-MV-PkK"/>
-                                <exclude reference="Keo-Kf-dBj"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
-                                <exclude reference="gcM-WE-PDN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -458,21 +458,21 @@
                                 <include reference="dHR-wz-XeA"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="YQ0-gl-eM6"/>
-                                <include reference="Zil-cv-FOb"/>
-                                <include reference="54e-1P-TKD"/>
+                                <include reference="gcM-WE-PDN"/>
+                                <include reference="Keo-Kf-dBj"/>
+                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="TGl-4p-dfl"/>
                                 <include reference="i8Y-k2-Qie"/>
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
+                                <include reference="YQ0-gl-eM6"/>
+                                <include reference="Zil-cv-FOb"/>
                                 <include reference="29L-CH-wVC"/>
                                 <include reference="gZn-MV-PkK"/>
-                                <include reference="Keo-Kf-dBj"/>
-                                <include reference="Mhj-Re-3Dr"/>
-                                <include reference="gcM-WE-PDN"/>
                             </mask>
                         </variation>
                     </view>
@@ -654,7 +654,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-yH-qOD">
-                                <rect key="frame" x="176" y="644" width="32" height="30"/>
+                                <rect key="frame" x="60" y="101" width="32" height="30"/>
                                 <state key="normal" title="filter"/>
                                 <connections>
                                     <segue destination="m9e-6S-CAL" kind="presentation" id="5p1-50-QHC"/>
