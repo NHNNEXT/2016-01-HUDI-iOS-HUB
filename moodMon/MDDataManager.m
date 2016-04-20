@@ -30,19 +30,23 @@
         [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
         self.isChecked = [@[ @NO, @NO,@NO,@NO,@NO ] mutableCopy];
         self.chosenMoodCount = 0;
+        NSString *docsDir;
+        NSArray *dirPath;
+        
+        dirPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        docsDir = dirPath[0];
+        
+        _dataBasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"moodmon.sqlite"]];
     }
     return self;
 }
 
 - (void)createDB{
     
-    NSString *docsDir;
-    NSArray *dirPath;
     
-    dirPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = dirPath[0];
+    //sqlite3_stmt *statement;
+
     
-    _dataBasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"moodmon.db"]];
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
@@ -54,7 +58,8 @@
         if(sqlite3_open(dbpath, &_moodmonDB) == SQLITE_OK){
             char *errMsg;
             
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS moodmon(id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, moodComment VARCHAR(150) NULL, moodDate Datetime NOT NULL, moodChosen1 INTEGER NOT NULL DEFAULT 0, moodChosen2 INTEGER NOT NULL DEFAULT 0, moodChosen3 INTEGER NOT NULL DEFAULT 0, isDeleted BOOL DEFAULT false);";
+            NSLog(@"no1 : open DB" );
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS moodmon(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, moodComment VARCHAR(150) NULL, moodDate Datetime NOT NULL, moodChosen1 INTEGER NOT NULL DEFAULT 0, moodChosen2 INTEGER NOT NULL DEFAULT 0, moodChosen3 INTEGER NOT NULL DEFAULT 0, isDeleted BOOL DEFAULT false);";
             
             /* 
              moodChosen CHECK은 만들었지만 조건이 나중에 바뀔수도 있으니, 앱내에서 확인하는 게 나을 것 같아 생략
@@ -64,7 +69,7 @@
             
             
             if( sqlite3_exec(_moodmonDB, sql_stmt, NULL, NULL,&errMsg) != SQLITE_OK){
-                //@"Failed to create table";
+                            NSLog(@"ERRor : not created" );
             }
             
             //@"Table is created";
@@ -254,9 +259,10 @@
         NSString *dateString = [NSString stringWithFormat:@"%ld-%ld-%ld %@", moodmon.moodYear, moodmon.moodMonth, moodmon.moodDay, moodmon.moodTime] ;
         
         NSLog(@"now : %@",dateString);
-        NSString *insertSQL =  [NSString stringWithFormat:@"INSERT INTO moodmon(moodComment, moodDate, moodChosen1, moodChosen2, moodChosen3) VALUES(\"%@\",\"%@\", %d,%d,%d);", moodmon.moodComment,  dateString ,(int)moodmon.moodChosen1,(int)moodmon.moodChosen2,(int)moodmon.moodChosen3];
+        NSString *insertSQL =  [NSString stringWithFormat:@"INSERT INTO moodmon(moodComment, moodDate, moodChosen1, moodChosen2, moodChosen3) VALUES(\"%@\",\"%@\", %d,%d,%d);", @"hi",  dateString ,(int)moodmon.moodChosen1,(int)moodmon.moodChosen2,(int)moodmon.moodChosen3];
         // 흠.... insert문 4,5,6(>=0 && <56)은 확인하고 넣어야 해.
         
+        NSLog(@"demand : %@", insertSQL);
         const char* insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_moodmonDB, insert_stmt, -1, &statement, NULL);
         
