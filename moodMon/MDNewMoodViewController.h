@@ -11,6 +11,7 @@
 #import "MDWheelView.h"
 #import "MDDataManager.h"
 #import "MDWheelGestureRecognizer.h"
+#import "MDRecentMoodView.h"
 
 
 @interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate>
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *sad;
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *excited;
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *tired;
+@property (strong, nonatomic) IBOutlet MDRecentMoodView *recentMoodView;
 
 /* IBAction */
 - (IBAction)resetViews:(id)sender;

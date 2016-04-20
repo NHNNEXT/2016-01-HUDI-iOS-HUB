@@ -27,9 +27,10 @@ NSMutableArray *moodmonConf;
 - (void)viewDidLoad {
     count=0;
     [super viewDidLoad];
-    MDDataManager *mddm = [MDDataManager sharedDataManager];
+    MDDataManager *mddm = [[MDDataManager alloc]init];
     [mddm createDB];
-    [mddm readAllFromDBAndSetCollection];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
@@ -188,6 +189,16 @@ NSMutableArray *moodmonConf;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 }
+
+-(void) showAlert:(NSNotification*)notification{
+    NSDictionary *userInfo = [notification userInfo];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:defaultAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
 
 
 @end

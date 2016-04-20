@@ -22,7 +22,7 @@ extern NSString *const kIsDeleted;
 @interface MDMoodmon : NSObject
 
 
-/* COLUME_NUM & property
+/* COLUME_NUM & property in sql
  0 - id / int
  1 - moodComment / varchar(150)
  2 - moodYear / year
