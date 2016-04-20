@@ -25,7 +25,7 @@
     
     self.dataManager = [MDDataManager sharedDataManager];
     
-    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 88)];
+    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Filter"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(moodDidChoose)];
     navItems.rightBarButtonItem = doneBtn;
