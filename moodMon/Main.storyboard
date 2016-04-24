@@ -492,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE9-5G-fU8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="-221"/>
+            <point key="canvasLocation" x="222" y="-369"/>
         </scene>
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">
@@ -750,7 +750,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1054" y="-167"/>
+            <point key="canvasLocation" x="1003" y="-288"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfK-9M-QkZ">
