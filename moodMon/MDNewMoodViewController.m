@@ -153,8 +153,11 @@
 
 
 
+
 - (void)addWheelGestureRecognizer {
-    MDWheelGestureRecognizer *recognizer = [[MDWheelGestureRecognizer alloc] initWithTarget:self action:@selector(rotateWheel:)];
+    MDWheelGestureRecognizer *recognizer = [[MDWheelGestureRecognizer alloc] initWithTarget:self
+                                                                                wheelAction:@selector(rotateWheel:)
+                                                                              touchUpAction:@selector(returnToStartView)];
     [recognizer setDelegate:self];
     [self.container addGestureRecognizer:recognizer];
 }
@@ -198,7 +201,15 @@
 
 
 
-//차후 휠 제스쳐 끝날 때 실행해야하는 메서드
+- (void)returnToStartView {
+    self.wheel.image = [UIImage imageNamed:@"circle"];
+    for(MDMoodButtonView *moodButton in self.moodButtons) {
+        moodButton.hidden = NO;
+    }
+}
+
+
+
 - (IBAction)resetViews:(id)sender {
     self.wheel.image = [UIImage imageNamed:@"circle"];
     for(MDMoodButtonView *moodButton in self.moodButtons) {

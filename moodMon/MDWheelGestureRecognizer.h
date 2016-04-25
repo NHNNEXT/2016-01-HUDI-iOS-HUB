@@ -16,9 +16,12 @@
 
 @interface MDWheelGestureRecognizer : UIGestureRecognizer
 
-@property SEL action;
+@property SEL wheelAction;
+@property SEL touchUpAction;
 @property CGFloat currentAngle;
 @property CGFloat previousAngle;
 @property UITouch *touch;
+
+- (id)initWithTarget:(id)target wheelAction:(SEL)action touchUpAction:(SEL)action2;
 
 @end
