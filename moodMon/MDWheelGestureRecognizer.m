@@ -10,10 +10,11 @@
 
 @implementation MDWheelGestureRecognizer
 
-- (id)initWithTarget:(id)target action:(SEL)action {
+- (id)initWithTarget:(id)target wheelAction:(SEL)action touchUpAction:(SEL)action2 {
     if(self=[super initWithTarget:target action:action]) {
         self.delegate = target;
-        self.action = action;
+        self.wheelAction = action;
+        self.touchUpAction = action2;
     }
     return self;
 }
@@ -35,8 +36,17 @@
     self.currentAngle = [self getTouchAngle:[self.touch locationInView:self.touch.view]];
     self.previousAngle = [self getTouchAngle:[self.touch previousLocationInView:self.touch.view]];
     
-    if([self.delegate respondsToSelector:self.action]) {
-        [self.delegate performSelector:self.action withObject:self];
+    if([self.delegate respondsToSelector:self.wheelAction]) {
+        [self.delegate performSelector:self.wheelAction withObject:self];
+    }
+}
+
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    
+    if([self.delegate respondsToSelector:self.touchUpAction]) {
+        [self.delegate performSelector:self.touchUpAction withObject:self];
     }
 }
 
