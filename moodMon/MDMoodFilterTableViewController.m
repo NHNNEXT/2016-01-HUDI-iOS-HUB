@@ -18,6 +18,8 @@
 
 @implementation MDMoodFilterTableViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -25,19 +27,33 @@
     
     self.dataManager = [MDDataManager sharedDataManager];
     
-    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 88)];
+  
+   
+    
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Filter"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(moodDidChoose)];
     navItems.rightBarButtonItem = doneBtn;
     NSArray *items =[[NSArray alloc]initWithObjects:navItems,nil];
-    [navbar setItems:items];
-    [self.view addSubview:navbar];
-
+    
+    [self.navigationController.navigationBar setItems:items];
+    
+    /* 네비게이션 코드로 만들면 height처리가 좀더 복잡해 집니다. 
+       그냥 네비 안에 임베디드 하고
+        "self.edgesForExtendedLayout = UIRectEdgeNone;"를 추가해 주세요 ㅎㅎㅎ
+     
+     아래는 삽질*
+     
+    //  UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    //  [navbar setItems:items];
+    // [self.view addSubview:navbar];
+    // [self.tableView setBounds: CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.height - 100)];
+     
+     */
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self.tableView registerClass:[MDMoodFilterTableViewCell class] forCellReuseIdentifier:@"moodCell"];
     
-    
-    
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"chosenMoreThan3" object:self];
     // Uncomment the following line to preserve selection between presentations.
@@ -194,7 +210,7 @@
     for(int i = 0 ;i< 5 ; i++){
         self.dataManager.isChecked[i] = @NO;
     }
-
+    self.dataManager.chosenMoodCount = 0;
     [self.tableView reloadData];
 }
 
