@@ -16,16 +16,36 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    UIStoryboard *launchBoard = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
+    UIView* overlayView = [[launchBoard instantiateViewControllerWithIdentifier:@"LaunchVC"] view]  ;
+    overlayView.frame = self.window.rootViewController.view.bounds;
+    overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    
-    
     UIStoryboard *storyboard = self.window.rootViewController.storyboard;
     
     
     UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
     [newMoodmonVC setModalPresentationStyle: UIModalPresentationCurrentContext];
     [self.window makeKeyAndVisible];
-    [self.window.rootViewController presentViewController:newMoodmonVC animated:YES completion:nil];
+    [self.window addSubview:overlayView];
+    [self.window.rootViewController presentViewController:newMoodmonVC animated:NO completion:^{
+        NSLog(@"displaying (AppDelegate)");
+        [UIView animateWithDuration:0.5 animations:^{
+            overlayView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [overlayView removeFromSuperview];
+        }];
+    }];
+    
+//
+//    UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    while(top.presentedViewController)
+//    {
+//        top = top.presentedViewController;
+//    }
+//    UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
+//    [top presentViewController:newMoodmonVC animated:YES completion: nil];
     return YES;
 }
 

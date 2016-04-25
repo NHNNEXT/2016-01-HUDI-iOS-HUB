@@ -492,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE9-5G-fU8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="-221"/>
+            <point key="canvasLocation" x="222" y="-369"/>
         </scene>
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">
@@ -564,7 +564,7 @@
             <objects>
                 <tableViewController id="m9e-6S-CAL" customClass="MDMoodFilterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="GMe-Sm-coF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -582,10 +582,12 @@
                             <outlet property="delegate" destination="m9e-6S-CAL" id="iyR-Oj-KMG"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="lBf-Ik-dvw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7wK-Ho-QHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="680"/>
+            <point key="canvasLocation" x="1960" y="680"/>
         </scene>
         <!--Month View Controller-->
         <scene sceneID="fHh-ad-Qp7">
@@ -706,7 +708,7 @@
                                 <rect key="frame" x="20" y="501" width="32" height="30"/>
                                 <state key="normal" title="filter"/>
                                 <connections>
-                                    <segue destination="m9e-6S-CAL" kind="presentation" id="5p1-50-QHC"/>
+                                    <segue destination="Bpv-3I-NYe" kind="presentation" id="5p1-50-QHC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -748,7 +750,25 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1054" y="-167"/>
+            <point key="canvasLocation" x="1003" y="-288"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pfK-9M-QkZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bpv-3I-NYe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ru9-9D-h38">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m9e-6S-CAL" kind="relationship" relationship="rootViewController" id="Mgj-6r-KIt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0qK-wb-h15" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485" y="680"/>
         </scene>
     </scenes>
     <resources>

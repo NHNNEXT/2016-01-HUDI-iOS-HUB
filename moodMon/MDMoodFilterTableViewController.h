@@ -19,4 +19,6 @@
 -(void)selectAllMood;
 -(void)showAlert:(NSNotification*)notification;
 
+
+- (CGFloat)topOfViewOffset;
 @end
