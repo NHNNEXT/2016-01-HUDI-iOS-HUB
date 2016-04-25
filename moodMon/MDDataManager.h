@@ -45,4 +45,5 @@
 
 -(NSUInteger)recentMood;
 -(NSArray<MDMoodmon*>*)getFilteredMoodmons;
+//-(NSArray<MDMoodmon*)getEventStringResult;
 @end

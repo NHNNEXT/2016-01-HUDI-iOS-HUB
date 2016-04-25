@@ -29,8 +29,10 @@ NSMutableArray *moodmonConf;
     [super viewDidLoad];
     MDDataManager *mddm = [[MDDataManager alloc]init];
     [mddm createDB];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
+    
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
@@ -45,15 +47,10 @@ NSMutableArray *moodmonConf;
     
     
     
-   
     // Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-  
-    
-    
-}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -155,12 +152,10 @@ NSMutableArray *moodmonConf;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return moodmonConf.count;
 }
 
