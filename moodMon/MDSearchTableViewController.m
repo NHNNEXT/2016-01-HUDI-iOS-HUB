@@ -60,6 +60,7 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     // update the filtered array based on the search text
     NSString *searchText = searchController.searchBar.text;
+    if(searchText.length == 0) return;
     NSMutableArray *searchResults = [_dataManager.moodCollection mutableCopy];
     
     // strip out all the leading and trailing spaces
@@ -104,6 +105,7 @@
     NSCompoundPredicate *finalCompoundPredicate =
     [NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
     searchResults = [[searchResults filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
+    
     
     _filteredProducts = searchResults;
     [self.tableView reloadData];
