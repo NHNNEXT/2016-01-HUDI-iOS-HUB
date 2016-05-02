@@ -150,9 +150,12 @@
 
 - (void)deleteFromChosenMoods:(NSNumber *)moodNum {
     NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"moodNum != %@", moodNum];
-    NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"K CONTAINS %@", moodNum];
     self.chosenMoods = [[self.chosenMoods filteredArrayUsingPredicate:predicate1] mutableCopy];
-    self.moodColor.chosenMoods = [[self.moodColor.chosenMoods filteredArrayUsingPredicate:predicate2] mutableCopy];
+    for(int i=0 ; i<[self.moodColor.chosenMoods count] ; i++) {
+        if(self.moodColor.chosenMoods[i] == moodNum) {
+            [self.moodColor.chosenMoods removeObjectAtIndex:i];
+        }
+    }
     [self.moodColor setNeedsDisplay];
 }
 
