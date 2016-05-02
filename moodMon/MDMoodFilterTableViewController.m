@@ -28,7 +28,6 @@
     self.dataManager = [MDDataManager sharedDataManager];
     
   
-   
     
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Filter"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(moodDidChoose)];
