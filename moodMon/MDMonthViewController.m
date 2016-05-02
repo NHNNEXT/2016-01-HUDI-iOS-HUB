@@ -25,6 +25,7 @@ NSMutableArray *moodmonConf;
 
 
 - (void)viewDidLoad {
+
     count=0;
     [super viewDidLoad];
     MDDataManager *mddm = [[MDDataManager alloc]init];
@@ -56,6 +57,12 @@ NSMutableArray *moodmonConf;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)goToYearView{
+    MDYearViewController *yvc = [[MDYearViewController alloc]initWithNibName:@"yearVC" bundle:nil];
+    [yvc setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [self presentModalViewController:yvc animated:YES];
 }
 
 - (IBAction)handleSwipe:(UISwipeGestureRecognizer *)swipe {
