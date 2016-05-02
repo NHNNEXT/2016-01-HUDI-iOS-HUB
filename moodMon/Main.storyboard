@@ -754,7 +754,7 @@
                                     <rect key="frame" x="15" y="76" width="151" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="TL5-nJ-UfS" kind="show" id="Ehx-1q-ogs"/>
+                                    <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -775,7 +775,7 @@
                                     <rect key="frame" x="37" y="38" width="107" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="COX-hV-sA8" kind="show" id="VzE-kx-u5e"/>
+                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
                                 </connections>
                             </button>
                         </barButtonItem>
