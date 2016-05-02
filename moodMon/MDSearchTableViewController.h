@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSArray *filteredProducts;
 
 
-// for state restoration
+//for state restoration
 @property BOOL searchControllerWasActive;
 @property BOOL searchControllerSearchFieldWasFirstResponder;
 
