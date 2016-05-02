@@ -26,7 +26,8 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;
-    
+    [self.navigationController setNavigationBarHidden:YES];
+
     self.filteredProducts = nil;
     
 }
@@ -39,12 +40,14 @@
         self.searchController.active = self.searchControllerWasActive;
         _searchControllerWasActive = NO;
         
+        
+        
         if (self.searchControllerSearchFieldWasFirstResponder) {
             [self.searchController.searchBar becomeFirstResponder];
-            _searchControllerSearchFieldWasFirstResponder = NO;
+           _searchControllerSearchFieldWasFirstResponder = NO;
         }
     }
-    
+
 }
 
 
@@ -54,7 +57,15 @@
     [searchBar resignFirstResponder];
 }
 
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+//
+//-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+//    searchBar.text
+//}
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
