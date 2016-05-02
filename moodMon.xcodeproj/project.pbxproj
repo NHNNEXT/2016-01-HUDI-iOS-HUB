@@ -283,9 +283,30 @@
 			path = moodMonUITests;
 			sourceTree = "<group>";
 		};
+		CE87EC4E1CCE106B00329E16 /* newMoodmon */ = {
+			isa = PBXGroup;
+			children = (
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
+				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
+				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
+				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
+				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
+				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
+				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+			);
+			name = newMoodmon;
+			sourceTree = "<group>";
+		};
 		CE87EC4F1CCE109900329E16 /* otherFunction */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */,
+				CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */,
+				CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */,
+				CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */,
 				CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */,
 				CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */,
 			);
@@ -438,7 +459,6 @@
 				TargetAttributes = {
 					CE4A8A321CABCCB1006B73B7 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = UQAYNE782A;
 					};
 					CE4A8A4B1CABCCB1006B73B7 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -677,14 +697,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = moodMon/Info.plist;
 				"LD_MAP_FILE_PATH[arch=*]" = "-lsqlite3";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = next16.moodMon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -692,13 +709,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = moodMon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = next16.moodMon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -28,8 +28,8 @@ NSMutableArray *moodmonConf;
 
     count=0;
     [super viewDidLoad];
-    MDDataManager *mddm = [MDDataManager sharedDataManager];
-   // [mddm createDB];
+    MDDataManager *mddm = [[MDDataManager alloc]init];
+    [mddm createDB];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
