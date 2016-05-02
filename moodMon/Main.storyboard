@@ -216,11 +216,34 @@
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7t-Sq-t3y" userLabel="mood color" customClass="MDMoodColorView">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="JR9-IH-wqR"/>
+                                            <constraint firstAttribute="height" constant="150" id="v35-2x-IFE"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="JR9-IH-wqR"/>
+                                                <exclude reference="v35-2x-IFE"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="JR9-IH-wqR"/>
+                                                <include reference="v35-2x-IFE"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joy_degree1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SdP-bN-ebp" userLabel="center mood.png">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="FTC-I6-G3L"/>
-                                            <constraint firstAttribute="height" constant="160" id="ZUV-qN-hwS"/>
+                                            <constraint firstAttribute="width" constant="160" id="FTC-I6-G3L">
+                                                <variation key="widthClass=compact" constant="140"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="160" id="ZUV-qN-hwS">
+                                                <variation key="widthClass=compact" constant="140"/>
+                                            </constraint>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -256,6 +279,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Y6E-gj-7fr" secondAttribute="trailing" constant="8" id="UMP-7k-feT">
                                         <variation key="widthClass=compact" constant="9"/>
                                     </constraint>
+                                    <constraint firstItem="g7t-Sq-t3y" firstAttribute="centerX" secondItem="8WY-Ar-NXR" secondAttribute="centerX" id="Wus-7y-p5i"/>
                                     <constraint firstItem="Pe1-2L-RgS" firstAttribute="top" secondItem="8WY-Ar-NXR" secondAttribute="top" constant="6" id="cBa-uh-8ze">
                                         <variation key="widthClass=compact" constant="3"/>
                                     </constraint>
@@ -272,6 +296,7 @@
                                         <variation key="widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="Y6E-gj-7fr" firstAttribute="top" secondItem="8WY-Ar-NXR" secondAttribute="top" constant="72" id="lco-y4-dJi"/>
+                                    <constraint firstItem="g7t-Sq-t3y" firstAttribute="centerY" secondItem="8WY-Ar-NXR" secondAttribute="centerY" id="rac-AU-1IN"/>
                                     <constraint firstAttribute="bottom" secondItem="aL2-3u-dsJ" secondAttribute="bottom" constant="23" id="uK8-bW-lyk">
                                         <variation key="widthClass=compact" constant="26"/>
                                     </constraint>
@@ -290,6 +315,7 @@
                                         <exclude reference="uUR-Qm-e63"/>
                                         <exclude reference="zNn-AG-cqa"/>
                                         <exclude reference="aL2-3u-dsJ"/>
+                                        <exclude reference="g7t-Sq-t3y"/>
                                         <exclude reference="SdP-bN-ebp"/>
                                     </mask>
                                     <mask key="constraints">
@@ -305,6 +331,8 @@
                                         <exclude reference="lco-y4-dJi"/>
                                         <exclude reference="BaL-DU-MJu"/>
                                         <exclude reference="uK8-bW-lyk"/>
+                                        <exclude reference="Wus-7y-p5i"/>
+                                        <exclude reference="rac-AU-1IN"/>
                                         <exclude reference="I1d-xt-i4g"/>
                                         <exclude reference="xu2-On-SmK"/>
                                         <exclude reference="hCl-u1-aIw"/>
@@ -319,6 +347,7 @@
                                         <include reference="uUR-Qm-e63"/>
                                         <include reference="zNn-AG-cqa"/>
                                         <include reference="aL2-3u-dsJ"/>
+                                        <include reference="g7t-Sq-t3y"/>
                                         <include reference="SdP-bN-ebp"/>
                                     </mask>
                                     <mask key="constraints">
@@ -334,6 +363,8 @@
                                         <include reference="lco-y4-dJi"/>
                                         <include reference="BaL-DU-MJu"/>
                                         <include reference="uK8-bW-lyk"/>
+                                        <include reference="Wus-7y-p5i"/>
+                                        <include reference="rac-AU-1IN"/>
                                         <include reference="I1d-xt-i4g"/>
                                         <include reference="xu2-On-SmK"/>
                                         <include reference="hCl-u1-aIw"/>
@@ -346,29 +377,6 @@
                                 <state key="normal" title="save - test"/>
                                 <connections>
                                     <action selector="saveNewMoodMon:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="dBO-d4-kgP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHN-k1-D2d">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7Qa-dW-6Uh"/>
-                                    <constraint firstAttribute="width" constant="46" id="Df0-2o-T4o"/>
-                                </constraints>
-                                <state key="normal" title="reset"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="7Qa-dW-6Uh"/>
-                                        <exclude reference="Df0-2o-T4o"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="7Qa-dW-6Uh"/>
-                                        <include reference="Df0-2o-T4o"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="resetViews:" destination="TL5-nJ-UfS" eventType="touchUpInside" id="TJ9-fB-W7x"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHR-wz-XeA" customClass="MDRecentMoodView">
@@ -400,9 +408,6 @@
                                 <variation key="widthClass=compact" constant="37"/>
                             </constraint>
                             <constraint firstItem="zuU-2m-ArN" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Mhj-Re-3Dr"/>
-                            <constraint firstItem="BHN-k1-D2d" firstAttribute="top" secondItem="3bK-JH-HWk" secondAttribute="bottom" constant="130" id="TGl-4p-dfl">
-                                <variation key="widthClass=compact" constant="120"/>
-                            </constraint>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="YQ0-gl-eM6"/>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Yc1-MW-s0P"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="width" secondItem="J26-NR-hzB" secondAttribute="width" id="Zil-cv-FOb"/>
@@ -414,9 +419,6 @@
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="gmx-3E-Jpj" secondAttribute="bottom" constant="65" id="h7d-63-w48"/>
-                            <constraint firstItem="BHN-k1-D2d" firstAttribute="leading" secondItem="J26-NR-hzB" secondAttribute="leadingMargin" constant="87" id="i8Y-k2-Qie">
-                                <variation key="widthClass=compact" constant="46"/>
-                            </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="kcQ-zz-OBG"/>
                         </constraints>
                         <variation key="default">
@@ -426,15 +428,12 @@
                                 <exclude reference="96Q-cZ-hzE"/>
                                 <exclude reference="8WY-Ar-NXR"/>
                                 <exclude reference="IVh-HZ-nST"/>
-                                <exclude reference="BHN-k1-D2d"/>
                                 <exclude reference="dHR-wz-XeA"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="gcM-WE-PDN"/>
                                 <exclude reference="Keo-Kf-dBj"/>
                                 <exclude reference="Mhj-Re-3Dr"/>
-                                <exclude reference="TGl-4p-dfl"/>
-                                <exclude reference="i8Y-k2-Qie"/>
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
                                 <exclude reference="54e-1P-TKD"/>
@@ -454,15 +453,12 @@
                                 <include reference="96Q-cZ-hzE"/>
                                 <include reference="8WY-Ar-NXR"/>
                                 <include reference="IVh-HZ-nST"/>
-                                <include reference="BHN-k1-D2d"/>
                                 <include reference="dHR-wz-XeA"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="gcM-WE-PDN"/>
                                 <include reference="Keo-Kf-dBj"/>
                                 <include reference="Mhj-Re-3Dr"/>
-                                <include reference="TGl-4p-dfl"/>
-                                <include reference="i8Y-k2-Qie"/>
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
                                 <include reference="54e-1P-TKD"/>
@@ -484,6 +480,7 @@
                         <outlet property="day" destination="gmx-3E-Jpj" id="9Mg-Kq-zS4"/>
                         <outlet property="excited" destination="zNn-AG-cqa" id="tm3-k1-sOD"/>
                         <outlet property="joy" destination="Y6E-gj-7fr" id="tnH-qs-8Mr"/>
+                        <outlet property="moodColor" destination="g7t-Sq-t3y" id="k8K-ra-vWM"/>
                         <outlet property="recentMoodView" destination="dHR-wz-XeA" id="TIe-y4-2oe"/>
                         <outlet property="sad" destination="aL2-3u-dsJ" id="Oy1-AK-E04"/>
                         <outlet property="tired" destination="uUR-Qm-e63" id="Mwg-0Z-CKg"/>
@@ -860,7 +857,7 @@
         <image name="angry_unselect.png" width="261" height="265"/>
         <image name="circle.png" width="734" height="735"/>
         <image name="excited_unselect.png" width="261" height="261"/>
-        <image name="joy_degree1.png" width="478" height="478"/>
+        <image name="joy_degree1.png" width="280" height="280"/>
         <image name="joy_unselect.png" width="261" height="261"/>
         <image name="sad_unselect.png" width="261" height="261"/>
         <image name="tired_unselect.png" width="260" height="261"/>

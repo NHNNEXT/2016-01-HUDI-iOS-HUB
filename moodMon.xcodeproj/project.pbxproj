@@ -49,7 +49,12 @@
 		E935252B1CBC8507005AC613 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E935252A1CBC8507005AC613 /* circle@2x.png */; };
 		E941A21C1CC2644C00D742A9 /* angry_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E941A21B1CC2644C00D742A9 /* angry_wheel@2x.png */; };
 		E95EB77F1CC4BCAB00141FBF /* MDRecentMoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */; };
-		E97495B61CBA44980000E389 /* joy_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97495B51CBA44980000E389 /* joy_degree1@2x.png */; };
+		E97B309F1CCD8F5600FB8502 /* joy_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B309E1CCD8F5600FB8502 /* joy_degree1@2x.png */; };
+		E97B30A11CCD8F6100FB8502 /* angry_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B30A01CCD8F6100FB8502 /* angry_degree1@2x.png */; };
+		E97B30A31CCD8F6900FB8502 /* excited_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B30A21CCD8F6900FB8502 /* excited_degree1@2x.png */; };
+		E97B30A51CCD8F6F00FB8502 /* tired_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B30A41CCD8F6F00FB8502 /* tired_degree1@2x.png */; };
+		E97B30A71CCD8F7500FB8502 /* sad_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E97B30A61CCD8F7500FB8502 /* sad_degree1@2x.png */; };
+		E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97B30A91CCD949100FB8502 /* MDMoodColorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +138,13 @@
 		E941A21B1CC2644C00D742A9 /* angry_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_wheel@2x.png"; sourceTree = "<group>"; };
 		E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRecentMoodView.h; sourceTree = "<group>"; };
 		E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRecentMoodView.m; sourceTree = "<group>"; };
-		E97495B51CBA44980000E389 /* joy_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_degree1@2x.png"; sourceTree = "<group>"; };
+		E97B309E1CCD8F5600FB8502 /* joy_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_degree1@2x.png"; sourceTree = "<group>"; };
+		E97B30A01CCD8F6100FB8502 /* angry_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree1@2x.png"; sourceTree = "<group>"; };
+		E97B30A21CCD8F6900FB8502 /* excited_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_degree1@2x.png"; sourceTree = "<group>"; };
+		E97B30A41CCD8F6F00FB8502 /* tired_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_degree1@2x.png"; sourceTree = "<group>"; };
+		E97B30A61CCD8F7500FB8502 /* sad_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_degree1@2x.png"; sourceTree = "<group>"; };
+		E97B30A81CCD949100FB8502 /* MDMoodColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodColorView.h; sourceTree = "<group>"; };
+		E97B30A91CCD949100FB8502 /* MDMoodColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodColorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +227,22 @@
 				657404351CD73EEB007FAE01 /* MDCustomStoryboardSegue.m */,
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-				CE87EC4E1CCE106B00329E16 /* newMoodmon */,
+				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
+				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
+				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
+				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
+				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
+				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
+				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
+				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+				CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */,
+				CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */,
+				CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */,
+				CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */,
 				6575788C1CB4BE7600D75D5E /* year */,
 				CE0C92CD1CAE56A60037E749 /* data */,
 				CE87EC4F1CCE109900329E16 /* otherFunction */,
@@ -290,6 +316,7 @@
 		E97495B01CBA44330000E389 /* angry */ = {
 			isa = PBXGroup;
 			children = (
+				E97B30A01CCD8F6100FB8502 /* angry_degree1@2x.png */,
 				658BE7081CB4CE98006EB718 /* angry_selected@2x.png */,
 				658BE7091CB4CE98006EB718 /* angry_unselect@2x.png */,
 				E941A21B1CC2644C00D742A9 /* angry_wheel@2x.png */,
@@ -300,6 +327,7 @@
 		E97495B11CBA44440000E389 /* tired */ = {
 			isa = PBXGroup;
 			children = (
+				E97B30A41CCD8F6F00FB8502 /* tired_degree1@2x.png */,
 				658BE7211CB4CE98006EB718 /* tired_selected@2x.png */,
 				658BE7221CB4CE98006EB718 /* tired_unselect@2x.png */,
 				658BE7231CB4CE98006EB718 /* tired_wheel@2x.png */,
@@ -310,6 +338,7 @@
 		E97495B21CBA44460000E389 /* excited */ = {
 			isa = PBXGroup;
 			children = (
+				E97B30A21CCD8F6900FB8502 /* excited_degree1@2x.png */,
 				658BE70C1CB4CE98006EB718 /* excited_selected@2x.png */,
 				658BE70D1CB4CE98006EB718 /* excited_unselect@2x.png */,
 				658BE70E1CB4CE98006EB718 /* excited_wheel@2x.png */,
@@ -320,6 +349,7 @@
 		E97495B31CBA44480000E389 /* sad */ = {
 			isa = PBXGroup;
 			children = (
+				E97B30A61CCD8F7500FB8502 /* sad_degree1@2x.png */,
 				658BE71E1CB4CE98006EB718 /* sad_selected@2x.png */,
 				658BE71F1CB4CE98006EB718 /* sad_unselect@2x.png */,
 				E93523F71CBAB8E4005AC613 /* sad_wheel@2x.png */,
@@ -330,7 +360,7 @@
 		E97495B41CBA444A0000E389 /* joy */ = {
 			isa = PBXGroup;
 			children = (
-				E97495B51CBA44980000E389 /* joy_degree1@2x.png */,
+				E97B309E1CCD8F5600FB8502 /* joy_degree1@2x.png */,
 				658BE70F1CB4CE98006EB718 /* joy_selected@2x.png */,
 				658BE7101CB4CE98006EB718 /* joy_unselect@2x.png */,
 				658BE7111CB4CE98006EB718 /* joy_wheel@2x.png */,
@@ -466,11 +496,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				658BE7371CB4CE98006EB718 /* sad_unselect@2x.png in Resources */,
+				E97B30A71CCD8F7500FB8502 /* sad_degree1@2x.png in Resources */,
 				658BE7291CB4CE98006EB718 /* excited_unselect@2x.png in Resources */,
 				658BE72A1CB4CE98006EB718 /* excited_wheel@2x.png in Resources */,
 				E935252B1CBC8507005AC613 /* circle@2x.png in Resources */,
 				658BE7391CB4CE98006EB718 /* tired_selected@2x.png in Resources */,
 				658BE7341CB4CE98006EB718 /* Quicksand-Light.otf in Resources */,
+				E97B30A11CCD8F6100FB8502 /* angry_degree1@2x.png in Resources */,
 				CE4A8A461CABCCB1006B73B7 /* LaunchScreen.storyboard in Resources */,
 				658BE7251CB4CE98006EB718 /* angry_unselect@2x.png in Resources */,
 				E93523F81CBAB8E4005AC613 /* sad_wheel@2x.png in Resources */,
@@ -480,13 +512,15 @@
 				CE4A8A431CABCCB1006B73B7 /* Assets.xcassets in Resources */,
 				658BE7361CB4CE98006EB718 /* sad_selected@2x.png in Resources */,
 				658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */,
+				E97B309F1CCD8F5600FB8502 /* joy_degree1@2x.png in Resources */,
+				E97B30A51CCD8F6F00FB8502 /* tired_degree1@2x.png in Resources */,
 				658BE7331CB4CE98006EB718 /* Quicksand-Bold.otf in Resources */,
-				E97495B61CBA44980000E389 /* joy_degree1@2x.png in Resources */,
 				658BE7351CB4CE98006EB718 /* Quicksand-Regular.otf in Resources */,
 				658BE72C1CB4CE98006EB718 /* joy_unselect@2x.png in Resources */,
 				658BE73B1CB4CE98006EB718 /* tired_wheel@2x.png in Resources */,
 				658BE72B1CB4CE98006EB718 /* joy_selected@2x.png in Resources */,
 				658BE7241CB4CE98006EB718 /* angry_selected@2x.png in Resources */,
+				E97B30A31CCD8F6900FB8502 /* excited_degree1@2x.png in Resources */,
 				658BE73A1CB4CE98006EB718 /* tired_unselect@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +559,7 @@
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
+				E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */,
 				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */,
 				CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */,
