@@ -50,7 +50,7 @@
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
-    if( [filemgr fileExistsAtPath:_dataBasePath] == NO){
+   // if( [filemgr fileExistsAtPath:_dataBasePath] == NO){
         NSLog(@"no db");
         
         const char *dbpath = [_dataBasePath UTF8String];
@@ -82,12 +82,12 @@
         NSLog(@"yes1 : SQL created");
 
         
-    } else {
+    //} else {
        
         NSLog(@"yes1 : read data from SQL ");
          [self readAllFromDBAndSetCollection];
         
-}
+    //}
     
     
     
