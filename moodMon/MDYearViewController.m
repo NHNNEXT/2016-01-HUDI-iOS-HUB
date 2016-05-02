@@ -109,7 +109,7 @@ int tag;
     yearly.text=[NSString stringWithFormat:@"%d",thisYear];
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+45, yVal-10, 20, 20)];
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
-    [[self.view addSubview:mon ]thLabel];
+    [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
         UILabel *dayButton = [[UILabel alloc]init];
         int xCoord=(newWeekDay*14)+xVal;
