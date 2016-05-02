@@ -49,7 +49,7 @@ int tag;
         [self myCalView];
         NSLog(@"down Swipe");
     }
-        if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
+    if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
         thisYear--;
         [self removeTags];
         [self myCalView];
@@ -109,9 +109,9 @@ int tag;
     yearly.text=[NSString stringWithFormat:@"%d",thisYear];
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+45, yVal-10, 20, 20)];
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
-    [self.view addSubview:monthLabel];
+    [[self.view addSubview:mon ]thLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
-        UIButton *dayButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+        UILabel *dayButton = [[UILabel alloc]init];
         int xCoord=(newWeekDay*14)+xVal;
         int yCoord=(yCount*14)+yVal;
         
@@ -122,9 +122,9 @@ int tag;
         }
         
         dayButton.frame = CGRectMake(xCoord, yCoord, 14, 14);
-        [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
-        [dayButton.titleLabel setFont:[UIFont systemFontOfSize:11]];
-        [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [dayButton setText:[NSString stringWithFormat:@"%d",startDay]];
+        [dayButton setFont:[UIFont systemFontOfSize:11]];
+        [dayButton setTextColor:[UIColor blackColor]];
         dayButton.tag=tag++;
         [self.view addSubview:dayButton];
     }
