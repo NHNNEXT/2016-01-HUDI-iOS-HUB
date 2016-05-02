@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MDDataManager.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,8 @@
 
     UIStoryboard *storyboard = self.window.rootViewController.storyboard;
     
+    MDDataManager *dm = [[MDDataManager alloc]init];
+    [dm createDB];
     
     UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
     [newMoodmonVC setModalPresentationStyle: UIModalPresentationCurrentContext];
