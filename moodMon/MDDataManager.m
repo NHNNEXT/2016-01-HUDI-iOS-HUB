@@ -296,36 +296,63 @@
      exhausted - 51~55
     */
     
-    // 만약 최근에 angry와 exhausted가 있으면 그 평균은 sad가 됨... 단순히 평균을 가지고 최근 감정이라고 판단해선 안될 듯.
     
     int count = (int)[self.moodCollection count];
+   // NSLog(@"count : %d",count);
     if(count == 1) return 0;
     int chosenCount = 0;
-    int sum = 0;
+    int sum[5] = {0,0,0,0,0};
     
     if(count < 6){
         for(int i = count -1 ; i >= 1 ; i--){
+           // NSLog(@"count : %d",count);
             MDMoodmon *temp = [self.moodCollection objectAtIndex:i];
-            if((int)temp.moodChosen1) chosenCount ++;
-            if((int)temp.moodChosen2) chosenCount ++;
-            if((int)temp.moodChosen3) chosenCount ++;
-            sum += (int)temp.moodChosen1;
-            sum += (int)temp.moodChosen2;
-            sum += (int)temp.moodChosen3;
+            if((int)temp.moodChosen1 ) {
+                chosenCount ++;
+                sum[((int)temp.moodChosen1/10)-1] += (int)temp.moodChosen1 % 10;
+            }
+            
+            if((int)temp.moodChosen2 ){
+                chosenCount ++;
+                sum[((int)temp.moodChosen2/10)-1] += (int)temp.moodChosen2 % 10;
+            }
+            if((int)temp.moodChosen3 ) {
+                chosenCount ++;
+                sum[((int)temp.moodChosen3/10)-1] += (int)temp.moodChosen3 % 10;
+            }
+          
+            
         }
     } else {
         for(int i = count-1 ; i >= (count-1)-5 ; i--){
             MDMoodmon *temp = [self.moodCollection objectAtIndex:i];
-            if((int)temp.moodChosen1) chosenCount ++;
-            if((int)temp.moodChosen2) chosenCount ++;
-            if((int)temp.moodChosen3) chosenCount ++;
-            sum += (int)temp.moodChosen1;
-            sum += (int)temp.moodChosen2;
-            sum += (int)temp.moodChosen3;
+            if((int)temp.moodChosen1 ) {
+                
+                chosenCount ++;
+                sum[((int)temp.moodChosen1/10)-1] += (int)temp.moodChosen1 % 10;
+            }
+            
+            if((int)temp.moodChosen2 ){
+                chosenCount ++;
+                sum[((int)temp.moodChosen2/10)-1] += (int)temp.moodChosen2 % 10;
+            }
+            if((int)temp.moodChosen3 ) {
+                chosenCount ++;
+                sum[((int)temp.moodChosen3/10)-1] += (int)temp.moodChosen3 % 10;
+            }
         }
     }
     
-    return (int)sum/(int)chosenCount;
+    
+    int bigIndex = 0;
+    for(int i = 0 ; i < 5 ; i++){
+        if(sum[i] > sum[bigIndex]) bigIndex = i;
+    }
+   // NSLog(@"count : %d",bigIndex);
+    //NSLog(@"%d %d %d %d %d ", sum[0], sum[2])
+
+    
+    return 10 *(bigIndex + 1) + ((int)sum[bigIndex]/(int)chosenCount);
 }
 
 /*
