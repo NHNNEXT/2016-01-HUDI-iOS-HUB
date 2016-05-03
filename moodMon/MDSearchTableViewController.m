@@ -28,25 +28,29 @@
     self.definesPresentationContext = YES;
     [self.navigationController setNavigationBarHidden:YES];
 
-    self.filteredProducts = nil;
+       self.filteredProducts = nil;
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+   
     [super viewDidAppear:animated];
+    [self.searchController setActive:YES];
+    [self.searchController.searchBar becomeFirstResponder];
     
     // restore the searchController's active state
     if (self.searchControllerWasActive) {
         self.searchController.active = self.searchControllerWasActive;
         _searchControllerWasActive = NO;
         
-        
-        
         if (self.searchControllerSearchFieldWasFirstResponder) {
             [self.searchController.searchBar becomeFirstResponder];
+            //[self.searchController.searchBar.window makeKeyAndVisible];
            _searchControllerSearchFieldWasFirstResponder = NO;
         }
     }
+
+    
 
 }
 
@@ -62,10 +66,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-//
-//-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-//    searchBar.text
-//}
+
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
