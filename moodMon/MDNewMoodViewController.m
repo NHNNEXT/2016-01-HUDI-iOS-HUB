@@ -141,7 +141,7 @@
     // 새로 선택한 감정을 chosenMoods에 추가.
     // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
     NSMutableDictionary *chosenMood = [@{@"moodNum" : moodNum, @"moodIntensity" : @1} mutableCopy];
-    [self.moodColor.chosenMoods addObject:[chosenMood objectForKey:@"moodNum"]];
+    [self.moodColor.chosenMoods addObject:moodNum];
     [self.moodColor setNeedsDisplay];
     [self.chosenMoods addObject:chosenMood];
 }
