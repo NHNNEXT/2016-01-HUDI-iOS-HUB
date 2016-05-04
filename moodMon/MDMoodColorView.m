@@ -16,7 +16,7 @@
 
 - (void)awakeFromNib {
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
-    self.colors = @[[UIColor colorWithRed:1 green:1 blue:1 alpha:0.1], [UIColor colorWithRed:.91 green:.33 blue:.29 alpha:1], [UIColor colorWithRed:.96 green:.76 blue:.26 alpha:1], [UIColor colorWithRed:0.30 green:0.47 blue:0.86 alpha:1], [UIColor colorWithRed:.28 green:.82 blue:.71 alpha:1], [UIColor colorWithRed:.80 green:.60 blue:.97 alpha:1]];
+    self.colors = @[[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1], [UIColor colorWithRed:.91 green:.33 blue:.29 alpha:1], [UIColor colorWithRed:.96 green:.76 blue:.26 alpha:1], [UIColor colorWithRed:0.30 green:0.47 blue:0.86 alpha:1], [UIColor colorWithRed:.28 green:.82 blue:.71 alpha:1], [UIColor colorWithRed:.80 green:.60 blue:.97 alpha:1]];
     self.layer.cornerRadius = 64;
     self.layer.masksToBounds = YES;
 }
@@ -39,20 +39,17 @@
 
     if(_chosenMoods.count == 1) {
         CFArrayRef colors = (__bridge CFArrayRef)([NSArray arrayWithObjects:(id)baseColor.CGColor, (id)baseColor.CGColor, nil]);
-        NSLog(@"%@", colors);
         return CGGradientCreateWithColors(colorSpace, colors, locations1);
     }
     else if(_chosenMoods.count == 2) {
         UIColor *color1 = _colors[[_chosenMoods[1] intValue]/10];
         CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(id)color1.CGColor, (id)color1.CGColor, nil];
-        NSLog(@"%@", colors);
         return CGGradientCreateWithColors(colorSpace, colors, locations1);
     }
     else if(_chosenMoods.count == 3) {
         UIColor *color1 = _colors[[_chosenMoods[1] intValue]/10];
         UIColor *color2 = _colors[[_chosenMoods[2] intValue]/10];
         CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(id)color1.CGColor, (id)color2.CGColor, nil];
-        NSLog(@"%@", colors);
         return CGGradientCreateWithColors(colorSpace, colors, locations1);
     }
     else {
@@ -63,7 +60,6 @@
         UIColor *color3 = _colors[[_chosenMoods[3] intValue]/10];
         color3 = [color3 colorWithAlphaComponent:0.8];
         CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(id)color1.CGColor, (id)color2.CGColor, (id)color2.CGColor, (id)color3.CGColor, nil];
-        NSLog(@"%@", colors);
         return CGGradientCreateWithColors(colorSpace, colors, locations2);
     }
 }
