@@ -56,7 +56,7 @@
         UIColor *color1 = _colors[[_chosenMoods[1] intValue]/10];
         color1 = [color1 colorWithAlphaComponent:0.8];
         UIColor *color2 = _colors[[_chosenMoods[2] intValue]/10];
-        color2 = [color2 colorWithAlphaComponent:0.45];
+        color2 = [color2 colorWithAlphaComponent:0.6];
         UIColor *color3 = _colors[[_chosenMoods[3] intValue]/10];
         color3 = [color3 colorWithAlphaComponent:0.8];
         CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(id)color1.CGColor, (id)color2.CGColor, (id)color2.CGColor, (id)color3.CGColor, nil];

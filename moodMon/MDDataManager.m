@@ -51,14 +51,14 @@
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
    // if( [filemgr fileExistsAtPath:_dataBasePath] == NO){
-        NSLog(@"no db");
-        
+//        NSLog(@"no db");
+    
         const char *dbpath = [_dataBasePath UTF8String];
         
         if(sqlite3_open(dbpath, &_moodmonDB) == SQLITE_OK){
             char *errMsg;
             
-            NSLog(@"no1 : open DB" );
+//            NSLog(@"no1 : open DB" );
             const char *sql_stmt = "CREATE TABLE IF NOT EXISTS moodmon(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, moodComment VARCHAR(150) NULL, moodDate Datetime NOT NULL, moodChosen1 INTEGER NOT NULL DEFAULT 0, moodChosen2 INTEGER NOT NULL DEFAULT 0, moodChosen3 INTEGER NOT NULL DEFAULT 0, isDeleted BOOL DEFAULT false);";
             
             /* 
@@ -79,12 +79,12 @@
             //@"Failed to open/create datebase";
         }
         
-        NSLog(@"yes1 : SQL created");
+//        NSLog(@"yes1 : SQL created");
 
         
     //} else {
        
-        NSLog(@"yes1 : read data from SQL ");
+//        NSLog(@"yes1 : read data from SQL ");
          [self readAllFromDBAndSetCollection];
         
     //}
@@ -98,14 +98,14 @@
     const char *dbpath = [_dataBasePath UTF8String];
     
     if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
-        NSLog(@"yes2 : start reading from SQL");
+//        NSLog(@"yes2 : start reading from SQL");
         NSString *querySQL = @"SELECT * FROM moodmon";
         
         const char *query_stmt = [querySQL UTF8String];
         
         if(sqlite3_prepare_v2(_moodmonDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
             
-            NSLog(@"yes3 : sql function in progress");
+//            NSLog(@"yes3 : sql function in progress");
             /* COLUME_NUM & property
                 0 - id / int
                 1 - moodComment / varchar(150)
@@ -121,7 +121,7 @@
                 int idint = sqlite3_column_int(statement, 0);
                 if(idint == 0) continue;
                 
-                NSLog(@"INDEX %d is saving", idint);
+//                NSLog(@"INDEX %d is saving", idint);
                 NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
                 NSUInteger moodChosen1 = sqlite3_column_int(statement, 3);
                 NSUInteger moodChosen2 = sqlite3_column_int(statement, 4);
@@ -182,7 +182,7 @@
 
 - (void)saveNewMoodMonOfComment:(NSString*)comment asFirstChosen:(int)first SecondChosen:(int)second andThirdChosen:(int)third{
     
-    NSLog(@"yes4 : Start to save new !!!");
+//    NSLog(@"yes4 : Start to save new !!!");
     
     if(!first){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"moodNotChosen" object:self userInfo:@{@"message" : @"please choose a moodmon"}];
@@ -244,7 +244,7 @@
     const char *dbpath = [_dataBasePath UTF8String];
     
     if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
-        NSLog(@"yes5 : Start to save new into SQL");
+//        NSLog(@"yes5 : Start to save new into SQL");
         
         /* COLUME_NUM & property
          0 - id / int
@@ -258,17 +258,17 @@
         
         NSString *dateString = [NSString stringWithFormat:@"%ld-%ld-%ld %@", moodmon.moodYear, moodmon.moodMonth, moodmon.moodDay, moodmon.moodTime] ;
         
-        NSLog(@"now : %@",dateString);
+//        NSLog(@"now : %@",dateString);
         NSString *insertSQL =  [NSString stringWithFormat:@"INSERT INTO moodmon(moodComment, moodDate, moodChosen1, moodChosen2, moodChosen3) VALUES(\"%@\",\"%@\", %d,%d,%d);", moodmon.moodComment,  dateString ,(int)moodmon.moodChosen1,(int)moodmon.moodChosen2,(int)moodmon.moodChosen3];
         // 흠.... insert문 4,5,6(>=0 && <56)은 확인하고 넣어야 해.
         
-        NSLog(@"demand : %@", insertSQL);
+//        NSLog(@"demand : %@", insertSQL);
         const char* insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_moodmonDB, insert_stmt, -1, &statement, NULL);
         
         
         if(sqlite3_step(statement) == SQLITE_DONE){
-            NSLog(@"NEW  moodmon added, the time of %@", moodmon.moodTime);
+//            NSLog(@"NEW  moodmon added, the time of %@", moodmon.moodTime);
           
             
         } else {
