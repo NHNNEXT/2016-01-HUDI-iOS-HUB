@@ -66,18 +66,20 @@ int tag;
 }
 -(void)myCalView{
     tag=1;
-    [self moreDateInfo:1 xVal:32 yVal:100];
-    [self moreDateInfo:2 xVal:162 yVal:100];
-    [self moreDateInfo:3 xVal:292 yVal:100];
-    [self moreDateInfo:4 xVal:32 yVal:230];
-    [self moreDateInfo:5 xVal:162 yVal:230];
-    [self moreDateInfo:6 xVal:292 yVal:230];
-    [self moreDateInfo:7 xVal:32 yVal:360];
-    [self moreDateInfo:8 xVal:162 yVal:360];
-    [self moreDateInfo:9 xVal:292 yVal:360];
-    [self moreDateInfo:10 xVal:32 yVal:490];
-    [self moreDateInfo:11 xVal:162 yVal:490];
-    [self moreDateInfo:12 xVal:292 yVal:490];
+    double xVal=CGRectGetWidth(self.view.bounds)/3,yVal=CGRectGetHeight(self.view.bounds)/5;
+    
+    [self moreDateInfo:1 xVal:0 yVal:yVal];
+    [self moreDateInfo:2 xVal:xVal yVal:yVal];
+    [self moreDateInfo:3 xVal:xVal*2 yVal:yVal];
+    [self moreDateInfo:4 xVal:0 yVal:yVal*2];
+    [self moreDateInfo:5 xVal:xVal yVal:yVal*2];
+    [self moreDateInfo:6 xVal:xVal*2 yVal:yVal*2];
+    [self moreDateInfo:7 xVal:0 yVal:yVal*3];
+    [self moreDateInfo:8 xVal:xVal yVal:yVal*3];
+    [self moreDateInfo:9 xVal:xVal*2 yVal:yVal*3];
+    [self moreDateInfo:10 xVal:0 yVal:yVal*4];
+    [self moreDateInfo:11 xVal:xVal yVal:yVal*4];
+    [self moreDateInfo:12 xVal:xVal*2 yVal:yVal*4];
 }
 
 -(NSUInteger)getCurrDateInfo:(NSDate *)myDate{
@@ -107,12 +109,12 @@ int tag;
     int yCount=1;
     
     yearly.text=[NSString stringWithFormat:@"%d",thisYear];
-    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+45, yVal-10, 20, 20)];
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/7, yVal-10, 20, 20)];
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
     [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
         UILabel *dayButton = [[UILabel alloc]init];
-        int xCoord=(newWeekDay*14)+xVal;
+        int xCoord=(newWeekDay*CGRectGetWidth(self.view.bounds)/25)+xVal+10;
         int yCoord=(yCount*14)+yVal;
         
         newWeekDay++;
@@ -121,9 +123,9 @@ int tag;
             yCount++;
         }
         
-        dayButton.frame = CGRectMake(xCoord, yCoord, 14, 14);
+        dayButton.frame = CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/10, CGRectGetWidth(self.view.bounds)/2.8/10);
         [dayButton setText:[NSString stringWithFormat:@"%d",startDay]];
-        [dayButton setFont:[UIFont systemFontOfSize:11]];
+        [dayButton setFont:[UIFont systemFontOfSize:CGRectGetWidth(self.view.bounds)/2.8/13]];
         [dayButton setTextColor:[UIColor blackColor]];
         dayButton.tag=tag++;
         [self.view addSubview:dayButton];

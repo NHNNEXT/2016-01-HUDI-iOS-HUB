@@ -107,7 +107,7 @@ NSMutableArray *moodmonConf;
         thisMonth=12;
         thisYear--;
     }
-    int xVal=34,yVal=140;
+    int xVal=CGRectGetWidth(self.view.bounds)/9,yVal=CGRectGetHeight(self.view.bounds)/20;
     NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc]init];
@@ -124,13 +124,46 @@ NSMutableArray *moodmonConf;
     //    NSLog(@"Day week %d",newWeekDay);
     
     int yCount=1;
+    int xCoord=(newWeekDay*xVal)+xVal;
+    int yCoord=(yCount*yVal)+yVal*3.5;
+    for(int i=0;i<7;i++){
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
+        switch (i) {
+            case 0:
+                [monthLabel setText:[NSString stringWithFormat:@"월"]];
+                break;
+            case 1:
+                [monthLabel setText:[NSString stringWithFormat:@"화"]];
+                break;
+            case 2:
+                [monthLabel setText:[NSString stringWithFormat:@"수"]];
+                break;
+            case 3:
+                [monthLabel setText:[NSString stringWithFormat:@"목"]];
+                break;
+            case 4:
+                [monthLabel setText:[NSString stringWithFormat:@"금"]];
+                break;
+            case 5:
+                [monthLabel setText:[NSString stringWithFormat:@"토"]];
+                break;
+            case 6:
+                [monthLabel setText:[NSString stringWithFormat:@"일"]];
+                break;
+            default:
+                break;
+        }
+    [monthLabel setFont:[UIFont systemFontOfSize:20]];
+    [monthLabel setTextColor:[UIColor blackColor]];
+    [self.view addSubview:monthLabel];
+    }
 //    
     _yearLabel.text=[NSString stringWithFormat:@"%d",thisYear];
     [_monthLabel setText:[NSString stringWithFormat:@"%d",thisMonth]];
     for(int startDay=1; startDay<=numDays;startDay++){
         UIButton *dayButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
-        int xCoord=(newWeekDay*51)+xVal;
-        int yCoord=(yCount*51)+yVal;
+        xCoord=(newWeekDay*xVal)+xVal;
+        yCoord=(yCount*yVal)+yVal*4.5;
         
         newWeekDay++;
         if(newWeekDay>6){
@@ -138,7 +171,7 @@ NSMutableArray *moodmonConf;
             yCount++;
         }
         
-        dayButton.frame = CGRectMake(xCoord, yCoord, 51, 51);
+        dayButton.frame = CGRectMake(xCoord, yCoord, xVal, yVal);
         [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
         [dayButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -151,7 +184,18 @@ NSMutableArray *moodmonConf;
             int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
             if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
-                dayButton.backgroundColor =[UIColor redColor];
+                
+                
+                if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
+                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
+                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
+                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
+                    }
+                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
+                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
+                    }
+                }
+//                dayButton.backgroundColor =self.moodColor.chosenMoods;
             }
         }
         [self.view addSubview:dayButton];
