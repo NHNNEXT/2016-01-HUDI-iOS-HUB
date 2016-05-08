@@ -76,7 +76,7 @@
         case 4:
             [self setEyeImageWithMoodClass:moodClass Intensity:intensity];
             [self setEyebrowImageWithMoodClass:moodClass Intensity:intensity];
-            _hasExcited = NO;
+            _hasExcited = YES;
             break;
         case 5:
             [self setDarkCircleImageWithMoodClass:moodClass Intensity:intensity];
