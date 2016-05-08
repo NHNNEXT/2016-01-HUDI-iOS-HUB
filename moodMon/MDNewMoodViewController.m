@@ -68,7 +68,9 @@
 
 - (void)moodViewInit {
     self.moodCount = 0;
-    self.choosingMood.hidden = YES;
+    
+    /* moodDegree init */
+    self.moodDegree.hidden = YES;
     NSArray *angryMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"angry_degree1"],[UIImage imageNamed:@"angry_degree2"],[UIImage imageNamed:@"angry_degree3"],[UIImage imageNamed:@"angry_degree4"],[UIImage imageNamed:@"angry_degree5"], nil];
     NSArray *joyMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"joy_degree1"],[UIImage imageNamed:@"joy_degree2"],[UIImage imageNamed:@"joy_degree3"],[UIImage imageNamed:@"joy_degree4"],[UIImage imageNamed:@"joy_degree5"], nil];
     NSArray *sadMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"sad_degree1"],[UIImage imageNamed:@"sad_degree2"],[UIImage imageNamed:@"sad_degree3"],[UIImage imageNamed:@"sad_degree4"],[UIImage imageNamed:@"sad_degree5"], nil];
@@ -76,6 +78,7 @@
     NSArray *tiredMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"tired_degree1"],[UIImage imageNamed:@"tired_degree2"],[UIImage imageNamed:@"tired_degree3"],[UIImage imageNamed:@"tired_degree4"],[UIImage imageNamed:@"tired_degree5"], nil];
     self.choosingMoodImages = [NSArray arrayWithObjects:angryMoodImages, joyMoodImages, sadMoodImages, excitedMoodImages, tiredMoodImages, nil];
     
+    /* moodButton init */
     self.angry.num = @10;
     self.joy.num = @20;
     self.sad.num = @30;
@@ -91,16 +94,19 @@
     self.sad.startingDegree = 2.47;
     self.excited.startingDegree = 3.8;
     self.tired.startingDegree = 5.1;
-    
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
-}
-
-
-- (void)moodColorInit {
+    
+    /* moodColor & mixedMoodFace init */
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
     self.moodColor.layer.cornerRadius = self.moodColor.frame.size.width/2;
     self.moodColor.layer.masksToBounds = YES;
+    self.mixedMoodFace.layer.cornerRadius = self.mixedMoodFace.frame.size.width/2;
+    self.mixedMoodFace.layer.masksToBounds = YES;
+}
+
+
+- (void)moodColorInit {
 }
 
 
@@ -130,7 +136,7 @@
     if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
     }
-    self.choosingMood.hidden = (self.moodCount<1)? YES:NO;
+    self.mixedMoodFace.hidden = (self.moodCount<1)? YES:NO;
     [self setChoosingMoodImageByNum:moodButton.num];
     
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
@@ -144,9 +150,9 @@
 
 
 - (void)setChoosingMoodImageByNum:(NSNumber *)num {
-    int moodClass = num.intValue/10 - 1;
+    int moodName = num.intValue/10 - 1;
     int moodDegree = num.intValue%10;
-    self.choosingMood.image = self.choosingMoodImages[moodClass][moodDegree];
+    self.moodDegree.image = self.choosingMoodImages[moodName][moodDegree];
 }
 
 
@@ -169,6 +175,7 @@
                         self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
                     }
                     completion:nil];
+    self.moodDegree.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
@@ -182,8 +189,13 @@
     // 새로 선택한 감정을 chosenMoods에 추가.
     // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
     NSMutableDictionary *chosenMood = [@{@"moodNum" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    
     [self.moodColor.chosenMoods addObject:moodNum];
     [self.moodColor setNeedsDisplay];
+    
+    [self.mixedMoodFace.chosenMoods addObject:moodNum];
+    [self.mixedMoodFace setNeedsDisplay];
+    
     [self.chosenMoods addObject:chosenMood];
 }
 
@@ -197,7 +209,13 @@
             [self.moodColor.chosenMoods removeObjectAtIndex:i];
         }
     }
+    for(int i=0 ; i<[self.mixedMoodFace.chosenMoods count] ; i++) {
+        if(self.mixedMoodFace.chosenMoods[i] == moodNum) {
+            [self.mixedMoodFace.chosenMoods removeObjectAtIndex:i];
+        }
+    }
     [self.moodColor setNeedsDisplay];
+    [self.mixedMoodFace setNeedsDisplay];
 }
 
 
@@ -250,6 +268,11 @@
 
 
 - (void)returnToStartView {
+    if(self.moodCount<3) {
+        self.mixedMoodFace.hidden = NO;
+    }
+    self.moodDegree.hidden = YES;
+    NSLog(@"%@", (self.mixedMoodFace.hidden)?@"hidden":@"shown");
     self.wheel.image = [UIImage imageNamed:@"circle"];
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = NO;

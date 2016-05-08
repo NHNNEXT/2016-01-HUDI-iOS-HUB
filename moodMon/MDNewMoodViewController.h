@@ -13,6 +13,7 @@
 #import "MDWheelGestureRecognizer.h"
 #import "MDRecentMoodView.h"
 #import "MDMoodColorView.h"
+#import "MDMoodFaceView.h"
 
 
 @interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate>
@@ -27,7 +28,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *day;
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UIView *container;
-@property (strong, nonatomic) IBOutlet UIImageView *choosingMood;
+@property (strong, nonatomic) IBOutlet UIImageView *moodDegree;
+@property (strong, nonatomic) IBOutlet MDMoodFaceView *mixedMoodFace;
 @property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
 @property (strong, nonatomic) IBOutlet MDWheelView *wheel;
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *angry;

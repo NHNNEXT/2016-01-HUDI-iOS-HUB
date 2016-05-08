@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mouth;
 @property (strong, nonatomic) IBOutlet UIImageView *background;
 
-@property NSMutableArray *chosenMoods;
+@property NSArray *moodName;
+@property NSMutableArray<NSNumber *> *chosenMoods;
 
 @end
