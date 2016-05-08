@@ -8,6 +8,7 @@
 
 #import "MDSearchTableViewController.h"
 #import "MDSearchTableViewCell.h"
+#import "MDMoodColorView.h"
 
 @implementation MDSearchTableViewController  
 
@@ -159,6 +160,13 @@
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
         cell.timeLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kTime];
+        
+        MDMoodColorView *temp = [cell viewWithTag:3];
+        NSLog(@"%@",temp);
+        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
+        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
+        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];
+        temp.layer.cornerRadius = 22;
 
     }
     return cell;

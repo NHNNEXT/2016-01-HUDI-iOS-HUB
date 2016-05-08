@@ -18,6 +18,7 @@
 
 
 @implementation MDNewMoodViewController
+
 @synthesize wheelDegree;
 
 - (void)viewDidLoad {
@@ -258,7 +259,7 @@
 
 
 - (IBAction)saveNewMoodMon:(id)sender {
-    NSString *comment = @"kyoo in process";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
+    NSString *comment = @"text Field's text";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     if([self.chosenMoods count] > 0){
