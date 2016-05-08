@@ -107,6 +107,7 @@
     [self.view layoutIfNeeded];
     self.moodColor.layer.cornerRadius = self.moodColor.frame.size.width/2;
     self.moodColor.layer.masksToBounds = YES;
+    self.moodColor.hidden = NO;
     self.mixedMoodFace.layer.cornerRadius = self.mixedMoodFace.frame.size.width/2;
     self.mixedMoodFace.layer.masksToBounds = YES;
     
@@ -305,7 +306,7 @@
         [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
         int moodClass = [[[self.chosenMoods lastObject] objectForKey:@"moodClass"] intValue]/10 - 1;
         [UIView transitionWithView:self.moodIntensityView
-                          duration:0.2
+                          duration:0.1
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity.intValue];
