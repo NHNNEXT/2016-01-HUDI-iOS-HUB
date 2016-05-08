@@ -42,6 +42,7 @@
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
 		CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */; };
+		CEBA98721CDF1C79006D2FFD /* MDSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */; };
 		CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */; };
 		CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */; };
 		E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */; };
@@ -127,6 +128,8 @@
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
 		CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewController.h; sourceTree = "<group>"; };
 		CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSearchTableViewController.m; sourceTree = "<group>"; };
+		CEBA98701CDF1C79006D2FFD /* MDSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewCell.h; sourceTree = "<group>"; };
+		CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSearchTableViewCell.m; sourceTree = "<group>"; };
 		CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodFilterTableViewController.h; sourceTree = "<group>"; };
 		CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodFilterTableViewController.m; sourceTree = "<group>"; };
 		CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodFilterTableViewCell.h; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */,
 				CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */,
 				CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */,
+				CEBA98701CDF1C79006D2FFD /* MDSearchTableViewCell.h */,
+				CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */,
 			);
 			name = otherFunction;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				65980E2D1CC0D1DF0092EA18 /* MDMonthTimeLineCellTableViewCell.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
+				CEBA98721CDF1C79006D2FFD /* MDSearchTableViewCell.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 				E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */,
 				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,

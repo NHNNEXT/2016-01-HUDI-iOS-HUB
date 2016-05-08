@@ -219,11 +219,13 @@ NSMutableArray *moodmonConf;
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     
-    NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
+    //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
     
     return cell;
 }
+
+
 
 -(void)buttonTouch:(id)sender{
     UIButton* btn = (UIButton *)sender;
