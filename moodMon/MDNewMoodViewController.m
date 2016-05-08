@@ -255,6 +255,8 @@
     [super didReceiveMemoryWarning];
 }
 
+
+
 - (IBAction)saveNewMoodMon:(id)sender {
     NSString *comment = @"kyoo in process";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
@@ -282,7 +284,5 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
--(void) presentCalendar{
-    
-}
+
 @end

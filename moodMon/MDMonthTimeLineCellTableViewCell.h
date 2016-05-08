@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MDMoodColorView.h"
 
 @protocol SwipeableCellDelegate <NSObject>
 - (void)buttonOneActionForItemText:(NSString *)itemText;
@@ -15,6 +15,7 @@
 @end
 
 @interface MDMonthTimeLineCellTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
+
 
 @property (nonatomic, weak) id <SwipeableCellDelegate> delegate;
 @property (nonatomic, weak) NSString *itemText;

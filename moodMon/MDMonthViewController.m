@@ -7,6 +7,7 @@
 //
 
 #import "MDMonthViewController.h"
+#import "MDMoodColorView.h"
 
 @interface MDMonthViewController ()
 
@@ -211,9 +212,9 @@ NSMutableArray *moodmonConf;
     return moodmonConf.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 44;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
@@ -223,6 +224,13 @@ NSMutableArray *moodmonConf;
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
     cell.delegate = self;
+    
+    MDMoodColorView *temp = [cell viewWithTag:3];
+    NSLog(@"%@",temp);
+    [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
+    [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
+    [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];
+    temp.layer.cornerRadius = 22;
     
     return cell;
 }
