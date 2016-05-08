@@ -33,7 +33,7 @@
     [self.window makeKeyAndVisible];
     [self.window addSubview:overlayView];
     [self.window.rootViewController presentViewController:newMoodmonVC animated:NO completion:^{
-        NSLog(@"displaying (AppDelegate)");
+//        NSLog(@"displaying (AppDelegate)");
         [UIView animateWithDuration:0.5 animations:^{
             overlayView.alpha = 0;
         } completion:^(BOOL finished) {

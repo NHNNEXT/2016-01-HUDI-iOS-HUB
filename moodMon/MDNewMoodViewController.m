@@ -29,6 +29,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
     
+    [self dateInit];
     [self initiateMoodViews];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
@@ -43,10 +44,21 @@
 }
 
 
+- (void)dateInit {
+    NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setDateFormat:@"EEEE"];
+    _day.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
+    [dateFormatter setDateFormat:@"d MMMM yyyy"];
+    _date.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
+}
+
+
 -(void)drawRecentMoodView {
     [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
-    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
+//    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
     self.recentMoodView.recentMood = recentMood;
     [self.recentMoodView setNeedsDisplay];
 }
@@ -127,7 +139,13 @@
 
 
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
-    self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
+    [UIView transitionWithView:self.wheel
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
+                    }
+                    completion:nil];
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
@@ -238,7 +256,7 @@
 }
 
 - (IBAction)saveNewMoodMon:(id)sender {
-    NSString *comment = @"test";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
+    NSString *comment = @"kyoo in process";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     if([self.chosenMoods count] > 0){
@@ -258,7 +276,7 @@
      그 전에, 위 메소드 부르기 전에도  mood int 체크 하는 게 좋을 것 같아요~
      newMoodmon view에서 mood int가 어떻게 정해지는 지, 어디에 그 데이터가 남는지 아직 모르겠지만, 해당 코드 완성되면, 이 부분 한번 정하면 좋을 것 같아요.
      */
-        NSLog(@"Saving new Mood mon");
+//        NSLog(@"Saving new Mood mon");
     }
     
     [self dismissViewControllerAnimated:YES completion:^{}];

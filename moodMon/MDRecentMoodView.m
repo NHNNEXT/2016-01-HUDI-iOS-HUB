@@ -17,7 +17,7 @@
 @implementation MDRecentMoodView
 
 - (void)awakeFromNib {
-    self.opacity = 0.4;
+    self.opacity = 0.25;
     self.colors = @[[UIColor colorWithRed:1 green:1 blue:1 alpha:1], [UIColor colorWithRed:.91 green:.33 blue:.29 alpha:self.opacity], [UIColor colorWithRed:.96 green:.76 blue:.26 alpha:self.opacity], [UIColor colorWithRed:0.30 green:0.47 blue:0.76 alpha:self.opacity], [UIColor colorWithRed:.28 green:.82 blue:.71 alpha:self.opacity], [UIColor colorWithRed:.70 green:.60 blue:.87 alpha:self.opacity]];
 }
 

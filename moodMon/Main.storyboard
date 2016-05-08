@@ -387,7 +387,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3B1-KO-Yzf">
-                                        <variation key="widthClass=compact" constant="60"/>
+                                        <variation key="widthClass=compact" constant="93"/>
                                     </constraint>
                                 </constraints>
                                 <variation key="default">
@@ -492,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE9-5G-fU8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2374" y="-1142"/>
+            <point key="canvasLocation" x="2715" y="-1180"/>
         </scene>
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">
@@ -653,7 +653,7 @@
                                 <rect key="frame" x="-1" y="529" width="414" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kCc-hW-Vsq" secondAttribute="height" multiplier="2:1" id="rKp-DC-Ufk"/>
+                                    <constraint firstAttribute="width" secondItem="kCc-hW-Vsq" secondAttribute="height" multiplier="4:3" id="rKp-DC-Ufk"/>
                                     <constraint firstAttribute="height" constant="202" id="yA6-Qt-xaE"/>
                                 </constraints>
                                 <prototypes>
@@ -664,9 +664,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHk-0F-gNl">
-                                                    <rect key="frame" x="324" y="11" width="34" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHk-0F-gNl">
+                                                    <rect key="frame" x="365" y="11" width="25" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -680,7 +680,7 @@
                                             <constraints>
                                                 <constraint firstItem="hyP-2L-cNV" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="Aij-o8-UMB"/>
                                                 <constraint firstItem="hyP-2L-cNV" firstAttribute="leading" secondItem="UjD-II-JKf" secondAttribute="leadingMargin" constant="67" id="L6c-Zs-k1b"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="48" id="OAG-R1-vy6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="16" id="OAG-R1-vy6"/>
                                                 <constraint firstItem="hyP-2L-cNV" firstAttribute="leading" secondItem="UjD-II-JKf" secondAttribute="leading" constant="111" id="P2h-bi-aB1"/>
                                                 <constraint firstItem="YHk-0F-gNl" firstAttribute="centerY" secondItem="UjD-II-JKf" secondAttribute="centerY" id="R8d-Rc-Hxp"/>
                                                 <constraint firstItem="hyP-2L-cNV" firstAttribute="centerX" secondItem="UjD-II-JKf" secondAttribute="centerX" id="eHN-VS-BfW"/>

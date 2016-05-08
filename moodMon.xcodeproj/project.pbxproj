@@ -223,26 +223,9 @@
 		CE4A8A351CABCCB1006B73B7 /* moodMon */ = {
 			isa = PBXGroup;
 			children = (
-				657404341CD73EEB007FAE01 /* MDCustomStoryboardSegue.h */,
-				657404351CD73EEB007FAE01 /* MDCustomStoryboardSegue.m */,
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
-				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
-				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
-				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
-				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
-				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
-				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
-				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
-				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
-				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
-				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
-				CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */,
-				CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */,
-				CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */,
-				CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */,
+				CEBA986F1CDF12E5006D2FFD /* newMoodmon */,
 				6575788C1CB4BE7600D75D5E /* year */,
 				CE0C92CD1CAE56A60037E749 /* data */,
 				CE87EC4F1CCE109900329E16 /* otherFunction */,
@@ -283,23 +266,6 @@
 			path = moodMonUITests;
 			sourceTree = "<group>";
 		};
-		CE87EC4E1CCE106B00329E16 /* newMoodmon */ = {
-			isa = PBXGroup;
-			children = (
-				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
-				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
-				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
-				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
-				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
-				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
-				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
-				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
-				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
-			);
-			name = newMoodmon;
-			sourceTree = "<group>";
-		};
 		CE87EC4F1CCE109900329E16 /* otherFunction */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +277,27 @@
 				CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */,
 			);
 			name = otherFunction;
+			sourceTree = "<group>";
+		};
+		CEBA986F1CDF12E5006D2FFD /* newMoodmon */ = {
+			isa = PBXGroup;
+			children = (
+				657404341CD73EEB007FAE01 /* MDCustomStoryboardSegue.h */,
+				657404351CD73EEB007FAE01 /* MDCustomStoryboardSegue.m */,
+				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
+				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
+				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
+				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
+				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
+				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
+				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
+				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+			);
+			name = newMoodmon;
 			sourceTree = "<group>";
 		};
 		E97495B01CBA44330000E389 /* angry */ = {
