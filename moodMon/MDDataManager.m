@@ -156,7 +156,7 @@
                 [moodmon setValue: timeString forKey:kTime];
                 
                 
-                NSLog(@"read year %@ / month %@ / day %@ / time %@", [moodmon valueForKey:kYear], [moodmon valueForKey: kMonth], [moodmon valueForKey: kDay], [moodmon valueForKey:kTime]);
+               // NSLog(@"read year %@ / month %@ / day %@ / time %@", [moodmon valueForKey:kYear], [moodmon valueForKey: kMonth], [moodmon valueForKey: kDay], [moodmon valueForKey:kTime]);
 
                 [moodmon setValue: [NSNumber numberWithInteger:moodChosen1] forKey:kChosen1];
                 [moodmon setValue: [NSNumber numberWithInteger:moodChosen2] forKey:kChosen2];
@@ -240,7 +240,7 @@
     
     //[newMD setValue:[[NSString alloc] initWithFormat:@"hello"] forKey:kComment]; - test
     
-    [self.moodCollection insertObject:newMD atIndex:[self.moodCollection count]];
+   // [self.moodCollection insertObject:newMD atIndex:[self.moodCollection count]];
     [self saveIntoDBNewMoodmon: newMD];
     
 }
@@ -290,6 +290,101 @@
         sqlite3_finalize(statement);
         sqlite3_close(_moodmonDB);
     }
+    
+    [self readJustSavedMoodMon];
+    
+}
+
+-(void)readJustSavedMoodMon{
+    
+    sqlite3_stmt *statement;
+    const char *dbpath = [_dataBasePath UTF8String];
+    
+    if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
+        //        NSLog(@"yes2 : start reading from SQL");
+        NSString *querySQL = @"SELECT * FROM moodmon ORDER BY id DESC LIMIT 1";
+        
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if(sqlite3_prepare_v2(_moodmonDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            
+            //            NSLog(@"yes3 : sql function in progress");
+            /* COLUME_NUM & property
+             0 - id / int
+             1 - moodComment / varchar(150)
+             2 - moodDate / dateTime
+             3 - moodChosen1 / int
+             4 - moodChosen2 / int
+             5 - moodChosen3 / int
+             6 - isDeleted / bool
+             */
+            
+            while(sqlite3_step(statement) <= SQLITE_ROW){
+                
+                int idint = sqlite3_column_int(statement, 0);
+                if(idint == 0) continue;
+                
+                //                NSLog(@"INDEX %d is saving", idint);
+                NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
+                NSUInteger moodChosen1 = sqlite3_column_int(statement, 3);
+                NSUInteger moodChosen2 = sqlite3_column_int(statement, 4);
+                NSUInteger moodChosen3 = sqlite3_column_int(statement, 5);
+                BOOL isDeleted = sqlite3_column_value(statement, 6);
+                
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                NSDate *myDate =[dateFormat dateFromString:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 2)]];
+                
+                
+                unsigned units = NSCalendarUnitMonth | NSCalendarUnitDay| NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitSecond;
+                NSCalendar *myCal = [[NSCalendar alloc]
+                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+                NSDateComponents *comp = [myCal components:units fromDate:myDate];
+                //                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                //                formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ko_KR"];
+                NSString *timeString = [NSString stringWithFormat:@"%ld시 %ld분 %ld초",(long)[comp hour], [comp minute], [comp second]];
+                // NSLog(@"timestring %@ , %ld , %ld, %ld", timeString, (long)[comp hour], [comp minute], [comp second]);
+                
+                
+                MDMoodmon *moodmon = [MDMoodmon alloc];
+                
+                if(comment){
+                    [moodmon setValue:comment forKey:kComment];
+                }
+                
+                [moodmon setValue:[NSNumber numberWithInteger:[comp year]] forKey:kYear];
+                [moodmon setValue:[NSNumber numberWithInteger:[comp month]] forKey:kMonth];
+                [moodmon setValue:[NSNumber numberWithInteger:[comp day]] forKey:kDay];
+                [moodmon setValue: timeString forKey:kTime];
+                
+                
+                NSLog(@"read year %@ / month %@ / day %@ / time %@", [moodmon valueForKey:kYear], [moodmon valueForKey: kMonth], [moodmon valueForKey: kDay], [moodmon valueForKey:kTime]);
+                
+                [moodmon setValue: [NSNumber numberWithInteger:moodChosen1] forKey:kChosen1];
+                [moodmon setValue: [NSNumber numberWithInteger:moodChosen2] forKey:kChosen2];
+                [moodmon setValue: [NSNumber numberWithInteger:moodChosen3] forKey:kChosen3];
+                
+                
+                if(isDeleted){
+                    [moodmon setValue: @YES forKey:kIsDeleted];
+                } else{
+                    [moodmon setValue: @NO forKey:kIsDeleted];
+                }
+                
+                [self.moodCollection insertObject:moodmon atIndex:idint];
+                //@"SUCCESS";
+            }
+            
+            
+            
+            sqlite3_finalize(statement);
+        }
+        
+        //_status.text = @"SQL doesn't work";
+        
+        sqlite3_close(_moodmonDB);
+    }
+
     
 }
 

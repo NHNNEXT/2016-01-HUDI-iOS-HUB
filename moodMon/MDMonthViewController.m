@@ -226,7 +226,7 @@ NSMutableArray *moodmonConf;
     cell.delegate = self;
     
     MDMoodColorView *temp = [cell viewWithTag:3];
-    NSLog(@"%@",temp);
+    //NSLog(@"%@",temp);
     [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
     [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
     [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];

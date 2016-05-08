@@ -42,6 +42,7 @@
 - (void)saveNewMoodMonOfComment:(NSString*)comment asFirstChosen:(int)first SecondChosen:(int)second andThirdChosen:(int)third;
 
 - (void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon;
+-(void)readJustSavedMoodMon;
 
 -(NSUInteger)recentMood;
 -(NSArray<MDMoodmon*>*)getFilteredMoodmons;
