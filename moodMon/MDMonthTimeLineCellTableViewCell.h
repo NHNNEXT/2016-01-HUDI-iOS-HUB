@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MDMonthTimeLineCellTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *commentLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 
 @end
