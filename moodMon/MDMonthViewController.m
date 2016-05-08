@@ -196,7 +196,7 @@ NSMutableArray *moodmonConf;
                         [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                     }
                 }
-//                dayButton.backgroundColor =self.moodColor.chosenMoods;
+                dayButton.backgroundColor =self.moodColor.chosenMoods;
             }
         }
         [self.view addSubview:dayButton];
@@ -281,7 +281,8 @@ NSMutableArray *moodmonConf;
 }
 
 - (void)buttonTwoActionForItemText:(NSString *)itemText {
-    NSLog(@"In the delegate, Clicked button two for %@", itemText);
+    MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
+    [smm saveMoodMon:self.view];
 }
 
 
