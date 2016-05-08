@@ -22,4 +22,6 @@
 @property NSArray *moodName;
 @property NSMutableArray<NSNumber *> *chosenMoods;
 
+@property BOOL hasExcited;  // 선택한 감정에 excited가 있는 경우 눈썹을 그리지 말아야 함.
+
 @end

@@ -70,7 +70,7 @@
     self.moodCount = 0;
     
     /* moodDegree init */
-    self.moodDegree.hidden = YES;
+    self.moodIntensityView.hidden = YES;
     NSArray *angryMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"angry_degree1"],[UIImage imageNamed:@"angry_degree2"],[UIImage imageNamed:@"angry_degree3"],[UIImage imageNamed:@"angry_degree4"],[UIImage imageNamed:@"angry_degree5"], nil];
     NSArray *joyMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"joy_degree1"],[UIImage imageNamed:@"joy_degree2"],[UIImage imageNamed:@"joy_degree3"],[UIImage imageNamed:@"joy_degree4"],[UIImage imageNamed:@"joy_degree5"], nil];
     NSArray *sadMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"sad_degree1"],[UIImage imageNamed:@"sad_degree2"],[UIImage imageNamed:@"sad_degree3"],[UIImage imageNamed:@"sad_degree4"],[UIImage imageNamed:@"sad_degree5"], nil];
@@ -149,10 +149,11 @@
 }
 
 
+
 - (void)setChoosingMoodImageByNum:(NSNumber *)num {
-    int moodName = num.intValue/10 - 1;
-    int moodDegree = num.intValue%10;
-    self.moodDegree.image = self.choosingMoodImages[moodName][moodDegree];
+    int moodClass = num.intValue/10 - 1;
+    int moodIntensity = num.intValue%10;
+    self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity];
 }
 
 
@@ -175,7 +176,7 @@
                         self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
                     }
                     completion:nil];
-    self.moodDegree.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
+    self.moodIntensityView.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
@@ -188,29 +189,26 @@
 - (void)addNewChosenMood:(NSNumber *)moodNum {
     // 새로 선택한 감정을 chosenMoods에 추가.
     // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
-    NSMutableDictionary *chosenMood = [@{@"moodNum" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    NSMutableDictionary *chosenMood = [@{@"moodClass" : moodNum, @"moodIntensity" : @1} mutableCopy];
     
     [self.moodColor.chosenMoods addObject:moodNum];
     [self.moodColor setNeedsDisplay];
-    
-    [self.mixedMoodFace.chosenMoods addObject:moodNum];
-    [self.mixedMoodFace setNeedsDisplay];
     
     [self.chosenMoods addObject:chosenMood];
 }
 
 
 
-- (void)deleteFromChosenMoods:(NSNumber *)moodNum {
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"moodNum != %@", moodNum];
+- (void)deleteFromChosenMoods:(NSNumber *)moodClass {
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"moodClass != %@", moodClass];
     self.chosenMoods = [[self.chosenMoods filteredArrayUsingPredicate:predicate1] mutableCopy];
     for(int i=0 ; i<[self.moodColor.chosenMoods count] ; i++) {
-        if(self.moodColor.chosenMoods[i] == moodNum) {
+        if(self.moodColor.chosenMoods[i] == moodClass) {
             [self.moodColor.chosenMoods removeObjectAtIndex:i];
         }
     }
     for(int i=0 ; i<[self.mixedMoodFace.chosenMoods count] ; i++) {
-        if(self.mixedMoodFace.chosenMoods[i] == moodNum) {
+        if(self.mixedMoodFace.chosenMoods[i].intValue/10 == moodClass.intValue/10) {
             [self.mixedMoodFace.chosenMoods removeObjectAtIndex:i];
         }
     }
@@ -231,6 +229,9 @@
 
 
 - (void)rotateWheel:(id)sender {
+    if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
+        return;
+    }
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
     [self setWheelDegreeWithAngle:angle];
@@ -261,22 +262,35 @@
 
 
 - (void)setMoodIntensity {
-    NSNumber *moodIntensity = [[NSNumber alloc] initWithInt:self.wheelDegree/72 + 1];
+    NSNumber *moodIntensity = [NSNumber numberWithInt:self.wheelDegree/72];
     [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
+    int moodClass = [[[self.chosenMoods lastObject] objectForKey:@"moodClass"] intValue]/10 - 1;
+    self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity.intValue];
 }
 
 
+- (void)setMixedMoodFaceWithNum:(NSNumber *)moodNum {
+    [self.mixedMoodFace.chosenMoods addObject:moodNum];
+    [self.mixedMoodFace setNeedsDisplay];
+}
+
 
 - (void)returnToStartView {
+    if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
+        return;
+    }
+    
     if(self.moodCount<3) {
         self.mixedMoodFace.hidden = NO;
     }
-    self.moodDegree.hidden = YES;
-    NSLog(@"%@", (self.mixedMoodFace.hidden)?@"hidden":@"shown");
+    self.moodIntensityView.hidden = YES;
     self.wheel.image = [UIImage imageNamed:@"circle"];
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = NO;
     }
+    
+    int moodNum = [[self.chosenMoods lastObject][@"moodClass"] intValue] + [[self.chosenMoods lastObject][@"moodIntensity"] intValue];
+    [self setMixedMoodFaceWithNum:[NSNumber numberWithInt:moodNum]];
 }
 
 
@@ -305,12 +319,12 @@
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     if([self.chosenMoods count] > 0){
-        firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
+        firstChosen = [[self.chosenMoods[0] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
         if([self.chosenMoods count]>=2) {
-            secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
+            secondChosen = [[self.chosenMoods[1] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
         }
         if([self.chosenMoods count]>=3) {
-            thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
+            thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
         }
         NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
         [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];

@@ -28,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *day;
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UIView *container;
-@property (strong, nonatomic) IBOutlet UIImageView *moodDegree;
+@property (strong, nonatomic) IBOutlet UIImageView *moodIntensityView;
 @property (strong, nonatomic) IBOutlet MDMoodFaceView *mixedMoodFace;
 @property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
 @property (strong, nonatomic) IBOutlet MDWheelView *wheel;

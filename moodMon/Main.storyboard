@@ -529,7 +529,7 @@
                                             <outlet property="wrinkle" destination="O15-ol-oOi" id="EUg-r9-KnZ"/>
                                         </connections>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joy_degree1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SdP-bN-ebp" userLabel="mood degree">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joy_degree1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SdP-bN-ebp" userLabel="mood intensity">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="FTC-I6-G3L">
@@ -795,7 +795,7 @@
                         <outlet property="joy" destination="Y6E-gj-7fr" id="tnH-qs-8Mr"/>
                         <outlet property="mixedMoodFace" destination="Sjz-9L-XP9" id="utq-ie-QFP"/>
                         <outlet property="moodColor" destination="g7t-Sq-t3y" id="k8K-ra-vWM"/>
-                        <outlet property="moodDegree" destination="SdP-bN-ebp" id="Ib4-GK-O0O"/>
+                        <outlet property="moodIntensityView" destination="SdP-bN-ebp" id="bmE-El-1vo"/>
                         <outlet property="recentMoodView" destination="dHR-wz-XeA" id="TIe-y4-2oe"/>
                         <outlet property="sad" destination="aL2-3u-dsJ" id="Oy1-AK-E04"/>
                         <outlet property="tired" destination="uUR-Qm-e63" id="Mwg-0Z-CKg"/>
