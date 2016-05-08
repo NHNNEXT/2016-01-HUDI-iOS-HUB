@@ -80,17 +80,29 @@
 
 - (void)setWrinkleImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"wrinkle_degree%d", intensity];
-    _wrinkle.image = (moodClass==1) ? [UIImage imageNamed:imageName] : nil;
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        _wrinkle.image = (moodClass==1) ? [UIImage imageNamed:imageName] : nil;
+                    }
+                    completion:nil];
 }
 
 
 - (void)setEyebrowImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"%@_eyebrow_degree%d", _moodName[moodClass], intensity];
-    if(moodClass==1 || moodClass==3 || moodClass==5) {
-        _eyebrow.image = [UIImage imageNamed:imageName];
-        return;
-    }
-    _eyebrow.image = nil;
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        if(moodClass==1 || moodClass==3 || moodClass==5) {
+                            _eyebrow.image = [UIImage imageNamed:imageName];
+                            return;
+                        }
+                        _eyebrow.image = nil;
+                    }
+                    completion:nil];
 }
 
 
@@ -102,31 +114,61 @@
     else {
         imageName = [NSString stringWithFormat:@"%@_eye", (moodClass==1)?@"angry":@"default"];
     }
-    _eye.image = [UIImage imageNamed:imageName];
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        _eye.image = [UIImage imageNamed:imageName];
+                    }
+                    completion:nil];
 }
 
 
 - (void)setDarkCircleImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"darkcircle_degree%d", intensity];
-    _darkCircle.image = (moodClass==5) ? [UIImage imageNamed:imageName] : nil;
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        _darkCircle.image = (moodClass==5) ? [UIImage imageNamed:imageName] : nil;
+                    }
+                    completion:nil];
 }
 
 
 - (void)setCheekImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"cheek_degree%d", intensity];
-    _cheek.image = [UIImage imageNamed:imageName];
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        _cheek.image = [UIImage imageNamed:imageName];
+                    }
+                    completion:nil];
 }
 
 
 - (void)setTearImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"tear_degree%d", intensity];
-    _tear.image = (moodClass==3) ? [UIImage imageNamed:imageName] : nil;
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        _tear.image = (moodClass==3) ? [UIImage imageNamed:imageName] : nil;
+                    }
+                    completion:nil];
 }
 
 
 - (void)setMouthImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"%@_mouth_degree%d", _moodName[moodClass], intensity];
-    _mouth.image = [UIImage imageNamed:imageName];
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        _mouth.image = [UIImage imageNamed:imageName];
+                    }
+                    completion:nil];
 }
 
 
