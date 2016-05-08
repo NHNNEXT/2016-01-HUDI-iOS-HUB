@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
     _moodName = @[@"", @"angry", @"joy", @"sad", @"excited", @"tired"];
+    _animationDuration = 0.2;
 }
 
 
@@ -81,7 +82,7 @@
 - (void)setWrinkleImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"wrinkle_degree%d", intensity];
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         _wrinkle.image = (moodClass==1) ? [UIImage imageNamed:imageName] : nil;
@@ -93,7 +94,7 @@
 - (void)setEyebrowImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"%@_eyebrow_degree%d", _moodName[moodClass], intensity];
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         if(moodClass==1 || moodClass==3 || moodClass==5) {
@@ -115,7 +116,7 @@
         imageName = [NSString stringWithFormat:@"%@_eye", (moodClass==1)?@"angry":@"default"];
     }
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         _eye.image = [UIImage imageNamed:imageName];
@@ -127,7 +128,7 @@
 - (void)setDarkCircleImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"darkcircle_degree%d", intensity];
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         _darkCircle.image = (moodClass==5) ? [UIImage imageNamed:imageName] : nil;
@@ -139,7 +140,7 @@
 - (void)setCheekImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"cheek_degree%d", intensity];
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         _cheek.image = [UIImage imageNamed:imageName];
@@ -151,7 +152,7 @@
 - (void)setTearImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"tear_degree%d", intensity];
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         _tear.image = (moodClass==3) ? [UIImage imageNamed:imageName] : nil;
@@ -163,7 +164,7 @@
 - (void)setMouthImageWithMoodClass:(int)moodClass Intensity:(int)intensity {
     NSString *imageName = [NSString stringWithFormat:@"%@_mouth_degree%d", _moodName[moodClass], intensity];
     [UIView transitionWithView:self
-                      duration:0.3
+                      duration:_animationDuration
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         _mouth.image = [UIImage imageNamed:imageName];

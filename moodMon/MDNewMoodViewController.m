@@ -14,6 +14,7 @@
 @property NSArray *moodButtons;
 @property NSArray *choosingMoodImages;
 @property NSMutableArray *chosenMoods;
+@property int previousIntensity;
 @end
 
 
@@ -179,6 +180,7 @@
     self.moodIntensityView.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
+    self.previousIntensity = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = YES;
     }
@@ -263,9 +265,19 @@
 
 - (void)setMoodIntensity {
     NSNumber *moodIntensity = [NSNumber numberWithInt:self.wheelDegree/72];
-    [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
-    int moodClass = [[[self.chosenMoods lastObject] objectForKey:@"moodClass"] intValue]/10 - 1;
-    self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity.intValue];
+    
+    if(_previousIntensity != moodIntensity.intValue) {
+        _previousIntensity = moodIntensity.intValue;
+        [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
+        int moodClass = [[[self.chosenMoods lastObject] objectForKey:@"moodClass"] intValue]/10 - 1;
+        [UIView transitionWithView:self.moodIntensityView
+                          duration:0.2
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity.intValue];
+                        }
+                        completion:nil];
+    }
 }
 
 
