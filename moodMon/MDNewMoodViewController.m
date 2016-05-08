@@ -37,12 +37,13 @@
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     [self drawRecentMoodView];
+    
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self moodColorInit];
+    [self cornerRadiusInit];
 }
 
 
@@ -97,6 +98,10 @@
     self.tired.startingDegree = 5.1;
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
     
+}
+
+
+- (void)cornerRadiusInit {
     /* moodColor & mixedMoodFace init */
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
@@ -104,10 +109,15 @@
     self.moodColor.layer.masksToBounds = YES;
     self.mixedMoodFace.layer.cornerRadius = self.mixedMoodFace.frame.size.width/2;
     self.mixedMoodFace.layer.masksToBounds = YES;
-}
-
-
-- (void)moodColorInit {
+    
+    /* save & reset button background */
+    self.saveButtonBackground.hidden = YES;
+    self.saveButtonBackground.layer.cornerRadius = self.saveButtonBackground.frame.size.width/2;
+    self.saveButtonBackground.layer.masksToBounds = YES;
+    self.saveButtonBackground.layer.opacity = 0.7;
+    self.resetButtonBackground.hidden = YES;
+    self.resetButtonBackground.layer.cornerRadius = self.resetButtonBackground.frame.size.width/2;
+    self.resetButtonBackground.layer.masksToBounds = YES;
 }
 
 
@@ -137,9 +147,24 @@
     if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
     }
-    self.mixedMoodFace.hidden = (self.moodCount<1)? YES:NO;
-    [self setChoosingMoodImageByNum:moodButton.num];
-    
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        if(self.moodCount<1) {
+                            self.mixedMoodFace.hidden = YES;
+                            [self.mixedMoodFace setNeedsDisplay];
+                            self.saveButtonBackground.hidden = YES;
+                            self.resetButtonBackground.hidden = YES;
+                        }
+                        else {
+                            self.mixedMoodFace.hidden = NO;
+                            self.saveButtonBackground.hidden = NO;
+                            self.resetButtonBackground.hidden = NO;
+                        }
+                        [self setChoosingMoodImageByNum:moodButton.num];
+                    }
+                    completion:nil];
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
         [self showWheelView:moodButton];
         [self addNewChosenMood:moodButton.num];
@@ -170,13 +195,13 @@
 
 
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
-    [UIView transitionWithView:self.wheel
-                      duration:0.2
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-                        self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
-                    }
-                    completion:nil];
+//    [UIView transitionWithView:self.wheel
+//                      duration:0.2
+//                       options:UIViewAnimationOptionTransitionCrossDissolve
+//                    animations:^{
+//                    }
+//                    completion:nil];
+    self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
     self.moodIntensityView.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
@@ -196,6 +221,9 @@
     [self.moodColor.chosenMoods addObject:moodNum];
     [self.moodColor setNeedsDisplay];
     
+    [self.saveButtonBackground.chosenMoods addObject:moodNum];
+    [self.saveButtonBackground setNeedsDisplay];
+    
     [self.chosenMoods addObject:chosenMood];
 }
 
@@ -209,12 +237,18 @@
             [self.moodColor.chosenMoods removeObjectAtIndex:i];
         }
     }
+    for(int i=0 ; i<[self.saveButtonBackground.chosenMoods count] ; i++) {
+        if(self.saveButtonBackground.chosenMoods[i] == moodClass) {
+            [self.saveButtonBackground.chosenMoods removeObjectAtIndex:i];
+        }
+    }
     for(int i=0 ; i<[self.mixedMoodFace.chosenMoods count] ; i++) {
         if(self.mixedMoodFace.chosenMoods[i].intValue/10 == moodClass.intValue/10) {
             [self.mixedMoodFace.chosenMoods removeObjectAtIndex:i];
         }
     }
     [self.moodColor setNeedsDisplay];
+    [self.saveButtonBackground setNeedsDisplay];
     [self.mixedMoodFace setNeedsDisplay];
 }
 
@@ -292,15 +326,20 @@
         return;
     }
     
-    if(self.moodCount<3) {
-        self.mixedMoodFace.hidden = NO;
-    }
-    self.moodIntensityView.hidden = YES;
-    self.wheel.image = [UIImage imageNamed:@"circle"];
-    for(MDMoodButtonView *moodButton in self.moodButtons) {
-        moodButton.hidden = NO;
-    }
-    
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        if(self.moodCount<3) {
+                            self.mixedMoodFace.hidden = NO;
+                        }
+                        self.moodIntensityView.hidden = YES;
+                        self.wheel.image = [UIImage imageNamed:@"circle"];
+                        for(MDMoodButtonView *moodButton in self.moodButtons) {
+                            moodButton.hidden = NO;
+                        }
+                    }
+                    completion:nil];
     int moodNum = [[self.chosenMoods lastObject][@"moodClass"] intValue] + [[self.chosenMoods lastObject][@"moodIntensity"] intValue];
     [self setMixedMoodFaceWithNum:[NSNumber numberWithInt:moodNum]];
 }
@@ -351,6 +390,9 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (IBAction)resetChosenMood:(id)sender {
 }
 
 - (void) presentCalendar{

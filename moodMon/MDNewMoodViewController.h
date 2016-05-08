@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UIView *container;
 @property (strong, nonatomic) IBOutlet UIImageView *moodIntensityView;
+@property (strong, nonatomic) IBOutlet UIView *resetButtonBackground;
 @property (strong, nonatomic) IBOutlet MDMoodFaceView *mixedMoodFace;
 @property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
 @property (strong, nonatomic) IBOutlet MDWheelView *wheel;
@@ -38,9 +39,11 @@
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *excited;
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *tired;
 @property (strong, nonatomic) IBOutlet MDRecentMoodView *recentMoodView;
+@property (strong, nonatomic) IBOutlet MDMoodColorView *saveButtonBackground;
 
 /* IBAction */
 - (IBAction)saveNewMoodMon:(id)sender;
+- (IBAction)resetChosenMood:(id)sender;
 
 -(void) showAlert:(NSNotification*)notification;
 -(void) presentCalendar;

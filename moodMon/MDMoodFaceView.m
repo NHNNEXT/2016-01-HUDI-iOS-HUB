@@ -13,11 +13,20 @@
 - (void)awakeFromNib {
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
     _moodName = @[@"", @"angry", @"joy", @"sad", @"excited", @"tired"];
-    _animationDuration = 0.2;
+    _animationDuration = 0.6;
 }
 
 
 - (void)drawRect:(CGRect)rect {
+    if(_chosenMoods.count == 1) {
+        _wrinkle.image = nil;
+        _eyebrow.image = nil;
+        _eye.image = nil;
+        _darkCircle.image = nil;
+        _cheek.image = nil;
+        _tear.image = nil;
+        _mouth.image = nil;
+    }
     if(_chosenMoods.count >= 2) {
         [self setMainFace:_chosenMoods[1]];
     }
