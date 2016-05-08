@@ -12,7 +12,7 @@
 #import "MDYearViewController.h"
 #import "MDMoodColorView.h"
 
-@interface MDMonthViewController : UIViewController
+@interface MDMonthViewController : UIViewController <SwipeableCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
 @property (strong, nonatomic) IBOutlet UILabel *monthLabel;

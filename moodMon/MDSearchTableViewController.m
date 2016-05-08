@@ -138,7 +138,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"how many? %lu", (unsigned long)self.filteredProducts.count);
+    //NSLog(@"how many? %lu", (unsigned long)self.filteredProducts.count);
     return self.filteredProducts.count;
     
 }
@@ -154,7 +154,7 @@
     }
     
     if([self.filteredProducts count] > 0){
-        NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kComment] );
+       // NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kComment] );
         
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
@@ -164,6 +164,14 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
 
 #pragma mark - UIStateRestoration
 

@@ -221,6 +221,8 @@ NSMutableArray *moodmonConf;
     
     //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
+    cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
+    cell.delegate = self;
     
     return cell;
 }
@@ -247,10 +249,40 @@ NSMutableArray *moodmonConf;
     [_tableViews reloadData];
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableViews deselectRowAtIndexPath:indexPath animated:NO];
+
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 }
 
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+       // [_objects removeObjectAtIndex:indexPath.row];
+        [self.tableViews deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        NSLog(@"Unhandled editing style! %ld",(long)editingStyle);
+    }
+}
+
+
+#pragma mark - SwipeableCellDelegate
+- (void)buttonOneActionForItemText:(NSString *)itemText {
+    NSLog(@"In the delegate, Clicked button one for %@", itemText);
+}
+
+- (void)buttonTwoActionForItemText:(NSString *)itemText {
+    NSLog(@"In the delegate, Clicked button two for %@", itemText);
+}
 
 
 -(void) showAlert:(NSNotification*)notification{
