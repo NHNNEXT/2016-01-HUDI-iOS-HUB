@@ -20,7 +20,7 @@
     
     [UIView animateWithDuration:0.5
                           delay:0.0
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          [destinationViewController.view setTransform:CGAffineTransformMakeScale(1.0,1.0)];
                          [destinationViewController.view setAlpha:1.0];

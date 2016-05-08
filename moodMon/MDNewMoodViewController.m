@@ -12,6 +12,7 @@
 @property CGFloat wheelDegree;
 @property NSInteger moodCount;
 @property NSArray *moodButtons;
+@property NSArray *choosingMoodImages;
 @property NSMutableArray *chosenMoods;
 @end
 
@@ -29,18 +30,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
     
+    self.chosenMoods = [[NSMutableArray alloc] init];
     [self dateInit];
-    [self initiateMoodViews];
+    [self moodViewInit];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
-    self.chosenMoods = [[NSMutableArray alloc] init];
     [self drawRecentMoodView];
 }
 
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    [self moodColorInit];
 }
 
 
@@ -49,13 +50,14 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setDateFormat:@"EEEE"];
+    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
     _day.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
     [dateFormatter setDateFormat:@"d MMMM yyyy"];
     _date.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
 }
 
 
--(void)drawRecentMoodView {
+- (void)drawRecentMoodView {
     [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
 //    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
@@ -64,9 +66,15 @@
 }
 
 
--(void)initiateMoodViews {
+- (void)moodViewInit {
     self.moodCount = 0;
-    self.centerMood.hidden = YES;
+    self.choosingMood.hidden = YES;
+    NSArray *angryMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"angry_degree1"],[UIImage imageNamed:@"angry_degree2"],[UIImage imageNamed:@"angry_degree3"],[UIImage imageNamed:@"angry_degree4"],[UIImage imageNamed:@"angry_degree5"], nil];
+    NSArray *joyMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"joy_degree1"],[UIImage imageNamed:@"joy_degree2"],[UIImage imageNamed:@"joy_degree3"],[UIImage imageNamed:@"joy_degree4"],[UIImage imageNamed:@"joy_degree5"], nil];
+    NSArray *sadMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"sad_degree1"],[UIImage imageNamed:@"sad_degree2"],[UIImage imageNamed:@"sad_degree3"],[UIImage imageNamed:@"sad_degree4"],[UIImage imageNamed:@"sad_degree5"], nil];
+    NSArray *excitedMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"excited_degree1"],[UIImage imageNamed:@"excited_degree2"],[UIImage imageNamed:@"excited_degree3"],[UIImage imageNamed:@"excited_degree4"],[UIImage imageNamed:@"excited_degree5"], nil];
+    NSArray *tiredMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"tired_degree1"],[UIImage imageNamed:@"tired_degree2"],[UIImage imageNamed:@"tired_degree3"],[UIImage imageNamed:@"tired_degree4"],[UIImage imageNamed:@"tired_degree5"], nil];
+    self.choosingMoodImages = [NSArray arrayWithObjects:angryMoodImages, joyMoodImages, sadMoodImages, excitedMoodImages, tiredMoodImages, nil];
     
     self.angry.num = @10;
     self.joy.num = @20;
@@ -88,8 +96,15 @@
 }
 
 
+- (void)moodColorInit {
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
+    self.moodColor.layer.cornerRadius = self.moodColor.frame.size.width/2;
+    self.moodColor.layer.masksToBounds = YES;
+}
 
--(void) showAlert:(NSNotification*)notification{
+
+- (void)showAlert:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
@@ -115,7 +130,8 @@
     if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
     }
-    self.centerMood.hidden = (self.moodCount<1)? YES:NO;
+    self.choosingMood.hidden = (self.moodCount<1)? YES:NO;
+    [self setChoosingMoodImageByNum:moodButton.num];
     
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
         [self showWheelView:moodButton];
@@ -124,6 +140,13 @@
     else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
         [self deleteFromChosenMoods:moodButton.num];
     }
+}
+
+
+- (void)setChoosingMoodImageByNum:(NSNumber *)num {
+    int moodClass = num.intValue/10 - 1;
+    int moodDegree = num.intValue%10;
+    self.choosingMood.image = self.choosingMoodImages[moodClass][moodDegree];
 }
 
 
@@ -176,7 +199,6 @@
     }
     [self.moodColor setNeedsDisplay];
 }
-
 
 
 
@@ -282,7 +304,7 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
--(void) presentCalendar{
+- (void) presentCalendar{
     
 }
 @end
