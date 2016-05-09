@@ -208,7 +208,7 @@
     
     
     unsigned units = NSCalendarUnitMonth | NSCalendarUnitDay| NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitSecond;
-    NSDate *now = [NSDate date];
+    NSDate *now = [NSDate dateWithTimeIntervalSinceNow:86400*2];
     NSCalendar *myCal = [[NSCalendar alloc]
                          initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comp = [myCal components:units fromDate:now];
