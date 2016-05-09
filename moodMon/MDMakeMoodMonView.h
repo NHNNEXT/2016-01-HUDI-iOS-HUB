@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MDDataManager.h"
+#import "MDMoodColorView.h"
 @interface MDMakeMoodMonView : UIView
 
+-(UIImage*)makeMoodMon:(NSDictionary*)moodmonConf view:(MDMoodColorView*)view;
 @end
