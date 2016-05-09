@@ -396,14 +396,13 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-<<<<<<< HEAD
 
-=======
 - (IBAction)resetChosenMood:(id)sender {
+    
 }
 
 - (void) presentCalendar{
     
 }
->>>>>>> be3ecd4c4e5c0d6afdc74c3ce89c8f9f1a1af32f
+
 @end

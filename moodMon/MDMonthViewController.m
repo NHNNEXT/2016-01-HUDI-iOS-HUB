@@ -227,9 +227,14 @@ NSMutableArray *moodmonConf;
     
     MDMoodColorView *temp = [cell viewWithTag:3];
     //NSLog(@"%@",temp);
-    [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
-    [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
-    [temp.chosenMoods insertObject:[moodmonConf[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];
+    
+    NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1 ];
+    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen2 ];
+    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3 ];
+    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    
     temp.layer.cornerRadius = 22;
     
     return cell;

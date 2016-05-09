@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		657404361CD73EEB007FAE01 /* MDCustomStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 657404351CD73EEB007FAE01 /* MDCustomStoryboardSegue.m */; };
 		6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575788A1CB4BE7100D75D5E /* MDYearViewController.m */; };
 		658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7121CB4CE98006EB718 /* Main.storyboard */; };
 		658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */; };
@@ -28,6 +27,7 @@
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
+		CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */; };
 		CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */; };
 		CEBA98721CDF1C79006D2FFD /* MDSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */; };
 		CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */; };
@@ -167,8 +167,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		657404341CD73EEB007FAE01 /* MDCustomStoryboardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomStoryboardSegue.h; sourceTree = "<group>"; };
-		657404351CD73EEB007FAE01 /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
 		657578891CB4BE7100D75D5E /* MDYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDYearViewController.h; sourceTree = "<group>"; };
 		6575788A1CB4BE7100D75D5E /* MDYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDYearViewController.m; sourceTree = "<group>"; };
 		658BE7121CB4CE98006EB718 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -204,6 +202,9 @@
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
+		CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomStoryboardSegue.h; sourceTree = "<group>"; };
+		CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
+		CE7FFD5D1CE024A400B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MDCustomStoryboardSegue.m; path = moodMon/MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
 		CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewController.h; sourceTree = "<group>"; };
 		CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSearchTableViewController.m; sourceTree = "<group>"; };
 		CEBA98701CDF1C79006D2FFD /* MDSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -387,6 +388,7 @@
 		CE4A8A2A1CABCCB1006B73B7 = {
 			isa = PBXGroup;
 			children = (
+				CE7FFD5D1CE024A400B7139C /* MDCustomStoryboardSegue.m */,
 				CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */,
 				CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */,
 				CE4A8A351CABCCB1006B73B7 /* moodMon */,
@@ -409,17 +411,11 @@
 		CE4A8A351CABCCB1006B73B7 /* moodMon */ = {
 			isa = PBXGroup;
 			children = (
+				CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */,
+				CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */,
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
-<<<<<<< .merge_file_Iren2g
-				CEBA986F1CDF12E5006D2FFD /* newMoodmon */,
-=======
 				E986EDB91CDFBE9400792C55 /* new moodmon */,
-				CEDD938C1CC3BA4300028F80 /* MDMoodFilterTableViewController.h */,
-				CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */,
-				CEDD938F1CC3C07F00028F80 /* MDMoodFilterTableViewCell.h */,
-				CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */,
->>>>>>> .merge_file_AeZVMc
 				6575788C1CB4BE7600D75D5E /* year */,
 				CE0C92CD1CAE56A60037E749 /* data */,
 				CE87EC4F1CCE109900329E16 /* otherFunction */,
@@ -475,30 +471,6 @@
 			name = otherFunction;
 			sourceTree = "<group>";
 		};
-<<<<<<< .merge_file_Iren2g
-		CEBA986F1CDF12E5006D2FFD /* newMoodmon */ = {
-			isa = PBXGroup;
-			children = (
-				657404341CD73EEB007FAE01 /* MDCustomStoryboardSegue.h */,
-				657404351CD73EEB007FAE01 /* MDCustomStoryboardSegue.m */,
-				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
-				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
-				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
-				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
-				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
-				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
-				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
-				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
-				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
-				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
-				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
-			);
-			name = newMoodmon;
-			sourceTree = "<group>";
-		};
-		E97495B01CBA44330000E389 /* angry */ = {
-=======
 		E986ECCE1CDFBE2F00792C55 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,7 +494,6 @@
 			sourceTree = "<group>";
 		};
 		E986ECD01CDFBE2F00792C55 /* cheek */ = {
->>>>>>> .merge_file_AeZVMc
 			isa = PBXGroup;
 			children = (
 				E986ECD11CDFBE2F00792C55 /* cheek_degree1@2x.png */,
@@ -991,14 +962,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */,
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
 				658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */,
-				657404361CD73EEB007FAE01 /* MDCustomStoryboardSegue.m in Sources */,
 				65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */,
 				CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
-				658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */,
 				E95EB77F1CC4BCAB00141FBF /* MDRecentMoodView.m in Sources */,
+				658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */,
 				E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */,
 				E986ECCD1CDFBC4F00792C55 /* MDMoodFaceView.m in Sources */,
 				65980E2D1CC0D1DF0092EA18 /* MDMonthTimeLineCellTableViewCell.m in Sources */,
@@ -1144,6 +1115,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = moodMon/Info.plist;
 				"LD_MAP_FILE_PATH[arch=*]" = "-lsqlite3";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1156,6 +1128,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = moodMon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = next16.moodMon;
