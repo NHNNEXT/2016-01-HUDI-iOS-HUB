@@ -130,7 +130,7 @@ NSMutableArray *moodmonConf;
     for(int i=0;i<7;i++){
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
         switch (i) {
-            case 0:
+            case 6:
                 [monthLabel setText:[NSString stringWithFormat:@"월"]];
                 break;
             case 1:
@@ -148,7 +148,7 @@ NSMutableArray *moodmonConf;
             case 5:
                 [monthLabel setText:[NSString stringWithFormat:@"토"]];
                 break;
-            case 6:
+            case 0:
                 [monthLabel setText:[NSString stringWithFormat:@"일"]];
                 break;
             default:
