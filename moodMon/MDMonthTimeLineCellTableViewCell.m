@@ -7,6 +7,7 @@
 //
 
 #import "MDMonthTimeLineCellTableViewCell.h"
+
 static CGFloat const kBounceValue = 20.0f;
 
 @implementation MDMonthTimeLineCellTableViewCell
