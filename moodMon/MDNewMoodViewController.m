@@ -12,7 +12,9 @@
 @property CGFloat wheelDegree;
 @property NSInteger moodCount;
 @property NSArray *moodButtons;
+@property NSArray *choosingMoodImages;
 @property NSMutableArray *chosenMoods;
+@property int previousIntensity;
 @end
 
 
@@ -30,18 +32,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
     
+    self.chosenMoods = [[NSMutableArray alloc] init];
     [self dateInit];
-    [self initiateMoodViews];
+    [self moodViewInit];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
-    self.chosenMoods = [[NSMutableArray alloc] init];
     [self drawRecentMoodView];
+    
 }
 
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    [self cornerRadiusInit];
 }
 
 
@@ -50,13 +53,14 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setDateFormat:@"EEEE"];
+    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
     _day.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
     [dateFormatter setDateFormat:@"d MMMM yyyy"];
     _date.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
 }
 
 
--(void)drawRecentMoodView {
+- (void)drawRecentMoodView {
     [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
 //    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
@@ -65,10 +69,19 @@
 }
 
 
--(void)initiateMoodViews {
+- (void)moodViewInit {
     self.moodCount = 0;
-    self.centerMood.hidden = YES;
     
+    /* moodDegree init */
+    self.moodIntensityView.hidden = YES;
+    NSArray *angryMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"angry_degree1"],[UIImage imageNamed:@"angry_degree2"],[UIImage imageNamed:@"angry_degree3"],[UIImage imageNamed:@"angry_degree4"],[UIImage imageNamed:@"angry_degree5"], nil];
+    NSArray *joyMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"joy_degree1"],[UIImage imageNamed:@"joy_degree2"],[UIImage imageNamed:@"joy_degree3"],[UIImage imageNamed:@"joy_degree4"],[UIImage imageNamed:@"joy_degree5"], nil];
+    NSArray *sadMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"sad_degree1"],[UIImage imageNamed:@"sad_degree2"],[UIImage imageNamed:@"sad_degree3"],[UIImage imageNamed:@"sad_degree4"],[UIImage imageNamed:@"sad_degree5"], nil];
+    NSArray *excitedMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"excited_degree1"],[UIImage imageNamed:@"excited_degree2"],[UIImage imageNamed:@"excited_degree3"],[UIImage imageNamed:@"excited_degree4"],[UIImage imageNamed:@"excited_degree5"], nil];
+    NSArray *tiredMoodImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"tired_degree1"],[UIImage imageNamed:@"tired_degree2"],[UIImage imageNamed:@"tired_degree3"],[UIImage imageNamed:@"tired_degree4"],[UIImage imageNamed:@"tired_degree5"], nil];
+    self.choosingMoodImages = [NSArray arrayWithObjects:angryMoodImages, joyMoodImages, sadMoodImages, excitedMoodImages, tiredMoodImages, nil];
+    
+    /* moodButton init */
     self.angry.num = @10;
     self.joy.num = @20;
     self.sad.num = @30;
@@ -84,13 +97,33 @@
     self.sad.startingDegree = 2.47;
     self.excited.startingDegree = 3.8;
     self.tired.startingDegree = 5.1;
-    
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
+    
 }
 
 
+- (void)cornerRadiusInit {
+    /* moodColor & mixedMoodFace init */
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
+    self.moodColor.layer.cornerRadius = self.moodColor.frame.size.width/2;
+    self.moodColor.layer.masksToBounds = YES;
+    self.moodColor.hidden = NO;
+    self.mixedMoodFace.layer.cornerRadius = self.mixedMoodFace.frame.size.width/2;
+    self.mixedMoodFace.layer.masksToBounds = YES;
+    
+    /* save & reset button background */
+    self.saveButtonBackground.hidden = YES;
+    self.saveButtonBackground.layer.cornerRadius = self.saveButtonBackground.frame.size.width/2;
+    self.saveButtonBackground.layer.masksToBounds = YES;
+    self.saveButtonBackground.layer.opacity = 0.7;
+    self.resetButtonBackground.hidden = YES;
+    self.resetButtonBackground.layer.cornerRadius = self.resetButtonBackground.frame.size.width/2;
+    self.resetButtonBackground.layer.masksToBounds = YES;
+}
 
--(void) showAlert:(NSNotification*)notification{
+
+- (void)showAlert:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
@@ -116,8 +149,24 @@
     if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
     }
-    self.centerMood.hidden = (self.moodCount<1)? YES:NO;
-    
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        if(self.moodCount<1) {
+                            self.mixedMoodFace.hidden = YES;
+                            [self.mixedMoodFace setNeedsDisplay];
+                            self.saveButtonBackground.hidden = YES;
+                            self.resetButtonBackground.hidden = YES;
+                        }
+                        else {
+                            self.mixedMoodFace.hidden = NO;
+                            self.saveButtonBackground.hidden = NO;
+                            self.resetButtonBackground.hidden = NO;
+                        }
+                        [self setChoosingMoodImageByNum:moodButton.num];
+                    }
+                    completion:nil];
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
         [self showWheelView:moodButton];
         [self addNewChosenMood:moodButton.num];
@@ -125,6 +174,14 @@
     else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
         [self deleteFromChosenMoods:moodButton.num];
     }
+}
+
+
+
+- (void)setChoosingMoodImageByNum:(NSNumber *)num {
+    int moodClass = num.intValue/10 - 1;
+    int moodIntensity = num.intValue%10;
+    self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity];
 }
 
 
@@ -140,15 +197,17 @@
 
 
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
-    [UIView transitionWithView:self.wheel
-                      duration:0.2
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-                        self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
-                    }
-                    completion:nil];
+//    [UIView transitionWithView:self.wheel
+//                      duration:0.2
+//                       options:UIViewAnimationOptionTransitionCrossDissolve
+//                    animations:^{
+//                    }
+//                    completion:nil];
+    self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
+    self.moodIntensityView.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
     self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
+    self.previousIntensity = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = YES;
     }
@@ -159,25 +218,41 @@
 - (void)addNewChosenMood:(NSNumber *)moodNum {
     // 새로 선택한 감정을 chosenMoods에 추가.
     // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
-    NSMutableDictionary *chosenMood = [@{@"moodNum" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    NSMutableDictionary *chosenMood = [@{@"moodClass" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    
     [self.moodColor.chosenMoods addObject:moodNum];
     [self.moodColor setNeedsDisplay];
+    
+    [self.saveButtonBackground.chosenMoods addObject:moodNum];
+    [self.saveButtonBackground setNeedsDisplay];
+    
     [self.chosenMoods addObject:chosenMood];
 }
 
 
 
-- (void)deleteFromChosenMoods:(NSNumber *)moodNum {
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"moodNum != %@", moodNum];
+- (void)deleteFromChosenMoods:(NSNumber *)moodClass {
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"moodClass != %@", moodClass];
     self.chosenMoods = [[self.chosenMoods filteredArrayUsingPredicate:predicate1] mutableCopy];
     for(int i=0 ; i<[self.moodColor.chosenMoods count] ; i++) {
-        if(self.moodColor.chosenMoods[i] == moodNum) {
+        if(self.moodColor.chosenMoods[i] == moodClass) {
             [self.moodColor.chosenMoods removeObjectAtIndex:i];
         }
     }
+    for(int i=0 ; i<[self.saveButtonBackground.chosenMoods count] ; i++) {
+        if(self.saveButtonBackground.chosenMoods[i] == moodClass) {
+            [self.saveButtonBackground.chosenMoods removeObjectAtIndex:i];
+        }
+    }
+    for(int i=0 ; i<[self.mixedMoodFace.chosenMoods count] ; i++) {
+        if(self.mixedMoodFace.chosenMoods[i].intValue/10 == moodClass.intValue/10) {
+            [self.mixedMoodFace.chosenMoods removeObjectAtIndex:i];
+        }
+    }
     [self.moodColor setNeedsDisplay];
+    [self.saveButtonBackground setNeedsDisplay];
+    [self.mixedMoodFace setNeedsDisplay];
 }
-
 
 
 
@@ -192,6 +267,9 @@
 
 
 - (void)rotateWheel:(id)sender {
+    if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
+        return;
+    }
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
     [self setWheelDegreeWithAngle:angle];
@@ -222,17 +300,50 @@
 
 
 - (void)setMoodIntensity {
-    NSNumber *moodIntensity = [[NSNumber alloc] initWithInt:self.wheelDegree/72 + 1];
-    [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
+    NSNumber *moodIntensity = [NSNumber numberWithInt:self.wheelDegree/72];
+    
+    if(_previousIntensity != moodIntensity.intValue) {
+        _previousIntensity = moodIntensity.intValue;
+        [[self.chosenMoods lastObject] setValue:moodIntensity forKey:@"moodIntensity"];
+        int moodClass = [[[self.chosenMoods lastObject] objectForKey:@"moodClass"] intValue]/10 - 1;
+        [UIView transitionWithView:self.moodIntensityView
+                          duration:0.1
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.moodIntensityView.image = self.choosingMoodImages[moodClass][moodIntensity.intValue];
+                        }
+                        completion:nil];
+    }
 }
 
 
+- (void)setMixedMoodFaceWithNum:(NSNumber *)moodNum {
+    [self.mixedMoodFace.chosenMoods addObject:moodNum];
+    [self.mixedMoodFace setNeedsDisplay];
+}
+
 
 - (void)returnToStartView {
-    self.wheel.image = [UIImage imageNamed:@"circle"];
-    for(MDMoodButtonView *moodButton in self.moodButtons) {
-        moodButton.hidden = NO;
+    if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
+        return;
     }
+    
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        if(self.moodCount<3) {
+                            self.mixedMoodFace.hidden = NO;
+                        }
+                        self.moodIntensityView.hidden = YES;
+                        self.wheel.image = [UIImage imageNamed:@"circle"];
+                        for(MDMoodButtonView *moodButton in self.moodButtons) {
+                            moodButton.hidden = NO;
+                        }
+                    }
+                    completion:nil];
+    int moodNum = [[self.chosenMoods lastObject][@"moodClass"] intValue] + [[self.chosenMoods lastObject][@"moodIntensity"] intValue];
+    [self setMixedMoodFaceWithNum:[NSNumber numberWithInt:moodNum]];
 }
 
 
@@ -263,12 +374,12 @@
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     if([self.chosenMoods count] > 0){
-        firstChosen = [[self.chosenMoods[0] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
+        firstChosen = [[self.chosenMoods[0] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[0] objectForKey:@"moodIntensity"] intValue];
         if([self.chosenMoods count]>=2) {
-            secondChosen = [[self.chosenMoods[1] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
+            secondChosen = [[self.chosenMoods[1] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[1] objectForKey:@"moodIntensity"] intValue];
         }
         if([self.chosenMoods count]>=3) {
-            thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodNum"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
+            thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
         }
         NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
         [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
@@ -285,5 +396,14 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
+<<<<<<< HEAD
 
+=======
+- (IBAction)resetChosenMood:(id)sender {
+}
+
+- (void) presentCalendar{
+    
+}
+>>>>>>> be3ecd4c4e5c0d6afdc74c3ce89c8f9f1a1af32f
 @end
