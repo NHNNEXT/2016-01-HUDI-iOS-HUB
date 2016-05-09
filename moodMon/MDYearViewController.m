@@ -7,7 +7,6 @@
 //
 
 #import "MDYearViewController.h"
-#import "MDCustomStoryboardUnwindSegue.h"
 @interface MDYearViewController ()
 
 @end
@@ -40,14 +39,6 @@ int tag;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
--(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-}
-- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
-    // Instantiate a new CustomUnwindSegue
-    MDCustomStoryboardUnwindSegue *segue = [[MDCustomStoryboardUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
-    // Set the target point for the animation to the center of the button in this VC
-    return segue;
 }
 
 - (IBAction)handleSwipe:(UISwipeGestureRecognizer *)swipe {
