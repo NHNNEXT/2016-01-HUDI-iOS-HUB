@@ -948,21 +948,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-2Q-YrC">
-                                <rect key="frame" x="162" y="28" width="90" height="45"/>
+                                <rect key="frame" x="162" y="65" width="90" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHV-Zv-B8s">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="go to Month View"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="20" width="121" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="GN2-Fj-BDm" kind="show" id="zjh-rx-jOf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -970,16 +960,6 @@
                             <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="jxe-XP-v7i"/>
                             <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="8t1-wd-Ki5" secondAttribute="bottom" constant="8" id="lgC-56-UH1"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="lHV-Zv-B8s"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="lHV-Zv-B8s"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QP7-7f-6Mr" appends="YES" id="GYL-xs-v67"/>
                             <outletCollection property="gestureRecognizers" destination="kxC-bZ-R20" appends="YES" id="Sga-dJ-wvg"/>
@@ -1002,7 +982,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1846" y="754"/>
+            <point key="canvasLocation" x="1846" y="768"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="VSh-RE-7sg">

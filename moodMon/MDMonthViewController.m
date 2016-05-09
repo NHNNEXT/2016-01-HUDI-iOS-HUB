@@ -131,7 +131,7 @@ NSMutableArray *moodmonConf;
     for(int i=0;i<7;i++){
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
         switch (i) {
-            case 0:
+            case 6:
                 [monthLabel setText:[NSString stringWithFormat:@"월"]];
                 break;
             case 1:
@@ -149,7 +149,7 @@ NSMutableArray *moodmonConf;
             case 5:
                 [monthLabel setText:[NSString stringWithFormat:@"토"]];
                 break;
-            case 6:
+            case 0:
                 [monthLabel setText:[NSString stringWithFormat:@"일"]];
                 break;
             default:
@@ -197,7 +197,7 @@ NSMutableArray *moodmonConf;
                         [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                     }
                 }
-//                dayButton.backgroundColor =self.moodColor.chosenMoods;
+                dayButton.backgroundColor =self.moodColor.chosenMoods;
             }
         }
         [self.view addSubview:dayButton];
@@ -229,12 +229,20 @@ NSMutableArray *moodmonConf;
     MDMoodColorView *temp = [cell viewWithTag:3];
     //NSLog(@"%@",temp);
     
-    NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1 ];
-    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
-    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen2 ];
-    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
-    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3 ];
-    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
+    if(tempMoodChosen.intValue != 0){
+        [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+    }
+    
+    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen2];
+    if(tempMoodChosen.intValue != 0){
+        [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+    }
+    
+    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3];
+    if(tempMoodChosen.intValue != 0){
+        [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    }
     
     temp.layer.cornerRadius = 22;
     
@@ -295,7 +303,8 @@ NSMutableArray *moodmonConf;
 }
 
 - (void)buttonTwoActionForItemText:(NSString *)itemText {
-    NSLog(@"In the delegate, Clicked button two for %@", itemText);
+    MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
+    [smm saveMoodMon:self.view];
 }
 
 
