@@ -223,6 +223,7 @@ NSMutableArray *moodmonConf;
     //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
+   
     cell.delegate = self;
     
     MDMoodColorView *temp = [cell viewWithTag:3];

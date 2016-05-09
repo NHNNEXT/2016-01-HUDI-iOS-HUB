@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -1146,10 +1148,10 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odc-hj-2hU">
-                                                    <rect key="frame" x="8" y="8" width="415" height="43"/>
+                                                    <rect key="frame" x="8" y="0.0" width="415" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHk-0F-gNl">
-                                                            <rect key="frame" x="374" y="14" width="25" height="15"/>
+                                                            <rect key="frame" x="200" y="14" width="25" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1178,30 +1180,40 @@
                                                         <constraint firstAttribute="trailing" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="16" id="W54-S7-7Bo"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="m6X-r3-2i0"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="10" id="sjp-mM-5a5"/>
+                                                        <constraint firstItem="YHk-0F-gNl" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="200" id="yTA-7c-8Sr"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="KxO-f2-fDc"/>
+                                                            <exclude reference="W54-S7-7Bo"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="topMargin" secondItem="odc-hj-2hU" secondAttribute="top" id="9CP-Pz-xvj"/>
+                                                <constraint firstAttribute="topMargin" secondItem="odc-hj-2hU" secondAttribute="top" constant="8" id="9CP-Pz-xvj"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="width" secondItem="UjD-II-JKf" secondAttribute="width" multiplier="1:1" id="Do4-bL-kDo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="f9i-pS-vjo" secondAttribute="trailing" id="FXu-7W-5HK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="odc-hj-2hU" secondAttribute="trailing" constant="-16" id="Gaj-6d-4Ps"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="height" secondItem="UjD-II-JKf" secondAttribute="height" id="OUr-9z-d5O"/>
                                                 <constraint firstItem="f9i-pS-vjo" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="Y2c-4p-EOS"/>
+                                                <constraint firstItem="odc-hj-2hU" firstAttribute="width" secondItem="UjD-II-JKf" secondAttribute="width" id="Yh7-yM-eZn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="odc-hj-2hU" secondAttribute="trailing" constant="-16" id="bcy-nI-Ne4"/>
                                                 <constraint firstItem="f9i-pS-vjo" firstAttribute="leading" secondItem="HBN-2p-oc1" secondAttribute="trailing" constant="1" id="pQJ-yU-zqu"/>
                                                 <constraint firstItem="HBN-2p-oc1" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="rDw-Sb-UvW"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="odc-hj-2hU" secondAttribute="leading" id="sQt-ML-rxr"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Do4-bL-kDo"/>
+                                                    <exclude reference="Gaj-6d-4Ps"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentLabel" destination="hyP-2L-cNV" id="f0H-cy-aIh"/>
-                                            <outlet property="contentViewLeftConstraint" destination="Gaj-6d-4Ps" id="OTw-PN-jCI"/>
-                                            <outlet property="contentViewRightConstraint" destination="sQt-ML-rxr" id="TTp-e2-DXY"/>
+                                            <outlet property="contentViewLeftConstraint" destination="bcy-nI-Ne4" id="aZ7-ei-G5l"/>
+                                            <outlet property="contentViewRightConstraint" destination="sQt-ML-rxr" id="yHh-OK-YvH"/>
                                             <outlet property="editBtn" destination="f9i-pS-vjo" id="68N-PM-W6U"/>
                                             <outlet property="myContentView" destination="odc-hj-2hU" id="eJr-lC-Sg0"/>
                                             <outlet property="saveMoodmonBtn" destination="HBN-2p-oc1" id="bdI-04-Jmc"/>
