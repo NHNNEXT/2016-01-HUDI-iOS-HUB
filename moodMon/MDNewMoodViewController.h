@@ -46,7 +46,7 @@
 - (IBAction)resetChosenMood:(id)sender;
 
 -(void) showAlert:(NSNotification*)notification;
--(void) presentCalendar;
+//-(void) presentCalendar;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "MDMonthViewController.h"
+#import "MDMoodColorView.h"
 
 @interface MDMonthViewController ()
 
@@ -38,6 +39,7 @@ NSMutableArray *moodmonConf;
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
+    
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -210,15 +212,35 @@ NSMutableArray *moodmonConf;
     return moodmonConf.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 44;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
-    cell.titleLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
+    cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
+    
+    //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
+    cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
+    cell.delegate = self;
+    
+    MDMoodColorView *temp = [cell viewWithTag:3];
+    //NSLog(@"%@",temp);
+    
+    NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1 ];
+    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen2 ];
+    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3 ];
+    if(tempMoodChosen > 0)  [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    
+    temp.layer.cornerRadius = 22;
+    
     return cell;
 }
+
+
 
 -(void)buttonTouch:(id)sender{
     UIButton* btn = (UIButton *)sender;
@@ -240,9 +262,41 @@ NSMutableArray *moodmonConf;
     [_tableViews reloadData];
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableViews deselectRowAtIndexPath:indexPath animated:NO];
+
 }
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+       // [_objects removeObjectAtIndex:indexPath.row];
+        [self.tableViews deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        NSLog(@"Unhandled editing style! %ld",(long)editingStyle);
+    }
+}
+
+
+#pragma mark - SwipeableCellDelegate
+- (void)buttonOneActionForItemText:(NSString *)itemText {
+    NSLog(@"In the delegate, Clicked button one for %@", itemText);
+}
+
+- (void)buttonTwoActionForItemText:(NSString *)itemText {
+    NSLog(@"In the delegate, Clicked button two for %@", itemText);
+}
+
 
 -(void) showAlert:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];

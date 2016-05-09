@@ -7,6 +7,8 @@
 //
 
 #import "MDSearchTableViewController.h"
+#import "MDSearchTableViewCell.h"
+#import "MDMoodColorView.h"
 
 @implementation MDSearchTableViewController  
 
@@ -15,12 +17,14 @@
     
     self.dataManager = [MDDataManager sharedDataManager];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+    //[self.tableView registerClass:[MDSearchTableViewCell class] forCellReuseIdentifier:@"searchTableCell"];
+
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchController.searchBar;
-    
+   
     
     self.searchController.delegate = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
@@ -28,7 +32,7 @@
     self.definesPresentationContext = YES;
     [self.navigationController setNavigationBarHidden:YES];
 
-       self.filteredProducts = nil;
+    self.filteredProducts = nil;
     
 }
 
@@ -128,12 +132,14 @@
 
 
 
-
-
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    //NSLog(@"how many? %lu", (unsigned long)self.filteredProducts.count);
     return self.filteredProducts.count;
     
 }
@@ -142,19 +148,38 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    MDSearchTableViewCell *cell = (MDSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"searchTableCell" forIndexPath:indexPath];
+    
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[MDSearchTableViewCell alloc] init];
     }
     
     if([self.filteredProducts count] > 0){
-        NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kDay] );
-        cell.textLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
-        cell.detailTextLabel.text = @"hello";///?????
+       // NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kComment] );
+        
+        cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
+        //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
+        cell.timeLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kTime];
+        
+        MDMoodColorView *temp = [cell viewWithTag:3];
+        //NSLog(@"%@",temp);
+        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
+        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
+        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];
+        temp.layer.cornerRadius = 22;
+
     }
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
 
 #pragma mark - UIStateRestoration
 
