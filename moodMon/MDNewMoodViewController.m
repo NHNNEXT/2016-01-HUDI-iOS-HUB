@@ -157,7 +157,6 @@
                             self.mixedMoodFace.hidden = YES;
                             [self.mixedMoodFace setNeedsDisplay];
                             self.saveButtonBackground.hidden = YES;
-                            self.resetButtonBackground.hidden = YES;
                         }
                         else {
                             self.mixedMoodFace.hidden = NO;
@@ -339,6 +338,11 @@
                         self.wheel.image = [UIImage imageNamed:@"circle"];
                         for(MDMoodButtonView *moodButton in self.moodButtons) {
                             moodButton.hidden = NO;
+                        }
+                        
+                        if(self.moodCount<1) {
+                            self.saveButtonBackground.hidden = YES;
+                            self.resetButtonBackground.hidden = YES;
                         }
                     }
                     completion:nil];
