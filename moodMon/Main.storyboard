@@ -938,7 +938,7 @@
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">
             <objects>
-                <viewController storyboardIdentifier="yearVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="COX-hV-sA8" customClass="MDYearViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yearVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="COX-hV-sA8" customClass="MDYearViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8t1-wd-Ki5"/>
                         <viewControllerLayoutGuide type="bottom" id="GOc-Jo-X0z"/>
@@ -947,8 +947,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nuc-Hm-3Nq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="dK2-P9-S3J"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="kG1-cJ-Tyy">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="7Gn-4I-hyU">
+                                            <connections>
+                                                <action selector="unwindeBackbtn:" destination="COX-hV-sA8" id="uWa-53-k3u"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-2Q-YrC">
-                                <rect key="frame" x="162" y="65" width="90" height="45"/>
+                                <rect key="frame" x="162" y="99" width="90" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -957,9 +972,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nuc-Hm-3Nq" secondAttribute="trailing" constant="-20" id="3AN-ae-I2K"/>
+                            <constraint firstItem="Nuc-Hm-3Nq" firstAttribute="leading" secondItem="P6o-Am-0hL" secondAttribute="leadingMargin" constant="-20" id="Dbu-uK-ra3"/>
+                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="Nuc-Hm-3Nq" secondAttribute="bottom" constant="20" id="OUk-F4-5DI"/>
+                            <constraint firstItem="Nuc-Hm-3Nq" firstAttribute="top" secondItem="P6o-Am-0hL" secondAttribute="topMargin" id="cry-ST-avn"/>
                             <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="jxe-XP-v7i"/>
-                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="8t1-wd-Ki5" secondAttribute="bottom" constant="8" id="lgC-56-UH1"/>
+                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="lfF-P5-wwm"/>
+                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="8t1-wd-Ki5" secondAttribute="bottom" constant="45" id="lgC-56-UH1"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lgC-56-UH1"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QP7-7f-6Mr" appends="YES" id="GYL-xs-v67"/>
                             <outletCollection property="gestureRecognizers" destination="kxC-bZ-R20" appends="YES" id="Sga-dJ-wvg"/>
@@ -968,9 +993,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="yearly" destination="6Az-2Q-YrC" id="5ak-eZ-x8L"/>
+                        <segue destination="WBc-a8-YuF" kind="unwind" identifier="UnwindingSegueID" customClass="MDCustomStoryboardUnwindSegue" unwindAction="exitFromSecondViewController:" id="L6H-4D-qTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1V-a2-Sxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WBc-a8-YuF" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="up" id="QP7-7f-6Mr">
                     <connections>
                         <action selector="handleSwipe:" destination="COX-hV-sA8" id="XIh-E9-uXw"/>
@@ -994,7 +1021,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTableCell" id="PRc-2Y-STh" customClass="MDSearchTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRc-2Y-STh" id="aIw-TD-xuP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1088,7 +1115,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
                                 <rect key="frame" x="-1" y="370" width="415" height="322"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1097,7 +1124,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MDMonthTimeLineCellTableViewCell" id="v2g-lF-DOc" customClass="MDMonthTimeLineCellTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="415" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="415" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v2g-lF-DOc" id="UjD-II-JKf">
                                             <rect key="frame" x="0.0" y="0.0" width="415" height="43"/>
@@ -1203,9 +1230,6 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp3-46-4y1">
                                 <rect key="frame" x="164" y="84" width="87" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="coD-7h-88e"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1238,27 +1262,65 @@
                                 </items>
                                 <color key="barTintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <view tag="7" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgH-et-ga3" customClass="MDMoodColorView">
-                                <rect key="frame" x="87" y="136" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-tP-wvr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="UJ6-kj-8fP"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="QaD-tG-DvE">
+                                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
+                                                <rect key="frame" x="20" y="5" width="36" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Year">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
+                                                </connections>
+                                            </button>
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem style="plain" id="oEi-Tn-COU">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
+                                                    <rect key="frame" x="372" y="11" width="22" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem title="search" id="tGm-YV-KdU">
+                                                <connections>
+                                                    <segue destination="r5V-Xx-aGI" kind="show" id="7KW-Km-F25"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="hmy-DR-MdY" firstAttribute="top" secondItem="K4a-au-hDp" secondAttribute="bottom" id="9hw-Sh-9rb"/>
-                            <constraint firstItem="Lp3-46-4y1" firstAttribute="top" secondItem="eXz-kO-qpe" secondAttribute="bottom" constant="20" id="Bar-cZ-x06"/>
+                            <constraint firstItem="Zff-tP-wvr" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-20" id="AID-kn-x1Y"/>
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" id="Bjv-05-TPy"/>
-                            <constraint firstItem="lZk-tu-1dK" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="JWR-H9-WPf"/>
-                            <constraint firstItem="lZk-tu-1dK" firstAttribute="centerX" secondItem="Lp3-46-4y1" secondAttribute="centerX" id="PJh-Lp-rrZ"/>
                             <constraint firstItem="hmy-DR-MdY" firstAttribute="top" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="-49" id="Q0w-N4-8Fa"/>
+                            <constraint firstItem="Lp3-46-4y1" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="QJi-dk-QmR"/>
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="44" id="R43-de-cL3"/>
-                            <constraint firstItem="lZk-tu-1dK" firstAttribute="top" secondItem="eXz-kO-qpe" secondAttribute="bottom" constant="8" symbolic="YES" id="aZ3-ME-mAN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zff-tP-wvr" secondAttribute="trailing" constant="-20" id="TaH-Ih-8OO"/>
+                            <constraint firstItem="lZk-tu-1dK" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="WkM-1O-uqt"/>
+                            <constraint firstItem="lZk-tu-1dK" firstAttribute="top" secondItem="Zff-tP-wvr" secondAttribute="bottom" constant="20" id="eWz-88-P9x"/>
+                            <constraint firstItem="Zff-tP-wvr" firstAttribute="top" secondItem="8Tw-nI-bq1" secondAttribute="topMargin" id="fdS-me-kfR"/>
+                            <constraint firstItem="Zff-tP-wvr" firstAttribute="top" secondItem="8Tw-nI-bq1" secondAttribute="topMargin" id="fmT-oY-NNU"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerY" secondItem="8Tw-nI-bq1" secondAttribute="centerY" id="fsa-7Z-Bwu"/>
+                            <constraint firstItem="Lp3-46-4y1" firstAttribute="top" secondItem="Zff-tP-wvr" secondAttribute="bottom" constant="40" id="kht-3Q-NaP"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-20" id="qAI-UW-lGV"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="rB7-sC-7WU"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="width" secondItem="8Tw-nI-bq1" secondAttribute="width" multiplier="1:1" id="rOV-3s-5Hg"/>
-                            <constraint firstItem="Lp3-46-4y1" firstAttribute="centerX" secondItem="kCc-hW-Vsq" secondAttribute="centerX" id="x6y-q6-LtS"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1275,35 +1337,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Psj-DC-Bik">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
-                                <rect key="frame" x="20" y="5" width="36" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Year">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="oEi-Tn-COU">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
-                                    <rect key="frame" x="372" y="11" width="22" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <connections>
-                                        <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem title="search" id="tGm-YV-KdU">
-                                <connections>
-                                    <segue destination="r5V-Xx-aGI" kind="show" id="7KW-Km-F25"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -1348,7 +1381,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Hce-pi-NJu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GN2-Fj-BDm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GN2-Fj-BDm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="klu-ey-2vs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
