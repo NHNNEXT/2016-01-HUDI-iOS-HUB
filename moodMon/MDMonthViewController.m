@@ -196,6 +196,9 @@ NSMutableArray *moodmonConf;
                     //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                     //                }
                 MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord,yCoord, xVal, yVal)];
+                
+                [mcv awakeFromNib];
+                //                mcv.backgroundColor = [UIColor clearColor];
                 NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
                 if(tempMoodChosen.intValue > 0)
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
@@ -210,7 +213,7 @@ NSMutableArray *moodmonConf;
 //                    mcv = [self.view viewWithTag:7];
 //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 mcv.tag=tag++;
-                mcv.layer.cornerRadius = 22;
+                mcv.layer.cornerRadius = 16;
                 [mcv setNeedsDisplay];
                 [self.view addSubview:mcv];
             }
