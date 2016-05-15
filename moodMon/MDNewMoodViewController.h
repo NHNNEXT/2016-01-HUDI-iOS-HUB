@@ -47,9 +47,16 @@
 /* Recent Mood */
 @property (strong, nonatomic) IBOutlet MDRecentMoodView *recentMoodView;
 
+/* Comment */
+@property (strong, nonatomic) IBOutlet UITextField *textBox;
+
 /* Skip & Save */
 @property (strong, nonatomic) IBOutlet UIView *skipButtonBackground;
 @property (strong, nonatomic) IBOutlet MDMoodColorView *saveButtonBackground;
+
+
+- (IBAction)didTextBoxActivate:(id)sender;
+- (IBAction)didComment:(id)sender;
 - (IBAction)saveNewMoodMon:(id)sender;
 - (IBAction)skip:(id)sender;
 - (void) showAlert:(NSNotification*)notification;

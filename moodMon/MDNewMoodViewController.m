@@ -32,6 +32,7 @@
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     [self drawRecentMoodView];
+    [self textBoxInit];
 }
 
 
@@ -121,6 +122,17 @@
     self.skipButtonBackground.layer.cornerRadius = self.skipButtonBackground.frame.size.width/2;
     self.skipButtonBackground.layer.masksToBounds = YES;
     self.skipButtonBackground.hidden = NO;
+}
+
+
+- (void)textBoxInit {
+    UIColor *color = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    self.textBox.layer.borderColor = color.CGColor;
+    self.textBox.layer.borderWidth = 0.5;
+    self.textBox.layer.cornerRadius = self.textBox.frame.size.height/2;
+    self.textBox.clipsToBounds = YES;
+    self.textBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"What do you feel today?" attributes:@{NSForegroundColorAttributeName:color}];
+    self.textBox.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
 }
 
 
@@ -373,6 +385,12 @@
 }
 
 
+
+- (IBAction)didTextBoxActivate:(id)sender {
+}
+
+- (IBAction)didComment:(id)sender {
+}
 
 - (IBAction)saveNewMoodMon:(id)sender {
     NSString *comment = @"text Field's text";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
