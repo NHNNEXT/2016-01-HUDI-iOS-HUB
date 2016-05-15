@@ -23,7 +23,9 @@ int count;
 NSMutableArray *moodmonConf;
 MDMakeMoodMonView *mmm;
 MDMoodColorView *mcv;
-@implementation MDMonthViewController
+@implementation MDMonthViewController{
+    NSInteger myDay;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -49,6 +51,7 @@ MDMoodColorView *mcv;
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
     _clickedDate.text = @" ";
+    myDay = 0;
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -67,8 +70,16 @@ MDMoodColorView *mcv;
 
 //#noti selector
 -(void)timeTableReload{
-    NSLog(@"reload time table");
-    [self.tableViews reloadData];
+    unsigned units = NSCalendarUnitMonth | NSCalendarUnitDay| NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDate *now = [NSDate date];
+    NSCalendar *myCal = [[NSCalendar alloc]
+                         initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comp = [myCal components:units fromDate:now];
+    NSInteger day = [comp day];
+    
+    if(day == myDay){
+        [self showClickedDateMoodmonAtDay:myDay];
+    }    
 }
 
 
@@ -281,10 +292,17 @@ MDMoodColorView *mcv;
 
 -(void)buttonTouch:(id)sender{
     UIButton* btn = (UIButton *)sender;
+    [self showClickedDateMoodmonAtDay:btn.currentTitle.intValue];
+   
+}
+
+
+-(void)showClickedDateMoodmonAtDay:(int)day{
     NSMutableArray* moodmonConfig = [[NSMutableArray alloc]init];
     count=0;
-    NSString *clickedDateString =[NSString stringWithFormat:@"%d년 %d월 %d일", thisYear, thisMonth, btn.currentTitle.intValue];
+    NSString *clickedDateString =[NSString stringWithFormat:@"%d년 %d월 %d일", thisYear, thisMonth, day];
     _clickedDate.text = clickedDateString;
+    myDay = day;
     
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
@@ -292,7 +310,7 @@ MDMoodColorView *mcv;
         int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
         int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
         
-        if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==btn.currentTitle.intValue)){
+        if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==day)){
             
             moodmonConfig[count]=createdAt[parseNum];
             count++;
@@ -300,8 +318,8 @@ MDMoodColorView *mcv;
     }
     moodmonConf=moodmonConfig;
     [_tableViews reloadData];
+    
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
