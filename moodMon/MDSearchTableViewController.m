@@ -163,7 +163,8 @@
         cell.timeLabel.text = result;
         
         UIView *viewForFrame =  [cell viewWithTag:3];
-        MDMoodColorView *temp = [[MDMoodColorView alloc]initWithFrame:viewForFrame.frame];
+        MDMoodColorView *temp = [[MDMoodColorView alloc]init];
+        [temp setFrame:viewForFrame.frame];
        
         //NSLog(@"%@",temp);
         [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];

@@ -57,9 +57,6 @@ MDMoodColorView *mcv;
     
     [self moreDateInfo];
     
-    
-    
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -239,7 +236,6 @@ MDMoodColorView *mcv;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    // NSLog(@"%@",moodmonConf);
-    if(!moodmonConf) return NULL;
     
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
