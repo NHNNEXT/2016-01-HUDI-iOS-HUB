@@ -159,7 +159,7 @@
         
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
-        NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일 %@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
+        NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일\n%@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
         cell.timeLabel.text = result;
         
         UIView *viewForFrame =  [cell viewWithTag:3];
