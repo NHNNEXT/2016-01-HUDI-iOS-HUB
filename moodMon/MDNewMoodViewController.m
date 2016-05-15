@@ -25,26 +25,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.dataManager = [MDDataManager sharedDataManager];
-   
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
-    
     self.chosenMoods = [[NSMutableArray alloc] init];
+    [self notificationInit];
     [self dateInit];
     [self moodViewInit];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     [self drawRecentMoodView];
-    
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self cornerRadiusInit];
+    [self roundedViewsInit];
+}
+
+
+- (void)notificationInit {
+    self.dataManager = [MDDataManager sharedDataManager];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
 }
 
 
@@ -101,7 +102,7 @@
 }
 
 
-- (void)cornerRadiusInit {
+- (void)roundedViewsInit {
     /* moodColor & mixedMoodFace init */
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
@@ -116,9 +117,9 @@
     self.saveButtonBackground.layer.cornerRadius = self.saveButtonBackground.frame.size.width/2;
     self.saveButtonBackground.layer.masksToBounds = YES;
     self.saveButtonBackground.layer.opacity = 0.7;
-    self.resetButtonBackground.hidden = YES;
-    self.resetButtonBackground.layer.cornerRadius = self.resetButtonBackground.frame.size.width/2;
-    self.resetButtonBackground.layer.masksToBounds = YES;
+    self.skipButtonBackground.layer.cornerRadius = self.skipButtonBackground.frame.size.width/2;
+    self.skipButtonBackground.layer.masksToBounds = YES;
+    self.skipButtonBackground.hidden = NO;
 }
 
 
@@ -135,9 +136,10 @@
 - (void)addTapGestureRecognizer {
     for(UIImageView *mood in self.moodButtons){
         mood.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                              action:@selector(tapped:)];
-        [mood addGestureRecognizer:tap];
+//        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                              action:@selector(tapped:)];
+        MDTouchDownGestureRecognizer *recognizer = [[MDTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [mood addGestureRecognizer:recognizer];
     }
 }
 
@@ -160,7 +162,7 @@
                         else {
                             self.mixedMoodFace.hidden = NO;
                             self.saveButtonBackground.hidden = NO;
-                            self.resetButtonBackground.hidden = NO;
+                            self.skipButtonBackground.hidden = NO;
                         }
                         [self setChoosingMoodImageByNum:moodButton.num];
                     }
@@ -193,7 +195,7 @@
 }
 
 
-
+// 선택한 moodButton에 해당하는 wheel 색깔로 바꿔서 보여줌
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
 //    [UIView transitionWithView:self.wheel
 //                      duration:0.2
@@ -225,6 +227,7 @@
     [self.saveButtonBackground setNeedsDisplay];
     
     [self.chosenMoods addObject:chosenMood];
+    NSLog(@"%@", self.chosenMoods);
 }
 
 
@@ -341,7 +344,7 @@
                         
                         if(self.moodCount<1) {
                             self.saveButtonBackground.hidden = YES;
-                            self.resetButtonBackground.hidden = YES;
+                            self.skipButtonBackground.hidden = YES;
                         }
                     }
                     completion:nil];
@@ -396,6 +399,10 @@
 //        NSLog(@"Saving new Mood mon");
     }
     
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (IBAction)skip:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

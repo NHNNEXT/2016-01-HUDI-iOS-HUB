@@ -149,6 +149,8 @@
 		E986EDB61CDFBE2F00792C55 /* wrinkle_degree3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED471CDFBE2F00792C55 /* wrinkle_degree3@2x.png */; };
 		E986EDB71CDFBE2F00792C55 /* wrinkle_degree4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED481CDFBE2F00792C55 /* wrinkle_degree4@2x.png */; };
 		E986EDB81CDFBE2F00792C55 /* wrinkle_degree5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED491CDFBE2F00792C55 /* wrinkle_degree5@2x.png */; };
+		E9CD99651CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CD99641CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.m */; };
+		E9CD996A1CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +340,10 @@
 		E986ED471CDFBE2F00792C55 /* wrinkle_degree3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree3@2x.png"; sourceTree = "<group>"; };
 		E986ED481CDFBE2F00792C55 /* wrinkle_degree4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree4@2x.png"; sourceTree = "<group>"; };
 		E986ED491CDFBE2F00792C55 /* wrinkle_degree5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree5@2x.png"; sourceTree = "<group>"; };
+		E9CD99631CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTouchUpGestureRecognizer.h; sourceTree = "<group>"; };
+		E9CD99641CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTouchUpGestureRecognizer.m; sourceTree = "<group>"; };
+		E9CD99681CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTouchDownGestureRecognizer.h; sourceTree = "<group>"; };
+		E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTouchDownGestureRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -699,20 +705,10 @@
 		E986EDB91CDFBE9400792C55 /* new moodmon */ = {
 			isa = PBXGroup;
 			children = (
-				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
-				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
 				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
 				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
-				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
-				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
-				E986ECCB1CDFBC4F00792C55 /* MDMoodFaceView.h */,
-				E986ECCC1CDFBC4F00792C55 /* MDMoodFaceView.m */,
-				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
-				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
-				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
-				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
-				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+				E9CD99661CE883B000C9DBB7 /* gesture recognizer */,
+				E9CD99671CE883C200C9DBB7 /* view */,
 			);
 			name = "new moodmon";
 			sourceTree = "<group>";
@@ -725,6 +721,36 @@
 				658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		E9CD99661CE883B000C9DBB7 /* gesture recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
+				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
+				E9CD99631CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.h */,
+				E9CD99641CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.m */,
+				E9CD99681CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.h */,
+				E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */,
+			);
+			name = "gesture recognizer";
+			sourceTree = "<group>";
+		};
+		E9CD99671CE883C200C9DBB7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
+				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+				E986ECCB1CDFBC4F00792C55 /* MDMoodFaceView.h */,
+				E986ECCC1CDFBC4F00792C55 /* MDMoodFaceView.m */,
+				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
+				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
+				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -973,6 +999,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */,
+				E9CD99651CE8839C00C9DBB7 /* MDTouchUpGestureRecognizer.m in Sources */,
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
 				658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */,
 				65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */,
@@ -991,6 +1018,7 @@
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 				E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */,
 				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,
+				E9CD996A1CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */,
 				CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */,
 			);

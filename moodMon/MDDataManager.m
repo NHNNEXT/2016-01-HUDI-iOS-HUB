@@ -29,7 +29,7 @@
     if(self){
         self.moodCollection = [[NSMutableArray alloc] init];
         [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
-        NSLog(@"init : %@", _moodCollection);
+        //NSLog(@"init : %@", _moodCollection);
         self.isChecked = [@[ @NO, @NO,@NO,@NO,@NO ] mutableCopy];
         self.chosenMoodCount = 0;
         NSString *docsDir;
