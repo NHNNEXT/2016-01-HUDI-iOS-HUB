@@ -126,13 +126,19 @@
 
 
 - (void)textBoxInit {
-    UIColor *color = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-    self.textBox.layer.borderColor = color.CGColor;
-    self.textBox.layer.borderWidth = 0.5;
-    self.textBox.layer.cornerRadius = self.textBox.frame.size.height/2;
-    self.textBox.clipsToBounds = YES;
-    self.textBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"What do you feel today?" attributes:@{NSForegroundColorAttributeName:color}];
-    self.textBox.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
+    /* UI init */
+    UIColor *color = [[UIColor grayColor] colorWithAlphaComponent:0.7];
+    self.textField.layer.borderColor = color.CGColor;
+    self.textField.layer.borderWidth = 0.7;
+    self.textField.layer.cornerRadius = self.textField.frame.size.height/2;
+    self.textField.clipsToBounds = YES;
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Comment on your feeling!" attributes:@{NSForegroundColorAttributeName:color}];
+    self.textField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
+    
+    /* gesture recognizer to cancel typing */
+    [self.textField setDelegate:self];
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:recognizer];
 }
 
 
@@ -385,15 +391,42 @@
 }
 
 
+- (void)dismissKeyboard {
+    if(self.textField.editing == NO) {
+        return;
+    }
+    [self.textField resignFirstResponder];
+    [self moveEntireViewWithDuration:0.3 distance:+200];
+}
 
-- (IBAction)didTextBoxActivate:(id)sender {
+
+- (IBAction)didTextFieldActivate:(id)sender {
+    [self moveEntireViewWithDuration:0.3 distance:-200];
 }
 
 - (IBAction)didComment:(id)sender {
+    self.comment = self.textField.text;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [self moveEntireViewWithDuration:0.3 distance:+200];
+    return YES;
+}
+
+- (void)moveEntireViewWithDuration:(CGFloat)duration distance:(CGFloat)distance {
+    [UIView transitionWithView:self.view
+                      duration:duration
+                       options:UIViewAnimationOptionCurveEaseInOut
+                    animations:^{
+                        [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+distance, self.view.frame.size.width, self.view.frame.size.height)];
+                    }
+                    completion:nil];
+}
+
+
 - (IBAction)saveNewMoodMon:(id)sender {
-    NSString *comment = @"text Field's text";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
+//    NSString *comment = @"text Field's text";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
     int firstChosen=0, secondChosen=0, thirdChosen=0;
     
     if([self.chosenMoods count] > 0){
@@ -405,7 +438,7 @@
             thirdChosen = [[self.chosenMoods[2] objectForKey:@"moodClass"] intValue] + [[self.chosenMoods[2] objectForKey:@"moodIntensity"] intValue];
         }
         NSLog(@"저장한 감정 : %d, %d, %d", firstChosen, secondChosen, thirdChosen);
-        [self.dataManager saveNewMoodMonOfComment:comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
+        [self.dataManager saveNewMoodMonOfComment:_comment asFirstChosen:firstChosen SecondChosen:secondChosen andThirdChosen:thirdChosen];
     /*
      mood int 확인,
      MDDateManager saveNewMoodMonOfComment~ 메소드에서 하고 있습니다.
@@ -423,10 +456,6 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-
-- (IBAction)resetChosenMood:(id)sender {
-    
-}
 
 - (void) presentCalendar{
     

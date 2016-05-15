@@ -151,6 +151,7 @@
 		E9CD997B1CE8E25900C9DBB7 /* joy_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */; };
 		E9CD997D1CE8E25900C9DBB7 /* tired_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */; };
 		E9CD997F1CE8E2AB00C9DBB7 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */; };
+		E9CD99811CE9028800C9DBB7 /* Main-4inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99801CE9028800C9DBB7 /* Main-4inch.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +345,7 @@
 		E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_wheel@2x.png"; sourceTree = "<group>"; };
 		E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_wheel@2x.png"; sourceTree = "<group>"; };
 		E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
+		E9CD99801CE9028800C9DBB7 /* Main-4inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-4inch.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +435,7 @@
 				CE87EC4F1CCE109900329E16 /* otherFunction */,
 				CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */,
 				658BE7121CB4CE98006EB718 /* Main.storyboard */,
+				E9CD99801CE9028800C9DBB7 /* Main-4inch.storyboard */,
 				CE4A8A441CABCCB1006B73B7 /* LaunchScreen.storyboard */,
 				CE4A8A471CABCCB1006B73B7 /* Info.plist */,
 				CE4A8A361CABCCB1006B73B7 /* Supporting Files */,
@@ -866,6 +869,7 @@
 				E986ED671CDFBE2F00792C55 /* tired_eyebrow_degree1@2x.png in Resources */,
 				E986ED761CDFBE2F00792C55 /* joy_degree1@2x.png in Resources */,
 				E986ED611CDFBE2F00792C55 /* angry_eyebrow_degree5@2x.png in Resources */,
+				E9CD99811CE9028800C9DBB7 /* Main-4inch.storyboard in Resources */,
 				E986ED9D1CDFBE2F00792C55 /* tired_mouth_degree5@2x.png in Resources */,
 				E986EDA41CDFBE2F00792C55 /* tired_selected@2x.png in Resources */,
 				E986ED521CDFBE2F00792C55 /* darkcircle_degree2@2x.png in Resources */,
