@@ -24,5 +24,6 @@
 
 -(void) showAlert:(NSNotification*)notification;
 -(void)timeTableReload;
+-(void)resetTimeTable;
 
 @end

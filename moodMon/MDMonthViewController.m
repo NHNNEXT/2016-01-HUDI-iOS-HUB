@@ -101,6 +101,7 @@ MDMoodColorView *mcv;
         [self removeTags];
         [self moreDateInfo];
         NSLog(@"down Swipe");
+       
     }
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
@@ -109,6 +110,15 @@ MDMoodColorView *mcv;
         [self moreDateInfo];
         NSLog(@"up Swipe");
     }
+    [self resetTimeTable];
+}
+
+-(void)resetTimeTable{
+    moodmonConf = NULL;
+    myDay = 0;
+    _clickedDate.text = @" ";
+    [_tableViews reloadData];
+
 }
 
 -(void)removeTags{
@@ -241,12 +251,8 @@ MDMoodColorView *mcv;
     return moodmonConf.count;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 44;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   // NSLog(@"%@",moodmonConf);
+
     
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
