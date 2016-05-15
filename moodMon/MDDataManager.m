@@ -122,7 +122,7 @@
                 int idint = sqlite3_column_int(statement, 0);
                 if(idint == 0) continue;
                 
-                NSLog(@"INDEX %d is saving", idint);
+                //NSLog(@"INDEX %d is saving", idint);
                 NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
                 NSUInteger moodChosen1 = sqlite3_column_int(statement, 3);
                 NSUInteger moodChosen2 = sqlite3_column_int(statement, 4);
@@ -182,7 +182,7 @@
         //_status.text = @"SQL doesn't work";
         
         sqlite3_close(_moodmonDB);
-        NSLog(@"finished!");
+        //NSLog(@"finished!");
     }
 
 }
@@ -386,7 +386,8 @@
         
         sqlite3_close(_moodmonDB);
     }
-
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"newDataAdded" object:self];
     
 }
 

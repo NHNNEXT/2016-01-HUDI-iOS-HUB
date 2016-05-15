@@ -1088,8 +1088,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
-                                <rect key="frame" x="-1" y="370" width="415" height="322"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
+                                <rect key="frame" x="-1" y="416" width="415" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kCc-hW-Vsq" secondAttribute="height" multiplier="4.5:3" id="rKp-DC-Ufk"/>
@@ -1154,27 +1154,17 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="YHk-0F-gNl" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="DpN-T5-bLb"/>
-                                                        <constraint firstItem="wve-XH-Ut5" firstAttribute="top" secondItem="odc-hj-2hU" secondAttribute="top" id="KxO-f2-fDc"/>
                                                         <constraint firstItem="hyP-2L-cNV" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="64" id="NIs-Rr-DPH"/>
                                                         <constraint firstItem="hyP-2L-cNV" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="SYy-Qk-3j4"/>
-                                                        <constraint firstAttribute="trailing" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="16" id="W54-S7-7Bo"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="m6X-r3-2i0"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="10" id="sjp-mM-5a5"/>
                                                         <constraint firstItem="YHk-0F-gNl" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="200" id="yTA-7c-8Sr"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="KxO-f2-fDc"/>
-                                                            <exclude reference="W54-S7-7Bo"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="topMargin" secondItem="odc-hj-2hU" secondAttribute="top" constant="8" id="9CP-Pz-xvj"/>
-                                                <constraint firstItem="odc-hj-2hU" firstAttribute="width" secondItem="UjD-II-JKf" secondAttribute="width" multiplier="1:1" id="Do4-bL-kDo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="f9i-pS-vjo" secondAttribute="trailing" id="FXu-7W-5HK"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="odc-hj-2hU" secondAttribute="trailing" constant="-16" id="Gaj-6d-4Ps"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="height" secondItem="UjD-II-JKf" secondAttribute="height" id="OUr-9z-d5O"/>
                                                 <constraint firstItem="f9i-pS-vjo" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="Y2c-4p-EOS"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="width" secondItem="UjD-II-JKf" secondAttribute="width" id="Yh7-yM-eZn"/>
@@ -1183,12 +1173,6 @@
                                                 <constraint firstItem="HBN-2p-oc1" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="rDw-Sb-UvW"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="odc-hj-2hU" secondAttribute="leading" id="sQt-ML-rxr"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Do4-bL-kDo"/>
-                                                    <exclude reference="Gaj-6d-4Ps"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentLabel" destination="hyP-2L-cNV" id="f0H-cy-aIh"/>

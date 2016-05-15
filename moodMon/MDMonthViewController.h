@@ -22,6 +22,6 @@
 @property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
 
 -(void) showAlert:(NSNotification*)notification;
-
+-(void)timeTableReload;
 
 @end

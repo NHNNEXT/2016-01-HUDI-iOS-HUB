@@ -42,6 +42,7 @@ MDMoodColorView *mcv;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:mddm];
     
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
@@ -61,6 +62,17 @@ MDMoodColorView *mcv;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear: animated];
+//    moodmonConf = NULL;
+//    NSLog(@"%@",moodmonConf);
+}
+
+//#noti selector
+-(void)timeTableReload{
+    NSLog(@"reload time table");
+    [self.tableViews reloadData];
+}
 
 
 
@@ -226,6 +238,9 @@ MDMoodColorView *mcv;
 //}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   // NSLog(@"%@",moodmonConf);
+    if(!moodmonConf) return NULL;
+    
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     
@@ -236,7 +251,8 @@ MDMoodColorView *mcv;
     cell.delegate = self;
     
     UIView *viewForFrame =  [cell viewWithTag:3];
-    MDMoodColorView *temp = [[MDMoodColorView alloc]initWithFrame:viewForFrame.frame];
+    MDMoodColorView *temp = [[MDMoodColorView alloc]init];
+    [temp setFrame:viewForFrame.frame];
     //NSLog(@"%@",temp);
     
     NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
@@ -255,8 +271,12 @@ MDMoodColorView *mcv;
     }
     
     temp.layer.cornerRadius = (int)temp.frame.size.width/2;
+    temp.layer.masksToBounds = YES;
+    temp.hidden = NO;
+    [temp setBackgroundColor:[UIColor whiteColor]];
+    //NSLog(@"colorview : %@, chosenMood:%@",temp, temp.chosenMoods);
     [temp setNeedsDisplay];
-    [cell addSubview:temp];
+    [cell.myContentView addSubview:temp];
     
     return cell;
 }

@@ -13,6 +13,15 @@
 @end
 
 @implementation MDMoodColorView
+-(instancetype)init{
+    self = [super init];
+    if(self){
+        _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
+        self.colors = @[[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1], [UIColor colorWithRed:.91 green:.33 blue:.29 alpha:1], [UIColor colorWithRed:.96 green:.76 blue:.26 alpha:1], [UIColor colorWithRed:0.30 green:0.47 blue:0.86 alpha:1], [UIColor colorWithRed:.28 green:.82 blue:.71 alpha:1], [UIColor colorWithRed:.80 green:.60 blue:.97 alpha:1]];
+        
+    }
+    return self;
+}
 
 - (void)awakeFromNib {
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
