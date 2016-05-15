@@ -48,7 +48,7 @@ MDMoodColorView *mcv;
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
-    
+    _clickedDate.text = @" ";
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -283,6 +283,9 @@ MDMoodColorView *mcv;
     UIButton* btn = (UIButton *)sender;
     NSMutableArray* moodmonConfig = [[NSMutableArray alloc]init];
     count=0;
+    NSString *clickedDateString =[NSString stringWithFormat:@"%d년 %d월 %d일", thisYear, thisMonth, btn.currentTitle.intValue];
+    _clickedDate.text = clickedDateString;
+    
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
         int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];

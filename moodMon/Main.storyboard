@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -1088,6 +1088,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="clickedDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-vu-nqY">
+                                <rect key="frame" x="30" y="392" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
                                 <rect key="frame" x="-1" y="416" width="415" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1097,7 +1103,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MDMonthTimeLineCellTableViewCell" id="v2g-lF-DOc" customClass="MDMonthTimeLineCellTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="415" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="415" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v2g-lF-DOc" id="UjD-II-JKf">
                                             <rect key="frame" x="0.0" y="0.0" width="415" height="43"/>
@@ -1244,14 +1250,17 @@
                             <constraint firstItem="Lp3-46-4y1" firstAttribute="top" secondItem="eXz-kO-qpe" secondAttribute="bottom" constant="20" id="Bar-cZ-x06"/>
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" id="Bjv-05-TPy"/>
                             <constraint firstItem="lZk-tu-1dK" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="JWR-H9-WPf"/>
+                            <constraint firstItem="W2P-vu-nqY" firstAttribute="width" relation="lessThanOrEqual" secondItem="8Tw-nI-bq1" secondAttribute="width" id="LpP-xY-ZLP"/>
                             <constraint firstItem="lZk-tu-1dK" firstAttribute="centerX" secondItem="Lp3-46-4y1" secondAttribute="centerX" id="PJh-Lp-rrZ"/>
                             <constraint firstItem="hmy-DR-MdY" firstAttribute="top" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="-49" id="Q0w-N4-8Fa"/>
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="44" id="R43-de-cL3"/>
                             <constraint firstItem="lZk-tu-1dK" firstAttribute="top" secondItem="eXz-kO-qpe" secondAttribute="bottom" constant="8" symbolic="YES" id="aZ3-ME-mAN"/>
+                            <constraint firstItem="kCc-hW-Vsq" firstAttribute="top" secondItem="W2P-vu-nqY" secondAttribute="bottom" constant="3" id="exw-sX-pvI"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerY" secondItem="8Tw-nI-bq1" secondAttribute="centerY" id="fsa-7Z-Bwu"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-20" id="qAI-UW-lGV"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="rB7-sC-7WU"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="width" secondItem="8Tw-nI-bq1" secondAttribute="width" multiplier="1:1" id="rOV-3s-5Hg"/>
+                            <constraint firstItem="W2P-vu-nqY" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="10" id="w2N-55-V41"/>
                             <constraint firstItem="Lp3-46-4y1" firstAttribute="centerX" secondItem="kCc-hW-Vsq" secondAttribute="centerX" id="x6y-q6-LtS"/>
                         </constraints>
                         <variation key="default">
@@ -1302,6 +1311,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="clickedDate" destination="W2P-vu-nqY" id="NgF-AL-zpz"/>
                         <outlet property="monthLabel" destination="Lp3-46-4y1" id="WFJ-5q-Nwf"/>
                         <outlet property="tableViews" destination="kCc-hW-Vsq" id="Ped-2u-kEC"/>
                         <outlet property="yearLabel" destination="lZk-tu-1dK" id="Ta1-Qu-gpL"/>
