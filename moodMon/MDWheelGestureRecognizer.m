@@ -33,7 +33,6 @@
     [super touchesMoved:touches withEvent:event];
     self.touch = [touches anyObject];
     
-    NSLog(@"%@", self.touch.view.superview);
     self.currentAngle = [self getTouchAngle:[self.touch locationInView:self.touch.view.superview]];
     self.previousAngle = [self getTouchAngle:[self.touch previousLocationInView:self.touch.view.superview]];
     

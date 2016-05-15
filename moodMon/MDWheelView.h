@@ -11,6 +11,9 @@
 
 @interface MDWheelView : UIImageView
 
-- (void)showWheelView:(MDMoodButtonView *)selectedMood;
+@property CGFloat startAngle;
+@property CGFloat endAngle;
+@property NSArray *colors;
+@property NSInteger currentMoodNum;
 
 @end
