@@ -51,14 +51,37 @@
 
 
 - (void)dateInit {
+    // mood가 nil이 아니라는 것은 edit 모드로 들어왔다는 뜻.
+    // self.mood에는 edit할 MDMoodMon이 들어가 있음.
+    if(self.mood) {
+        [self dateInitOnEditMode];
+    }
     NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setDateFormat:@"EEEE"];
     [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
-    _day.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
+    _day.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
     [dateFormatter setDateFormat:@"d MMMM yyyy"];
-    _date.text = [NSMutableString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
+    _date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
+}
+
+
+- (void)dateInitOnEditMode {
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay:self.mood.moodDay];
+    [dateComponents setMonth:self.mood.moodMonth];
+    [dateComponents setYear:self.mood.moodYear];
+    
+    NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setDateFormat:@"EEEE"];
+    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
+    
+    _day.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
+    [dateFormatter setDateFormat:@"d MMMM yyyy"];
+    _date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
 }
 
 
@@ -101,6 +124,7 @@
     self.tired.startAngle = 5.1;
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
     
+    if(
 }
 
 
@@ -132,8 +156,17 @@
     self.textField.layer.borderWidth = 0.7;
     self.textField.layer.cornerRadius = self.textField.frame.size.height/2;
     self.textField.clipsToBounds = YES;
-    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Comment on your feeling!" attributes:@{NSForegroundColorAttributeName:color}];
     self.textField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
+    // self.mood가 nil이 아니라는 것은 edit mode라는 뜻.
+    // edit mode일 때는 self.mood에 들어있는 코멘트를 placeholder와 self.comment에 지정함.
+    if(self.mood) {
+        self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.mood.moodComment
+                                                                               attributes:@{NSForegroundColorAttributeName:color}];
+        self.comment = self.mood.moodComment;
+    } else {
+        self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Comment on your feeling!"
+                                                                               attributes:@{NSForegroundColorAttributeName:color}];
+    }
     
     /* gesture recognizer to cancel typing */
     [self.textField setDelegate:self];
