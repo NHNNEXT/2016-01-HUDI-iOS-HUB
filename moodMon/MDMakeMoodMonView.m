@@ -17,5 +17,24 @@
     // Drawing code
 }
 */
+-(UIImage*)makeMoodMon:(NSDictionary*)moodmonConf view:(MDMoodColorView*)view{
+    NSNumber *tempMoodChosen = [moodmonConf valueForKey:kChosen1 ];
+    if(tempMoodChosen > 0)  [view.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+    tempMoodChosen = [moodmonConf valueForKey:kChosen2 ];
+    if(tempMoodChosen > 0)  [view.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+    tempMoodChosen = [moodmonConf valueForKey:kChosen3 ];
+    if(tempMoodChosen > 0)  [view.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    
+    view.layer.cornerRadius = 22;
+    
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
 
 @end

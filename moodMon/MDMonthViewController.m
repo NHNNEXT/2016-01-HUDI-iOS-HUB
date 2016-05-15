@@ -21,8 +21,16 @@ extern int tag;
 NSArray *createdAt;
 int count;
 NSMutableArray *moodmonConf;
-
+MDMakeMoodMonView *mmm;
+MDMoodColorView *mcv;
 @implementation MDMonthViewController
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+    mmm = [[MDMakeMoodMonView alloc]init];
+     mcv = [self.view viewWithTag:7];
+}
 
 
 - (void)viewDidLoad {
@@ -126,7 +134,7 @@ NSMutableArray *moodmonConf;
     //    NSLog(@"Day week %d",newWeekDay);
     
     int yCount=1;
-    int xCoord=(newWeekDay*xVal)+xVal;
+    int xCoord=xVal;
     int yCoord=(yCount*yVal)+yVal*3.5;
     for(int i=0;i<7;i++){
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
@@ -155,11 +163,12 @@ NSMutableArray *moodmonConf;
             default:
                 break;
         }
+        monthLabel.tag = tag++;
     [monthLabel setFont:[UIFont systemFontOfSize:20]];
     [monthLabel setTextColor:[UIColor blackColor]];
     [self.view addSubview:monthLabel];
     }
-//    
+//
     _yearLabel.text=[NSString stringWithFormat:@"%d",thisYear];
     [_monthLabel setText:[NSString stringWithFormat:@"%d",thisMonth]];
     for(int startDay=1; startDay<=numDays;startDay++){
@@ -189,15 +198,15 @@ NSMutableArray *moodmonConf;
                 
                 
                 if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
-                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
-                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
-                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
-                    }
-                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
-                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
-                    }
+//                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
+//                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
+//                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
+//                    }
+//                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
+                    //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
+//                }
+                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 }
-                dayButton.backgroundColor =self.moodColor.chosenMoods;
             }
         }
         [self.view addSubview:dayButton];
@@ -226,7 +235,8 @@ NSMutableArray *moodmonConf;
    
     cell.delegate = self;
     
-    MDMoodColorView *temp = [cell viewWithTag:3];
+    UIView *viewForFrame =  [cell viewWithTag:3];
+    MDMoodColorView *temp = [[MDMoodColorView alloc]initWithFrame:viewForFrame.frame];
     //NSLog(@"%@",temp);
     
     NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
@@ -244,7 +254,9 @@ NSMutableArray *moodmonConf;
         [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
     }
     
-    temp.layer.cornerRadius = 22;
+    temp.layer.cornerRadius = (int)temp.frame.size.width/2;
+    [temp setNeedsDisplay];
+    [cell addSubview:temp];
     
     return cell;
 }

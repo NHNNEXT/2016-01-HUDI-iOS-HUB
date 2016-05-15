@@ -9,7 +9,7 @@
 #import "MDSaveMoodMon.h"
 
 @implementation MDSaveMoodMon
--(void)saveMoodMon:(UIView*)view{
+-(void)saveMoodMon:(MDMoodColorView*)view{
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [UIScreen mainScreen].scale);
     } else {

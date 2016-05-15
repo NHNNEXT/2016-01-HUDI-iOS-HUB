@@ -25,7 +25,7 @@
 
     UIStoryboard *storyboard = self.window.rootViewController.storyboard;
     
-    MDDataManager *dm = [[MDDataManager alloc]init];
+    MDDataManager *dm = [MDDataManager sharedDataManager];
     [dm createDB];
     
     UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];

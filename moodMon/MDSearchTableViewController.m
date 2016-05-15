@@ -30,7 +30,7 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO];
 
     self.filteredProducts = nil;
     
@@ -159,14 +159,19 @@
         
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
-        cell.timeLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kTime];
+        NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일 %@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
+        cell.timeLabel.text = result;
         
-        MDMoodColorView *temp = [cell viewWithTag:3];
+        UIView *viewForFrame =  [cell viewWithTag:3];
+        MDMoodColorView *temp = [[MDMoodColorView alloc]initWithFrame:viewForFrame.frame];
+       
         //NSLog(@"%@",temp);
         [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
         [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
         [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];
-        temp.layer.cornerRadius = 22;
+        temp.layer.cornerRadius = temp.frame.size.width/2;
+        [temp setNeedsDisplay];
+        [cell addSubview:temp];
 
     }
     return cell;
