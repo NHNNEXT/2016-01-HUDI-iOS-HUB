@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDMoodButtonView.h"
-#import "MDWheelView.h"
 #import "MDDataManager.h"
-#import "MDWheelGestureRecognizer.h"
-#import "MDRecentMoodView.h"
-#import "MDMoodColorView.h"
+#import "MDWheelView.h"
 #import "MDMoodFaceView.h"
-
+#import "MDMoodColorView.h"
+#import "MDMoodButtonView.h"
+#import "MDRecentMoodView.h"
+#import "MDWheelGestureRecognizer.h"
+#import "MDTouchDownGestureRecognizer.h"
 
 @interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate>
 
@@ -25,11 +25,12 @@
 @property MDDataManager *dataManager;
 
 /* IBOutlet */
+@property (strong, nonatomic) IBOutlet UIButton *sampleButton;
 @property (strong, nonatomic) IBOutlet UILabel *day;
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UIView *container;
 @property (strong, nonatomic) IBOutlet UIImageView *moodIntensityView;
-@property (strong, nonatomic) IBOutlet UIView *resetButtonBackground;
+@property (strong, nonatomic) IBOutlet UIView *skipButtonBackground;
 @property (strong, nonatomic) IBOutlet MDMoodFaceView *mixedMoodFace;
 @property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
 @property (strong, nonatomic) IBOutlet MDWheelView *wheel;
@@ -43,7 +44,7 @@
 
 /* IBAction */
 - (IBAction)saveNewMoodMon:(id)sender;
-- (IBAction)resetChosenMood:(id)sender;
+- (IBAction)skip:(id)sender;
 
 -(void) showAlert:(NSNotification*)notification;
 //-(void) presentCalendar;

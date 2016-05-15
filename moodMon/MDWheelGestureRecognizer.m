@@ -33,8 +33,9 @@
     [super touchesMoved:touches withEvent:event];
     self.touch = [touches anyObject];
     
-    self.currentAngle = [self getTouchAngle:[self.touch locationInView:self.touch.view]];
-    self.previousAngle = [self getTouchAngle:[self.touch previousLocationInView:self.touch.view]];
+    NSLog(@"%@", self.touch.view.superview);
+    self.currentAngle = [self getTouchAngle:[self.touch locationInView:self.touch.view.superview]];
+    self.previousAngle = [self getTouchAngle:[self.touch previousLocationInView:self.touch.view.superview]];
     
     if([self.delegate respondsToSelector:self.wheelAction]) {
         [self.delegate performSelector:self.wheelAction withObject:self];
