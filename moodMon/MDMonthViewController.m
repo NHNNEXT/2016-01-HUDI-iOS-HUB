@@ -314,11 +314,10 @@ NSMutableArray *moodmonConf;
 - (void)buttonTwoActionForItemText:(NSString *)itemText {
     MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
     [smm saveMoodMon:self.view];
+    //뷰를 넘겨주면 그대로 저장
 }
 - (IBAction) exitFromSecondViewController:(UIStoryboardSegue *)segue
 {
-    //Back으로 올때 호출되는 함수
-    // segue를 통해서, 어느 뷰컨트롤러에서 오는 것인지 구분할 수 있다.
     NSLog(@"back from : %@", [segue.sourceViewController class]);
 }
 
