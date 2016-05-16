@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -900,17 +899,16 @@
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
                                 <exclude reference="54e-1P-TKD"/>
+                                <exclude reference="BGn-lb-kPg"/>
+                                <exclude reference="VuF-ve-Oh6"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="g7e-3g-Krf"/>
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
-                                <exclude reference="Opm-9S-akn"/>
-                                <exclude reference="bjF-Cn-oXc"/>
                                 <exclude reference="PJ1-1Y-iQT"/>
                                 <exclude reference="YQ0-gl-eM6"/>
                                 <exclude reference="Zil-cv-FOb"/>
-                                <exclude reference="8hp-Z5-wDf"/>
-                                <exclude reference="9kY-pL-3Un"/>
+                                <exclude reference="x6X-na-boQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -929,17 +927,16 @@
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
                                 <include reference="54e-1P-TKD"/>
+                                <include reference="BGn-lb-kPg"/>
+                                <include reference="VuF-ve-Oh6"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="g7e-3g-Krf"/>
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
-                                <include reference="Opm-9S-akn"/>
-                                <include reference="bjF-Cn-oXc"/>
                                 <include reference="PJ1-1Y-iQT"/>
                                 <include reference="YQ0-gl-eM6"/>
                                 <include reference="Zil-cv-FOb"/>
-                                <include reference="8hp-Z5-wDf"/>
-                                <include reference="9kY-pL-3Un"/>
+                                <include reference="x6X-na-boQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -958,7 +955,7 @@
                         <outlet property="sad" destination="aL2-3u-dsJ" id="Oy1-AK-E04"/>
                         <outlet property="saveButtonBackground" destination="lrv-gQ-GRi" id="bcQ-gt-IwK"/>
                         <outlet property="skipButtonBackground" destination="A0I-t8-oas" id="H9J-9o-5ty"/>
-                        <outlet property="textField" destination="zuU-2m-ArN" id="CiK-mP-QHR"/>
+                        <outlet property="textField" destination="zuU-2m-ArN" id="bEU-IY-a2j"/>
                         <outlet property="tired" destination="uUR-Qm-e63" id="Mwg-0Z-CKg"/>
                         <outlet property="wheel" destination="Ar2-m9-yL3" id="VgK-Gr-rM6"/>
                     </connections>
