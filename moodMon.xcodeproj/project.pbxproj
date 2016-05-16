@@ -140,16 +140,18 @@
 		E986EDAC1CDFBE2F00792C55 /* joy_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED3B1CDFBE2F00792C55 /* joy_unselect@2x.png */; };
 		E986EDAD1CDFBE2F00792C55 /* sad_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED3C1CDFBE2F00792C55 /* sad_unselect@2x.png */; };
 		E986EDAE1CDFBE2F00792C55 /* tired_unselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED3D1CDFBE2F00792C55 /* tired_unselect@2x.png */; };
-		E986EDAF1CDFBE2F00792C55 /* angry_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED3F1CDFBE2F00792C55 /* angry_wheel@2x.png */; };
-		E986EDB01CDFBE2F00792C55 /* excited_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED401CDFBE2F00792C55 /* excited_wheel@2x.png */; };
-		E986EDB11CDFBE2F00792C55 /* joy_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED411CDFBE2F00792C55 /* joy_wheel@2x.png */; };
-		E986EDB21CDFBE2F00792C55 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED421CDFBE2F00792C55 /* sad_wheel@2x.png */; };
-		E986EDB31CDFBE2F00792C55 /* tired_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED431CDFBE2F00792C55 /* tired_wheel@2x.png */; };
 		E986EDB41CDFBE2F00792C55 /* wrinkle_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED451CDFBE2F00792C55 /* wrinkle_degree1@2x.png */; };
 		E986EDB51CDFBE2F00792C55 /* wrinkle_degree2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED461CDFBE2F00792C55 /* wrinkle_degree2@2x.png */; };
 		E986EDB61CDFBE2F00792C55 /* wrinkle_degree3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED471CDFBE2F00792C55 /* wrinkle_degree3@2x.png */; };
 		E986EDB71CDFBE2F00792C55 /* wrinkle_degree4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED481CDFBE2F00792C55 /* wrinkle_degree4@2x.png */; };
 		E986EDB81CDFBE2F00792C55 /* wrinkle_degree5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E986ED491CDFBE2F00792C55 /* wrinkle_degree5@2x.png */; };
+		E9CD996A1CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */; };
+		E9CD99721CE8A4CA00C9DBB7 /* angry_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99711CE8A4CA00C9DBB7 /* angry_wheel@2x.png */; };
+		E9CD99751CE8C9E500C9DBB7 /* MDProgressWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CD99741CE8C9E500C9DBB7 /* MDProgressWheelView.m */; };
+		E9CD997A1CE8E25900C9DBB7 /* excited_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99761CE8E25900C9DBB7 /* excited_wheel@2x.png */; };
+		E9CD997B1CE8E25900C9DBB7 /* joy_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */; };
+		E9CD997D1CE8E25900C9DBB7 /* tired_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */; };
+		E9CD997F1CE8E2AB00C9DBB7 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,16 +333,20 @@
 		E986ED3B1CDFBE2F00792C55 /* joy_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_unselect@2x.png"; sourceTree = "<group>"; };
 		E986ED3C1CDFBE2F00792C55 /* sad_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_unselect@2x.png"; sourceTree = "<group>"; };
 		E986ED3D1CDFBE2F00792C55 /* tired_unselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_unselect@2x.png"; sourceTree = "<group>"; };
-		E986ED3F1CDFBE2F00792C55 /* angry_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_wheel@2x.png"; sourceTree = "<group>"; };
-		E986ED401CDFBE2F00792C55 /* excited_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_wheel@2x.png"; sourceTree = "<group>"; };
-		E986ED411CDFBE2F00792C55 /* joy_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_wheel@2x.png"; sourceTree = "<group>"; };
-		E986ED421CDFBE2F00792C55 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
-		E986ED431CDFBE2F00792C55 /* tired_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_wheel@2x.png"; sourceTree = "<group>"; };
 		E986ED451CDFBE2F00792C55 /* wrinkle_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree1@2x.png"; sourceTree = "<group>"; };
 		E986ED461CDFBE2F00792C55 /* wrinkle_degree2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree2@2x.png"; sourceTree = "<group>"; };
 		E986ED471CDFBE2F00792C55 /* wrinkle_degree3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree3@2x.png"; sourceTree = "<group>"; };
 		E986ED481CDFBE2F00792C55 /* wrinkle_degree4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree4@2x.png"; sourceTree = "<group>"; };
 		E986ED491CDFBE2F00792C55 /* wrinkle_degree5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrinkle_degree5@2x.png"; sourceTree = "<group>"; };
+		E9CD99681CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTouchDownGestureRecognizer.h; sourceTree = "<group>"; };
+		E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTouchDownGestureRecognizer.m; sourceTree = "<group>"; };
+		E9CD99711CE8A4CA00C9DBB7 /* angry_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_wheel@2x.png"; sourceTree = "<group>"; };
+		E9CD99731CE8C9E500C9DBB7 /* MDProgressWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDProgressWheelView.h; sourceTree = "<group>"; };
+		E9CD99741CE8C9E500C9DBB7 /* MDProgressWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDProgressWheelView.m; sourceTree = "<group>"; };
+		E9CD99761CE8E25900C9DBB7 /* excited_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_wheel@2x.png"; sourceTree = "<group>"; };
+		E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_wheel@2x.png"; sourceTree = "<group>"; };
+		E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_wheel@2x.png"; sourceTree = "<group>"; };
+		E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,11 +686,11 @@
 		E986ED3E1CDFBE2F00792C55 /* wheel */ = {
 			isa = PBXGroup;
 			children = (
-				E986ED3F1CDFBE2F00792C55 /* angry_wheel@2x.png */,
-				E986ED401CDFBE2F00792C55 /* excited_wheel@2x.png */,
-				E986ED411CDFBE2F00792C55 /* joy_wheel@2x.png */,
-				E986ED421CDFBE2F00792C55 /* sad_wheel@2x.png */,
-				E986ED431CDFBE2F00792C55 /* tired_wheel@2x.png */,
+				E9CD99711CE8A4CA00C9DBB7 /* angry_wheel@2x.png */,
+				E9CD99761CE8E25900C9DBB7 /* excited_wheel@2x.png */,
+				E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */,
+				E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */,
+				E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */,
 			);
 			path = wheel;
 			sourceTree = "<group>";
@@ -704,20 +710,10 @@
 		E986EDB91CDFBE9400792C55 /* new moodmon */ = {
 			isa = PBXGroup;
 			children = (
-				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
-				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
 				658BE7171CB4CE98006EB718 /* MDNewMoodViewController.h */,
 				658BE7181CB4CE98006EB718 /* MDNewMoodViewController.m */,
-				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
-				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
-				E986ECCB1CDFBC4F00792C55 /* MDMoodFaceView.h */,
-				E986ECCC1CDFBC4F00792C55 /* MDMoodFaceView.m */,
-				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
-				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
-				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
-				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
-				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
-				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+				E9CD99661CE883B000C9DBB7 /* gesture recognizer */,
+				E9CD99671CE883C200C9DBB7 /* view */,
 			);
 			name = "new moodmon";
 			sourceTree = "<group>";
@@ -730,6 +726,36 @@
 				658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		E9CD99661CE883B000C9DBB7 /* gesture recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */,
+				E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */,
+				E9CD99681CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.h */,
+				E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */,
+			);
+			name = "gesture recognizer";
+			sourceTree = "<group>";
+		};
+		E9CD99671CE883C200C9DBB7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				658BE7191CB4CE98006EB718 /* MDWheelView.h */,
+				658BE71A1CB4CE98006EB718 /* MDWheelView.m */,
+				E986ECCB1CDFBC4F00792C55 /* MDMoodFaceView.h */,
+				E986ECCC1CDFBC4F00792C55 /* MDMoodFaceView.m */,
+				E97B30A81CCD949100FB8502 /* MDMoodColorView.h */,
+				E97B30A91CCD949100FB8502 /* MDMoodColorView.m */,
+				658BE7151CB4CE98006EB718 /* MDMoodButtonView.h */,
+				658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */,
+				E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */,
+				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
+				E9CD99731CE8C9E500C9DBB7 /* MDProgressWheelView.h */,
+				E9CD99741CE8C9E500C9DBB7 /* MDProgressWheelView.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -844,8 +870,6 @@
 				E986ED5F1CDFBE2F00792C55 /* angry_eyebrow_degree3@2x.png in Resources */,
 				E986ED671CDFBE2F00792C55 /* tired_eyebrow_degree1@2x.png in Resources */,
 				E986ED761CDFBE2F00792C55 /* joy_degree1@2x.png in Resources */,
-				E986EDB11CDFBE2F00792C55 /* joy_wheel@2x.png in Resources */,
-				E986EDB01CDFBE2F00792C55 /* excited_wheel@2x.png in Resources */,
 				E986ED611CDFBE2F00792C55 /* angry_eyebrow_degree5@2x.png in Resources */,
 				E986ED9D1CDFBE2F00792C55 /* tired_mouth_degree5@2x.png in Resources */,
 				E986EDA41CDFBE2F00792C55 /* tired_selected@2x.png in Resources */,
@@ -871,6 +895,7 @@
 				E986ED751CDFBE2F00792C55 /* excited_degree5@2x.png in Resources */,
 				E986ED501CDFBE2F00792C55 /* circle@2x.png in Resources */,
 				E986ED701CDFBE2F00792C55 /* angry_degree5@2x.png in Resources */,
+				E9CD997A1CE8E25900C9DBB7 /* excited_wheel@2x.png in Resources */,
 				E986EDB51CDFBE2F00792C55 /* wrinkle_degree2@2x.png in Resources */,
 				E986ED551CDFBE2F00792C55 /* darkcircle_degree5@2x.png in Resources */,
 				E986ED821CDFBE2F00792C55 /* tired_degree3@2x.png in Resources */,
@@ -888,6 +913,7 @@
 				E986ED9F1CDFBE2F00792C55 /* cross@2x.png in Resources */,
 				E986ED5E1CDFBE2F00792C55 /* angry_eyebrow_degree2@2x.png in Resources */,
 				E986ED591CDFBE2F00792C55 /* excited_eye_degree2@2x.png in Resources */,
+				E9CD997F1CE8E2AB00C9DBB7 /* sad_wheel@2x.png in Resources */,
 				E986ED8E1CDFBE2F00792C55 /* excited_mouth_degree5@2x.png in Resources */,
 				E986ED9C1CDFBE2F00792C55 /* tired_mouth_degree4@2x.png in Resources */,
 				E986ED9E1CDFBE2F00792C55 /* check@2x.png in Resources */,
@@ -908,6 +934,7 @@
 				E986ED7B1CDFBE2F00792C55 /* sad_degree1@2x.png in Resources */,
 				E986ED791CDFBE2F00792C55 /* joy_degree4@2x.png in Resources */,
 				E986ED661CDFBE2F00792C55 /* sad_eyebrow_degree5@2x.png in Resources */,
+				E9CD997D1CE8E25900C9DBB7 /* tired_wheel@2x.png in Resources */,
 				E986ED721CDFBE2F00792C55 /* excited_degree2@2x.png in Resources */,
 				658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */,
 				E986ED811CDFBE2F00792C55 /* tired_degree2@2x.png in Resources */,
@@ -919,7 +946,6 @@
 				E986ED7E1CDFBE2F00792C55 /* sad_degree4@2x.png in Resources */,
 				E986ED711CDFBE2F00792C55 /* excited_degree1@2x.png in Resources */,
 				E986ED901CDFBE2F00792C55 /* joy_mouth_degree2@2x.png in Resources */,
-				E986EDB31CDFBE2F00792C55 /* tired_wheel@2x.png in Resources */,
 				E986ED871CDFBE2F00792C55 /* angry_mouth_degree3@2x.png in Resources */,
 				658BE7331CB4CE98006EB718 /* Quicksand-Bold.otf in Resources */,
 				658BE7351CB4CE98006EB718 /* Quicksand-Regular.otf in Resources */,
@@ -930,7 +956,6 @@
 				E986ED731CDFBE2F00792C55 /* excited_degree3@2x.png in Resources */,
 				E986ED4B1CDFBE2F00792C55 /* cheek_degree1@2x.png in Resources */,
 				E986EDB81CDFBE2F00792C55 /* wrinkle_degree5@2x.png in Resources */,
-				E986EDB21CDFBE2F00792C55 /* sad_wheel@2x.png in Resources */,
 				E986ED841CDFBE2F00792C55 /* tired_degree5@2x.png in Resources */,
 				E986EDA61CDFBE2F00792C55 /* tear_degree2@2x.png in Resources */,
 				E986ED861CDFBE2F00792C55 /* angry_mouth_degree2@2x.png in Resources */,
@@ -942,16 +967,17 @@
 				E986ED831CDFBE2F00792C55 /* tired_degree4@2x.png in Resources */,
 				E986EDAB1CDFBE2F00792C55 /* excited_unselect@2x.png in Resources */,
 				E986ED6B1CDFBE2F00792C55 /* tired_eyebrow_degree5@2x.png in Resources */,
+				E9CD997B1CE8E25900C9DBB7 /* joy_wheel@2x.png in Resources */,
 				E986ED8F1CDFBE2F00792C55 /* joy_mouth_degree1@2x.png in Resources */,
 				E986EDA31CDFBE2F00792C55 /* sad_selected@2x.png in Resources */,
 				E986EDB61CDFBE2F00792C55 /* wrinkle_degree3@2x.png in Resources */,
 				E986ED921CDFBE2F00792C55 /* joy_mouth_degree4@2x.png in Resources */,
 				E986ED7D1CDFBE2F00792C55 /* sad_degree3@2x.png in Resources */,
 				E986ED651CDFBE2F00792C55 /* sad_eyebrow_degree4@2x.png in Resources */,
-				E986EDAF1CDFBE2F00792C55 /* angry_wheel@2x.png in Resources */,
 				E986ED5D1CDFBE2F00792C55 /* angry_eyebrow_degree1@2x.png in Resources */,
 				E986ED8C1CDFBE2F00792C55 /* excited_mouth_degree3@2x.png in Resources */,
 				E986ED961CDFBE2F00792C55 /* sad_mouth_degree3@2x.png in Resources */,
+				E9CD99721CE8A4CA00C9DBB7 /* angry_wheel@2x.png in Resources */,
 				E986ED981CDFBE2F00792C55 /* sad_mouth_degree5@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -990,6 +1016,7 @@
 				E986ECCD1CDFBC4F00792C55 /* MDMoodFaceView.m in Sources */,
 				65980E2D1CC0D1DF0092EA18 /* MDMonthTimeLineCellTableViewCell.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,
+				E9CD99751CE8C9E500C9DBB7 /* MDProgressWheelView.m in Sources */,
 				65B036761CDFA1FD00D095F0 /* MDSaveMoodMon.m in Sources */,
 				CE4A8A6B1CABCDC6006B73B7 /* MDDataManager.m in Sources */,
 				65B0367A1CDFA95400D095F0 /* MDMakeMoodMonView.m in Sources */,
@@ -997,6 +1024,7 @@
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 				E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */,
 				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,
+				E9CD996A1CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */,
 				CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */,
 			);

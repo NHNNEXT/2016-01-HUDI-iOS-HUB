@@ -25,26 +25,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.dataManager = [MDDataManager sharedDataManager];
-   
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
-    
     self.chosenMoods = [[NSMutableArray alloc] init];
+    [self notificationInit];
     [self dateInit];
     [self moodViewInit];
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     [self drawRecentMoodView];
-    
+    [self textBoxInit];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self cornerRadiusInit];
+    [self roundedViewsInit];
+}
+
+
+- (void)notificationInit {
+    self.dataManager = [MDDataManager sharedDataManager];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:self.dataManager ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:self.dataManager ];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"newMoodNotChosen" object:self.dataManager ];
 }
 
 
@@ -92,17 +94,17 @@
     self.sad.name = @"sad";
     self.excited.name = @"excited";
     self.tired.name = @"tired";
-    self.angry.startingDegree = 0;
-    self.joy.startingDegree = 1.2;
-    self.sad.startingDegree = 2.47;
-    self.excited.startingDegree = 3.8;
-    self.tired.startingDegree = 5.1;
+    self.angry.startAngle = 0;
+    self.joy.startAngle = 1.2;
+    self.sad.startAngle = 2.47;
+    self.excited.startAngle = 3.8;
+    self.tired.startAngle = 5.1;
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
     
 }
 
 
-- (void)cornerRadiusInit {
+- (void)roundedViewsInit {
     /* moodColor & mixedMoodFace init */
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
@@ -116,10 +118,21 @@
     self.saveButtonBackground.hidden = YES;
     self.saveButtonBackground.layer.cornerRadius = self.saveButtonBackground.frame.size.width/2;
     self.saveButtonBackground.layer.masksToBounds = YES;
-    self.saveButtonBackground.layer.opacity = 0.7;
-    self.resetButtonBackground.hidden = YES;
-    self.resetButtonBackground.layer.cornerRadius = self.resetButtonBackground.frame.size.width/2;
-    self.resetButtonBackground.layer.masksToBounds = YES;
+    self.saveButtonBackground.layer.opacity = 0.9;
+    self.skipButtonBackground.layer.cornerRadius = self.skipButtonBackground.frame.size.width/2;
+    self.skipButtonBackground.layer.masksToBounds = YES;
+    self.skipButtonBackground.hidden = NO;
+}
+
+
+- (void)textBoxInit {
+    UIColor *color = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    self.textBox.layer.borderColor = color.CGColor;
+    self.textBox.layer.borderWidth = 0.5;
+    self.textBox.layer.cornerRadius = self.textBox.frame.size.height/2;
+    self.textBox.clipsToBounds = YES;
+    self.textBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"What do you feel today?" attributes:@{NSForegroundColorAttributeName:color}];
+    self.textBox.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
 }
 
 
@@ -136,9 +149,10 @@
 - (void)addTapGestureRecognizer {
     for(UIImageView *mood in self.moodButtons){
         mood.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                              action:@selector(tapped:)];
-        [mood addGestureRecognizer:tap];
+//        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                              action:@selector(tapped:)];
+        MDTouchDownGestureRecognizer *recognizer = [[MDTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [mood addGestureRecognizer:recognizer];
     }
 }
 
@@ -157,12 +171,11 @@
                             self.mixedMoodFace.hidden = YES;
                             [self.mixedMoodFace setNeedsDisplay];
                             self.saveButtonBackground.hidden = YES;
-                            self.resetButtonBackground.hidden = YES;
                         }
                         else {
                             self.mixedMoodFace.hidden = NO;
                             self.saveButtonBackground.hidden = NO;
-                            self.resetButtonBackground.hidden = NO;
+                            self.skipButtonBackground.hidden = NO;
                         }
                         [self setChoosingMoodImageByNum:moodButton.num];
                     }
@@ -195,7 +208,7 @@
 }
 
 
-
+// 선택한 moodButton에 해당하는 wheel 색깔로 바꿔서 보여줌
 - (void)showWheelView:(MDMoodButtonView *)moodButton {
 //    [UIView transitionWithView:self.wheel
 //                      duration:0.2
@@ -204,8 +217,11 @@
 //                    }
 //                    completion:nil];
     self.wheel.image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@_wheel", moodButton.name]];
+    self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startAngle);
+    self.progressWheel.currentMoodNum = moodButton.num.intValue/10;
+    self.progressWheel.startAngle = moodButton.startAngle;
+    
     self.moodIntensityView.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
-    self.wheel.transform = CGAffineTransformMakeRotation(moodButton.startingDegree);
     self.wheelDegree = 0;
     self.previousIntensity = 0;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
@@ -227,6 +243,7 @@
     [self.saveButtonBackground setNeedsDisplay];
     
     [self.chosenMoods addObject:chosenMood];
+//    NSLog(@"%@", self.chosenMoods);
 }
 
 
@@ -270,10 +287,19 @@
     if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
         return;
     }
+    
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
+    
+    //wheel 회전
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
     [self setWheelDegreeWithAngle:angle];
     [self transformWheelWithAngle:angle];
+    
+    //wheel progress bar
+    self.progressWheel.endAngle = recognizer.currentAngle;
+    [self.progressWheel setNeedsDisplay];
+    
+    //돌린 정도에 따라 휠 가운데 이미지 변화
     [self setMoodIntensity];
 }
 
@@ -327,7 +353,6 @@
     if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
         return;
     }
-    
     [UIView transitionWithView:self.view
                       duration:0.2
                        options:UIViewAnimationOptionTransitionCrossDissolve
@@ -340,27 +365,19 @@
                         for(MDMoodButtonView *moodButton in self.moodButtons) {
                             moodButton.hidden = NO;
                         }
+                        
+                        if(self.moodCount<1) {
+                            self.saveButtonBackground.hidden = YES;
+                            self.skipButtonBackground.hidden = YES;
+                        }
                     }
                     completion:nil];
     int moodNum = [[self.chosenMoods lastObject][@"moodClass"] intValue] + [[self.chosenMoods lastObject][@"moodIntensity"] intValue];
     [self setMixedMoodFaceWithNum:[NSNumber numberWithInt:moodNum]];
+    
+    [self.progressWheel erasePath];
 }
 
-
-
-/*
-- (void)showWheelView:(MMNewMoodButtonView *)selectedMood {
-    //knob이미지 += wheel이미지.  wheel이미지 = circle이미지. CGRect좌표값으로 knob위치 설정하지 말고 돌리기.
-    self.knob.hidden = NO;
-    self.knob.image = [UIImage imageNamed:[[NSString alloc]initWithFormat:@"%@_knob",selectedMood.name]];
-    CGRect knobPos = selectedMood.frame;
-    [self.knob setFrame:CGRectMake(knobPos.origin.x + self.knob.frame.size.width/2, knobPos.origin.y + self.knob.frame.size.height/2, self.knob.frame.size.width, self.knob.frame.size.height)];
-    for(MMNewMoodButtonView *moodView in self.moodViews) {
-        moodView.hidden = YES;
-    }
-    self.wheel.image = [UIImage imageNamed:[[NSString alloc]initWithFormat:@"%@_wheel", selectedMood.name]];
-}
- */
 
 
 - (void)didReceiveMemoryWarning {
@@ -368,6 +385,12 @@
 }
 
 
+
+- (IBAction)didTextBoxActivate:(id)sender {
+}
+
+- (IBAction)didComment:(id)sender {
+}
 
 - (IBAction)saveNewMoodMon:(id)sender {
     NSString *comment = @"text Field's text";  //차후 로컬변수가 아닌 인스턴스 변수로 만들어야 함.
@@ -393,6 +416,10 @@
 //        NSLog(@"Saving new Mood mon");
     }
     
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (IBAction)skip:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
