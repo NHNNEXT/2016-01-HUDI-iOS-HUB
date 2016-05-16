@@ -188,9 +188,9 @@ static CGFloat const kBounceValue = 20.0f;
     if (sender == self.editBtn) {
         
         [self.delegate buttonOneActionForItemText:self.itemText];
-    } else if (sender == self.saveMoodmonBtn) {
         
-         [self.delegate buttonTwoActionForItemText:self.itemText];
+    } else if (sender == self.saveMoodmonBtn) {
+         [self.delegate buttonTwoActionForItemText:self.MCView];
     } else {
         NSLog(@"Clicked unknown button!");
     }
