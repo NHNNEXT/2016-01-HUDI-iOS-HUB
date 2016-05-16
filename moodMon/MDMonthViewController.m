@@ -128,7 +128,7 @@ NSMutableArray *moodmonConf;
 
 -(void)removeTags{
     int x=1;
-    while(x<=365){
+    while(x<=90){
         [[self.view viewWithTag:x]removeFromSuperview];
         x++;
     }
