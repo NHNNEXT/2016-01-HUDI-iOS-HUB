@@ -37,6 +37,7 @@ NSMutableArray *moodmonConf;
     MDDataManager *mddm = [MDDataManager sharedDataManager];
     //[mddm createDB];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:mddm];
@@ -58,9 +59,9 @@ NSMutableArray *moodmonConf;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear: animated];
-//    moodmonConf = NULL;
-//    NSLog(@"%@",moodmonConf);
+
+    [self.navigationController setNavigationBarHidden:YES];
+
 }
 
 //#noti selector
@@ -213,14 +214,15 @@ NSMutableArray *moodmonConf;
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [dayButton addTarget:self action:@selector(buttonTouch:) forControlEvents:UIControlEventTouchUpInside];
         dayButton.tag=tag++;
+        int checkFalg =0;
         for(int parseNum=0; parseNum<createdAt.count; parseNum++){
             NSDictionary *parseDate = createdAt[parseNum];
            int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
             int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
             int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
-            if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
-                
+            if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay&&(checkFalg==0))){
+                checkFalg=1;
 //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
 //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];

@@ -17,7 +17,7 @@
 #import "MDWheelGestureRecognizer.h"
 #import "MDTouchDownGestureRecognizer.h"
 
-@interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate>
+@interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate, UITextFieldDelegate>
 
 /* Model */
 @property MDMoodmon *mood;
@@ -48,15 +48,16 @@
 @property (strong, nonatomic) IBOutlet MDRecentMoodView *recentMoodView;
 
 /* Comment */
-@property (strong, nonatomic) IBOutlet UITextField *textBox;
+@property NSString *comment;
+@property (strong, nonatomic) IBOutlet UITextField *textField;
 
 /* Skip & Save */
 @property (strong, nonatomic) IBOutlet UIView *skipButtonBackground;
 @property (strong, nonatomic) IBOutlet MDMoodColorView *saveButtonBackground;
 
-
-- (IBAction)didTextBoxActivate:(id)sender;
+- (IBAction)didTextFieldActivate:(id)sender;
 - (IBAction)didComment:(id)sender;
+
 - (IBAction)saveNewMoodMon:(id)sender;
 - (IBAction)skip:(id)sender;
 - (void) showAlert:(NSNotification*)notification;
