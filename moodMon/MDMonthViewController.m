@@ -21,18 +21,13 @@ extern int tag;
 NSArray *createdAt;
 int count;
 NSMutableArray *moodmonConf;
-MDMakeMoodMonView *mmm;
-MDMoodColorView *mcv;
+
 @implementation MDMonthViewController{
     NSInteger myDay;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-    mmm = [[MDMakeMoodMonView alloc]init];
-     mcv = [self.view viewWithTag:7];
-}
+
+
 
 
 - (void)viewDidLoad {
@@ -147,6 +142,7 @@ MDMoodColorView *mcv;
         thisMonth=12;
         thisYear--;
     }
+    
     int xVal=CGRectGetWidth(self.view.bounds)/9,yVal=CGRectGetHeight(self.view.bounds)/20;
     NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -193,7 +189,7 @@ MDMoodColorView *mcv;
             default:
                 break;
         }
-        monthLabel.tag = tag++;
+    monthLabel.tag = tag++;
     [monthLabel setFont:[UIFont systemFontOfSize:20]];
     [monthLabel setTextColor:[UIColor blackColor]];
     [self.view addSubview:monthLabel];
@@ -211,7 +207,6 @@ MDMoodColorView *mcv;
             newWeekDay=0;
             yCount++;
         }
-        
         dayButton.frame = CGRectMake(xCoord, yCoord, xVal, yVal);
         [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
         [dayButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
@@ -226,17 +221,34 @@ MDMoodColorView *mcv;
             
             if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
                 
-                
-                if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)){
 //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
 //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
 //                    }
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
                     //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
-//                }
-                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
-                }
+                    //                }
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord,yCoord, xVal, yVal)];
+                
+                [mcv awakeFromNib];
+                //                mcv.backgroundColor = [UIColor clearColor];
+                NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
+                if(tempMoodChosen.intValue > 0)
+                    [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+                tempMoodChosen = [parseDate valueForKey:kChosen2 ];
+                if(tempMoodChosen.intValue > 0)
+                    [mcv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+                tempMoodChosen = [parseDate  valueForKey:kChosen3 ];
+                if(tempMoodChosen.intValue > 0)
+                    [mcv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+                
+//                    mmm = [[MDMakeMoodMonView alloc]init];
+//                    mcv = [self.view viewWithTag:7];
+//                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
+                mcv.tag=tag++;
+                mcv.layer.cornerRadius = 16;
+                [mcv setNeedsDisplay];
+                [self.view addSubview:mcv];
             }
         }
         [self.view addSubview:dayButton];
@@ -360,8 +372,12 @@ MDMoodColorView *mcv;
 - (void)buttonTwoActionForItemText:(NSString *)itemText {
     MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
     [smm saveMoodMon:self.view];
+    //뷰를 넘겨주면 그대로 저장
 }
-
+- (IBAction) exitFromSecondViewController:(UIStoryboardSegue *)segue
+{
+    NSLog(@"back from : %@", [segue.sourceViewController class]);
+}
 
 -(void) showAlert:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];

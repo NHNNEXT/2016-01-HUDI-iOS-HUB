@@ -19,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
 @property (strong, nonatomic) IBOutlet UILabel *monthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
-@property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
+
 @property (weak, nonatomic) IBOutlet UILabel *clickedDate;
 
 -(void) showAlert:(NSNotification*)notification;

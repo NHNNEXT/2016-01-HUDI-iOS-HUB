@@ -2,7 +2,7 @@
 //  MDCustomStoryboardUnwindSegue.m
 //  moodMon
 //
-//  Created by 이재성 on 2016. 5. 9..
+//  Created by 이재성 on 2016. 5. 10..
 //  Copyright © 2016년 HUB. All rights reserved.
 //
 
@@ -10,24 +10,22 @@
 
 @implementation MDCustomStoryboardUnwindSegue
 - (void)perform {
+    UIViewController *sourceViewController = self.sourceViewController;
+    UIViewController *destinationViewController = self.destinationViewController;
     
-    UIViewController *sourceViewController = (UIViewController *) self.sourceViewController;
-    UIViewController *destinationViewController = (UIViewController *) self.destinationViewController;
-    [sourceViewController.view addSubview:destinationViewController.view];
-    [destinationViewController.view setFrame:sourceViewController.view.window.frame];
-    [destinationViewController.view setTransform:CGAffineTransformMakeScale(0.5,0.5)];
-    [destinationViewController.view setAlpha:1.0];
+    // Add view to super view temporarily
+    [sourceViewController.view.superview insertSubview:destinationViewController.view atIndex:0];
     
     [UIView animateWithDuration:0.5
                           delay:0.0
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         [destinationViewController.view setTransform:CGAffineTransformMakeScale(1.0,1.0)];
-                         [destinationViewController.view setAlpha:1.0];
+                         // Shrink!
+                         sourceViewController.view.transform = CGAffineTransformMakeScale(0.05, 0.05);
                      }
                      completion:^(BOOL finished){
-                         [destinationViewController.view removeFromSuperview];
-                         [sourceViewController.navigationController pushViewController:destinationViewController animated:NO];
+                         [sourceViewController.view removeFromSuperview]; // remove from temp super view
+                         [destinationViewController dismissViewControllerAnimated:NO completion:NULL]; // dismiss VC
                      }];
 }
 @end
