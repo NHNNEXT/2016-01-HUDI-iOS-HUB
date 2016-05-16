@@ -37,9 +37,13 @@ NSMutableArray *moodmonConf;
     MDDataManager *mddm = [MDDataManager sharedDataManager];
     //[mddm createDB];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:mddm];
+    
+     [self.navigationController setNavigationBarHidden:YES];
+    
     
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
@@ -58,9 +62,16 @@ NSMutableArray *moodmonConf;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear: animated];
-//    moodmonConf = NULL;
-//    NSLog(@"%@",moodmonConf);
+    [super viewWillAppear:animated];
+
+    [self.navigationController setNavigationBarHidden:YES];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+
 }
 
 //#noti selector

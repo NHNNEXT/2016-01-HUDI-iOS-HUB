@@ -1101,7 +1101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8g-hz-0vR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2888" y="-287"/>
+            <point key="canvasLocation" x="2685" y="-290"/>
         </scene>
         <!--Mood Filter Table View Controller-->
         <scene sceneID="9Dh-Nr-3zA">
@@ -1145,6 +1145,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-tP-wvr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="UJ6-kj-8fP"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="QaD-tG-DvE">
+                                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
+                                                <rect key="frame" x="20" y="25" width="36" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Year">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
+                                                </connections>
+                                            </button>
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem style="plain" id="oEi-Tn-COU">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
+                                                    <rect key="frame" x="372" y="31" width="22" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
+                                                    </connections>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem title="search" id="tGm-YV-KdU">
+                                                <connections>
+                                                    <segue destination="r5V-Xx-aGI" kind="show" id="57u-Hh-6qS"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="clickedDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-vu-nqY">
                                 <rect key="frame" x="30" y="392" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1292,45 +1331,6 @@
                                 </items>
                                 <color key="barTintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-tP-wvr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="UJ6-kj-8fP"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Title" id="QaD-tG-DvE">
-                                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
-                                                <rect key="frame" x="20" y="5" width="36" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Year">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
-                                                </connections>
-                                            </button>
-                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem style="plain" id="oEi-Tn-COU">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
-                                                    <rect key="frame" x="372" y="11" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
-                                            <barButtonItem title="search" id="tGm-YV-KdU">
-                                                <connections>
-                                                    <segue destination="r5V-Xx-aGI" kind="show" id="7KW-Km-F25"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -1428,7 +1428,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycP-oP-4oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="-296"/>
+            <point key="canvasLocation" x="1334" y="-358"/>
         </scene>
     </scenes>
     <resources>
