@@ -31,6 +31,7 @@
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;
     [self.navigationController setNavigationBarHidden:YES];
+    //[self.navigationController set]
 
     self.filteredProducts = nil;
     
