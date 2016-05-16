@@ -24,13 +24,14 @@
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchController.searchBar;
-   
+    self.searchController.searchBar.delegate = self;
     
     self.searchController.delegate = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
+    //[self.navigationController set]
 
     self.filteredProducts = nil;
     
@@ -58,8 +59,6 @@
 
 }
 
-
-
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
@@ -69,6 +68,7 @@
     [searchBar resignFirstResponder];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 
