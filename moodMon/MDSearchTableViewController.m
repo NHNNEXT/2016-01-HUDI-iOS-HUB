@@ -157,6 +157,10 @@
     if([self.filteredProducts count] > 0){
        // NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kComment] );
         
+        if([self.filteredProducts[indexPath.row] valueForKey:kYear] == 0){
+            NSLog(@"no id 0");
+            return NULL;
+        }
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
         NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일\n%@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
@@ -165,11 +169,23 @@
         UIView *viewForFrame =  [cell viewWithTag:100];
         MDMoodColorView *temp = [[MDMoodColorView alloc]init];
         [temp setFrame:viewForFrame.frame];
-       
+        for(int i = 1 ;i <temp.chosenMoods.count ; i++){
+            [temp.chosenMoods removeObjectAtIndex:i];
+        }
         //NSLog(@"%@",temp);
-        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen1 ] atIndex:1 ];
-        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen2 ] atIndex:2 ];
-        [temp.chosenMoods insertObject:[self.filteredProducts[indexPath.row]valueForKey:kChosen3 ] atIndex:3 ];
+        NSNumber *tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen1];
+        if(tempMoodChosen.intValue != 0){
+            [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+        }
+        tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen2];
+        if(tempMoodChosen.intValue != 0){
+            [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+        }
+        tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen3];
+        if(tempMoodChosen.intValue != 0){
+            [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+        }
+        
         temp.layer.cornerRadius = temp.frame.size.width/2;
         [temp setNeedsDisplay];
         [cell addSubview:temp];

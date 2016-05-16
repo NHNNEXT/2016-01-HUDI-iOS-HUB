@@ -55,6 +55,7 @@ int tag;
         [self myCalView];
         NSLog(@"up Swipe");
     }
+    
 }
 - (IBAction)unwindeBackbtn:(id)sender {
     [self performSegueWithIdentifier:@"UnwindingSegueID" sender:self];
