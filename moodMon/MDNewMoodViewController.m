@@ -32,7 +32,7 @@
     [self addTapGestureRecognizer];
     [self addWheelGestureRecognizer];
     [self drawRecentMoodView];
-    [self textBoxInit];
+    [self textLabelInit];
 }
 
 
@@ -148,7 +148,10 @@
 }
 
 
-- (void)textBoxInit {
+- (void)textLabelInit {
+    /* default comment value */
+    _comment = @"";
+    
     /* UI init */
     UIColor *color = [[UIColor grayColor] colorWithAlphaComponent:0.7];
     self.textField.layer.borderColor = color.CGColor;
