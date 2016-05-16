@@ -133,7 +133,7 @@ NSMutableArray *moodmonConf;
 }
 
 -(void)moreDateInfo{
-    tag=1;
+    tag=32;
     if(thisMonth>12){
         thisMonth=1;
         thisYear++;
@@ -165,22 +165,22 @@ NSMutableArray *moodmonConf;
     for(int i=0;i<7;i++){
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
         switch (i) {
-            case 6:
+            case 1:
                 [monthLabel setText:[NSString stringWithFormat:@"월"]];
                 break;
-            case 1:
+            case 2:
                 [monthLabel setText:[NSString stringWithFormat:@"화"]];
                 break;
-            case 2:
+            case 3:
                 [monthLabel setText:[NSString stringWithFormat:@"수"]];
                 break;
-            case 3:
+            case 4:
                 [monthLabel setText:[NSString stringWithFormat:@"목"]];
                 break;
-            case 4:
+            case 5:
                 [monthLabel setText:[NSString stringWithFormat:@"금"]];
                 break;
-            case 5:
+            case 6:
                 [monthLabel setText:[NSString stringWithFormat:@"토"]];
                 break;
             case 0:
@@ -212,7 +212,7 @@ NSMutableArray *moodmonConf;
         [dayButton.titleLabel setFont:[UIFont systemFontOfSize:20]];
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [dayButton addTarget:self action:@selector(buttonTouch:) forControlEvents:UIControlEventTouchUpInside];
-        dayButton.tag=tag++;
+        dayButton.tag=startDay;
         int checkFalg =0;
         for(int parseNum=0; parseNum<createdAt.count; parseNum++){
             NSDictionary *parseDate = createdAt[parseNum];
@@ -220,7 +220,8 @@ NSMutableArray *moodmonConf;
             int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
             int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
-            if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay&&(checkFalg==0))){
+            if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)&&(checkFalg==0)){
+                [dayButton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
                 checkFalg=1;
 //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
@@ -229,27 +230,38 @@ NSMutableArray *moodmonConf;
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
                     //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                     //                }
-                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord,yCoord, xVal, yVal)];
+                int yCoordCenter = yVal/2+yCoord-xVal/2;
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord,yCoordCenter, xVal, xVal)];
                 
                 [mcv awakeFromNib];
+                MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoord, yCoord, xVal, yVal)];
+                
+                [mfv awakeFromNib];
                 //                mcv.backgroundColor = [UIColor clearColor];
                 NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
                 if(tempMoodChosen.intValue > 0)
+//                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
                 tempMoodChosen = [parseDate valueForKey:kChosen2 ];
                 if(tempMoodChosen.intValue > 0)
+//                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
                 tempMoodChosen = [parseDate  valueForKey:kChosen3 ];
                 if(tempMoodChosen.intValue > 0)
+//                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+                
                 
 //                    mmm = [[MDMakeMoodMonView alloc]init];
 //                    mcv = [self.view viewWithTag:7];
 //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 mcv.tag=tag++;
-                mcv.layer.cornerRadius = 16;
+                mfv.tag=tag++;
+                mcv.layer.cornerRadius = 24;
                 [mcv setNeedsDisplay];
+                [mfv setNeedsDisplay];
                 [self.view addSubview:mcv];
+//                [self.view addSubview:mfv];
             }
         }
         [self.view addSubview:dayButton];

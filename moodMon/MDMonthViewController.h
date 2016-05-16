@@ -13,6 +13,7 @@
 #import "MDMoodColorView.h"
 #import "MDSaveMoodMon.h"
 #import "MDMakeMoodMonView.h"
+#import "MDMoodFaceView.h"
 
 @interface MDMonthViewController : UIViewController <SwipeableCellDelegate>
 
