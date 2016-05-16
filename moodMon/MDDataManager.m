@@ -29,6 +29,7 @@
     if(self){
         self.moodCollection = [[NSMutableArray alloc] init];
         [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
+        //NSLog(@"init : %@", _moodCollection);
         self.isChecked = [@[ @NO, @NO,@NO,@NO,@NO ] mutableCopy];
         self.chosenMoodCount = 0;
         NSString *docsDir;
@@ -51,8 +52,8 @@
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
-   // if( [filemgr fileExistsAtPath:_dataBasePath] == NO){
-//        NSLog(@"no db");
+    if( [filemgr fileExistsAtPath:_dataBasePath] == NO){
+        NSLog(@"no db");
     
         const char *dbpath = [_dataBasePath UTF8String];
         
@@ -83,23 +84,22 @@
 //        NSLog(@"yes1 : SQL created");
 
         
-    //} else {
+    } else {
        
-//        NSLog(@"yes1 : read data from SQL ");
-         [self readAllFromDBAndSetCollection];
+        [self readAllFromDBAndSetCollection];
+        NSLog(@"yes1 : read data from SQL ");
         
-    //}
-    
-    
+    }
     
 }
+
 - (void)readAllFromDBAndSetCollection{
     
     sqlite3_stmt *statement;
     const char *dbpath = [_dataBasePath UTF8String];
     
     if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
-//        NSLog(@"yes2 : start reading from SQL");
+        NSLog(@"yes2 : start reading from SQL");
         NSString *querySQL = @"SELECT * FROM moodmon";
         
         const char *query_stmt = [querySQL UTF8String];
@@ -122,7 +122,7 @@
                 int idint = sqlite3_column_int(statement, 0);
                 if(idint == 0) continue;
                 
-//                NSLog(@"INDEX %d is saving", idint);
+                //NSLog(@"INDEX %d is saving", idint);
                 NSString *comment = [[NSString alloc]initWithUTF8String:(const char*) sqlite3_column_text(statement, 1)];
                 NSUInteger moodChosen1 = sqlite3_column_int(statement, 3);
                 NSUInteger moodChosen2 = sqlite3_column_int(statement, 4);
@@ -170,6 +170,7 @@
                 }
                 
                 [self.moodCollection insertObject:moodmon atIndex:idint];
+               // NSLog(@"%@",self.moodCollection);
                 //@"SUCCESS";
             }
             
@@ -181,6 +182,7 @@
         //_status.text = @"SQL doesn't work";
         
         sqlite3_close(_moodmonDB);
+        //NSLog(@"finished!");
     }
 
 }
@@ -384,7 +386,8 @@
         
         sqlite3_close(_moodmonDB);
     }
-
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"newDataAdded" object:self];
     
 }
 
@@ -400,7 +403,7 @@
     
     
     int count = (int)[self.moodCollection count];
-   // NSLog(@"count : %d",count);
+    NSLog(@"count : %d",count);
     if(count == 1) return 0;
     int chosenCount = 0;
     int sum[5] = {0,0,0,0,0};

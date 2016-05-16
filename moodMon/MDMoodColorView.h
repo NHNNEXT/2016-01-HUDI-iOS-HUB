@@ -10,4 +10,7 @@
 
 @interface MDMoodColorView : UIView
 @property NSMutableArray *chosenMoods;
+
+
+-(instancetype)init;
 @end

@@ -63,9 +63,8 @@
 
 
 - (void)drawRecentMoodView {
-    [self.dataManager readAllFromDBAndSetCollection];
     NSUInteger recentMood = [self.dataManager recentMood];
-//    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
+    NSLog(@"recent mood : %lu", (unsigned long)recentMood);
     self.recentMoodView.recentMood = recentMood;
     [self.recentMoodView setNeedsDisplay];
 }

@@ -19,7 +19,11 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
 @property (strong, nonatomic) IBOutlet UILabel *monthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
--(void) showAlert:(NSNotification*)notification;
 
+@property (weak, nonatomic) IBOutlet UILabel *clickedDate;
+
+-(void) showAlert:(NSNotification*)notification;
+-(void)timeTableReload;
+-(void)resetTimeTable;
 
 @end

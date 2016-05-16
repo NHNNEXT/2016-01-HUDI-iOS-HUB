@@ -21,7 +21,12 @@ extern int tag;
 NSArray *createdAt;
 int count;
 NSMutableArray *moodmonConf;
-@implementation MDMonthViewController
+
+@implementation MDMonthViewController{
+    NSInteger myDay;
+}
+
+
 
 
 
@@ -34,12 +39,14 @@ NSMutableArray *moodmonConf;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:mddm];
     
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
-    
+    _clickedDate.text = @" ";
+    myDay = 0;
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -48,11 +55,27 @@ NSMutableArray *moodmonConf;
     
     [self moreDateInfo];
     
-    
-    
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear: animated];
+//    moodmonConf = NULL;
+//    NSLog(@"%@",moodmonConf);
+}
+
+//#noti selector
+-(void)timeTableReload{
+    unsigned units = NSCalendarUnitMonth | NSCalendarUnitDay| NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDate *now = [NSDate date];
+    NSCalendar *myCal = [[NSCalendar alloc]
+                         initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comp = [myCal components:units fromDate:now];
+    NSInteger day = [comp day];
+    
+    if(day == myDay){
+        [self showClickedDateMoodmonAtDay:myDay];
+    }    
+}
 
 
 
@@ -73,6 +96,7 @@ NSMutableArray *moodmonConf;
         [self removeTags];
         [self moreDateInfo];
         NSLog(@"down Swipe");
+       
     }
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
@@ -81,6 +105,15 @@ NSMutableArray *moodmonConf;
         [self moreDateInfo];
         NSLog(@"up Swipe");
     }
+    [self resetTimeTable];
+}
+
+-(void)resetTimeTable{
+    moodmonConf = NULL;
+    myDay = 0;
+    _clickedDate.text = @" ";
+    [_tableViews reloadData];
+
 }
 
 -(void)removeTags{
@@ -230,20 +263,21 @@ NSMutableArray *moodmonConf;
     return moodmonConf.count;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 44;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     
     //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
+   
     cell.delegate = self;
     
-    MDMoodColorView *temp = [cell viewWithTag:3];
+    UIView *viewForFrame =  [cell viewWithTag:3];
+    MDMoodColorView *temp = [[MDMoodColorView alloc]init];
+    [temp setFrame:viewForFrame.frame];
     //NSLog(@"%@",temp);
     
     NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
@@ -261,7 +295,13 @@ NSMutableArray *moodmonConf;
         [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
     }
     
-    temp.layer.cornerRadius = 22;
+    temp.layer.cornerRadius = (int)temp.frame.size.width/2;
+    temp.layer.masksToBounds = YES;
+    temp.hidden = NO;
+    [temp setBackgroundColor:[UIColor whiteColor]];
+    //NSLog(@"colorview : %@, chosenMood:%@",temp, temp.chosenMoods);
+    [temp setNeedsDisplay];
+    [cell.myContentView addSubview:temp];
     
     return cell;
 }
@@ -270,15 +310,25 @@ NSMutableArray *moodmonConf;
 
 -(void)buttonTouch:(id)sender{
     UIButton* btn = (UIButton *)sender;
+    [self showClickedDateMoodmonAtDay:btn.currentTitle.intValue];
+   
+}
+
+
+-(void)showClickedDateMoodmonAtDay:(int)day{
     NSMutableArray* moodmonConfig = [[NSMutableArray alloc]init];
     count=0;
+    NSString *clickedDateString =[NSString stringWithFormat:@"%d년 %d월 %d일", thisYear, thisMonth, day];
+    _clickedDate.text = clickedDateString;
+    myDay = day;
+    
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
         int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
         int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
         int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
         
-        if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==btn.currentTitle.intValue)){
+        if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==day)){
             
             moodmonConfig[count]=createdAt[parseNum];
             count++;
@@ -286,8 +336,8 @@ NSMutableArray *moodmonConf;
     }
     moodmonConf=moodmonConfig;
     [_tableViews reloadData];
+    
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
