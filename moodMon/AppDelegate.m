@@ -17,6 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    /* storyboard */
+    self.window.rootViewController = [[self grabStoryboard] instantiateInitialViewController];
+    [self.window makeKeyAndVisible];
     
     UIStoryboard *launchBoard = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
     UIView* overlayView = [[launchBoard instantiateViewControllerWithIdentifier:@"LaunchVC"] view]  ;
@@ -49,6 +52,7 @@
 //    }
 //    UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
 //    [top presentViewController:newMoodmonVC animated:YES completion: nil];
+    
     return YES;
 }
 
@@ -72,6 +76,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIStoryboard *)grabStoryboard {
+    int height = [UIScreen mainScreen].bounds.size.height;
+    if (height == 568) {
+        return [UIStoryboard storyboardWithName:@"Main-4inch" bundle:nil];
+    }
+    return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 }
 
 @end
