@@ -19,8 +19,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
 @property (strong, nonatomic) IBOutlet UILabel *monthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yearLabel;
-@property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
-
 -(void) showAlert:(NSNotification*)notification;
 
 
