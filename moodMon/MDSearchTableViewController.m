@@ -162,7 +162,7 @@
         NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일\n%@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
         cell.timeLabel.text = result;
         
-        UIView *viewForFrame =  [cell viewWithTag:3];
+        UIView *viewForFrame =  [cell viewWithTag:100];
         MDMoodColorView *temp = [[MDMoodColorView alloc]init];
         [temp setFrame:viewForFrame.frame];
        
