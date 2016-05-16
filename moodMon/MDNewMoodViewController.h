@@ -16,6 +16,7 @@
 #import "MDProgressWheelView.h"
 #import "MDWheelGestureRecognizer.h"
 #import "MDTouchDownGestureRecognizer.h"
+#import "MDTouchUpGestureRecognizer.h"
 
 @interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate, UITextFieldDelegate>
 
