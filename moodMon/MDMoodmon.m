@@ -26,6 +26,8 @@ NSString *const kIsDeleted = @"isDeleted";
     self = [super self];
     if(self){
         [self setMoodYear:0];
+       // [self setMoodComment:@"              "];
+
         [self setValue:@NO forKey:kIsDeleted];
         
     }

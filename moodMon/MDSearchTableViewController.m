@@ -155,11 +155,12 @@
     }
     
     if([self.filteredProducts count] > 0){
-       // NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kComment] );
+        NSNumber *forIndexZero = [self.filteredProducts[indexPath.row] valueForKey:kYear];
+        NSLog(@"%@ : %d ",self.filteredProducts[indexPath.row], forIndexZero.intValue);
         
-        if([self.filteredProducts[indexPath.row] valueForKey:kYear] == 0){
+        if(forIndexZero.intValue == 0){
             NSLog(@"no id 0");
-            return NULL;
+           
         }
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
