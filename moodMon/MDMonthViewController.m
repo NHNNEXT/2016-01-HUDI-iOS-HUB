@@ -221,7 +221,7 @@ NSMutableArray *moodmonConf;
             int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
             if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay&&(checkFalg==0))){
-                
+                checkFalg=1;
 //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
 //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
