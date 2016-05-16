@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -865,14 +864,12 @@
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="top" secondItem="zuU-2m-ArN" secondAttribute="bottom" constant="9" id="PJ1-1Y-iQT">
                                 <variation key="widthClass=compact" constant="-24"/>
                             </constraint>
+                            <constraint firstItem="Z7r-3v-MSx" firstAttribute="top" secondItem="dHR-wz-XeA" secondAttribute="bottom" id="QKj-Uk-dnz"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="YQ0-gl-eM6"/>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Yc1-MW-s0P"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="width" secondItem="J26-NR-hzB" secondAttribute="width" id="Zil-cv-FOb"/>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="cJM-bG-KaB">
                                 <variation key="widthClass=compact" constant="33"/>
-                            </constraint>
-                            <constraint firstItem="Z7r-3v-MSx" firstAttribute="top" secondItem="dHR-wz-XeA" secondAttribute="bottom" constant="752" id="gcM-WE-PDN">
-                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="gmx-3E-Jpj" secondAttribute="bottom" constant="65" id="h7d-63-w48">
                                 <variation key="widthClass=compact" constant="34"/>
@@ -901,21 +898,20 @@
                                 <exclude reference="lrv-gQ-GRi"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="gcM-WE-PDN"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
+                                <exclude reference="FaP-bY-IcF"/>
+                                <exclude reference="z4H-f7-zDO"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
-                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
-                                <exclude reference="FaP-bY-IcF"/>
-                                <exclude reference="z4H-f7-zDO"/>
+                                <exclude reference="w8h-VA-AGO"/>
+                                <exclude reference="yPs-MV-sQX"/>
                                 <exclude reference="PJ1-1Y-iQT"/>
                                 <exclude reference="YQ0-gl-eM6"/>
                                 <exclude reference="Zil-cv-FOb"/>
-                                <exclude reference="w8h-VA-AGO"/>
-                                <exclude reference="yPs-MV-sQX"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -929,21 +925,20 @@
                                 <include reference="lrv-gQ-GRi"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="gcM-WE-PDN"/>
-                                <include reference="Mhj-Re-3Dr"/>
+                                <include reference="FaP-bY-IcF"/>
+                                <include reference="z4H-f7-zDO"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
-                                <include reference="54e-1P-TKD"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
-                                <include reference="FaP-bY-IcF"/>
-                                <include reference="z4H-f7-zDO"/>
+                                <include reference="w8h-VA-AGO"/>
+                                <include reference="yPs-MV-sQX"/>
                                 <include reference="PJ1-1Y-iQT"/>
                                 <include reference="YQ0-gl-eM6"/>
                                 <include reference="Zil-cv-FOb"/>
-                                <include reference="w8h-VA-AGO"/>
-                                <include reference="yPs-MV-sQX"/>
+                                <include reference="Mhj-Re-3Dr"/>
                             </mask>
                         </variation>
                     </view>
@@ -969,7 +964,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE9-5G-fU8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="-1114"/>
+            <point key="canvasLocation" x="2775" y="-1158"/>
         </scene>
         <!--Year View Controller-->
         <scene sceneID="fWf-zi-DCr">

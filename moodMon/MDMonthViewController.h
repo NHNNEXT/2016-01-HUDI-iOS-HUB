@@ -14,6 +14,7 @@
 #import "MDSaveMoodMon.h"
 #import "MDMakeMoodMonView.h"
 #import "MDMoodFaceView.h"
+#import "MDCustomStoryboardSegue.h"
 
 @interface MDMonthViewController : UIViewController <SwipeableCellDelegate>
 
@@ -26,5 +27,7 @@
 -(void) showAlert:(NSNotification*)notification;
 -(void)timeTableReload;
 -(void)resetTimeTable;
+
+- (IBAction)goToNewMoodViewController:(id)sender;
 
 @end

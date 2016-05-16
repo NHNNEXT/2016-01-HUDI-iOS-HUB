@@ -449,9 +449,11 @@
     [self moveEntireViewWithDuration:0.3 distance:-200];
 }
 
+
 - (IBAction)didComment:(id)sender {
     self.comment = self.textField.text;
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -496,6 +498,7 @@
     
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
 
 - (IBAction)skip:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];

@@ -126,6 +126,15 @@ NSMutableArray *moodmonConf;
 
 }
 
+- (IBAction)goToNewMoodViewController:(id)sender {
+    int height = [UIScreen mainScreen].bounds.size.height;
+    NSString *identifier = (height<=568)?@"newMoodmonVC_4inch":@"newMoodmonVC";
+    UIViewController *newMoodVC = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+//    MDCustomStoryboardSegue *segue = [[MDCustomStoryboardSegue alloc] initWithIdentifier:@"toNewMoodVC" source:self destination:newMoodVC];
+//    [segue perform];
+    [self presentViewController:newMoodVC animated:YES completion:nil];
+}
+
 -(void)removeTags{
     int x=1;
     while(x<=90){

@@ -17,10 +17,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /* storyboard */
-    self.window.rootViewController = [[self grabStoryboard] instantiateInitialViewController];
-    [self.window makeKeyAndVisible];
-    
     UIStoryboard *launchBoard = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
     UIView* overlayView = [[launchBoard instantiateViewControllerWithIdentifier:@"LaunchVC"] view]  ;
     overlayView.frame = self.window.rootViewController.view.bounds;
@@ -31,27 +27,19 @@
     MDDataManager *dm = [MDDataManager sharedDataManager];
     [dm createDB];
     
-    UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
+    int height = [UIScreen mainScreen].bounds.size.height;
+    NSString *identifier = (height<=568)?@"newMoodmonVC_4inch":@"newMoodmonVC";
+    UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:identifier];
     [newMoodmonVC setModalPresentationStyle: UIModalPresentationCurrentContext];
     [self.window makeKeyAndVisible];
     [self.window addSubview:overlayView];
     [self.window.rootViewController presentViewController:newMoodmonVC animated:NO completion:^{
-//        NSLog(@"displaying (AppDelegate)");
         [UIView animateWithDuration:0.5 animations:^{
             overlayView.alpha = 0;
         } completion:^(BOOL finished) {
             [overlayView removeFromSuperview];
         }];
     }];
-    
-//
-//    UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
-//    while(top.presentedViewController)
-//    {
-//        top = top.presentedViewController;
-//    }
-//    UIViewController *newMoodmonVC = [storyboard instantiateViewControllerWithIdentifier:@"newMoodmonVC"];
-//    [top presentViewController:newMoodmonVC animated:YES completion: nil];
     
     return YES;
 }
