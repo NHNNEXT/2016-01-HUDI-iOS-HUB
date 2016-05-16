@@ -42,13 +42,12 @@ NSMutableArray *moodmonConf;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:mddm];
     
-     [self.navigationController setNavigationBarHidden:YES];
-    
     
     createdAt=[mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear, thisMonth];
     _clickedDate.text = @" ";
     myDay = 0;
     
@@ -64,14 +63,13 @@ NSMutableArray *moodmonConf;
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
-    [self.navigationController setNavigationBarHidden:YES];
+   
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-
+   
 }
 
 //#noti selector
@@ -116,6 +114,7 @@ NSMutableArray *moodmonConf;
         [self moreDateInfo];
         NSLog(@"up Swipe");
     }
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear,thisMonth];
     [self resetTimeTable];
 }
 
@@ -206,8 +205,8 @@ NSMutableArray *moodmonConf;
     [self.view addSubview:monthLabel];
     }
 //
-    _yearLabel.text=[NSString stringWithFormat:@"%d",thisYear];
-    [_monthLabel setText:[NSString stringWithFormat:@"%d",thisMonth]];
+//    _yearLabel.text=[NSString stringWithFormat:@"%d",thisYear];
+//    [_monthLabel setText:[NSString stringWithFormat:@"%d",thisMonth]];
     for(int startDay=1; startDay<=numDays;startDay++){
         UIButton *dayButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         xCoord=(newWeekDay*xVal)+xVal;
@@ -298,10 +297,14 @@ NSMutableArray *moodmonConf;
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
    
     cell.delegate = self;
+   
+    //UIView *viewForFrame =  [cell viewWithTag:3];
+    MDMoodColorView *temp = [cell viewWithTag:100];//[[MDMoodColorView alloc]init];
+    for(int i = 1 ;i <temp.chosenMoods.count ; i++){
+        [temp.chosenMoods removeObjectAtIndex:i];
+    }
     
-    UIView *viewForFrame =  [cell viewWithTag:3];
-    MDMoodColorView *temp = [[MDMoodColorView alloc]init];
-    [temp setFrame:viewForFrame.frame];
+    //[temp setFrame:viewForFrame.frame];
     //NSLog(@"%@",temp);
     
     NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];

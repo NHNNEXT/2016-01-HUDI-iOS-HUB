@@ -25,7 +25,7 @@ NSString *const kIsDeleted = @"isDeleted";
 -(instancetype)init{
     self = [super self];
     if(self){
-     
+        [self setMoodYear:0];
         [self setValue:@NO forKey:kIsDeleted];
         
     }

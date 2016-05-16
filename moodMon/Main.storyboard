@@ -1051,13 +1051,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="searchTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTableCell" id="PRc-2Y-STh" customClass="MDSearchTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRc-2Y-STh" id="aIw-TD-xuP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdJ-j2-V7A" customClass="MDMoodColorView">
+                                        <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdJ-j2-V7A" customClass="MDMoodColorView">
                                             <rect key="frame" x="18" y="0.0" width="44" height="44"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -1133,7 +1133,7 @@
             </objects>
             <point key="canvasLocation" x="2936" y="754"/>
         </scene>
-        <!--Month View Controller-->
+        <!--Title-->
         <scene sceneID="fHh-ad-Qp7">
             <objects>
                 <viewController storyboardIdentifier="monthVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XeT-CV-5As" customClass="MDMonthViewController" sceneMemberID="viewController">
@@ -1145,45 +1145,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-tP-wvr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="UJ6-kj-8fP"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Title" id="QaD-tG-DvE">
-                                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
-                                                <rect key="frame" x="20" y="25" width="36" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Year">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
-                                                </connections>
-                                            </button>
-                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem style="plain" id="oEi-Tn-COU">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
-                                                    <rect key="frame" x="372" y="31" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
-                                            <barButtonItem title="search" id="tGm-YV-KdU">
-                                                <connections>
-                                                    <segue destination="r5V-Xx-aGI" kind="show" id="57u-Hh-6qS"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="clickedDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-vu-nqY">
                                 <rect key="frame" x="30" y="392" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1244,7 +1205,7 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wve-XH-Ut5" customClass="MDMoodColorView">
+                                                        <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wve-XH-Ut5" customClass="MDMoodColorView">
                                                             <rect key="frame" x="10" y="0.0" width="44" height="44"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -1297,18 +1258,6 @@
                                     <outlet property="delegate" destination="XeT-CV-5As" id="1Wr-4a-9um"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp3-46-4y1">
-                                <rect key="frame" x="164" y="84" width="87" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZk-tu-1dK">
-                                <rect key="frame" x="187" y="72" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4a-au-hDp">
                                 <rect key="frame" x="0.0" y="643" width="414" height="44"/>
                                 <constraints>
@@ -1336,20 +1285,12 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="hmy-DR-MdY" firstAttribute="top" secondItem="K4a-au-hDp" secondAttribute="bottom" id="9hw-Sh-9rb"/>
-                            <constraint firstItem="Zff-tP-wvr" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-20" id="AID-kn-x1Y"/>
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" id="Bjv-05-TPy"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-21" id="Czp-3U-3gc"/>
                             <constraint firstItem="hmy-DR-MdY" firstAttribute="top" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="-49" id="Q0w-N4-8Fa"/>
-                            <constraint firstItem="Lp3-46-4y1" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="QJi-dk-QmR"/>
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="44" id="R43-de-cL3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zff-tP-wvr" secondAttribute="trailing" constant="-20" id="TaH-Ih-8OO"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="top" secondItem="W2P-vu-nqY" secondAttribute="bottom" constant="3" id="UpA-Gf-Sv6"/>
-                            <constraint firstItem="lZk-tu-1dK" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="WkM-1O-uqt"/>
-                            <constraint firstItem="lZk-tu-1dK" firstAttribute="top" secondItem="Zff-tP-wvr" secondAttribute="bottom" constant="20" id="eWz-88-P9x"/>
-                            <constraint firstItem="Zff-tP-wvr" firstAttribute="top" secondItem="8Tw-nI-bq1" secondAttribute="topMargin" id="fdS-me-kfR"/>
-                            <constraint firstItem="Zff-tP-wvr" firstAttribute="top" secondItem="8Tw-nI-bq1" secondAttribute="topMargin" id="fmT-oY-NNU"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerY" secondItem="8Tw-nI-bq1" secondAttribute="centerY" id="fsa-7Z-Bwu"/>
-                            <constraint firstItem="Lp3-46-4y1" firstAttribute="top" secondItem="Zff-tP-wvr" secondAttribute="bottom" constant="40" id="kht-3Q-NaP"/>
                             <constraint firstItem="W2P-vu-nqY" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="10" id="mGc-fm-HI0"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-20" id="qAI-UW-lGV"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="rB7-sC-7WU"/>
@@ -1368,16 +1309,42 @@
                             <outletCollection property="gestureRecognizers" destination="pbH-7b-tmq" appends="YES" id="Hed-IB-2oh"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Psj-DC-Bik">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Title" id="QaD-tG-DvE">
+                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
+                                <rect key="frame" x="20" y="5" width="36" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Year">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="oEi-Tn-COU">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
+                                    <rect key="frame" x="372" y="11" width="22" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <segue destination="TL5-nJ-UfS" kind="modal" id="Ehx-1q-ogs"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="search" id="tGm-YV-KdU">
+                                <connections>
+                                    <segue destination="r5V-Xx-aGI" kind="show" id="57u-Hh-6qS"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="clickedDate" destination="W2P-vu-nqY" id="NgF-AL-zpz"/>
-                        <outlet property="monthLabel" destination="Lp3-46-4y1" id="WFJ-5q-Nwf"/>
                         <outlet property="tableViews" destination="kCc-hW-Vsq" id="Ped-2u-kEC"/>
-                        <outlet property="yearLabel" destination="lZk-tu-1dK" id="Ta1-Qu-gpL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phI-SD-SCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1415,7 +1382,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Hce-pi-NJu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GN2-Fj-BDm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GN2-Fj-BDm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="klu-ey-2vs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
