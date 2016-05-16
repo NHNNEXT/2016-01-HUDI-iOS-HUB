@@ -77,10 +77,17 @@
     // update the filtered array based on the search text
     NSString *searchText = searchController.searchBar.text;
     if(searchText.length == 0) return;
+   
+    NSArray *result = [searchText componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *searchString =  [result componentsJoinedByString:@""];
+    //NSLog(@"!!!%@!!!! %d",searchString, searchString.length);
+    if(searchString.length == 0) return;
+    
+    
     NSMutableArray *searchResults = [_dataManager.moodCollection mutableCopy];
     
     // strip out all the leading and trailing spaces
-    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet ]];
     
     // break up the search terms (separated by spaces)
     NSArray *searchItems = nil;
@@ -99,6 +106,7 @@
         //      name CONTAINS[c] "2007", yearIntroduced ==[c] 2007, introPrice ==[c] 2007
         //
         NSMutableArray *searchItemsPredicate = [NSMutableArray array];
+        
         // name field matching
         NSExpression *lhs = [NSExpression expressionForKeyPath:kComment];
         NSExpression *rhs = [NSExpression expressionForConstantValue:searchString];
@@ -155,12 +163,6 @@
     }
     
     if([self.filteredProducts count] > 0){
-       // NSLog(@"%@ : %@ ",self.filteredProducts[indexPath.row], [self.filteredProducts[indexPath.row] valueForKey:kComment] );
-        
-        if([self.filteredProducts[indexPath.row] valueForKey:kYear] == 0){
-            NSLog(@"no id 0");
-            return NULL;
-        }
         cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
         //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
         NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일\n%@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
