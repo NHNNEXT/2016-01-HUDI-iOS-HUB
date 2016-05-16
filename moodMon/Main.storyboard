@@ -1205,7 +1205,7 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wve-XH-Ut5" customClass="MDMoodColorView">
+                                                        <view tag="100" contentMode="scaleToFill" restorationIdentifier="MCView" translatesAutoresizingMaskIntoConstraints="NO" id="wve-XH-Ut5" customClass="MDMoodColorView">
                                                             <rect key="frame" x="10" y="0.0" width="44" height="44"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -1238,6 +1238,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="MCView" destination="wve-XH-Ut5" id="5i5-xI-fB6"/>
                                             <outlet property="commentLabel" destination="hyP-2L-cNV" id="f0H-cy-aIh"/>
                                             <outlet property="contentViewLeftConstraint" destination="bcy-nI-Ne4" id="aZ7-ei-G5l"/>
                                             <outlet property="contentViewRightConstraint" destination="sQt-ML-rxr" id="yHh-OK-YvH"/>

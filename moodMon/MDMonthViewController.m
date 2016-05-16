@@ -396,9 +396,17 @@ NSMutableArray *moodmonConf;
     NSLog(@"In the delegate, Clicked button one for %@", itemText);
 }
 
-- (void)buttonTwoActionForItemText:(NSString *)itemText {
+- (void)buttonTwoActionForItemText:(MDMoodColorView *)itemText {
+    NSLog(@"In the delegate, Clicked button two");
     MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
-    [smm saveMoodMon:self.view];
+    [smm saveMoodMon:itemText];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"SAVE" message:@"SAVE" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:defaultAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+    
     //뷰를 넘겨주면 그대로 저장
 }
 - (IBAction) exitFromSecondViewController:(UIStoryboardSegue *)segue
