@@ -189,17 +189,18 @@
 - (void)addTapGestureRecognizer {
     for(UIImageView *mood in self.moodButtons){
         mood.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-//                                                                              action:@selector(tapped:)];
-        MDTouchDownGestureRecognizer *recognizer = [[MDTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-        [mood addGestureRecognizer:recognizer];
+        MDTouchDownGestureRecognizer *touchDownRecognizer = [[MDTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(moodButtonTouchedDown:)];
+        MDTouchUpGestureRecognizer *touchUpRecognizer = [[MDTouchUpGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(moodButtonTouchedUp:)];
+        [mood addGestureRecognizer:touchDownRecognizer];
+        [mood addGestureRecognizer:touchUpRecognizer];
     }
 }
 
 
 
-- (void)tapped:(UIGestureRecognizer *)tap {
-    MDMoodButtonView *moodButton = (MDMoodButtonView *)tap.view;
+- (void)moodButtonTouchedDown:(UIGestureRecognizer *)recognizer {
+    MDMoodButtonView *moodButton = (MDMoodButtonView *)recognizer.view;
     if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
     }
@@ -210,12 +211,8 @@
                         if(self.moodCount<1) {
                             self.mixedMoodFace.hidden = YES;
                             [self.mixedMoodFace setNeedsDisplay];
-                            self.saveButtonBackground.hidden = YES;
-                        }
-                        else {
+                        } else {
                             self.mixedMoodFace.hidden = NO;
-                            self.saveButtonBackground.hidden = NO;
-                            self.skipButtonBackground.hidden = NO;
                         }
                         [self setChoosingMoodImageByNum:moodButton.num];
                     }
@@ -223,10 +220,22 @@
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
         [self showWheelView:moodButton];
         [self addNewChosenMood:moodButton.num];
-    }
-    else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
+    } else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
         [self deleteFromChosenMoods:moodButton.num];
     }
+}
+
+
+
+- (void)moodButtonTouchedUp:(UIGestureRecognizer *)recognizer {
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.skipButtonBackground.hidden = NO;
+                        self.saveButtonBackground.hidden = (self.moodCount<1) ? YES : NO;
+                    }
+                    completion:nil];
 }
 
 
@@ -341,6 +350,10 @@
     
     //돌린 정도에 따라 휠 가운데 이미지 변화
     [self setMoodIntensity];
+    
+    //휠 돌리는 동안은 save & skip 버튼 감추기
+    self.saveButtonBackground.hidden = YES;
+    self.skipButtonBackground.hidden = YES;
 }
 
 
@@ -405,11 +418,9 @@
                         for(MDMoodButtonView *moodButton in self.moodButtons) {
                             moodButton.hidden = NO;
                         }
-                        
-                        if(self.moodCount<1) {
-                            self.saveButtonBackground.hidden = YES;
-                            self.skipButtonBackground.hidden = YES;
-                        }
+                        self.mixedMoodFace.hidden = NO;
+                        self.skipButtonBackground.hidden = NO;
+                        self.saveButtonBackground.hidden = (self.moodCount<1) ? YES : NO;
                     }
                     completion:nil];
     int moodNum = [[self.chosenMoods lastObject][@"moodClass"] intValue] + [[self.chosenMoods lastObject][@"moodIntensity"] intValue];
