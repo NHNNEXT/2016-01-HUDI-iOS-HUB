@@ -124,7 +124,6 @@
     self.tired.startAngle = 5.1;
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
     
-    if(
 }
 
 
