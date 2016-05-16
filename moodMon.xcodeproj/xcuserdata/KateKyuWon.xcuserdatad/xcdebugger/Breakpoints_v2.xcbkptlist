@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "moodMon/MDSearchTableViewController.m"
-            timestampString = "485058456.158043"
+            timestampString = "485099604.411761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "moodMon/MDSearchTableViewController.m"
-            timestampString = "485058456.158043"
+            timestampString = "485099604.411761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,27 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "moodMon/MDSearchTableViewController.m"
-            timestampString = "485071673.975427"
+            timestampString = "485099604.411761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "moodMon/MDSearchTableViewController.m"
-            timestampString = "485071673.975427"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -312,11 +296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "moodMon/MDSearchTableViewController.m"
-            timestampString = "485071673.975427"
+            timestampString = "485099604.411761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
