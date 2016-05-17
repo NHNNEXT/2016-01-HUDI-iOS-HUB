@@ -7,7 +7,7 @@
 //
 
 #import "MDCustomStoryboardSegue.h"
-
+#import "MDNavController.h"
 @implementation MDCustomStoryboardSegue
 - (void)perform {
     
@@ -27,7 +27,7 @@
                      }
                      completion:^(BOOL finished){
                          [destinationViewController.view removeFromSuperview];
-                         [sourceViewController.navigationController pushViewController:destinationViewController animated:NO];
+                         [sourceViewController presentViewController:destinationViewController animated:NO completion:nil];
                      }];
 }
 @end

@@ -59,6 +59,7 @@ int tag;
 }
 - (IBAction)unwindeBackbtn:(id)sender {
     [self performSegueWithIdentifier:@"UnwindingSegueID" sender:self];
+//    [self.navigationitem removeFromSuperview];
 
 }
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {

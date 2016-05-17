@@ -20,6 +20,7 @@
 		65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65980E2C1CC0D1DF0092EA18 /* MDMonthViewController.m */; };
 		65B036761CDFA1FD00D095F0 /* MDSaveMoodMon.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B036751CDFA1FD00D095F0 /* MDSaveMoodMon.m */; };
 		65B0367A1CDFA95400D095F0 /* MDMakeMoodMonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B036791CDFA95400D095F0 /* MDMakeMoodMonView.m */; };
+		65F7D3DB1CEAF33B00E88527 /* MDNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F7D3DA1CEAF33B00E88527 /* MDNavController.m */; };
 		CE4A8A381CABCCB1006B73B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A371CABCCB1006B73B7 /* main.m */; };
 		CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */; };
 		CE4A8A431CABCCB1006B73B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */; };
@@ -195,6 +196,8 @@
 		65B036751CDFA1FD00D095F0 /* MDSaveMoodMon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSaveMoodMon.m; sourceTree = "<group>"; };
 		65B036781CDFA95400D095F0 /* MDMakeMoodMonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMakeMoodMonView.h; sourceTree = "<group>"; };
 		65B036791CDFA95400D095F0 /* MDMakeMoodMonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMakeMoodMonView.m; sourceTree = "<group>"; };
+		65F7D3D91CEAF33B00E88527 /* MDNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavController.h; sourceTree = "<group>"; };
+		65F7D3DA1CEAF33B00E88527 /* MDNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavController.m; sourceTree = "<group>"; };
 		CE4A8A331CABCCB1006B73B7 /* moodMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moodMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A8A371CABCCB1006B73B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -433,6 +436,8 @@
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				6575CAE61CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.h */,
 				6575CAE71CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.m */,
+				65F7D3D91CEAF33B00E88527 /* MDNavController.h */,
+				65F7D3DA1CEAF33B00E88527 /* MDNavController.m */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
 				E986EDB91CDFBE9400792C55 /* new moodmon */,
 				6575788C1CB4BE7600D75D5E /* year */,
@@ -1009,6 +1014,7 @@
 			files = (
 				CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */,
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
+				65F7D3DB1CEAF33B00E88527 /* MDNavController.m in Sources */,
 				658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */,
 				65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */,
 				CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */,
