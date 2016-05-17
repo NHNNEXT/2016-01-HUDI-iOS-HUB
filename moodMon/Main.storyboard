@@ -1943,38 +1943,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nuc-Hm-3Nq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="dK2-P9-S3J"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Title" id="kG1-cJ-Tyy">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="7Gn-4I-hyU">
-                                            <connections>
-                                                <action selector="unwindeBackbtn:" destination="COX-hV-sA8" id="uWa-53-k3u"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-2Q-YrC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-2Q-YrC">
                                 <rect key="frame" x="162" y="99" width="90" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p07-Mr-Fwp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="7ab-Rl-Puz"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="m57-wD-aX7">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="Skj-HZ-7Nk">
+                                            <connections>
+                                                <segue destination="WBc-a8-YuF" kind="unwind" identifier="JSUnwindView" unwindAction="exitFromSecondViewController:" id="GKy-1e-5T5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Nuc-Hm-3Nq" secondAttribute="trailing" constant="-20" id="3AN-ae-I2K"/>
-                            <constraint firstItem="Nuc-Hm-3Nq" firstAttribute="leading" secondItem="P6o-Am-0hL" secondAttribute="leadingMargin" constant="-20" id="Dbu-uK-ra3"/>
-                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="Nuc-Hm-3Nq" secondAttribute="bottom" constant="20" id="OUk-F4-5DI"/>
-                            <constraint firstItem="Nuc-Hm-3Nq" firstAttribute="top" secondItem="P6o-Am-0hL" secondAttribute="topMargin" id="cry-ST-avn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p07-Mr-Fwp" secondAttribute="trailing" constant="-20" id="4E4-vg-Sy4"/>
+                            <constraint firstItem="p07-Mr-Fwp" firstAttribute="leading" secondItem="P6o-Am-0hL" secondAttribute="leadingMargin" constant="-20" id="i6O-Gz-h1X"/>
                             <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="jxe-XP-v7i"/>
                             <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="lfF-P5-wwm"/>
                             <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="8t1-wd-Ki5" secondAttribute="bottom" constant="45" id="lgC-56-UH1"/>
+                            <constraint firstItem="p07-Mr-Fwp" firstAttribute="top" secondItem="P6o-Am-0hL" secondAttribute="topMargin" id="uMV-Yf-v9X"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1989,7 +1988,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="yearly" destination="6Az-2Q-YrC" id="5ak-eZ-x8L"/>
-                        <segue destination="WBc-a8-YuF" kind="unwind" identifier="UnwindingSegueID" customClass="MDCustomStoryboardUnwindSegue" unwindAction="exitFromSecondViewController:" id="L6H-4D-qTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1V-a2-Sxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2114,7 +2112,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="clickedDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-vu-nqY">
                                 <rect key="frame" x="30" y="392" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
@@ -2352,10 +2350,10 @@
             </objects>
             <point key="canvasLocation" x="2486" y="754"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Controller-->
         <scene sceneID="Hce-pi-NJu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GN2-Fj-BDm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GN2-Fj-BDm" customClass="MDNavController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="klu-ey-2vs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

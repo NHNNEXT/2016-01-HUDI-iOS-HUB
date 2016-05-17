@@ -10,8 +10,6 @@
 
 
 @interface MDYearViewController : UIViewController
-
 @property (strong, nonatomic) IBOutlet UILabel *yearly;
-
 @end
 
