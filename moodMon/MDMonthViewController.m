@@ -306,14 +306,18 @@ NSMutableArray *moodmonConf;
    
     cell.delegate = self;
    
-    //UIView *viewForFrame =  [cell viewWithTag:3];
-    MDMoodColorView *temp = [cell viewWithTag:100];//[[MDMoodColorView alloc]init];
-    for(int i = 1 ;i <temp.chosenMoods.count ; i++){
-        [temp.chosenMoods removeObjectAtIndex:i];
+    
+    MDMoodColorView *temp = [cell viewWithTag:100];
+    NSLog(@"before : %@",temp.chosenMoods);
+    int usedChosenMoodsCount = temp.chosenMoods.count;
+    if( usedChosenMoodsCount > 1){
+        for(int i = 0 ; i < usedChosenMoodsCount-1 ; i++){
+            [temp.chosenMoods removeLastObject];
+        }
+        NSLog(@"after :%@",temp.chosenMoods);
+        [temp setNeedsDisplay];
     }
     
-    //[temp setFrame:viewForFrame.frame];
-    //NSLog(@"%@",temp);
     
     NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
     if(tempMoodChosen.intValue != 0){
@@ -333,7 +337,7 @@ NSMutableArray *moodmonConf;
     temp.layer.cornerRadius = (int)temp.frame.size.width/2;
     temp.layer.masksToBounds = YES;
     temp.hidden = NO;
-    [temp setBackgroundColor:[UIColor whiteColor]];
+    [temp setBackgroundColor:[UIColor clearColor]];
     //NSLog(@"colorview : %@, chosenMood:%@",temp, temp.chosenMoods);
     [temp setNeedsDisplay];
     [cell.myContentView addSubview:temp];

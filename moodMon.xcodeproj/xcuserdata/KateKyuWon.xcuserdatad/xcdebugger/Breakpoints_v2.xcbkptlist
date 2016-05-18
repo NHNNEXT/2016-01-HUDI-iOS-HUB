@@ -104,22 +104,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "moodMon/MDDataManager.m"
-            timestampString = "485005513.287205"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
-            landmarkName = "-getFilteredMoodmons"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "moodMon/MDDataManager.m"
             timestampString = "485003076.042863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -253,38 +237,38 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "contentViewRightConstraint"
+            landmarkName = "startingRightLayoutConstraintConstant"
             landmarkType = "19">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[MDMonthTimeLineCellTableViewCell contentViewRightConstraint]"
+                  symbolName = "-[MDMonthTimeLineCellTableViewCell startingRightLayoutConstraintConstant]"
                   moduleName = "moodMon"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/KateKyuWon/Documents/moodMon/moodMon/MDMonthTimeLineCellTableViewCell.h"
-                  timestampString = "485056236.450825"
+                  timestampString = "485241564.338384"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
                   endingLineNumber = "34"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[MDMonthTimeLineCellTableViewCell setContentViewRightConstraint:]"
+                  symbolName = "-[MDMonthTimeLineCellTableViewCell setStartingRightLayoutConstraintConstant:]"
                   moduleName = "moodMon"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/KateKyuWon/Documents/moodMon/moodMon/MDMonthTimeLineCellTableViewCell.h"
-                  timestampString = "485056236.450992"
+                  timestampString = "485241564.338589"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
                   endingLineNumber = "34"
-                  offsetFromSymbolStart = "49">
+                  offsetFromSymbolStart = "38">
                </Location>
             </Locations>
          </BreakpointContent>
