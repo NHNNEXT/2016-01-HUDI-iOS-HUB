@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -1943,12 +1944,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-2Q-YrC">
-                                <rect key="frame" x="162" y="99" width="90" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p07-Mr-Fwp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <constraints>
@@ -1970,25 +1965,14 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="p07-Mr-Fwp" secondAttribute="trailing" constant="-20" id="4E4-vg-Sy4"/>
                             <constraint firstItem="p07-Mr-Fwp" firstAttribute="leading" secondItem="P6o-Am-0hL" secondAttribute="leadingMargin" constant="-20" id="i6O-Gz-h1X"/>
-                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="jxe-XP-v7i"/>
-                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="centerX" secondItem="P6o-Am-0hL" secondAttribute="centerX" id="lfF-P5-wwm"/>
-                            <constraint firstItem="6Az-2Q-YrC" firstAttribute="top" secondItem="8t1-wd-Ki5" secondAttribute="bottom" constant="45" id="lgC-56-UH1"/>
                             <constraint firstItem="p07-Mr-Fwp" firstAttribute="top" secondItem="P6o-Am-0hL" secondAttribute="topMargin" id="uMV-Yf-v9X"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lgC-56-UH1"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QP7-7f-6Mr" appends="YES" id="GYL-xs-v67"/>
                             <outletCollection property="gestureRecognizers" destination="kxC-bZ-R20" appends="YES" id="Sga-dJ-wvg"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="yearly" destination="6Az-2Q-YrC" id="5ak-eZ-x8L"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1V-a2-Sxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WBc-a8-YuF" userLabel="Exit" sceneMemberID="exit"/>
