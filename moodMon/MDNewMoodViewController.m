@@ -214,6 +214,7 @@
                         } else {
                             self.mixedMoodFace.hidden = NO;
                         }
+                        self.textField.hidden = YES;
                         [self setChoosingMoodImageByNum:moodButton.num];
                     }
                     completion:nil];
@@ -272,7 +273,7 @@
     
     self.moodIntensityView.hidden = (self.moodCount<1 || self.moodCount>3) ? YES:NO;
     self.wheelDegree = 0;
-    self.previousIntensity = 0;
+    self.previousIntensity = -1;
     for(MDMoodButtonView *moodButton in self.moodButtons) {
         moodButton.hidden = YES;
     }
@@ -283,7 +284,7 @@
 - (void)addNewChosenMood:(NSNumber *)moodNum {
     // 새로 선택한 감정을 chosenMoods에 추가.
     // chosenMoods의 역할 : 선택한 mood들의 정보와 순서를 임시로 저장해둠. 나중에 chosenMoods를 바탕으로 디비에 입력할 거임.
-    NSMutableDictionary *chosenMood = [@{@"moodClass" : moodNum, @"moodIntensity" : @1} mutableCopy];
+    NSMutableDictionary *chosenMood = [@{@"moodClass" : moodNum, @"moodIntensity" : @0} mutableCopy];
     
     [self.moodColor.chosenMoods addObject:moodNum];
     [self.moodColor setNeedsDisplay];
@@ -341,8 +342,11 @@
     
     //wheel 회전
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
-    [self setWheelDegreeWithAngle:angle];
+//    if([self didReachWheelBoundary:angle]) {
+//        angle = 0;
+//    }
     [self transformWheelWithAngle:angle];
+    [self setWheelDegreeWithAngle:angle];
     
     //wheel progress bar
     self.progressWheel.endAngle = recognizer.currentAngle;
@@ -358,7 +362,33 @@
 
 
 
+- (BOOL)didReachWheelBoundary:(CGFloat)angle {
+    CGFloat expectedDegree = self.wheelDegree + angle * 180 / M_PI;
+    if(expectedDegree < -0.5) {
+        expectedDegree += 360;
+    } else if (expectedDegree > 359.5) {
+        expectedDegree -= 360;
+    }
+    
+    if(angle < 0 && expectedDegree > self.wheelDegree) {
+        return YES;
+    }
+    if(angle > 0 && expectedDegree < self.wheelDegree) {
+        return YES;
+    }
+    return NO;
+}
+
+
+
 - (void)setWheelDegreeWithAngle:(CGFloat)angle {
+//    if(self.wheelDegree >= 0 && self.wheelDegree <= 4 && angle < 0) {
+//        return;
+//    }
+//    if(self.wheelDegree >= 356 && self.wheelDegree <= 360 && angle > 0) {
+//        return;
+//    }
+    
     self.wheelDegree += angle * 180 / M_PI;
     if(self.wheelDegree < -0.5) {
         self.wheelDegree += 360;
@@ -366,11 +396,19 @@
     else if (self.wheelDegree > 359.5) {
         self.wheelDegree -= 360;
     }
+//    NSLog(@"%f"   ,self.wheelDegree);
 }
 
 
 
 - (void)transformWheelWithAngle:(CGFloat)angle {
+//    if(self.wheelDegree >= 0 && self.wheelDegree <= 4 && angle < 0) {
+//        return;
+//    }
+//    if(self.wheelDegree >= 356 && self.wheelDegree <= 360 && angle > 0) {
+//        return;
+//    }
+    
     CGAffineTransform wheelTransform = self.wheel.transform;
     CGAffineTransform newWheelTransform = CGAffineTransformRotate(wheelTransform, angle);
     [self.wheel setTransform:newWheelTransform];
@@ -418,6 +456,7 @@
                         for(MDMoodButtonView *moodButton in self.moodButtons) {
                             moodButton.hidden = NO;
                         }
+                        self.textField.hidden = NO;
                         self.mixedMoodFace.hidden = NO;
                         self.skipButtonBackground.hidden = NO;
                         self.saveButtonBackground.hidden = (self.moodCount<1) ? YES : NO;

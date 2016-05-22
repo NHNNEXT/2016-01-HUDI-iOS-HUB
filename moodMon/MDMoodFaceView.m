@@ -40,7 +40,7 @@
 
 
 - (void)setMainFace:(NSNumber *)num {
-    int moodClass = num.intValue/10;    // 1=angry, 2=joy, 3=sad, 4=excited, 5=tired
+    int moodClass = num.intValue/10;        // 1=angry, 2=joy, 3=sad, 4=excited, 5=tired
     int intensity = num.intValue%10 + 1;   // 1 ~ 5
     if(moodClass == 4) {
         _hasExcited = YES;
