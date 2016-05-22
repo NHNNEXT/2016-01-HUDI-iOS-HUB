@@ -6,7 +6,6 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Quicksand-Regular.otf">
@@ -1987,7 +1986,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1846" y="768"/>
+            <point key="canvasLocation" x="1982" y="676"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="VSh-RE-7sg">
@@ -2079,7 +2078,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7wK-Ho-QHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2936" y="754"/>
+            <point key="canvasLocation" x="2976" y="686"/>
         </scene>
         <!--Title-->
         <scene sceneID="fHh-ad-Qp7">
@@ -2220,6 +2219,11 @@
                                     <constraint firstAttribute="width" constant="414" id="b19-jZ-YgS"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem title="Data" id="aoa-DX-TC2">
+                                        <connections>
+                                            <segue destination="7ho-Ul-E35" kind="presentation" id="kgV-Ig-UHw"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XdG-iZ-5e9"/>
                                     <barButtonItem style="plain" id="PAD-VC-BOf">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bmg-yH-qOD">
@@ -2232,6 +2236,11 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kmU-2z-toH"/>
+                                    <barButtonItem style="plain" systemItem="add" id="d5j-x9-gTB">
+                                        <connections>
+                                            <action selector="goToNewMoodViewController:" destination="XeT-CV-5As" id="Q8g-XI-mBG"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
@@ -2278,22 +2287,11 @@
                             </button>
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="oEi-Tn-COU">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="HKO-Bh-anj">
-                                    <rect key="frame" x="372" y="11" width="22" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <connections>
-                                        <action selector="goToNewMoodViewController:" destination="XeT-CV-5As" eventType="touchUpInside" id="UJw-U5-m0n"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem title="search" id="tGm-YV-KdU">
-                                <connections>
-                                    <segue destination="r5V-Xx-aGI" kind="show" id="57u-Hh-6qS"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="search" id="tGm-YV-KdU">
+                            <connections>
+                                <segue destination="r5V-Xx-aGI" kind="show" id="57u-Hh-6qS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -2332,7 +2330,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qK-wb-h15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2486" y="754"/>
+            <point key="canvasLocation" x="2522" y="686"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="Hce-pi-NJu">
@@ -2351,6 +2349,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycP-oP-4oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048.5" y="-296"/>
+        </scene>
+        <!--Data Setting Table View Controller-->
+        <scene sceneID="w8X-Sa-qJE">
+            <objects>
+                <tableViewController id="FNj-dO-Rof" customClass="MDDataSettingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="aOI-23-epn">
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" editingAccessoryType="detailButton" id="haY-qL-xei">
+                                <rect key="frame" x="0.0" y="50" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="haY-qL-xei" id="Xj7-cd-orC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FNj-dO-Rof" id="T6a-do-4tO"/>
+                            <outlet property="delegate" destination="FNj-dO-Rof" id="Y3M-Qw-tiR"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="0vU-Eg-yC9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsL-6C-N2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505" y="692"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bGA-YV-Te9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ho-Ul-E35" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lzg-A2-epU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FNj-dO-Rof" kind="relationship" relationship="rootViewController" id="VuN-BV-1kH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y45-dI-2nz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="692"/>
         </scene>
     </scenes>
     <resources>

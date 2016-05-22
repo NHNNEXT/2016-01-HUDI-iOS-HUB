@@ -19,6 +19,7 @@
 		65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65980E2C1CC0D1DF0092EA18 /* MDMonthViewController.m */; };
 		65B036761CDFA1FD00D095F0 /* MDSaveMoodMon.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B036751CDFA1FD00D095F0 /* MDSaveMoodMon.m */; };
 		65B0367A1CDFA95400D095F0 /* MDMakeMoodMonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B036791CDFA95400D095F0 /* MDMakeMoodMonView.m */; };
+		CE3AC3BB1CF183420037BC71 /* MDDataSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3AC3BA1CF183420037BC71 /* MDDataSettingTableViewController.m */; };
 		CE4A8A381CABCCB1006B73B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A371CABCCB1006B73B7 /* main.m */; };
 		CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */; };
 		CE4A8A431CABCCB1006B73B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */; };
@@ -195,6 +196,8 @@
 		65B036751CDFA1FD00D095F0 /* MDSaveMoodMon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSaveMoodMon.m; sourceTree = "<group>"; };
 		65B036781CDFA95400D095F0 /* MDMakeMoodMonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMakeMoodMonView.h; sourceTree = "<group>"; };
 		65B036791CDFA95400D095F0 /* MDMakeMoodMonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMakeMoodMonView.m; sourceTree = "<group>"; };
+		CE3AC3B91CF183420037BC71 /* MDDataSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDataSettingTableViewController.h; sourceTree = "<group>"; };
+		CE3AC3BA1CF183420037BC71 /* MDDataSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataSettingTableViewController.m; sourceTree = "<group>"; };
 		CE4A8A331CABCCB1006B73B7 /* moodMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moodMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A8A371CABCCB1006B73B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -498,6 +501,8 @@
 				65B036791CDFA95400D095F0 /* MDMakeMoodMonView.m */,
 				CEBA98701CDF1C79006D2FFD /* MDSearchTableViewCell.h */,
 				CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */,
+				CE3AC3B91CF183420037BC71 /* MDDataSettingTableViewController.h */,
+				CE3AC3BA1CF183420037BC71 /* MDDataSettingTableViewController.m */,
 			);
 			name = otherFunction;
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 				CEBA98721CDF1C79006D2FFD /* MDSearchTableViewCell.m in Sources */,
 				CE4A8A381CABCCB1006B73B7 /* main.m in Sources */,
 				E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */,
+				CE3AC3BB1CF183420037BC71 /* MDDataSettingTableViewController.m in Sources */,
 				CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */,
 				E9CD996A1CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m in Sources */,
 				6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */,
