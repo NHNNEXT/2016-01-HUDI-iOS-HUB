@@ -486,6 +486,8 @@
         thisYear = object.moodYear;
         thisMonth = object.moodMonth;
         thisDay = object.moodDay;
+        //[object valueForkey: y/m/d]; 하면 이상한 값 나옴. 왜 그럴까....?
+        
         
         if((thisYear == year) && (thisMonth == month) && (thisDay == day)){
             int moodKind = 0;
@@ -522,7 +524,7 @@
         [result addObject:@0];
         return result;
     }
-    //NSLog(@" %d %d %d %d %d", chosenCount[0],chosenCount[1],chosenCount[2],chosenCount[3],chosenCount[4] );
+    NSLog(@" %d %d %d %d %d", chosenCount[0],chosenCount[1],chosenCount[2],chosenCount[3],chosenCount[4] );
     
     int numOfSamebigCount = 0;
     int bigCountIdx = 0;
@@ -532,6 +534,7 @@
         if(chosenCount[i] > chosenCount[bigCountIdx]){
             bigCountIdx = i;
             numOfSamebigCount = 1;
+            [result removeAllObjects];
         } else if ( chosenCount[i] == chosenCount[bigCountIdx]){
             numOfSamebigCount ++;
         }
