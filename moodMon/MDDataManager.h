@@ -46,5 +46,16 @@
 
 -(NSUInteger)recentMood;
 -(NSArray<MDMoodmon*>*)getFilteredMoodmons;
+/*
+ * representationOfMoodAtDate - 
+ * 해당 날짜의 대표 감정을 숫자배열로 알려준다
+ * count가 가장 큰 감정(정도 정보 포함)을 알려준다.
+ * count가 동일한 갯우일 경우에만 최대 3개. 기본은 한개. 
+ * count동일한 감정이 4개 이상일 때는, 정도기준 3개.
+ * 정도기준에서도 4개 이상의 동점이 나올 경우에는 십의 자리가 큰 감정들 먼저 나온다. //이건 그냥 알고리즘구현으로 인해...
+ */
+-(NSMutableArray<NSNumber*>*)representationOfMoodAtYear:(NSInteger)year Month:(NSInteger)month andDay:(NSInteger)day;
+
+
 //-(NSArray<MDMoodmon*)getEventStringResult;
 @end
