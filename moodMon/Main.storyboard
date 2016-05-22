@@ -2282,18 +2282,10 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="QaD-tG-DvE">
-                        <barButtonItem key="leftBarButtonItem" title="Year" style="plain" id="iRa-dA-JTX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oha-xG-B3o">
-                                <rect key="frame" x="20" y="5" width="36" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Year">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="VzE-kx-u5e"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="leftBarButtonItem" title="Year" id="DBM-dW-XSu">
+                            <connections>
+                                <segue destination="COX-hV-sA8" kind="custom" customClass="MDCustomStoryboardSegue" id="XIw-qc-Beg"/>
+                            </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="oEi-Tn-COU">
