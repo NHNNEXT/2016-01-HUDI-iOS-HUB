@@ -8,6 +8,9 @@
 
 #import "MDYearViewController.h"
 #import "MDCustomStoryboardUnwindSegue.h"
+#import "MDMoodFaceView.h"
+#import "MDMoodColorView.h"
+#import "MDDataManager.h"
 @interface MDYearViewController ()
 
 @end
@@ -15,6 +18,7 @@
 
 NSUInteger numDays;
 int thisYear;
+NSArray *createdAt;
 int weekday;
 int tag;
 
@@ -24,6 +28,9 @@ int tag;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    MDDataManager *mddm = [MDDataManager sharedDataManager];
+    createdAt=[mddm moodCollection];
     
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     
@@ -141,6 +148,60 @@ int tag;
         [dayButton setTextColor:[UIColor blackColor]];
         dayButton.tag=tag++;
         [self.view addSubview:dayButton];
+        int checkFalg =0;
+        for(int parseNum=0; parseNum<createdAt.count; parseNum++){
+            NSDictionary *parseDate = createdAt[parseNum];
+            int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
+            int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
+            int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
+            
+            if((parseYear==thisYear)&&(parseMonth==showMonth)&&(parseDay==startDay)&&(checkFalg==0)){
+                [dayButton setTextColor:[UIColor clearColor]];
+                checkFalg=1;
+                //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
+                //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
+                //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
+                //                    }
+                //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
+                //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
+                //                }
+                int yCoordCenter = yVal/2+yCoord-xVal/2;
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/7, CGRectGetWidth(self.view.bounds)/2.8/7)];
+                
+                [mcv awakeFromNib];
+                MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoord, yCoord, xVal, yVal)];
+                
+                [mfv awakeFromNib];
+                //                mcv.backgroundColor = [UIColor clearColor];
+                NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
+                if(tempMoodChosen.intValue > 0)
+                    //                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+                    [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+                tempMoodChosen = [parseDate valueForKey:kChosen2 ];
+                if(tempMoodChosen.intValue > 0)
+                    //                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+                    [mcv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+                tempMoodChosen = [parseDate  valueForKey:kChosen3 ];
+                if(tempMoodChosen.intValue > 0)
+                    //                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+                    [mcv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+                
+                
+                //                    mmm = [[MDMakeMoodMonView alloc]init];
+                //                    mcv = [self.view viewWithTag:7];
+                //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
+                mcv.tag=tag++;
+                mfv.tag=tag++;
+                mcv.layer.cornerRadius = 24;
+                [mcv setNeedsDisplay];
+                [mfv setNeedsDisplay];
+                [self.view addSubview:mcv];
+                //                [self.view addSubview:mfv];
+            }
+        }
+
+        
+        
     }
 }
 @end
