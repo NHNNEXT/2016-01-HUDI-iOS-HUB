@@ -1,19 +1,33 @@
 //
-//  MDMoodFaceView.m
+//  MDSmallMoodFaceView.m
 //  moodMon
 //
-//  Created by 김기범 on 2016. 5. 8..
+//  Created by 김기범 on 2016. 5. 23..
 //  Copyright © 2016년 HUB. All rights reserved.
 //
 
-#import "MDMoodFaceView.h"
+#import "MDSmallMoodFaceView.h"
 
-@implementation MDMoodFaceView
+@implementation MDSmallMoodFaceView
+
 
 - (void)awakeFromNib {
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
     _moodName = @[@"", @"angry", @"joy", @"sad", @"excited", @"tired"];
     _animationDuration = 0.4;
+    [self componentsInit];
+}
+
+
+- (void)componentsInit {
+//    _wrinkle = [];
+//    _eyebrow;
+//    _eye;
+//    _darkCircle;
+//    _cheek;
+//    _tear;
+//    _mouth;
+//    _background;
 }
 
 
@@ -180,6 +194,8 @@
                     }
                     completion:nil];
 }
+
+
 
 
 

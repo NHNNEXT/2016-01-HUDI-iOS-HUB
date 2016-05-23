@@ -401,29 +401,36 @@
      exhausted - 51~55
     */
     
-    
     int count = (int)[self.moodCollection count];
     NSLog(@"count : %d",count);
     if(count == 1) return 0;
     int chosenCount = 0;
-    int sum[5] = {0,0,0,0,0};
+    int intenseSum[5] = {0,0,0,0,0};
     
     if(count < 6){
         for(int i = count -1 ; i >= 1 ; i--){
+            int moodKind = 0;
+            int moodIntense = 0;
            // NSLog(@"count : %d",count);
             MDMoodmon *temp = [self.moodCollection objectAtIndex:i];
             if((int)temp.moodChosen1 ) {
-                chosenCount ++;
-                sum[((int)temp.moodChosen1/10)-1] += (int)temp.moodChosen1 % 10;
+                chosenCount++;
+                moodKind = ((int)temp.moodChosen1/10);
+                moodIntense = (int)temp.moodChosen1 % 10;
+                intenseSum[moodKind-1] += moodIntense;
             }
             
             if((int)temp.moodChosen2 ){
-                chosenCount ++;
-                sum[((int)temp.moodChosen2/10)-1] += (int)temp.moodChosen2 % 10;
+                chosenCount++;
+                moodKind = ((int)temp.moodChosen2/10);
+                moodIntense = (int)temp.moodChosen2 % 10;
+                intenseSum[moodKind-1] += moodIntense;
             }
             if((int)temp.moodChosen3 ) {
-                chosenCount ++;
-                sum[((int)temp.moodChosen3/10)-1] += (int)temp.moodChosen3 % 10;
+                chosenCount++;
+                moodKind = ((int)temp.moodChosen3/10);
+                moodIntense = (int)temp.moodChosen3 % 10;
+                intenseSum[moodKind-1] += moodIntense;
             }
           
             
@@ -433,17 +440,17 @@
             MDMoodmon *temp = [self.moodCollection objectAtIndex:i];
             if((int)temp.moodChosen1 ) {
                 
-                chosenCount ++;
-                sum[((int)temp.moodChosen1/10)-1] += (int)temp.moodChosen1 % 10;
+                chosenCount++;
+                intenseSum[((int)temp.moodChosen1/10)-1] += (int)temp.moodChosen1 % 10;
             }
             
             if((int)temp.moodChosen2 ){
-                chosenCount ++;
-                sum[((int)temp.moodChosen2/10)-1] += (int)temp.moodChosen2 % 10;
+                chosenCount++;
+                intenseSum[((int)temp.moodChosen2/10)-1] += (int)temp.moodChosen2 % 10;
             }
             if((int)temp.moodChosen3 ) {
-                chosenCount ++;
-                sum[((int)temp.moodChosen3/10)-1] += (int)temp.moodChosen3 % 10;
+                chosenCount++;
+                intenseSum[((int)temp.moodChosen3/10)-1] += (int)temp.moodChosen3 % 10;
             }
         }
     }
@@ -451,14 +458,123 @@
     
     int bigIndex = 0;
     for(int i = 0 ; i < 5 ; i++){
-        if(sum[i] > sum[bigIndex]) bigIndex = i;
+        if(intenseSum[i] >= intenseSum[bigIndex]) bigIndex = i;
     }
    // NSLog(@"count : %d",bigIndex);
-    //NSLog(@"%d %d %d %d %d ", sum[0], sum[2])
+    //NSLog(@"%d %d %d %d %d ", intenseSum[0], intenseSum[2])
 
     
-    return 10 *(bigIndex + 1) + ((int)sum[bigIndex]/(int)chosenCount);
+    return 10 *(bigIndex + 1) + ((int)intenseSum[bigIndex]/(int)chosenCount);
 }
+
+
+-(NSMutableArray<NSNumber*>*)representationOfMoodAtYear:(NSInteger)year Month:(NSInteger)month andDay:(NSInteger)day{
+    
+    NSMutableArray *result = [[NSMutableArray alloc]initWithCapacity:3];
+    
+    NSEnumerator *enumerator = [_moodCollection objectEnumerator];
+    MDMoodmon *object;
+    NSInteger thisYear;
+    NSInteger thisMonth;
+    NSInteger thisDay;
+    bool hasMoodMon = NO;
+    int chosenCount[5] = {0,0,0,0,0};
+    int intenseSum[5] = {0,0,0,0,0};
+    
+    while ((object = [enumerator nextObject])) {
+        NSLog(@" ! %@", object);
+        thisYear = object.moodYear;
+        thisMonth = object.moodMonth;
+        thisDay = object.moodDay;
+        //[object valueForkey: y/m/d]; 하면 이상한 값 나옴. 왜 그럴까....?
+        
+        
+        if((thisYear == year) && (thisMonth == month) && (thisDay == day)){
+            int moodKind = 0;
+            int moodIntense = 0;
+            if((int)object.moodChosen1 ) {
+                moodKind = (int)object.moodChosen1 / 10;
+                moodIntense = (int)object.moodChosen1 % 10;
+                chosenCount[moodKind-1]++;
+                intenseSum[moodKind-1] += moodIntense;
+            }
+            
+            if((int)object.moodChosen2 ){
+                moodKind = (int)object.moodChosen2 / 10;
+                moodIntense = (int)object.moodChosen2 % 10;
+                chosenCount[moodKind-1]++;
+                intenseSum[moodKind-1] += moodIntense;
+            }
+            if((int)object.moodChosen3 ) {
+                moodKind = (int)object.moodChosen3 / 10;
+                moodIntense = (int)object.moodChosen3 % 10;
+                chosenCount[moodKind-1]++;
+                intenseSum[moodKind-1] += moodIntense;
+            }
+            hasMoodMon = YES;
+            
+        } else{
+            continue;
+        }
+    }
+    
+    if(hasMoodMon == NO){
+        [result addObject:@0];
+        [result addObject:@0];
+        [result addObject:@0];
+        return result;
+    }
+    NSLog(@" %d %d %d %d %d", chosenCount[0],chosenCount[1],chosenCount[2],chosenCount[3],chosenCount[4] );
+    
+    int numOfSamebigCount = 0;
+    int bigCountIdx = 0;
+    for (int i= 0; i < 5; i++){
+        if(chosenCount[i] < chosenCount[bigCountIdx]) continue;
+        
+        if(chosenCount[i] > chosenCount[bigCountIdx]){
+            bigCountIdx = i;
+            numOfSamebigCount = 1;
+            [result removeAllObjects];
+        } else if ( chosenCount[i] == chosenCount[bigCountIdx]){
+            numOfSamebigCount ++;
+        }
+        
+        if(chosenCount[i] > 0){
+        [result addObject: [NSNumber numberWithInteger:( 10 *(i + 1) + ((int)intenseSum[i]/(int)chosenCount[i]))]];
+        }
+    }
+    
+    if(numOfSamebigCount <=3){
+        return result;
+    }
+    
+    
+    
+    [result removeAllObjects];
+    int topIntenseIndex1 = 0;
+    int topIntenseIndex2 = 0;
+    int topIntenseIndex3 = 0;
+
+    for(int i = 0 ; i< 5 ; i++){
+        
+        if(intenseSum[i] >= intenseSum[topIntenseIndex1]){
+            topIntenseIndex1 = i;
+            [result insertObject: [NSNumber numberWithInteger:( 10 *(i + 1) + ((int)intenseSum[i]/(int)chosenCount[i]))] atIndex:0];
+        }else if(intenseSum[i] >= intenseSum[topIntenseIndex2]){
+            topIntenseIndex2 = i;
+            [result insertObject: [NSNumber numberWithInteger:( 10 *(i + 1) + ((int)intenseSum[i]/(int)chosenCount[i]))] atIndex:1];
+        }else if(intenseSum[i] >= intenseSum[topIntenseIndex3]){
+            topIntenseIndex3 = i;
+            [result insertObject: [NSNumber numberWithInteger:( 10 *(i + 1) + ((int)intenseSum[i]/(int)chosenCount[i]))] atIndex:2];
+        }
+    }
+    
+    return result;
+    
+}
+
+
+
 
 /*
  0 - angry - 11~15

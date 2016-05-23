@@ -34,16 +34,16 @@ NSMutableArray *moodmonConf;
 
     count=0;
     [super viewDidLoad];
-    MDDataManager *mddm = [MDDataManager sharedDataManager];
+    _mddm = [MDDataManager sharedDataManager];
     //[mddm createDB];
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:mddm ];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:mddm ];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:mddm];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:_mddm ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:_mddm ];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:_mddm];
     
     
-    createdAt=[mddm moodCollection];
+    createdAt=[_mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
 
@@ -253,6 +253,9 @@ NSMutableArray *moodmonConf;
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
                     //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                     //                }
+                
+                
+                
                 int yCoordCenter = yVal/2+yCoord-xVal/2;
                 MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord,yCoordCenter, xVal, xVal)];
                 
@@ -311,14 +314,18 @@ NSMutableArray *moodmonConf;
    
     cell.delegate = self;
    
-    //UIView *viewForFrame =  [cell viewWithTag:3];
-    MDMoodColorView *temp = [cell viewWithTag:100];//[[MDMoodColorView alloc]init];
-    for(int i = 1 ;i <temp.chosenMoods.count ; i++){
-        [temp.chosenMoods removeObjectAtIndex:i];
+    
+    MDMoodColorView *temp = [cell viewWithTag:100];
+    //NSLog(@"before : %@",temp.chosenMoods);
+    int usedChosenMoodsCount = temp.chosenMoods.count;
+    if( usedChosenMoodsCount > 1){
+        for(int i = 0 ; i < usedChosenMoodsCount-1 ; i++){
+            [temp.chosenMoods removeLastObject];
+        }
+       // NSLog(@"after :%@",temp.chosenMoods);
+        [temp setNeedsDisplay];
     }
     
-    //[temp setFrame:viewForFrame.frame];
-    //NSLog(@"%@",temp);
     
     NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
     if(tempMoodChosen.intValue != 0){
@@ -338,7 +345,7 @@ NSMutableArray *moodmonConf;
     temp.layer.cornerRadius = (int)temp.frame.size.width/2;
     temp.layer.masksToBounds = YES;
     temp.hidden = NO;
-    [temp setBackgroundColor:[UIColor whiteColor]];
+    [temp setBackgroundColor:[UIColor clearColor]];
     //NSLog(@"colorview : %@, chosenMood:%@",temp, temp.chosenMoods);
     [temp setNeedsDisplay];
     [cell.myContentView addSubview:temp];
@@ -361,6 +368,10 @@ NSMutableArray *moodmonConf;
     NSString *clickedDateString =[NSString stringWithFormat:@"%d년 %d월 %d일", thisYear, thisMonth, day];
     _clickedDate.text = clickedDateString;
     myDay = day;
+    
+    NSLog(@"i will get representMood at %d %d %d", thisYear, thisMonth, myDay);
+    NSLog(@"%@", [_mddm representationOfMoodAtYear:(NSInteger)thisYear Month:(NSInteger)thisMonth andDay:myDay] );
+
     
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
