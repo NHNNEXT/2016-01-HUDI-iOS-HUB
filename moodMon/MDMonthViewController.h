@@ -15,11 +15,7 @@
 #import "MDMakeMoodMonView.h"
 #import "MDMoodFaceView.h"
 #import "MDCustomStoryboardSegue.h"
-<<<<<<< HEAD
 #import "MDCustomStoryboardunwindSegue.h"
-=======
-#import "MDCustomStoryboardUnwindSegue.h"
->>>>>>> master
 
 @interface MDMonthViewController : UIViewController <SwipeableCellDelegate>
 

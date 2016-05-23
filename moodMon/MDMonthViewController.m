@@ -256,11 +256,12 @@ NSMutableArray *moodmonConf;
                 
                 
                 
-                int yCoordCenter = yVal/2+yCoord-xVal/2;
-                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord,yCoordCenter, xVal, xVal)];
+                int yCoordCenter = yVal/2+yCoord-xVal*4/10;
+                int xCoordCenter = xVal/2+xCoord-xVal*4/10;
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
                 
                 [mcv awakeFromNib];
-                MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoord, yCoord, xVal, yVal)];
+                MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoordCenter, yCoord, xVal, yVal)];
                 
                 [mfv awakeFromNib];
                 //                mcv.backgroundColor = [UIColor clearColor];
@@ -283,7 +284,7 @@ NSMutableArray *moodmonConf;
 //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 mcv.tag=tag++;
                 mfv.tag=tag++;
-                mcv.layer.cornerRadius = 24;
+                mcv.layer.cornerRadius = xVal*5/12;
                 [mcv setNeedsDisplay];
                 [mfv setNeedsDisplay];
                 [self.view addSubview:mcv];

@@ -439,14 +439,11 @@
 				CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */,
 				CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */,
 				6575CAE61CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.h */,
-<<<<<<< HEAD
-				6575CAE71CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.m */,
+				6575CAE71CE20AA7005E390F /* 
 				65F7D3D91CEAF33B00E88527 /* MDNavController.h */,
 				65F7D3DA1CEAF33B00E88527 /* MDNavController.m */,
-=======
 				CEDACCBD1CEC373900FBD201 /* MDCustomStoryboardUnwindSegue.m */,
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
->>>>>>> master
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
 				E986EDB91CDFBE9400792C55 /* new moodmon */,
 				6575788C1CB4BE7600D75D5E /* year */,
