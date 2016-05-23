@@ -42,7 +42,7 @@ NSMutableArray *moodmonConf;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:_mddm ];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:_mddm];
     
-    
+
     createdAt=[_mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
@@ -265,15 +265,17 @@ NSMutableArray *moodmonConf;
                 
                 [mfv awakeFromNib];
                 //                mcv.backgroundColor = [UIColor clearColor];
-                NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
+                NSArray *dayRepresenatationColors = [_mddm representationOfMoodAtYear:(NSInteger)parseYear Month:(NSInteger)parseMonth andDay:parseDay];
+               
+                NSNumber *tempMoodChosen = dayRepresenatationColors[0];
                 if(tempMoodChosen.intValue > 0)
 //                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
-                tempMoodChosen = [parseDate valueForKey:kChosen2 ];
+                tempMoodChosen = dayRepresenatationColors[1];
                 if(tempMoodChosen.intValue > 0)
 //                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
-                tempMoodChosen = [parseDate  valueForKey:kChosen3 ];
+                tempMoodChosen = dayRepresenatationColors[2];
                 if(tempMoodChosen.intValue > 0)
 //                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
@@ -370,8 +372,7 @@ NSMutableArray *moodmonConf;
     _clickedDate.text = clickedDateString;
     myDay = day;
     
-    NSLog(@"i will get representMood at %d %d %d", thisYear, thisMonth, myDay);
-    NSLog(@"%@", [_mddm representationOfMoodAtYear:(NSInteger)thisYear Month:(NSInteger)thisMonth andDay:myDay] );
+   
 
     
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
