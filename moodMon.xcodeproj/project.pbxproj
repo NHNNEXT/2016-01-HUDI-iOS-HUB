@@ -146,6 +146,7 @@
 		E9B03E311CF1FD700069741F /* tired_degree3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E181CF1FD700069741F /* tired_degree3@2x.png */; };
 		E9B03E321CF1FD700069741F /* tired_degree4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E191CF1FD700069741F /* tired_degree4@2x.png */; };
 		E9B03E331CF1FD700069741F /* tired_degree5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E1A1CF1FD700069741F /* tired_degree5@2x.png */; };
+		E9B03E361CF229140069741F /* MDSmallMoodFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B03E351CF229140069741F /* MDSmallMoodFaceView.m */; };
 		E9CD996A1CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */; };
 		E9CD99721CE8A4CA00C9DBB7 /* angry_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99711CE8A4CA00C9DBB7 /* angry_wheel@2x.png */; };
 		E9CD99751CE8C9E500C9DBB7 /* MDProgressWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CD99741CE8C9E500C9DBB7 /* MDProgressWheelView.m */; };
@@ -153,7 +154,6 @@
 		E9CD997B1CE8E25900C9DBB7 /* joy_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */; };
 		E9CD997D1CE8E25900C9DBB7 /* tired_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */; };
 		E9CD997F1CE8E2AB00C9DBB7 /* sad_wheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */; };
-		E9CD99811CE9028800C9DBB7 /* Main-4inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9CD99801CE9028800C9DBB7 /* Main-4inch.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -342,6 +342,8 @@
 		E9B03E181CF1FD700069741F /* tired_degree3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_degree3@2x.png"; sourceTree = "<group>"; };
 		E9B03E191CF1FD700069741F /* tired_degree4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_degree4@2x.png"; sourceTree = "<group>"; };
 		E9B03E1A1CF1FD700069741F /* tired_degree5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_degree5@2x.png"; sourceTree = "<group>"; };
+		E9B03E341CF229140069741F /* MDSmallMoodFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSmallMoodFaceView.h; sourceTree = "<group>"; };
+		E9B03E351CF229140069741F /* MDSmallMoodFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSmallMoodFaceView.m; sourceTree = "<group>"; };
 		E9CD99681CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTouchDownGestureRecognizer.h; sourceTree = "<group>"; };
 		E9CD99691CE883F000C9DBB7 /* MDTouchDownGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTouchDownGestureRecognizer.m; sourceTree = "<group>"; };
 		E9CD99711CE8A4CA00C9DBB7 /* angry_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_wheel@2x.png"; sourceTree = "<group>"; };
@@ -351,7 +353,6 @@
 		E9CD99771CE8E25900C9DBB7 /* joy_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_wheel@2x.png"; sourceTree = "<group>"; };
 		E9CD99791CE8E25900C9DBB7 /* tired_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_wheel@2x.png"; sourceTree = "<group>"; };
 		E9CD997E1CE8E2AB00C9DBB7 /* sad_wheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_wheel@2x.png"; sourceTree = "<group>"; };
-		E9CD99801CE9028800C9DBB7 /* Main-4inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-4inch.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,7 +444,6 @@
 				CE87EC4F1CCE109900329E16 /* otherFunction */,
 				CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */,
 				658BE7121CB4CE98006EB718 /* Main.storyboard */,
-				E9CD99801CE9028800C9DBB7 /* Main-4inch.storyboard */,
 				CE4A8A441CABCCB1006B73B7 /* LaunchScreen.storyboard */,
 				CE4A8A471CABCCB1006B73B7 /* Info.plist */,
 				CE4A8A361CABCCB1006B73B7 /* Supporting Files */,
@@ -762,6 +762,8 @@
 				E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */,
 				E9CD99731CE8C9E500C9DBB7 /* MDProgressWheelView.h */,
 				E9CD99741CE8C9E500C9DBB7 /* MDProgressWheelView.m */,
+				E9B03E341CF229140069741F /* MDSmallMoodFaceView.h */,
+				E9B03E351CF229140069741F /* MDSmallMoodFaceView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -876,7 +878,6 @@
 				E986ED5F1CDFBE2F00792C55 /* angry_eyebrow_degree3@2x.png in Resources */,
 				E986ED671CDFBE2F00792C55 /* tired_eyebrow_degree1@2x.png in Resources */,
 				E986ED611CDFBE2F00792C55 /* angry_eyebrow_degree5@2x.png in Resources */,
-				E9CD99811CE9028800C9DBB7 /* Main-4inch.storyboard in Resources */,
 				E9B03E271CF1FD700069741F /* joy_degree3@2x.png in Resources */,
 				E986ED9D1CDFBE2F00792C55 /* tired_mouth_degree5@2x.png in Resources */,
 				E9B03E291CF1FD700069741F /* joy_degree5@2x.png in Resources */,
@@ -1023,6 +1024,7 @@
 				E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */,
 				6575CAE81CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.m in Sources */,
 				E986ECCD1CDFBC4F00792C55 /* MDMoodFaceView.m in Sources */,
+				E9B03E361CF229140069741F /* MDSmallMoodFaceView.m in Sources */,
 				E95DE3C01CE999110094EDCF /* MDTouchUpGestureRecognizer.m in Sources */,
 				65980E2D1CC0D1DF0092EA18 /* MDMonthTimeLineCellTableViewCell.m in Sources */,
 				CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */,

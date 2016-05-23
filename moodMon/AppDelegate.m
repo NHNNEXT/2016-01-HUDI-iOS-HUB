@@ -17,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.rootViewController.view.backgroundColor = [UIColor whiteColor];
     UIStoryboard *launchBoard = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
     UIView* overlayView = [[launchBoard instantiateViewControllerWithIdentifier:@"LaunchVC"] view]  ;
     overlayView.frame = self.window.rootViewController.view.bounds;
