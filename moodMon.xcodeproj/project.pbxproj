@@ -200,7 +200,6 @@
 		CE3AC3BA1CF183420037BC71 /* MDDataSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataSettingTableViewController.m; sourceTree = "<group>"; };
 		CE4A8A331CABCCB1006B73B7 /* moodMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moodMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A8A371CABCCB1006B73B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CE4A8A421CABCCB1006B73B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4A8A451CABCCB1006B73B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -219,7 +218,6 @@
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
 		CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomStoryboardSegue.h; sourceTree = "<group>"; };
 		CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
-		CE7FFD5D1CE024A400B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MDCustomStoryboardSegue.m; path = moodMon/MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
 		CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewController.h; sourceTree = "<group>"; };
 		CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSearchTableViewController.m; sourceTree = "<group>"; };
 		CEBA98701CDF1C79006D2FFD /* MDSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 		CE4A8A2A1CABCCB1006B73B7 = {
 			isa = PBXGroup;
 			children = (
-				CE7FFD5D1CE024A400B7139C /* MDCustomStoryboardSegue.m */,
 				CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */,
 				CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */,
 				CE4A8A351CABCCB1006B73B7 /* moodMon */,
@@ -442,8 +439,14 @@
 				CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */,
 				CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */,
 				6575CAE61CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.h */,
+<<<<<<< HEAD
+				6575CAE71CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.m */,
+				65F7D3D91CEAF33B00E88527 /* MDNavController.h */,
+				65F7D3DA1CEAF33B00E88527 /* MDNavController.m */,
+=======
 				CEDACCBD1CEC373900FBD201 /* MDCustomStoryboardUnwindSegue.m */,
 				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
+>>>>>>> master
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
 				E986EDB91CDFBE9400792C55 /* new moodmon */,
 				6575788C1CB4BE7600D75D5E /* year */,
