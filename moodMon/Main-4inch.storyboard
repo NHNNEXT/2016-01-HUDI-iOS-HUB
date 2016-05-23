@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -898,20 +899,20 @@
                                 <exclude reference="lrv-gQ-GRi"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="FaP-bY-IcF"/>
-                                <exclude reference="z4H-f7-zDO"/>
-                                <exclude reference="54e-1P-TKD"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
-                                <exclude reference="w8h-VA-AGO"/>
-                                <exclude reference="yPs-MV-sQX"/>
+                                <exclude reference="FaP-bY-IcF"/>
+                                <exclude reference="z4H-f7-zDO"/>
                                 <exclude reference="PJ1-1Y-iQT"/>
                                 <exclude reference="YQ0-gl-eM6"/>
                                 <exclude reference="Zil-cv-FOb"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
+                                <exclude reference="w8h-VA-AGO"/>
+                                <exclude reference="yPs-MV-sQX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -925,20 +926,20 @@
                                 <include reference="lrv-gQ-GRi"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="FaP-bY-IcF"/>
-                                <include reference="z4H-f7-zDO"/>
-                                <include reference="54e-1P-TKD"/>
+                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
-                                <include reference="w8h-VA-AGO"/>
-                                <include reference="yPs-MV-sQX"/>
+                                <include reference="FaP-bY-IcF"/>
+                                <include reference="z4H-f7-zDO"/>
                                 <include reference="PJ1-1Y-iQT"/>
                                 <include reference="YQ0-gl-eM6"/>
                                 <include reference="Zil-cv-FOb"/>
-                                <include reference="Mhj-Re-3Dr"/>
+                                <include reference="w8h-VA-AGO"/>
+                                <include reference="yPs-MV-sQX"/>
                             </mask>
                         </variation>
                     </view>
