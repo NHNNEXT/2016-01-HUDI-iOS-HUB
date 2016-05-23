@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		655DA55E1CF2A6820048BF13 /* MDNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDACCBC1CEC36ED00FBD201 /* MDNavController.m */; };
 		6575788B1CB4BE7100D75D5E /* MDYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575788A1CB4BE7100D75D5E /* MDYearViewController.m */; };
 		658BE72E1CB4CE98006EB718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658BE7121CB4CE98006EB718 /* Main.storyboard */; };
 		658BE7301CB4CE98006EB718 /* MDMoodButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 658BE7161CB4CE98006EB718 /* MDMoodButtonView.m */; };
@@ -439,11 +440,7 @@
 				CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */,
 				CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */,
 				6575CAE61CE20AA7005E390F /* MDCustomStoryboardUnwindSegue.h */,
-				6575CAE71CE20AA7005E390F /* 
-				65F7D3D91CEAF33B00E88527 /* MDNavController.h */,
-				65F7D3DA1CEAF33B00E88527 /* MDNavController.m */,
 				CEDACCBD1CEC373900FBD201 /* MDCustomStoryboardUnwindSegue.m */,
-				CE4A8A391CABCCB1006B73B7 /* AppDelegate.h */,
 				CE4A8A3A1CABCCB1006B73B7 /* AppDelegate.m */,
 				E986EDB91CDFBE9400792C55 /* new moodmon */,
 				6575788C1CB4BE7600D75D5E /* year */,
@@ -1022,6 +1019,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655DA55E1CF2A6820048BF13 /* MDNavController.m in Sources */,
 				CEDACCBE1CEC380700FBD201 /* MDCustomStoryboardUnwindSegue.m in Sources */,
 				CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */,
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
