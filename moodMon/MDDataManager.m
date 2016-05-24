@@ -482,7 +482,7 @@
     int intenseSum[5] = {0,0,0,0,0};
     
     while ((object = [enumerator nextObject])) {
-        NSLog(@" ! %@", object);
+//        NSLog(@" ! %@", object);
         thisYear = object.moodYear;
         thisMonth = object.moodMonth;
         thisDay = object.moodDay;
