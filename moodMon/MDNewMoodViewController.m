@@ -123,6 +123,14 @@
     self.tired.startAngle = 5.1;
     self.moodButtons = @[self.angry, self.joy, self.sad, self.excited, self.tired];
     
+    
+//    self.smallMoodFace = [[MDSmallMoodFaceView alloc] init];
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MDSmallMoodFaceView" owner:self options:nil];
+    self.smallMoodFace = [nib objectAtIndex:0];
+    [self.smallMoodFace setFrame:CGRectMake(170, 200, 44, 44)];
+    [self.view insertSubview:self.smallMoodFace aboveSubview:_saveButtonBackground];
+    [self.smallMoodFace.chosenMoods addObject:@34];
+    [self.smallMoodFace setNeedsDisplay];
 }
 
 

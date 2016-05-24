@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,11 +25,11 @@
                         <viewControllerLayoutGuide type="top" id="s55-K4-rK4"/>
                         <viewControllerLayoutGuide type="bottom" id="QJf-0F-wqE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4N1-HT-ihE">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="4N1-HT-ihE" customClass="MDSmallMoodFaceView2">
+                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="moodface_small" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-hh-o2a" userLabel="mood face" customClass="MDSmallMoodFaceView">
+                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="moodface_small" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-hh-o2a" userLabel="mood face" customClass="MDSmallMoodFaceView2">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="eyebrow_small" image="angry_eyebrow_degree1.png" translatesAutoresizingMaskIntoConstraints="NO" id="W53-No-sJG" userLabel="eyebrow">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -354,8 +353,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="600"/>
+                    <size key="freeformSize" width="44" height="44"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GfV-wP-itH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2162,6 +2162,26 @@
                                     <action selector="didTextFieldActivate:" destination="TL5-nJ-UfS" eventType="editingDidBegin" id="vbR-Yj-3Tn"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyB-fl-jQZ" customClass="MDSmallMoodFaceView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="TN8-KF-FOW"/>
+                                    <constraint firstAttribute="height" constant="44" id="b4h-Kt-Vdb"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="TN8-KF-FOW"/>
+                                        <exclude reference="b4h-Kt-Vdb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="TN8-KF-FOW"/>
+                                        <include reference="b4h-Kt-Vdb"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -2175,9 +2195,13 @@
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="lrv-gQ-GRi" secondAttribute="bottom" constant="157" id="VuF-ve-Oh6"/>
+                            <constraint firstItem="qyB-fl-jQZ" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="Wad-zF-cMv">
+                                <variation key="widthClass=compact" constant="-12"/>
+                            </constraint>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="YQ0-gl-eM6"/>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Yc1-MW-s0P"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="width" secondItem="J26-NR-hzB" secondAttribute="width" id="Zil-cv-FOb"/>
+                            <constraint firstItem="qyB-fl-jQZ" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="cIc-ve-RNm"/>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="cJM-bG-KaB">
                                 <variation key="widthClass=compact" constant="33"/>
                             </constraint>
@@ -2202,23 +2226,26 @@
                                 <exclude reference="lrv-gQ-GRi"/>
                                 <exclude reference="A0I-t8-oas"/>
                                 <exclude reference="zuU-2m-ArN"/>
+                                <exclude reference="qyB-fl-jQZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="gcM-WE-PDN"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
-                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="BGn-lb-kPg"/>
                                 <exclude reference="VuF-ve-Oh6"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="g7e-3g-Krf"/>
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
+                                <exclude reference="x6X-na-boQ"/>
+                                <exclude reference="Wad-zF-cMv"/>
+                                <exclude reference="cIc-ve-RNm"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="PJ1-1Y-iQT"/>
                                 <exclude reference="YQ0-gl-eM6"/>
                                 <exclude reference="Zil-cv-FOb"/>
-                                <exclude reference="x6X-na-boQ"/>
+                                <exclude reference="gcM-WE-PDN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -2230,23 +2257,26 @@
                                 <include reference="lrv-gQ-GRi"/>
                                 <include reference="A0I-t8-oas"/>
                                 <include reference="zuU-2m-ArN"/>
+                                <include reference="qyB-fl-jQZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="gcM-WE-PDN"/>
-                                <include reference="Mhj-Re-3Dr"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
-                                <include reference="54e-1P-TKD"/>
                                 <include reference="BGn-lb-kPg"/>
                                 <include reference="VuF-ve-Oh6"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="g7e-3g-Krf"/>
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
+                                <include reference="x6X-na-boQ"/>
+                                <include reference="Wad-zF-cMv"/>
+                                <include reference="cIc-ve-RNm"/>
+                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="PJ1-1Y-iQT"/>
                                 <include reference="YQ0-gl-eM6"/>
                                 <include reference="Zil-cv-FOb"/>
-                                <include reference="x6X-na-boQ"/>
+                                <include reference="gcM-WE-PDN"/>
                             </mask>
                         </variation>
                     </view>

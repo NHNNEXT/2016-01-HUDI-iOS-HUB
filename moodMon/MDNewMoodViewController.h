@@ -17,8 +17,11 @@
 #import "MDWheelGestureRecognizer.h"
 #import "MDTouchDownGestureRecognizer.h"
 #import "MDTouchUpGestureRecognizer.h"
+#import "MDSmallMoodFaceView.h"
 
 @interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate, UITextFieldDelegate>
+
+@property MDSmallMoodFaceView *smallMoodFace;
 
 /* Model */
 @property MDMoodmon *mood;

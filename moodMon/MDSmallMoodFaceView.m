@@ -10,24 +10,21 @@
 
 @implementation MDSmallMoodFaceView
 
+//
+//- (id)initWithCoder:(NSCoder *)aDecoder {
+//    if(self=[super initWithCoder:aDecoder]) {
+//        [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"MDSmallMoodFaceView" owner:self options:nil]objectAtIndex:0]];
+//        
+//    }
+//    return self;
+//}
+
 
 - (void)awakeFromNib {
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
     _moodName = @[@"", @"angry", @"joy", @"sad", @"excited", @"tired"];
     _animationDuration = 0.4;
-    [self componentsInit];
-}
-
-
-- (void)componentsInit {
-//    _wrinkle = [];
-//    _eyebrow;
-//    _eye;
-//    _darkCircle;
-//    _cheek;
-//    _tear;
-//    _mouth;
-//    _background;
+    
 }
 
 
