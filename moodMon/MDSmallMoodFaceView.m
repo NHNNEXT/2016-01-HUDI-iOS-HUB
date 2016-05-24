@@ -10,14 +10,20 @@
 
 @implementation MDSmallMoodFaceView
 
-//
-//- (id)initWithCoder:(NSCoder *)aDecoder {
-//    if(self=[super initWithCoder:aDecoder]) {
-//        [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"MDSmallMoodFaceView" owner:self options:nil]objectAtIndex:0]];
-//        
-//    }
-//    return self;
-//}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if(self=[super initWithCoder:aDecoder]) {
+        [self setup];
+    }
+    return self;
+}
+
+
+- (void)setup {
+    [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"MDSmallMoodFaceView" owner:self options:nil]objectAtIndex:0]];
+    [self addSubview:_view];
+    _view.frame = self.bounds;
+}
 
 
 - (void)awakeFromNib {

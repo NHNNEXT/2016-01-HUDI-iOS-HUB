@@ -10,6 +10,7 @@
 
 @interface MDSmallMoodFaceView : UIView
 
+@property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutlet UIImageView *wrinkle;
 @property (strong, nonatomic) IBOutlet UIImageView *eyebrow;
 @property (strong, nonatomic) IBOutlet UIImageView *eye;

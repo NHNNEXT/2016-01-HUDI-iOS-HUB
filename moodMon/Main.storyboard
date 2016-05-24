@@ -2162,26 +2162,6 @@
                                     <action selector="didTextFieldActivate:" destination="TL5-nJ-UfS" eventType="editingDidBegin" id="vbR-Yj-3Tn"/>
                                 </connections>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyB-fl-jQZ" customClass="MDSmallMoodFaceView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="TN8-KF-FOW"/>
-                                    <constraint firstAttribute="height" constant="44" id="b4h-Kt-Vdb"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="TN8-KF-FOW"/>
-                                        <exclude reference="b4h-Kt-Vdb"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="TN8-KF-FOW"/>
-                                        <include reference="b4h-Kt-Vdb"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -2195,13 +2175,9 @@
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="lrv-gQ-GRi" secondAttribute="bottom" constant="157" id="VuF-ve-Oh6"/>
-                            <constraint firstItem="qyB-fl-jQZ" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="Wad-zF-cMv">
-                                <variation key="widthClass=compact" constant="-12"/>
-                            </constraint>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="YQ0-gl-eM6"/>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Yc1-MW-s0P"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="width" secondItem="J26-NR-hzB" secondAttribute="width" id="Zil-cv-FOb"/>
-                            <constraint firstItem="qyB-fl-jQZ" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="cIc-ve-RNm"/>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="cJM-bG-KaB">
                                 <variation key="widthClass=compact" constant="33"/>
                             </constraint>
@@ -2226,7 +2202,6 @@
                                 <exclude reference="lrv-gQ-GRi"/>
                                 <exclude reference="A0I-t8-oas"/>
                                 <exclude reference="zuU-2m-ArN"/>
-                                <exclude reference="qyB-fl-jQZ"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="54e-1P-TKD"/>
@@ -2239,8 +2214,6 @@
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
                                 <exclude reference="x6X-na-boQ"/>
-                                <exclude reference="Wad-zF-cMv"/>
-                                <exclude reference="cIc-ve-RNm"/>
                                 <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="PJ1-1Y-iQT"/>
                                 <exclude reference="YQ0-gl-eM6"/>
@@ -2257,7 +2230,6 @@
                                 <include reference="lrv-gQ-GRi"/>
                                 <include reference="A0I-t8-oas"/>
                                 <include reference="zuU-2m-ArN"/>
-                                <include reference="qyB-fl-jQZ"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="54e-1P-TKD"/>
@@ -2270,8 +2242,6 @@
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
                                 <include reference="x6X-na-boQ"/>
-                                <include reference="Wad-zF-cMv"/>
-                                <include reference="cIc-ve-RNm"/>
                                 <include reference="Mhj-Re-3Dr"/>
                                 <include reference="PJ1-1Y-iQT"/>
                                 <include reference="YQ0-gl-eM6"/>

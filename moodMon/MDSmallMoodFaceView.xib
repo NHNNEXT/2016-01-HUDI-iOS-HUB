@@ -5,9 +5,21 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDSmallMoodFaceView">
+            <connections>
+                <outlet property="background" destination="lvR-NP-pH7" id="VmJ-aA-aSP"/>
+                <outlet property="cheek" destination="sWK-YP-GY4" id="1hG-5z-8As"/>
+                <outlet property="darkCircle" destination="iKK-dB-FAs" id="gDt-Po-tox"/>
+                <outlet property="eye" destination="QSQ-D9-Cyl" id="CNT-4Q-U8G"/>
+                <outlet property="eyebrow" destination="ITt-M7-1HG" id="rfr-LL-PAw"/>
+                <outlet property="mouth" destination="eem-Df-1R1" id="R6I-YV-gQ8"/>
+                <outlet property="tear" destination="c5A-CF-cOq" id="iQX-aB-QV7"/>
+                <outlet property="view" destination="iN0-l3-epB" id="VSu-jk-XjH"/>
+                <outlet property="wrinkle" destination="joH-PG-K7S" id="HIW-ar-zNl"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MDSmallMoodFaceView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -92,16 +104,6 @@
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="background" destination="lvR-NP-pH7" id="wg1-D6-wR8"/>
-                <outlet property="cheek" destination="sWK-YP-GY4" id="tZi-OW-dw2"/>
-                <outlet property="darkCircle" destination="iKK-dB-FAs" id="mVK-m8-xtP"/>
-                <outlet property="eye" destination="QSQ-D9-Cyl" id="r4a-yL-cXK"/>
-                <outlet property="eyebrow" destination="ITt-M7-1HG" id="pfl-Hs-iP5"/>
-                <outlet property="mouth" destination="eem-Df-1R1" id="aoX-Sy-cKh"/>
-                <outlet property="tear" destination="c5A-CF-cOq" id="Q1e-zw-ctB"/>
-                <outlet property="wrinkle" destination="joH-PG-K7S" id="YYe-Zw-cSv"/>
-            </connections>
             <point key="canvasLocation" x="647" y="416"/>
         </view>
     </objects>

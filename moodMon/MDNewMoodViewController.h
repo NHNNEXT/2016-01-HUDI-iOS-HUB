@@ -21,8 +21,6 @@
 
 @interface MDNewMoodViewController : UIViewController <MDWheelGestureRecognizerDelegate, UITextFieldDelegate>
 
-@property MDSmallMoodFaceView *smallMoodFace;
-
 /* Model */
 @property MDMoodmon *mood;
 
