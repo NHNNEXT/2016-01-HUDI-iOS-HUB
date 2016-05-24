@@ -10,15 +10,15 @@
 
 @interface MDSmallMoodFaceView : UIView
 
-@property UIImageView *wrinkle;
-@property UIImageView *eyebrow;
-@property UIImageView *eye;
-@property UIImageView *darkCircle;
-@property UIImageView *cheek;
-@property UIImageView *tear;
-@property UIImageView *mouth;
-@property UIImageView *background;
-
+@property (strong, nonatomic) IBOutlet UIView *view;
+@property (strong, nonatomic) IBOutlet UIImageView *wrinkle;
+@property (strong, nonatomic) IBOutlet UIImageView *eyebrow;
+@property (strong, nonatomic) IBOutlet UIImageView *eye;
+@property (strong, nonatomic) IBOutlet UIImageView *darkCircle;
+@property (strong, nonatomic) IBOutlet UIImageView *cheek;
+@property (strong, nonatomic) IBOutlet UIImageView *tear;
+@property (strong, nonatomic) IBOutlet UIImageView *mouth;
+@property (strong, nonatomic) IBOutlet UIImageView *background;
 
 @property NSArray *moodName;
 @property NSMutableArray<NSNumber *> *chosenMoods;

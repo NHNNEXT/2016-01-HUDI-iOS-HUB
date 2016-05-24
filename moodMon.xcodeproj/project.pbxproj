@@ -38,6 +38,7 @@
 		CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */; };
 		CEDD93911CC3C07F00028F80 /* MDMoodFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */; };
 		E90B86B31CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */; };
+		E9514B761CF353B6008B99CA /* MDSmallMoodFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9514B751CF353B6008B99CA /* MDSmallMoodFaceView.xib */; };
 		E95DE3C01CE999110094EDCF /* MDTouchUpGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E95DE3BF1CE999110094EDCF /* MDTouchUpGestureRecognizer.m */; };
 		E95EB77F1CC4BCAB00141FBF /* MDRecentMoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = E95EB77E1CC4BCAB00141FBF /* MDRecentMoodView.m */; };
 		E97B30AA1CCD949100FB8502 /* MDMoodColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E97B30A91CCD949100FB8502 /* MDMoodColorView.m */; };
@@ -241,6 +242,7 @@
 		CEDD93901CC3C07F00028F80 /* MDMoodFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodFilterTableViewCell.m; sourceTree = "<group>"; };
 		E90B86B11CBA9B64007AEFF4 /* MDWheelGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWheelGestureRecognizer.h; sourceTree = "<group>"; };
 		E90B86B21CBA9B64007AEFF4 /* MDWheelGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWheelGestureRecognizer.m; sourceTree = "<group>"; };
+		E9514B751CF353B6008B99CA /* MDSmallMoodFaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDSmallMoodFaceView.xib; sourceTree = "<group>"; };
 		E95DE3BE1CE999110094EDCF /* MDTouchUpGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTouchUpGestureRecognizer.h; sourceTree = "<group>"; };
 		E95DE3BF1CE999110094EDCF /* MDTouchUpGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTouchUpGestureRecognizer.m; sourceTree = "<group>"; };
 		E95EB77D1CC4BCAB00141FBF /* MDRecentMoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRecentMoodView.h; sourceTree = "<group>"; };
@@ -805,6 +807,7 @@
 				E9CD99741CE8C9E500C9DBB7 /* MDProgressWheelView.m */,
 				E9B03E341CF229140069741F /* MDSmallMoodFaceView.h */,
 				E9B03E351CF229140069741F /* MDSmallMoodFaceView.m */,
+				E9514B751CF353B6008B99CA /* MDSmallMoodFaceView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				E986ED4A1CDFBE2F00792C55 /* basic shadow@2x.png in Resources */,
 				E986EDA81CDFBE2F00792C55 /* tear_degree4@2x.png in Resources */,
 				E986EDAE1CDFBE2F00792C55 /* tired_unselect@2x.png in Resources */,
+				E9514B761CF353B6008B99CA /* MDSmallMoodFaceView.xib in Resources */,
 				E9B06CDE1CF2D14A000E8C7B /* iTunesArtwork.png in Resources */,
 				E986ED661CDFBE2F00792C55 /* sad_eyebrow_degree5@2x.png in Resources */,
 				E9CD997D1CE8E25900C9DBB7 /* tired_wheel@2x.png in Resources */,
