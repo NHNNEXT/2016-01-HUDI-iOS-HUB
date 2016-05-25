@@ -8,7 +8,7 @@
 
 #import "MDMonthTimeLineCellTableViewCell.h"
 
-static CGFloat const kBounceValue = 20.0f;
+static CGFloat const kBounceValue = 40.0f;
 
 @implementation MDMonthTimeLineCellTableViewCell
 
@@ -130,7 +130,7 @@ static CGFloat const kBounceValue = 20.0f;
         case UIGestureRecognizerStateEnded:
             if (self.startingRightLayoutConstraintConstant == 0) { //1
                 //Cell was opening
-                CGFloat halfOfButtonOne = CGRectGetWidth(self.editBtn.frame) / 2; //2
+                CGFloat halfOfButtonOne = CGRectGetWidth(self.saveMoodmonBtn.frame) / 2; //2
                 if (self.contentViewRightConstraint.constant >= halfOfButtonOne) { //3
                     //Open all the way
                     [self setConstraintsToShowAllButtons:YES notifyDelegateDidOpen:YES];
@@ -140,7 +140,7 @@ static CGFloat const kBounceValue = 20.0f;
                 }
             } else {
                 //Cell was closing
-                CGFloat buttonOnePlusHalfOfButton2 = CGRectGetWidth(self.editBtn.frame) + (CGRectGetWidth(self.saveMoodmonBtn.frame) / 2); //4
+                CGFloat buttonOnePlusHalfOfButton2 =  (CGRectGetWidth(self.saveMoodmonBtn.frame) / 2); //4 //CGRectGetWidth(self.editBtn.frame) +
                 if (self.contentViewRightConstraint.constant >= buttonOnePlusHalfOfButton2) { //5
                     //Re-open all the way
                     [self setConstraintsToShowAllButtons:YES notifyDelegateDidOpen:YES];
@@ -185,11 +185,12 @@ static CGFloat const kBounceValue = 20.0f;
 
 
 - (IBAction)buttonClicked:(id)sender {
-    if (sender == self.editBtn) {
-        
-        [self.delegate buttonOneActionForItemText:self.itemText];
-        
-    } else if (sender == self.saveMoodmonBtn) {
+//    if (sender == self.editBtn) {
+//        
+//        [self.delegate buttonOneActionForItemText:self.itemText];
+//        
+//    } else
+    if (sender == self.saveMoodmonBtn) {
          [self.delegate buttonTwoActionForItemText:self.MCView];
     } else {
         NSLog(@"Clicked unknown button!");

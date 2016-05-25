@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -2204,21 +2205,21 @@
                                 <exclude reference="zuU-2m-ArN"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="54e-1P-TKD"/>
+                                <exclude reference="gcM-WE-PDN"/>
+                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="EuY-zO-OWz"/>
                                 <exclude reference="Yc1-MW-s0P"/>
+                                <exclude reference="54e-1P-TKD"/>
                                 <exclude reference="BGn-lb-kPg"/>
                                 <exclude reference="VuF-ve-Oh6"/>
                                 <exclude reference="cJM-bG-KaB"/>
                                 <exclude reference="g7e-3g-Krf"/>
                                 <exclude reference="h7d-63-w48"/>
                                 <exclude reference="kcQ-zz-OBG"/>
-                                <exclude reference="x6X-na-boQ"/>
-                                <exclude reference="Mhj-Re-3Dr"/>
                                 <exclude reference="PJ1-1Y-iQT"/>
                                 <exclude reference="YQ0-gl-eM6"/>
                                 <exclude reference="Zil-cv-FOb"/>
-                                <exclude reference="gcM-WE-PDN"/>
+                                <exclude reference="x6X-na-boQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -2232,21 +2233,21 @@
                                 <include reference="zuU-2m-ArN"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="54e-1P-TKD"/>
+                                <include reference="gcM-WE-PDN"/>
+                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="EuY-zO-OWz"/>
                                 <include reference="Yc1-MW-s0P"/>
+                                <include reference="54e-1P-TKD"/>
                                 <include reference="BGn-lb-kPg"/>
                                 <include reference="VuF-ve-Oh6"/>
                                 <include reference="cJM-bG-KaB"/>
                                 <include reference="g7e-3g-Krf"/>
                                 <include reference="h7d-63-w48"/>
                                 <include reference="kcQ-zz-OBG"/>
-                                <include reference="x6X-na-boQ"/>
-                                <include reference="Mhj-Re-3Dr"/>
                                 <include reference="PJ1-1Y-iQT"/>
                                 <include reference="YQ0-gl-eM6"/>
                                 <include reference="Zil-cv-FOb"/>
-                                <include reference="gcM-WE-PDN"/>
+                                <include reference="x6X-na-boQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -2462,20 +2463,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="415" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-pS-vjo">
-                                                    <rect key="frame" x="357" y="8" width="50" height="44"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="nuf-fX-wEY"/>
-                                                        <constraint firstAttribute="height" constant="44" id="zHR-bB-7tc"/>
-                                                    </constraints>
-                                                    <state key="normal" title="edit"/>
-                                                    <connections>
-                                                        <action selector="buttonClicked:" destination="v2g-lF-DOc" eventType="touchUpInside" id="bM2-3n-yCp"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-2p-oc1">
-                                                    <rect key="frame" x="306" y="8" width="50" height="44"/>
+                                                    <rect key="frame" x="357" y="8" width="50" height="44"/>
                                                     <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="9z2-A7-ZUf"/>
@@ -2529,12 +2518,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="topMargin" secondItem="odc-hj-2hU" secondAttribute="top" constant="8" id="9CP-Pz-xvj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="f9i-pS-vjo" secondAttribute="trailing" id="FXu-7W-5HK"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="height" secondItem="UjD-II-JKf" secondAttribute="height" id="OUr-9z-d5O"/>
-                                                <constraint firstItem="f9i-pS-vjo" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="Y2c-4p-EOS"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="width" secondItem="UjD-II-JKf" secondAttribute="width" id="Yh7-yM-eZn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="odc-hj-2hU" secondAttribute="trailing" constant="-16" id="bcy-nI-Ne4"/>
-                                                <constraint firstItem="f9i-pS-vjo" firstAttribute="leading" secondItem="HBN-2p-oc1" secondAttribute="trailing" constant="1" id="pQJ-yU-zqu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HBN-2p-oc1" secondAttribute="trailing" id="kAx-cM-2l3"/>
                                                 <constraint firstItem="HBN-2p-oc1" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="rDw-Sb-UvW"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="odc-hj-2hU" secondAttribute="leading" id="sQt-ML-rxr"/>
                                             </constraints>
@@ -2544,7 +2531,6 @@
                                             <outlet property="commentLabel" destination="hyP-2L-cNV" id="f0H-cy-aIh"/>
                                             <outlet property="contentViewLeftConstraint" destination="bcy-nI-Ne4" id="aZ7-ei-G5l"/>
                                             <outlet property="contentViewRightConstraint" destination="sQt-ML-rxr" id="yHh-OK-YvH"/>
-                                            <outlet property="editBtn" destination="f9i-pS-vjo" id="68N-PM-W6U"/>
                                             <outlet property="myContentView" destination="odc-hj-2hU" id="eJr-lC-Sg0"/>
                                             <outlet property="saveMoodmonBtn" destination="HBN-2p-oc1" id="bdI-04-Jmc"/>
                                             <outlet property="timeLabel" destination="YHk-0F-gNl" id="Edu-fv-glR"/>
@@ -2568,16 +2554,17 @@
                                     <constraint firstAttribute="width" constant="414" id="b19-jZ-YgS"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mE7-gG-Bp9"/>
                                     <barButtonItem title="Data" id="aoa-DX-TC2">
                                         <color key="tintColor" red="0.35686274509803922" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="7ho-Ul-E35" kind="presentation" id="kgV-Ig-UHw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XdG-iZ-5e9"/>
+                                    <barButtonItem width="100" style="plain" systemItem="fixedSpace" id="XdG-iZ-5e9"/>
                                     <barButtonItem style="plain" id="PAD-VC-BOf">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bmg-yH-qOD">
-                                            <rect key="frame" x="186" y="7" width="42" height="30"/>
+                                            <rect key="frame" x="195" y="7" width="42" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="filter">
                                                 <color key="titleColor" red="0.35686274509999999" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2588,13 +2575,14 @@
                                         </button>
                                         <color key="tintColor" red="0.35686274509803922" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kmU-2z-toH"/>
+                                    <barButtonItem width="100" style="plain" systemItem="fixedSpace" id="kmU-2z-toH"/>
                                     <barButtonItem style="plain" systemItem="add" id="d5j-x9-gTB">
                                         <color key="tintColor" red="0.35686274509999999" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="goToNewMoodViewController:" destination="XeT-CV-5As" id="Q8g-XI-mBG"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xp3-LI-xLX"/>
                                 </items>
                                 <color key="barTintColor" red="0.91764705882352937" green="0.8901960784313725" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
@@ -2658,7 +2646,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1869" y="-296"/>
+            <point key="canvasLocation" x="1737" y="-306"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="pfK-9M-QkZ">
