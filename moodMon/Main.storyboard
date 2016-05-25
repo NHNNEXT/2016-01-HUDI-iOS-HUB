@@ -2464,11 +2464,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-2p-oc1">
-                                                    <rect key="frame" x="357" y="8" width="50" height="44"/>
+                                                    <rect key="frame" x="371" y="0.0" width="44" height="44"/>
                                                     <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="9z2-A7-ZUf"/>
-                                                        <constraint firstAttribute="width" constant="50" id="ZDI-d0-g1d"/>
+                                                        <constraint firstAttribute="width" constant="44" id="ZDI-d0-g1d"/>
                                                     </constraints>
                                                     <state key="normal" title="save"/>
                                                     <connections>
@@ -2521,8 +2521,8 @@
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="height" secondItem="UjD-II-JKf" secondAttribute="height" id="OUr-9z-d5O"/>
                                                 <constraint firstItem="odc-hj-2hU" firstAttribute="width" secondItem="UjD-II-JKf" secondAttribute="width" id="Yh7-yM-eZn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="odc-hj-2hU" secondAttribute="trailing" constant="-16" id="bcy-nI-Ne4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="HBN-2p-oc1" secondAttribute="trailing" id="kAx-cM-2l3"/>
-                                                <constraint firstItem="HBN-2p-oc1" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" id="rDw-Sb-UvW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HBN-2p-oc1" secondAttribute="trailing" constant="-8" id="kAx-cM-2l3"/>
+                                                <constraint firstItem="HBN-2p-oc1" firstAttribute="top" secondItem="UjD-II-JKf" secondAttribute="topMargin" constant="-8" id="rDw-Sb-UvW"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="odc-hj-2hU" secondAttribute="leading" id="sQt-ML-rxr"/>
                                             </constraints>
                                         </tableViewCellContentView>
