@@ -262,25 +262,29 @@ NSMutableArray *moodmonConf;
                 MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
                 
                 [mcv awakeFromNib];
-                MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoordCenter, yCoord, xVal, yVal)];
+                MDSmallMoodFaceView *mfv = [[MDSmallMoodFaceView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
+                
                 
                 [mfv awakeFromNib];
                 //                mcv.backgroundColor = [UIColor clearColor];
                 NSArray *dayRepresenatationColors = [_mddm representationOfMoodAtYear:(NSInteger)parseYear Month:(NSInteger)parseMonth andDay:parseDay];
                
                 NSNumber *tempMoodChosen = dayRepresenatationColors[0];
-                if(tempMoodChosen.intValue > 0)
-//                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+                if(tempMoodChosen.intValue > 0){
+                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+                }
                 tempMoodChosen = dayRepresenatationColors[1];
-                if(tempMoodChosen.intValue > 0)
-//                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+                if(tempMoodChosen.intValue > 0){
+                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+                }
                 tempMoodChosen = dayRepresenatationColors[2];
-                if(tempMoodChosen.intValue > 0)
-//                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+                if(tempMoodChosen.intValue > 0){
+                    [mfv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
-                
+                }
+                mfv.backgroundColor =[UIColor clearColor];
                 
 //                    mmm = [[MDMakeMoodMonView alloc]init];
 //                    mcv = [self.view viewWithTag:7];
@@ -291,7 +295,7 @@ NSMutableArray *moodmonConf;
                 [mcv setNeedsDisplay];
                 [mfv setNeedsDisplay];
                 [self.view addSubview:mcv];
-//                [self.view addSubview:mfv];
+                [self.view addSubview:mfv];
             }
         }
         [self.view addSubview:dayButton];
