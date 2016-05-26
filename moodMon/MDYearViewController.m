@@ -87,18 +87,18 @@ int tag;
     tag=1;
     double xVal=CGRectGetWidth(self.view.bounds)/3,yVal=CGRectGetHeight(self.view.bounds)/5;
     
-    [self moreDateInfo:1 xVal:0 yVal:yVal];
-    [self moreDateInfo:2 xVal:xVal yVal:yVal];
-    [self moreDateInfo:3 xVal:xVal*2 yVal:yVal];
-    [self moreDateInfo:4 xVal:0 yVal:yVal*2];
-    [self moreDateInfo:5 xVal:xVal yVal:yVal*2];
-    [self moreDateInfo:6 xVal:xVal*2 yVal:yVal*2];
-    [self moreDateInfo:7 xVal:0 yVal:yVal*3];
-    [self moreDateInfo:8 xVal:xVal yVal:yVal*3];
-    [self moreDateInfo:9 xVal:xVal*2 yVal:yVal*3];
-    [self moreDateInfo:10 xVal:0 yVal:yVal*4];
-    [self moreDateInfo:11 xVal:xVal yVal:yVal*4];
-    [self moreDateInfo:12 xVal:xVal*2 yVal:yVal*4];
+    [self moreDateInfo:1 xVal:0 yVal:yVal*0+84];
+    [self moreDateInfo:2 xVal:xVal yVal:yVal*0+84];
+    [self moreDateInfo:3 xVal:xVal*2 yVal:yVal*0+84];
+    [self moreDateInfo:4 xVal:0 yVal:yVal*1+84];
+    [self moreDateInfo:5 xVal:xVal yVal:yVal*1+84];
+    [self moreDateInfo:6 xVal:xVal*2 yVal:yVal*1+84];
+    [self moreDateInfo:7 xVal:0 yVal:yVal*2+84];
+    [self moreDateInfo:8 xVal:xVal yVal:yVal*2+84];
+    [self moreDateInfo:9 xVal:xVal*2 yVal:yVal*2+84];
+    [self moreDateInfo:10 xVal:0 yVal:yVal*3+84];
+    [self moreDateInfo:11 xVal:xVal yVal:yVal*3+84];
+    [self moreDateInfo:12 xVal:xVal*2 yVal:yVal*3+84];
 }
 
 -(NSUInteger)getCurrDateInfo:(NSDate *)myDate{
@@ -128,12 +128,12 @@ int tag;
     int yCount=1;
     
     yearly.text=[NSString stringWithFormat:@"%d",thisYear];
-    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/7, yVal-10, 20, 20)];
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6-10, yVal-10, 20, 20)];
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
     [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
         UILabel *dayButton = [[UILabel alloc]init];
-        int xCoord=(newWeekDay*CGRectGetWidth(self.view.bounds)/25)+xVal+10;
+        int xCoord=(newWeekDay*CGRectGetWidth(self.view.bounds)/2.8/10)+xVal+10;
         int yCoord=(yCount*14)+yVal;
         
         newWeekDay++;
@@ -165,8 +165,7 @@ int tag;
                 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
                 //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                 //                }
-                int yCoordCenter = yVal/2+yCoord-xVal/2;
-                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/7, CGRectGetWidth(self.view.bounds)/2.8/7)];
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/10, CGRectGetWidth(self.view.bounds)/2.8/10)];
                 
                 [mcv awakeFromNib];
                 MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoord, yCoord, xVal, yVal)];
@@ -192,7 +191,6 @@ int tag;
                 //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 mcv.tag=tag++;
                 mfv.tag=tag++;
-                mcv.layer.cornerRadius = 24;
                 [mcv setNeedsDisplay];
                 [mfv setNeedsDisplay];
                 [self.view addSubview:mcv];
