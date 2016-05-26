@@ -482,12 +482,11 @@
     int intenseSum[5] = {0,0,0,0,0};
     
     while ((object = [enumerator nextObject])) {
-        NSLog(@" ! %@", object);
+//        NSLog(@" ! %@", object);
         thisYear = object.moodYear;
         thisMonth = object.moodMonth;
         thisDay = object.moodDay;
-        //[object valueForkey: y/m/d]; 하면 이상한 값 나옴. 왜 그럴까....?
-        
+       
         
         if((thisYear == year) && (thisMonth == month) && (thisDay == day)){
             int moodKind = 0;
@@ -545,6 +544,12 @@
     }
     
     if(numOfSamebigCount <=3){
+       
+        int resultCount = [result count];
+        for(int i = resultCount; i < 3; i++){
+            [result insertObject:@0 atIndex:i];
+        }
+       
         return result;
     }
     
@@ -569,6 +574,12 @@
         }
     }
     
+    int resultCount = [result count];
+    for(int i = resultCount; i < 3; i++){
+        [result insertObject:@0 atIndex:i];
+    }
+
+
     return result;
     
 }
