@@ -23,10 +23,26 @@
 @property (strong, nonatomic)MDDataManager *mddm;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
-@property (strong, nonatomic) IBOutlet UILabel *monthLabel;
-@property (strong, nonatomic) IBOutlet UILabel *yearLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *clickedDate;
+
+
+
+/*for filter tool bar animation*/
+@property (nonatomic, weak) IBOutlet UIView *toolbarContainer;
+@property (nonatomic, weak) IBOutlet UIView *buttonContainer;
+@property (weak, nonatomic) IBOutlet UIButton *angryFilterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sadFilterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *happyFilterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *exhaustFilterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *exciteFilterBtn;
+
+
+
+-(IBAction)expandButtonTouched;
+-(IBAction)collapseButtontouched;
+//filtering
+- (IBAction)filterButtonClicked:(id)sender;
+/****************************/
 
 -(void) showAlert:(NSNotification*)notification;
 -(void)timeTableReload;

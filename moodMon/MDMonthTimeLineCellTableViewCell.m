@@ -169,6 +169,7 @@ static CGFloat const kBounceValue = 40.0f;
 }
 
 - (CGFloat)buttonTotalWidth {
+    
     return CGRectGetWidth(self.frame) -CGRectGetMinX(self.saveMoodmonBtn.frame) + 10;
 }
 
