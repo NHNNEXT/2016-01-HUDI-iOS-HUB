@@ -23,10 +23,17 @@
 @property (strong, nonatomic)MDDataManager *mddm;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
-@property (strong, nonatomic) IBOutlet UILabel *monthLabel;
-@property (strong, nonatomic) IBOutlet UILabel *yearLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *clickedDate;
+
+
+
+/*for tool bar animation*/
+@property (nonatomic, weak) IBOutlet UIView *toolbarContainer;
+@property (nonatomic, weak) IBOutlet UIView *touchZone;
+@property (nonatomic, weak) IBOutlet UIView *buttonContainer;
+@property (nonatomic, weak) IBOutlet UIButton *collapseButton;
+- (IBAction)expandCollapseButtonTouched;
+/****************************/
 
 -(void) showAlert:(NSNotification*)notification;
 -(void)timeTableReload;

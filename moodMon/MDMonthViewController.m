@@ -9,7 +9,10 @@
 #import "MDMonthViewController.h"
 #import "MDMoodColorView.h"
 
-@interface MDMonthViewController ()
+@interface MDMonthViewController (){
+    BOOL toolbarIsOpen;
+    BOOL toolbarIsAnimating;
+}
 
 @end
 
@@ -37,6 +40,11 @@ NSMutableArray *moodmonConf;
     _mddm = [MDDataManager sharedDataManager];
     //[mddm createDB];
     
+    toolbarIsOpen = YES;
+    toolbarIsAnimating = NO;
+    self.toolbarContainer.translatesAutoresizingMaskIntoConstraints = YES;
+    [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 44), self.view.frame.size.width, 44.0)];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:_mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:_mddm ];
@@ -70,6 +78,43 @@ NSMutableArray *moodmonConf;
     [super viewDidAppear:animated];
    
 }
+
+
+- (IBAction)expandCollapseButtonTouched
+{
+    if (!toolbarIsAnimating) {
+        toolbarIsAnimating = YES;
+        if (toolbarIsOpen) {
+            [self collapseToolbarWithoutBounce];
+        } else {
+            [self expandToolbarWithoutBounce];
+        }
+    }
+}
+
+- (void)collapseToolbarWithoutBounce
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 35), self.view.frame.size.width, 100.0)];
+    } completion:^(BOOL finished) {
+        toolbarIsOpen = NO;
+        toolbarIsAnimating = NO;
+        [self.collapseButton setTitle:@"\u2B06" forState:UIControlStateNormal];
+    }];
+}
+
+- (void)expandToolbarWithoutBounce
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 90), self.view.frame.size.width, 100.0)];
+    } completion:^(BOOL finished) {
+        toolbarIsOpen = YES;
+        toolbarIsAnimating = NO;
+        [self.collapseButton setTitle:@"\u2B07" forState:UIControlStateNormal];
+    }];
+}
+
+
 
 //#noti selector
 -(void)timeTableReload{

@@ -2471,7 +2471,7 @@
                                                         <constraint firstAttribute="width" constant="44" id="ZDI-d0-g1d"/>
                                                     </constraints>
                                                     <state key="normal" title="save">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="buttonClicked:" destination="v2g-lF-DOc" eventType="touchUpInside" id="0XN-BU-wXb"/>
@@ -2588,6 +2588,50 @@
                                 </items>
                                 <color key="barTintColor" red="0.91764705882352937" green="0.8901960784313725" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Wu-vp-s1m" userLabel="toolBarContainer">
+                                <rect key="frame" x="40" y="216" width="330" height="112"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yz-hJ-4MX" userLabel="buttonContainer">
+                                        <rect key="frame" x="0.0" y="16" width="0.0" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Rch-NU-xMd"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAt-jO-CI5" userLabel="touchZone">
+                                        <rect key="frame" x="-25" y="0.0" width="50" height="16"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bka-p6-hxR">
+                                                <rect key="frame" x="20" y="-7" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="expandCollapseButtonTouched" destination="XeT-CV-5As" eventType="touchUpInside" id="aqb-yk-99m"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="3EF-xX-H2m"/>
+                                            <constraint firstAttribute="width" constant="50" id="6Ge-e4-Jmj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="4yz-hJ-4MX" firstAttribute="leading" secondItem="6Wu-vp-s1m" secondAttribute="leading" id="0Jp-P9-MTy"/>
+                                    <constraint firstItem="mAt-jO-CI5" firstAttribute="top" secondItem="6Wu-vp-s1m" secondAttribute="top" id="4eU-sy-3u9"/>
+                                    <constraint firstItem="mAt-jO-CI5" firstAttribute="centerX" secondItem="6Wu-vp-s1m" secondAttribute="centerX" id="6XR-AM-CqJ"/>
+                                    <constraint firstItem="mAt-jO-CI5" firstAttribute="centerX" secondItem="6Wu-vp-s1m" secondAttribute="centerX" id="XsU-rT-nOd"/>
+                                    <constraint firstAttribute="height" constant="60" id="fZB-jb-NfJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="4yz-hJ-4MX" secondAttribute="bottom" id="k34-TC-csK"/>
+                                    <constraint firstItem="4yz-hJ-4MX" firstAttribute="width" secondItem="6Wu-vp-s1m" secondAttribute="width" id="zRM-Or-Pfh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XsU-rT-nOd"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -2632,8 +2676,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="buttonContainer" destination="4yz-hJ-4MX" id="qBe-fV-oyI"/>
                         <outlet property="clickedDate" destination="W2P-vu-nqY" id="NgF-AL-zpz"/>
+                        <outlet property="collapseButton" destination="bka-p6-hxR" id="wVj-ct-D31"/>
                         <outlet property="tableViews" destination="kCc-hW-Vsq" id="Ped-2u-kEC"/>
+                        <outlet property="toolbarContainer" destination="6Wu-vp-s1m" id="8CU-dw-1ss"/>
+                        <outlet property="touchZone" destination="mAt-jO-CI5" id="kEb-sG-3DV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phI-SD-SCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
