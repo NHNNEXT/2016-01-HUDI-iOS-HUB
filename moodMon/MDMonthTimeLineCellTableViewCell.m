@@ -17,7 +17,11 @@ static CGFloat const kBounceValue = 40.0f;
     
     self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panThisCell:)];
     self.panRecognizer.delegate = self;
-    [self.myContentView addGestureRecognizer:self.panRecognizer];}
+    [self.myContentView addGestureRecognizer:self.panRecognizer];
+//    self.commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//    self.commentLabel.numberOfLines = 0;
+
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
