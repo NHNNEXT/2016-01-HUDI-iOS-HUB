@@ -12,6 +12,8 @@
 @interface MDMonthViewController (){
     BOOL toolbarIsOpen;
     BOOL toolbarIsAnimating;
+    NSInteger myDay;
+
 }
 
 @end
@@ -26,10 +28,7 @@ int count;
 NSMutableArray *moodmonConf;
 
 @implementation MDMonthViewController{
-    NSInteger myDay;
-}
-
-
+   }
 
 
 
@@ -43,8 +42,8 @@ NSMutableArray *moodmonConf;
     toolbarIsOpen = YES;
     toolbarIsAnimating = NO;
     self.toolbarContainer.translatesAutoresizingMaskIntoConstraints = YES;
-    [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 44), self.view.frame.size.width, 44.0)];
-
+    [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 49), self.view.frame.size.width, 49.0)];
+    [self collapseToolbarWithoutBounce];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:_mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:_mddm ];
@@ -79,41 +78,43 @@ NSMutableArray *moodmonConf;
    
 }
 
-
-- (IBAction)expandCollapseButtonTouched
-{
+/***************** tool bar animation **************/
+- (IBAction)expandButtonTouched{
     if (!toolbarIsAnimating) {
         toolbarIsAnimating = YES;
-        if (toolbarIsOpen) {
-            [self collapseToolbarWithoutBounce];
-        } else {
-            [self expandToolbarWithoutBounce];
-        }
+        [self expandToolbarWithoutBounce];
+
     }
 }
 
-- (void)collapseToolbarWithoutBounce
-{
+-(IBAction)collapseButtontouched{
+    if (!toolbarIsAnimating) {
+        toolbarIsAnimating = YES;
+        [self collapseToolbarWithoutBounce];
+       
+    }
+}
+
+- (void)collapseToolbarWithoutBounce{
     [UIView animateWithDuration:0.25 animations:^{
-        [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 35), self.view.frame.size.width, 100.0)];
+        [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height ), self.view.frame.size.width, 49.0)];
     } completion:^(BOOL finished) {
         toolbarIsOpen = NO;
         toolbarIsAnimating = NO;
-        [self.collapseButton setTitle:@"\u2B06" forState:UIControlStateNormal];
+        //[self.collapseButton setTitle:@"\u2B06" forState:UIControlStateNormal];
     }];
 }
 
-- (void)expandToolbarWithoutBounce
-{
+- (void)expandToolbarWithoutBounce{
     [UIView animateWithDuration:0.25 animations:^{
-        [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 90), self.view.frame.size.width, 100.0)];
+        [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 49), self.view.frame.size.width, 49.0)];
     } completion:^(BOOL finished) {
         toolbarIsOpen = YES;
         toolbarIsAnimating = NO;
-        [self.collapseButton setTitle:@"\u2B07" forState:UIControlStateNormal];
+       // [self.collapseButton setTitle:@"\u2B07" forState:UIControlStateNormal];
     }];
 }
-
+/**************************************************/
 
 
 //#noti selector

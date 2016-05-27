@@ -29,10 +29,11 @@
 
 /*for tool bar animation*/
 @property (nonatomic, weak) IBOutlet UIView *toolbarContainer;
-@property (nonatomic, weak) IBOutlet UIView *touchZone;
+
 @property (nonatomic, weak) IBOutlet UIView *buttonContainer;
-@property (nonatomic, weak) IBOutlet UIButton *collapseButton;
-- (IBAction)expandCollapseButtonTouched;
+
+- (IBAction)expandButtonTouched;
+-(IBAction)collapseButtontouched;
 /****************************/
 
 -(void) showAlert:(NSNotification*)notification;
