@@ -2354,7 +2354,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdJ-j2-V7A" customClass="MDMoodColorView">
-                                            <rect key="frame" x="18" y="0.0" width="44" height="44"/>
+                                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="6VK-as-Ud4"/>
@@ -2362,25 +2362,34 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25R-mL-I0L">
-                                            <rect key="frame" x="365" y="14" width="25" height="15"/>
+                                            <rect key="frame" x="373" y="14" width="25" height="15"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mm-kM-bLX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mm-kM-bLX">
                                             <rect key="frame" x="72" y="11" width="73" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="kra-tU-hBo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="kra-tU-hBo"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2mm-kM-bLX" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="64" id="6OC-lh-cGA"/>
-                                        <constraint firstItem="qdJ-j2-V7A" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="10" id="QSu-F1-Kvh"/>
+                                        <constraint firstItem="2mm-kM-bLX" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="56" id="6OC-lh-cGA"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2mm-kM-bLX" secondAttribute="trailing" constant="90" id="IFU-ZD-OW2"/>
+                                        <constraint firstItem="qdJ-j2-V7A" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="8" id="QSu-F1-Kvh"/>
                                         <constraint firstItem="2mm-kM-bLX" firstAttribute="centerY" secondItem="aIw-TD-xuP" secondAttribute="centerY" id="XWn-lR-XzP"/>
                                         <constraint firstItem="qdJ-j2-V7A" firstAttribute="centerY" secondItem="aIw-TD-xuP" secondAttribute="centerY" id="gpK-jk-bx3"/>
                                         <constraint firstItem="25R-mL-I0L" firstAttribute="centerY" secondItem="aIw-TD-xuP" secondAttribute="centerY" id="jT4-Pr-Gmc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="25R-mL-I0L" secondAttribute="trailing" constant="16" id="mOp-2H-kqK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="25R-mL-I0L" secondAttribute="trailing" constant="8" id="mOp-2H-kqK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -2486,11 +2495,19 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-2L-cNV">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comment" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-2L-cNV">
                                                             <rect key="frame" x="64" y="11" width="73" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="Bm0-U5-8bU"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="Bm0-U5-8bU"/>
+                                                                </mask>
+                                                            </variation>
                                                         </label>
                                                         <view tag="100" contentMode="scaleToFill" restorationIdentifier="MCView" translatesAutoresizingMaskIntoConstraints="NO" id="wve-XH-Ut5" customClass="MDMoodColorView">
                                                             <rect key="frame" x="10" y="0.0" width="44" height="44"/>
@@ -2509,6 +2526,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="10" id="jCg-rG-Rhz"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="m6X-r3-2i0"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="10" id="sjp-mM-5a5"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hyP-2L-cNV" secondAttribute="trailing" constant="80" id="tfp-Sa-FA8"/>
                                                         <constraint firstItem="YHk-0F-gNl" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="200" id="yTA-7c-8Sr"/>
                                                     </constraints>
                                                     <variation key="default">
