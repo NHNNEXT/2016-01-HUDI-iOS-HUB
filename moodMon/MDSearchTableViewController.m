@@ -10,13 +10,15 @@
 #import "MDSearchTableViewCell.h"
 #import "MDMoodColorView.h"
 
-@implementation MDSearchTableViewController  
+@implementation MDSearchTableViewController{
+    BOOL isFirstVisit;
+}
 
 
 -(void)viewDidLoad{
     
     self.dataManager = [MDDataManager sharedDataManager];
-    
+    isFirstVisit = YES;
     
     //[self.tableView registerClass:[MDSearchTableViewCell class] forCellReuseIdentifier:@"searchTableCell"];
 
@@ -56,12 +58,11 @@
         }
     }
 
-    
-
 }
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    isFirstVisit = NO;
     [searchBar resignFirstResponder];
 }
 
@@ -144,7 +145,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    NSInteger numOfSections = 0;
+    if (self.filteredProducts.count > 0)
+    {
+        //self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        numOfSections                 = 1;
+        self.tableView.backgroundView   = nil;
+    }
+    else if(isFirstVisit == NO)
+    {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"No such MOODMON";
+        noDataLabel.textColor        = [UIColor blackColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return numOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
