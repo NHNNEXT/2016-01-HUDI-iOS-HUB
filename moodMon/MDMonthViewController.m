@@ -78,7 +78,13 @@ NSMutableArray *moodmonConf;
    
 }
 
-/***************** tool bar animation **************/
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/***************** filter tool bar animation **************/
+
 - (IBAction)expandButtonTouched{
     if (!toolbarIsAnimating) {
         toolbarIsAnimating = YES;
@@ -91,8 +97,10 @@ NSMutableArray *moodmonConf;
     if (!toolbarIsAnimating) {
         toolbarIsAnimating = YES;
         [self collapseToolbarWithoutBounce];
-       
     }
+    
+    [_mddm getFilteredMoodmons];
+   // NSLog(@" %d", _mddm.chosenMoodCount);
 }
 
 - (void)collapseToolbarWithoutBounce{
@@ -114,6 +122,80 @@ NSMutableArray *moodmonConf;
        // [self.collapseButton setTitle:@"\u2B07" forState:UIControlStateNormal];
     }];
 }
+//filtering
+- (IBAction)filterButtonClicked:(id)sender{
+    if(sender == self.angryFilterBtn){
+        
+        if([_mddm.isChecked[0]  isEqual: @NO]){
+            _mddm.isChecked[0] = @YES;
+            _mddm.chosenMoodCount++;
+            self.angryFilterBtn.tintColor = [UIColor redColor];
+        } else {
+            _mddm.isChecked[0] = @NO;
+            _mddm.chosenMoodCount--;
+            self.angryFilterBtn.tintColor = [UIColor blackColor];
+        }
+        
+        
+    } else if (sender == self.happyFilterBtn){
+        
+        if([_mddm.isChecked[1]  isEqual: @NO]){
+            _mddm.isChecked[1] = @YES;
+            _mddm.chosenMoodCount++;
+            self.happyFilterBtn.tintColor = [UIColor redColor];
+        } else {
+            _mddm.isChecked[1] = @NO;
+            _mddm.chosenMoodCount--;
+            self.happyFilterBtn.tintColor = [UIColor blackColor];
+        }
+        
+        
+    } else if (sender == self.sadFilterBtn){
+        
+        if([_mddm.isChecked[2]  isEqual: @NO]){
+            _mddm.isChecked[2] = @YES;
+            _mddm.chosenMoodCount++;
+            self.sadFilterBtn.tintColor = [UIColor redColor];
+        } else {
+            _mddm.isChecked[2] = @NO;
+            _mddm.chosenMoodCount--;
+            self.sadFilterBtn.tintColor = [UIColor blackColor];
+        }
+        
+        
+    } else if (sender == self.exciteFilterBtn){
+        
+        if([_mddm.isChecked[3]  isEqual: @NO]){
+            _mddm.isChecked[3] = @YES;
+            _mddm.chosenMoodCount++;
+            self.exciteFilterBtn.tintColor = [UIColor redColor];
+
+        } else {
+            _mddm.isChecked[3] = @NO;
+            _mddm.chosenMoodCount--;
+            self.exciteFilterBtn.tintColor = [UIColor blackColor];
+        }
+        
+        
+    } else if (sender == self.exhaustFilterBtn){
+        
+        if([_mddm.isChecked[4]  isEqual: @NO]){
+            _mddm.isChecked[4] = @YES;
+            _mddm.chosenMoodCount++;
+            self.exhaustFilterBtn.tintColor = [UIColor redColor];
+        } else {
+            _mddm.isChecked[4] = @NO;
+            _mddm.chosenMoodCount--;
+            self.exhaustFilterBtn.tintColor = [UIColor blackColor];
+        }
+        
+    } else {
+        NSLog(@"wrong filter btn clicked");
+    }
+    
+}
+
+
 /**************************************************/
 
 
@@ -133,10 +215,7 @@ NSMutableArray *moodmonConf;
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 -(void)goToYearView{
     MDYearViewController *yvc = [[MDYearViewController alloc]initWithNibName:@"yearVC" bundle:nil];
@@ -170,6 +249,8 @@ NSMutableArray *moodmonConf;
     [_tableViews reloadData];
 
 }
+
+
 
 - (IBAction)goToNewMoodViewController:(id)sender {
     int height = [UIScreen mainScreen].bounds.size.height;
@@ -478,7 +559,6 @@ NSMutableArray *moodmonConf;
     [alertController addAction:defaultAction];
     [self presentViewController:alertController animated:YES completion:nil];
 
-    
     //뷰를 넘겨주면 그대로 저장
 }
 - (IBAction) exitFromSecondViewController:(UIStoryboardSegue *)segue
@@ -500,6 +580,7 @@ NSMutableArray *moodmonConf;
         return [super segueForUnwindingToViewController:toViewController fromViewController:fromViewController identifier:identifier];
     }
 }
+
 
 -(void) showAlert:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];

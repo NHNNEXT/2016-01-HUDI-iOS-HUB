@@ -2597,22 +2597,37 @@
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzc-ty-5Zd">
                                                 <rect key="frame" x="-23" y="7" width="46" height="30"/>
                                                 <state key="normal" title="angry"/>
+                                                <connections>
+                                                    <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="dYp-ol-mNw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiD-L9-Eyj">
                                                 <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="sad"/>
+                                                <state key="normal" title="happy"/>
+                                                <connections>
+                                                    <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="1fk-NQ-W5H"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81B-RH-DgN">
                                                 <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="exhau"/>
+                                                <state key="normal" title="sad"/>
+                                                <connections>
+                                                    <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="WkY-wa-d8u"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYj-ha-Kfd">
                                                 <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="tired"/>
+                                                <state key="normal" title="excit"/>
+                                                <connections>
+                                                    <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="ZZs-CQ-H6O"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-8g-Qcy">
                                                 <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="excit"/>
+                                                <state key="normal" title="exhau"/>
+                                                <connections>
+                                                    <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="qrw-qz-XRD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-CM-s1a">
                                                 <rect key="frame" x="-23" y="7" width="46" height="30"/>
@@ -2710,8 +2725,13 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="angryFilterBtn" destination="nzc-ty-5Zd" id="fp3-7p-oxg"/>
                         <outlet property="buttonContainer" destination="4yz-hJ-4MX" id="qBe-fV-oyI"/>
                         <outlet property="clickedDate" destination="W2P-vu-nqY" id="NgF-AL-zpz"/>
+                        <outlet property="exciteFilterBtn" destination="uYj-ha-Kfd" id="VWS-0S-0bj"/>
+                        <outlet property="exhaustFilterBtn" destination="5gV-8g-Qcy" id="eJD-xQ-93d"/>
+                        <outlet property="happyFilterBtn" destination="eiD-L9-Eyj" id="sWt-B7-lT2"/>
+                        <outlet property="sadFilterBtn" destination="81B-RH-DgN" id="CaL-Cy-PaE"/>
                         <outlet property="tableViews" destination="kCc-hW-Vsq" id="Ped-2u-kEC"/>
                         <outlet property="toolbarContainer" destination="6Wu-vp-s1m" id="8CU-dw-1ss"/>
                     </connections>
