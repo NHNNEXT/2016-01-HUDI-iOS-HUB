@@ -2470,7 +2470,9 @@
                                                         <constraint firstAttribute="height" constant="44" id="9z2-A7-ZUf"/>
                                                         <constraint firstAttribute="width" constant="44" id="ZDI-d0-g1d"/>
                                                     </constraints>
-                                                    <state key="normal" title="save"/>
+                                                    <state key="normal" title="save">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="buttonClicked:" destination="v2g-lF-DOc" eventType="touchUpInside" id="0XN-BU-wXb"/>
                                                     </connections>
@@ -2674,6 +2676,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="klu-ey-2vs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2752,4 +2757,5 @@
         <image name="tired_unselect.png" width="260" height="261"/>
         <image name="wrinkle_degree1.png" width="117" height="47"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
