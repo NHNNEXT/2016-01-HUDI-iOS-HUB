@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "MDMoodmon.h"
-
+#import "MDDocument.h"
 
 
 @interface MDDataManager : NSObject{
+    BOOL hasICloud;
     NSString *dataBasePath;
     sqlite3 *moodmonDB;
 }
@@ -24,16 +25,25 @@
 //index는 한번 만들면 지워지지 않는다.
 //sql디비와 콜렉션 id 일치 
 //인덱스 당 데이터는 대부분 시간순서로 되어있을 것이라 예상
-@property NSMutableArray *isChecked; //chosen in filter
-/*
- 0 - angry - 11~15
- 1 - happy - 21~25
- 2 - sad - 31~35
- 3 - excited - 41~45
- 4 - exhausted - 51~55
-*/
-@property int chosenMoodCount;
 
+/******* for iCloud ***************/
+@property MDDocument *document;
+@property NSURL *documentURL;
+
+@property NSURL *ubiquityURL;
+@property NSMetadataQuery *metadataQuery;
+
+-(void)makeICloud;
+- (void)startICloudSync;
+- (void)metadataQueryDidFinishGathering:(NSNotification*)notification;
+/**********************************/
+
+
+/******** for filter ***************/
+@property NSMutableArray *isChecked; //chosen in filter
+@property int chosenMoodCount;
+-(NSArray<MDMoodmon*>*)getFilteredMoodmons;
+/**********************************/
 
 +(MDDataManager*)sharedDataManager; //DataManager is a singleton.
 
@@ -41,11 +51,19 @@
 - (void)readAllFromDBAndSetCollection;
 - (void)saveNewMoodMonOfComment:(NSString*)comment asFirstChosen:(int)first SecondChosen:(int)second andThirdChosen:(int)third;
 
-- (void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon;
+-(void)saveDocument:(MDMoodmon*)moodmon;
+-(void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon;
 -(void)readJustSavedMoodMon;
 
+
+
+
+
+
+
+///////////////////////////// 이하 감정 계산 메소드
+
 -(NSUInteger)recentMood;
--(NSArray<MDMoodmon*>*)getFilteredMoodmons;
 /*
  * representationOfMoodAtDate - 
  * 해당 날짜의 대표 감정을 숫자배열로 알려준다
@@ -57,5 +75,4 @@
 -(NSMutableArray<NSNumber*>*)representationOfMoodAtYear:(NSInteger)year Month:(NSInteger)month andDay:(NSInteger)day;
 
 
-//-(NSArray<MDMoodmon*)getEventStringResult;
 @end

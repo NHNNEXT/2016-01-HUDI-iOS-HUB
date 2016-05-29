@@ -29,6 +29,8 @@
     if(self){
         self.moodCollection = [[NSMutableArray alloc] init];
         [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
+        
+        
         //NSLog(@"init : %@", _moodCollection);
         self.isChecked = [@[ @NO, @NO,@NO,@NO,@NO ] mutableCopy];
         self.chosenMoodCount = 0;
@@ -37,18 +39,20 @@
         
         dirPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         docsDir = dirPath[0];
-        
         _dataBasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"moodmon.sqlite"]];
+        
+        hasICloud = NO;
+        NSString *documentFile = [docsDir stringByAppendingPathComponent:@"moodmonDoc.doc"];
+        _documentURL = [NSURL fileURLWithPath:documentFile];
+        self.document = [[MDDocument alloc]initWithFileURL:_documentURL];
+        
     }
     return self;
 }
 
 - (void)createDB{
     
-    
     //sqlite3_stmt *statement;
-
-    
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
@@ -244,9 +248,12 @@
     
    // [self.moodCollection insertObject:newMD atIndex:[self.moodCollection count]];
     [self saveIntoDBNewMoodmon: newMD];
-    
+    [self saveDocument: newMD];
 }
 
+-(void)saveDocument:(MDMoodmon*)moodmon{
+    [_document.moodmonCollection addObject:moodmon];
+}
 - (void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon{
     
     sqlite3_stmt *statement;
@@ -390,6 +397,82 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"newDataAdded" object:self];
     
 }
+
+- (void)startICloudSync{
+    if(hasICloud == NO){
+        [self makeICloud];
+    } else {
+        [_document saveToURL:_ubiquityURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
+            if(success){
+                NSLog(@"Saved to iCloud for overwriting");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"iCloudSyncFinished" object:self userInfo:@{@"message" : @"Finish saving into iCloud "}];
+            } else {
+                NSLog(@"Not saved to Cloud for overwriting");
+            }
+        }];
+    }
+}
+
+-(void)makeICloud{
+     NSFileManager *filemgr = [NSFileManager defaultManager];
+    [filemgr removeItemAtPath:(NSString*)_documentURL error:NULL];
+    
+    _ubiquityURL = [[filemgr URLForUbiquityContainerIdentifier:nil] URLByAppendingPathComponent:@"Documents"];
+    
+    if([filemgr fileExistsAtPath:[_ubiquityURL path]] == NO ){
+        [filemgr createDirectoryAtPath:(NSString*) _ubiquityURL withIntermediateDirectories:YES attributes:nil error:NULL];
+    }
+    _ubiquityURL = [_ubiquityURL URLByAppendingPathComponent:@"moodmon.doc"];
+    
+    // iCloud에서 문서 검색
+    
+    _metadataQuery = [[NSMetadataQuery alloc] init];
+    [_metadataQuery setPredicate:[NSPredicate predicateWithFormat:@"%K like 'moodmon.doc'", NSMetadataItemFSNameKey]];
+    [_metadataQuery setSearchScopes:[NSArray arrayWithObjects:NSMetadataQueryUbiquitousDocumentsScope,nil]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(metadataQueryDidFinishGathering:) name:NSMetadataQueryDidFinishGatheringNotification object:_metadataQuery];
+    
+    [_metadataQuery startQuery];
+}
+- (void)metadataQueryDidFinishGathering:(NSNotification*)notification{
+    NSMetadataQuery *query = [notification object];
+    [query disableUpdates];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSMetadataQueryDidFinishGatheringNotification object:query];
+    
+    [query stopQuery];
+    NSArray *result = [[NSArray alloc] initWithArray:[query results]];
+    
+    if([result count] == 1){
+        _ubiquityURL = [result[0] valueForAttribute:NSMetadataItemURLKey];
+        
+        
+        _document = [[MDDocument alloc] initWithFileURL: _ubiquityURL];
+        
+        [_document openWithCompletionHandler:^(BOOL success) {
+            if(success){
+                NSLog(@"Opened iCloud doc");
+                _moodCollection = _document.moodmonCollection;
+            } else {
+                NSLog(@"Failed to open iCloud doc");
+            }
+        }];
+    } else {
+        _document = [[MDDocument alloc] initWithFileURL:_ubiquityURL];
+        
+        [_document saveToURL:_ubiquityURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+            if(success){
+                NSLog(@"Saved to iCloud");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"iCloudSyncFinished" object:self userInfo: @{@"message" : @"Finish saving into iCloud "}];
+
+            } else {
+                NSLog(@"Failed to save cloud");
+            }
+        }];
+    }
+}
+
+
 
 -(NSUInteger)recentMood{
     
