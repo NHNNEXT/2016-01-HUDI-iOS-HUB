@@ -21,7 +21,6 @@
     
     self.dataManager = [MDDataManager sharedDataManager];
     
-    
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Data Setting"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dataDidFinish)];
     navItems.rightBarButtonItem = doneBtn;
@@ -31,7 +30,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"iCloudSyncStart" object:self];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"iCloudSyncFinished" object:_dataManager];
+    
 }
 
 
@@ -58,7 +58,7 @@
     cell.textLabel.text = tableTitles[indexPath.section][indexPath.row];
     
     if(indexPath.section == 0){
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryType = UITableViewCellAccessoryNone;
         
 //        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectAllMood)];
 //        [cell addGestureRecognizer:gesture];
@@ -83,7 +83,7 @@
      if(cell.accessoryType == UITableViewCellAccessoryNone){
          cell.accessoryType = UITableViewCellAccessoryCheckmark;
          [[NSNotificationCenter defaultCenter] postNotificationName:@"iCloudSyncStart" object:self userInfo:@{@"message" : @"iCloud동기화를 시작합니다"}];
-
+         [_dataManager startICloudSync];
      } else {
          cell.accessoryType = UITableViewCellAccessoryNone;
      }
@@ -96,6 +96,7 @@
     if(cell.accessoryType == UITableViewCellAccessoryNone){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"iCloudSyncStart" object:self userInfo:@{@"message" : @"iCloud동기화를 시작합니다"}];
+        [_dataManager startICloudSync];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }

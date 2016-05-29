@@ -43,6 +43,7 @@
 		CE780F691CFACD0200EA7E5D /* tired_unfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5F1CFACD0200EA7E5D /* tired_unfilter@2x.png */; };
 		CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */; };
 		CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */; };
+		CEABEFEE1CFAD7AC00AA4E60 /* MDDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CEABEFED1CFAD7AC00AA4E60 /* MDDocument.m */; };
 		CEBA98721CDF1C79006D2FFD /* MDSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */; };
 		CEDACCBE1CEC380700FBD201 /* MDCustomStoryboardUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDACCBD1CEC373900FBD201 /* MDCustomStoryboardUnwindSegue.m */; };
 		CEDD938E1CC3BA4300028F80 /* MDMoodFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDD938D1CC3BA4300028F80 /* MDMoodFilterTableViewController.m */; };
@@ -251,6 +252,9 @@
 		CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
 		CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewController.h; sourceTree = "<group>"; };
 		CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSearchTableViewController.m; sourceTree = "<group>"; };
+		CEABEFEB1CFAD1F800AA4E60 /* moodMon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = moodMon.entitlements; sourceTree = "<group>"; };
+		CEABEFEC1CFAD7AC00AA4E60 /* MDDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDocument.h; sourceTree = "<group>"; };
+		CEABEFED1CFAD7AC00AA4E60 /* MDDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDocument.m; sourceTree = "<group>"; };
 		CEBA98701CDF1C79006D2FFD /* MDSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewCell.h; sourceTree = "<group>"; };
 		CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSearchTableViewCell.m; sourceTree = "<group>"; };
 		CEDACCB81CEC362E00FBD201 /* MDNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavController.h; sourceTree = "<group>"; };
@@ -444,6 +448,8 @@
 			children = (
 				CE4A8A691CABCDC6006B73B7 /* MDDataManager.h */,
 				CE4A8A6A1CABCDC6006B73B7 /* MDDataManager.m */,
+				CEABEFEC1CFAD7AC00AA4E60 /* MDDocument.h */,
+				CEABEFED1CFAD7AC00AA4E60 /* MDDocument.m */,
 				CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */,
 				CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */,
 			);
@@ -475,6 +481,7 @@
 		CE4A8A351CABCCB1006B73B7 /* moodMon */ = {
 			isa = PBXGroup;
 			children = (
+				CEABEFEB1CFAD1F800AA4E60 /* moodMon.entitlements */,
 				CEDACCB81CEC362E00FBD201 /* MDNavController.h */,
 				CEDACCBC1CEC36ED00FBD201 /* MDNavController.m */,
 				CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */,
@@ -918,7 +925,12 @@
 				TargetAttributes = {
 					CE4A8A321CABCCB1006B73B7 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = UQAYNE782A;
+						DevelopmentTeam = 39WT95YDMW;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					CE4A8A4B1CABCCB1006B73B7 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1121,6 +1133,7 @@
 				CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */,
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
 				658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */,
+				CEABEFEE1CFAD7AC00AA4E60 /* MDDocument.m in Sources */,
 				65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */,
 				CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,
@@ -1278,6 +1291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = moodMon/moodMon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_NO_COMMON_BLOCKS = NO;
@@ -1294,6 +1308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = moodMon/moodMon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_NO_COMMON_BLOCKS = NO;
