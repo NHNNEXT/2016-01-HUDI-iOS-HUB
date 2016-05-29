@@ -513,6 +513,7 @@ NSMutableArray *moodmonConf;
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
+    cell.timeLabel.text repla
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
     cell.delegate = self;
     
