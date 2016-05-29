@@ -11,6 +11,17 @@
 @implementation MDSmallMoodFaceView
 
 
+- (id)init {
+    if(self=[super init]) {
+        [self setup];
+        _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
+        _moodName = @[@"", @"angry", @"joy", @"sad", @"excited", @"tired"];
+        _animationDuration = 0.4;
+    }
+    return self;
+}
+
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if(self=[super initWithCoder:aDecoder]) {
         [self setup];

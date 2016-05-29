@@ -73,13 +73,14 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="background_small" image="basic shadow.png" translatesAutoresizingMaskIntoConstraints="NO" id="lvR-NP-pH7" userLabel="background">
-                    <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                    <rect key="frame" x="-2" y="-2" width="47" height="47"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="45" id="Xmm-La-UF1"/>
-                        <constraint firstAttribute="height" constant="45" id="gfn-X8-THM"/>
+                        <constraint firstAttribute="width" constant="47" id="Xmm-La-UF1"/>
+                        <constraint firstAttribute="height" constant="47" id="gfn-X8-THM"/>
                     </constraints>
                 </imageView>
             </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="eem-Df-1R1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="9.5" id="Hms-4J-wXB"/>
                 <constraint firstItem="joH-PG-K7S" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-10.5" id="Om9-fz-awh"/>
