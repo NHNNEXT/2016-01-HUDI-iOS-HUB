@@ -97,7 +97,8 @@ NSMutableArray *moodmonConf;
     self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", thisYear, thisMonth];
     _clickedDate.text = @" ";
     myDay = 0;
-
+    
+    [self resetTimeTable];
     [self moreDateInfo];
     
     
