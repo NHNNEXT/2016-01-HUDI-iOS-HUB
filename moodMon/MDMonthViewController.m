@@ -419,13 +419,13 @@ NSMutableArray *moodmonConf;
                 
                 int yCoordCenter = yVal/2+yCoord-xVal*4/10;
                 int xCoordCenter = xVal/2+xCoord-xVal*4/10;
-                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
-                
-                [mcv awakeFromNib];
-                MDSmallMoodFaceView *mfv = [[MDSmallMoodFaceView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
-                
+                MDSmallMoodFaceView *mfv = [[MDSmallMoodFaceView alloc]initWithFrame:CGRectMake(0,0, xVal*4/5, xVal*4/5)];
                 
                 [mfv awakeFromNib];
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, CGRectGetWidth(mfv.bounds)-2 , CGRectGetWidth(mfv.bounds)-2)];
+                
+                [mcv awakeFromNib];
+                
                 //                mcv.backgroundColor = [UIColor clearColor];
                 NSArray *dayRepresenatationColors = [_mddm representationOfMoodAtYear:(NSInteger)parseYear Month:(NSInteger)parseMonth andDay:parseDay];
                 
@@ -487,11 +487,12 @@ NSMutableArray *moodmonConf;
                     checkFalg=1;
                     mcv.tag=tag++;
                     mfv.tag=tag++;
-                    mcv.layer.cornerRadius = xVal*5/12;
+                    mcv.layer.cornerRadius = mcv.frame.size.width/2;
                     [mcv setNeedsDisplay];
                     [mfv setNeedsDisplay];
+                    [mcv addSubview:mfv];
+                    mcv.layer.masksToBounds=YES;
                     [self.view addSubview:mcv];
-                    [self.view addSubview:mfv];
                 }
             }
         }

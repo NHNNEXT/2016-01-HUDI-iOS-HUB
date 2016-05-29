@@ -11,7 +11,7 @@
 
 @protocol SwipeableCellDelegate <NSObject>
 - (void)buttonOneActionForItemText:(NSString *)itemText;
-- (void)buttonTwoActionForItemText:(NSString *)itemText;
+- (void)buttonTwoActionForItemText:(MDMoodColorView *)itemText;
 @end
 
 @interface MDMonthTimeLineCellTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
