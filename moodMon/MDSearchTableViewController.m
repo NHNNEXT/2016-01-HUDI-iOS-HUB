@@ -172,59 +172,70 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MDSearchTableViewCell *cell = (MDSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"searchTableCell" forIndexPath:indexPath];
-    
-    if(cell == nil){
-        cell = [[MDSearchTableViewCell alloc] init];
+//    
+//    if(cell == nil){
+//        cell = [[MDSearchTableViewCell alloc] init];
+//    }
+//    
+    if([self.filteredProducts count] <= 0){
+        return cell;
     }
     
-    if([self.filteredProducts count] > 0){
-        cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
-        //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
-        NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일\n%@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
-        cell.timeLabel.text = result;
+    cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
+    //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
+    NSString *result = [NSString stringWithFormat:@"%@년 %@월 %@일\n%@",[self.filteredProducts[indexPath.row] valueForKey:kYear],[self.filteredProducts[indexPath.row] valueForKey:kMonth],[self.filteredProducts[indexPath.row] valueForKey:kDay],[self.filteredProducts[indexPath.row] valueForKey:kTime]];
+    cell.timeLabel.text = result;
+    
+    UIView *viewForFrame =  [cell viewWithTag:100];
+    viewForFrame.layer.cornerRadius = viewForFrame.frame.size.width/2;
+    viewForFrame.layer.masksToBounds = YES;
+    
+    MDMoodColorView *temp = [[MDMoodColorView alloc]init];
+    [temp setFrame:viewForFrame.frame];
+    MDSmallMoodFaceView *faceTemp = [[MDSmallMoodFaceView alloc]init];
+    [faceTemp setFrame:viewForFrame.frame];
+    
+    for(int i = 1 ;i <temp.chosenMoods.count ; i++){
+        [temp.chosenMoods removeObjectAtIndex:i];
+        [faceTemp.chosenMoods removeObjectAtIndex:i];
         
-        UIView *viewForFrame =  [cell viewWithTag:100];
-        MDMoodColorView *temp = [[MDMoodColorView alloc]init];
-        [temp setFrame:viewForFrame.frame];
-        
-        MDSmallMoodFaceView *faceTemp = [[MDSmallMoodFaceView alloc]init];
-        [faceTemp setFrame:viewForFrame.frame];
-
-        for(int i = 1 ;i <temp.chosenMoods.count ; i++){
-            [temp.chosenMoods removeObjectAtIndex:i];
-            [faceTemp.chosenMoods removeObjectAtIndex:i];
-            
-        }
-        //NSLog(@"%@",temp);
-        NSNumber *tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen1];
-        if(tempMoodChosen.intValue != 0){
-            [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
-             [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
-        }
-        tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen2];
-        if(tempMoodChosen.intValue != 0){
-            [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
-             [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
-        }
-        tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen3];
-        if(tempMoodChosen.intValue != 0){
-            [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
-            [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
-        }
-        
-        temp.layer.cornerRadius = temp.frame.size.width/2;
-        faceTemp.layer.cornerRadius = faceTemp.frame.size.width/2;
-        [cell addSubview:temp];
-        [cell addSubview:faceTemp];
-        [faceTemp setNeedsDisplay];
-        [temp setNeedsDisplay];
-
     }
+    
+    [faceTemp awakeFromNib];
+    
+    NSNumber *tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen1];
+    if(tempMoodChosen.intValue != 0){
+        [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+        [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+    }
+    tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen2];
+    if(tempMoodChosen.intValue != 0){
+        [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+        [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+    }
+    tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen3];
+    if(tempMoodChosen.intValue != 0){
+        [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+        [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    }
+    
+    temp.layer.cornerRadius = temp.frame.size.width/2;
+    temp.layer.masksToBounds = YES;
+    
+    [cell addSubview:temp];
+    [cell addSubview:faceTemp];
+    [faceTemp setNeedsDisplay];
+    [temp setNeedsDisplay];
+
     return cell;
 }
 
