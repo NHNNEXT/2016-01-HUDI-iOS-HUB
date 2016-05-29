@@ -377,8 +377,8 @@ NSMutableArray *moodmonConf;
             default:
                 break;
         }
+        [monthLabel setFont:[UIFont fontWithName:@"Quicksand-Bold" size:13]];
         monthLabel.tag = tag++;
-        [monthLabel setFont:[UIFont systemFontOfSize:16]];
         [monthLabel setTextColor:[UIColor blackColor]];
         [self.view addSubview:monthLabel];
     }
@@ -396,9 +396,9 @@ NSMutableArray *moodmonConf;
             newWeekDay=0;
             yCount++;
         }
+        [dayButton setFont:[UIFont fontWithName:@"Quicksand-Bold" size:14]];
         dayButton.frame = CGRectMake(xCoord, yCoord, xVal, yVal);
         [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
-        [dayButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [dayButton addTarget:self action:@selector(buttonTouch:) forControlEvents:UIControlEventTouchUpInside];
         dayButton.tag=startDay;

@@ -186,9 +186,11 @@ int thisMonth=0;
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6, yVal-10, 20, 20)];
     monthLabel.tag=tag++;
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
+    [monthLabel setFont:[UIFont fontWithName:@"Quicksand-Bold" size:CGRectGetWidth(self.view.bounds)/2.8/15]];
     [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
         UILabel *dayButton = [[UILabel alloc]init];
+        
         int xCoord=(newWeekDay*CGRectGetWidth(self.view.bounds)/2.8/8)+xVal+5;
         int yCoord=(yCount*CGRectGetWidth(self.view.bounds)/2.8/8)+yVal;
         
@@ -200,7 +202,7 @@ int thisMonth=0;
         
         dayButton.frame = CGRectMake(xCoord+(CGRectGetWidth(self.view.bounds)/2.8/8/5), yCoord, CGRectGetWidth(self.view.bounds)/2.8/8, CGRectGetWidth(self.view.bounds)/2.8/8);
         [dayButton setText:[NSString stringWithFormat:@"%d",startDay]];
-        [dayButton setFont:[UIFont systemFontOfSize:CGRectGetWidth(self.view.bounds)/2.8/13]];
+        [dayButton setFont:[UIFont fontWithName:@"Quicksand-Regular" size:CGRectGetWidth(self.view.bounds)/2.8/13]];
         [dayButton setTextColor:[UIColor blackColor]];
         dayButton.tag=tag++;
         [self.view addSubview:dayButton];
