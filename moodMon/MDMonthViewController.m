@@ -69,7 +69,8 @@ NSMutableArray *moodmonConf;
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self viewDidLoad];
+    [self removeTags];
+    [self moreDateInfo];
    
 
 }
@@ -193,7 +194,8 @@ NSMutableArray *moodmonConf;
     } else {
         NSLog(@"wrong filter btn clicked");
     }
-    
+    [self removeTags];
+    [self moreDateInfo];
 }
 
 
@@ -269,6 +271,13 @@ NSMutableArray *moodmonConf;
         x++;
     }
 }
+-(void)removeTagsMon{
+    int x=32;
+    while(x<=200){
+        [[self.view viewWithTag:x]removeFromSuperview];
+        x++;
+    }
+}
 
 -(NSUInteger)getCurrDateInfo:(NSDate *)myDate{
     NSCalendar *cal = [NSCalendar currentCalendar];
@@ -288,7 +297,6 @@ NSMutableArray *moodmonConf;
         thisMonth=12;
         thisYear--;
     }
-    
     int xVal=CGRectGetWidth(self.view.bounds)/7,yVal=CGRectGetHeight(self.view.bounds)/14;
     NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -372,8 +380,7 @@ NSMutableArray *moodmonConf;
             int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
             if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)&&(checkFalg==0)){
-                [dayButton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-                checkFalg=1;
+               
 //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
 //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
@@ -416,6 +423,42 @@ NSMutableArray *moodmonConf;
 //                    mmm = [[MDMakeMoodMonView alloc]init];
 //                    mcv = [self.view viewWithTag:7];
 //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
+                int visualble = 0;
+                
+                if([_mddm.isChecked[0] isEqual:@NO]&&[_mddm.isChecked[1] isEqual:@NO]&&[_mddm.isChecked[2] isEqual:@NO]&&[_mddm.isChecked[3] isEqual:@NO]&&[_mddm.isChecked[4] isEqual:@NO]){
+                    visualble=1;
+                }
+                else{
+                if([_mddm.isChecked[0] isEqual:@YES]){
+                    for (NSString *checked in mfv.chosenMoods) {
+                        if(checked.intValue /10 ==1)
+                            visualble = 1;
+                    }
+                }if([_mddm.isChecked[1] isEqual:@YES]){
+                    for (NSString *checked in mfv.chosenMoods) {
+                        if(checked.intValue /10 ==2)
+                            visualble = 1;
+                    }
+                }if([_mddm.isChecked[2] isEqual:@YES]){
+                    for (NSString *checked in mfv.chosenMoods) {
+                        if(checked.intValue /10 ==3)
+                            visualble = 1;
+                    }
+                }if([_mddm.isChecked[3] isEqual:@YES]){
+                    for (NSString *checked in mfv.chosenMoods) {
+                        if(checked.intValue /10 ==4)
+                            visualble = 1;
+                    }
+                }if([_mddm.isChecked[4] isEqual:@YES]){
+                    for (NSString *checked in mfv.chosenMoods) {
+                        if(checked.intValue /10 ==5)
+                            visualble = 1;
+                    }
+                }
+                }
+                if(visualble ==1){
+                    [dayButton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
+                checkFalg=1;
                 mcv.tag=tag++;
                 mfv.tag=tag++;
                 mcv.layer.cornerRadius = xVal*5/12;
@@ -423,6 +466,7 @@ NSMutableArray *moodmonConf;
                 [mfv setNeedsDisplay];
                 [self.view addSubview:mcv];
                 [self.view addSubview:mfv];
+                }
             }
         }
         [self.view addSubview:dayButton];
@@ -438,8 +482,6 @@ NSMutableArray *moodmonConf;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     
@@ -476,6 +518,39 @@ NSMutableArray *moodmonConf;
     tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3];
     if(tempMoodChosen.intValue != 0){
         [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    }
+    
+    int visualble=0;
+    if([_mddm.isChecked[0] isEqual:@NO]&&[_mddm.isChecked[1] isEqual:@NO]&&[_mddm.isChecked[2] isEqual:@NO]&&[_mddm.isChecked[3] isEqual:@NO]&&[_mddm.isChecked[4] isEqual:@NO]){
+        visualble=1;
+    }
+    else{
+        if([_mddm.isChecked[0] isEqual:@YES]){
+            for (NSString *checked in temp.chosenMoods) {
+                if(checked.intValue /10 ==1)
+                    visualble = 1;
+            }
+        }if([_mddm.isChecked[1] isEqual:@YES]){
+            for (NSString *checked in temp.chosenMoods) {
+                if(checked.intValue /10 ==2)
+                    visualble = 1;
+            }
+        }if([_mddm.isChecked[2] isEqual:@YES]){
+            for (NSString *checked in temp.chosenMoods) {
+                if(checked.intValue /10 ==3)
+                    visualble = 1;
+            }
+        }if([_mddm.isChecked[3] isEqual:@YES]){
+            for (NSString *checked in temp.chosenMoods) {
+                if(checked.intValue /10 ==4)
+                    visualble = 1;
+            }
+        }if([_mddm.isChecked[4] isEqual:@YES]){
+            for (NSString *checked in temp.chosenMoods) {
+                if(checked.intValue /10 ==5)
+                    visualble = 1;
+            }
+        }
     }
     
     temp.layer.cornerRadius = (int)temp.frame.size.width/2;
