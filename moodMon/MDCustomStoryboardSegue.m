@@ -18,7 +18,7 @@
     [destinationViewController.view setTransform:CGAffineTransformMakeScale(0.5,0.5)];
     [destinationViewController.view setAlpha:1.0];
     
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.3
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -26,8 +26,8 @@
                          [destinationViewController.view setAlpha:1.0];
                      }
                      completion:^(BOOL finished){
-                         [destinationViewController.view removeFromSuperview];
                          [sourceViewController presentViewController:destinationViewController animated:NO completion:nil];
                      }];
+    
 }
 @end
