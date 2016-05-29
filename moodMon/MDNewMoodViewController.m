@@ -226,6 +226,7 @@
                     }
                     completion:nil];
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
+        _didWheel = NO;
         _startTime = CACurrentMediaTime();
         [self showWheelView:moodButton];
         [self addNewChosenMood:moodButton.num];
@@ -302,10 +303,10 @@
 - (void)moodButtonTouchedUp:(UIGestureRecognizer *)recognizer {
     CFTimeInterval elapsedTime = CACurrentMediaTime() - _startTime;
     NSLog(@"%f", elapsedTime);
-    
     MDMoodButtonView *moodButton = (MDMoodButtonView *)recognizer.view;
+    
     // 0.35초보다 빨리 TouchUp하면 menuController가 나옴.
-    if(elapsedTime < 0.35 && [moodButton becomeFirstResponder]) {
+    if(elapsedTime < 0.35 && [moodButton becomeFirstResponder] && _didWheel==NO) {
         [self menuControllerAppear:moodButton];
     }
     
@@ -418,6 +419,8 @@
         return;
     }
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
+    
+    _didWheel = YES;
     
     //wheel 회전
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;

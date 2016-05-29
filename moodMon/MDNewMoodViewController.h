@@ -52,6 +52,7 @@
 @property (strong, nonatomic) IBOutlet MDMoodColorView *moodColor;
 @property (strong, nonatomic) IBOutlet MDMoodFaceView *mixedMoodFace;
 @property (strong, nonatomic) IBOutlet UIImageView *moodIntensityView;
+@property BOOL didWheel;
 
 /* Recent Mood */
 @property (strong, nonatomic) IBOutlet MDRecentMoodView *recentMoodView;
