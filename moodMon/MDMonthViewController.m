@@ -512,8 +512,11 @@ NSMutableArray *moodmonConf;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
-    cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
-    cell.timeLabel.text repla
+    NSString *timeText = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
+//    timeText = [timeText stringByReplacingOccurrencesOfString:@"시 " withString:@" : "];
+//    timeText = [timeText stringByReplacingOccurrencesOfString:@"분 " withString:@" : "];
+//    timeText = [timeText stringByReplacingOccurrencesOfString:@"초" withString:@"   "];
+    cell.timeLabel.text = timeText;
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
     cell.delegate = self;
     
@@ -636,19 +639,16 @@ NSMutableArray *moodmonConf;
 }
 
 
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableViews deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
 }
 
