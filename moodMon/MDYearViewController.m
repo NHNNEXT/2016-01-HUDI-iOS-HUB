@@ -186,7 +186,8 @@ int thisMonth=0;
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6, yVal-10, 20, 20)];
     monthLabel.tag=tag++;
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
-    [monthLabel setFont:[UIFont fontWithName:@"Quicksand-Bold" size:CGRectGetWidth(self.view.bounds)/2.8/15]];
+    [monthLabel setFont:[UIFont fontWithName:@"Quicksand" size:CGRectGetWidth(self.view.bounds)/2.8/15]];
+    [monthLabel setFont:[UIFont boldSystemFontOfSize:CGRectGetWidth(self.view.bounds)/2.8/10]];
     [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
         UILabel *dayButton = [[UILabel alloc]init];
@@ -248,10 +249,13 @@ int thisMonth=0;
                 //                    mcv = [self.view viewWithTag:7];
                 //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 mcv.tag=tag++;
-                mfv.tag=tag++;
+//                mfv.tag=tag++;
+                mcv.layer.cornerRadius = mcv.frame.size.width/6;
+//                mcv.layer.cornerRadius = mcv.frame.size.width/2;
                 [mcv setNeedsDisplay];
-                [mfv setNeedsDisplay];
+//                [mfv setNeedsDisplay];
                 [self.view addSubview:mcv];
+                
                 //                [self.view addSubview:mfv];
             }
         }

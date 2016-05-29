@@ -81,9 +81,6 @@ NSMutableArray *moodmonConf;
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
     
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", thisYear, (unsigned long)thisMonth];
-    _clickedDate.text = @" ";
-    myDay = 0;
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -327,7 +324,7 @@ NSMutableArray *moodmonConf;
         thisMonth=12;
         thisYear--;
     }
-    int xVal=CGRectGetWidth(self.view.bounds)/7,yVal=CGRectGetHeight(self.view.bounds)/14;
+    int xVal=CGRectGetWidth(self.view.bounds)/7,yVal=CGRectGetHeight(self.view.bounds)/12;
     NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc]init];
@@ -345,7 +342,7 @@ NSMutableArray *moodmonConf;
     
     NSInteger yCount=1;
     NSInteger xCoord=0;
-    NSInteger yCoord=(yCount*yVal)+20;
+    NSInteger yCoord=(yCount*yVal);
     
     UILabel *backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord, yCoord+10, CGRectGetWidth(self.view.bounds),yVal*2/3)];
     [backgroundLabel setBackgroundColor:[UIColor colorWithRed:222.0f/255.0f green:212.0f/255.0f blue:198.0f/255.0f alpha:1.0f]];
@@ -377,7 +374,8 @@ NSMutableArray *moodmonConf;
             default:
                 break;
         }
-        [monthLabel setFont:[UIFont fontWithName:@"Quicksand-Bold" size:13]];
+        [monthLabel setFont:[UIFont fontWithName:@"Quicksand" size:13]];
+        [monthLabel setFont:[UIFont boldSystemFontOfSize:13]];
         monthLabel.tag = tag++;
         [monthLabel setTextColor:[UIColor blackColor]];
         [self.view addSubview:monthLabel];
@@ -389,14 +387,15 @@ NSMutableArray *moodmonConf;
     for(int startDay=1; startDay<=numDays;startDay++){
         UIButton *dayButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         xCoord=(newWeekDay*xVal);
-        yCoord=(yCount*yVal)+20;
+        yCoord=(yCount*yVal);
         
         newWeekDay++;
         if(newWeekDay>6){
             newWeekDay=0;
             yCount++;
         }
-        [dayButton setFont:[UIFont fontWithName:@"Quicksand-Bold" size:14]];
+        [dayButton setFont:[UIFont fontWithName:@"Quicksand" size:14]];
+        [dayButton setFont:[UIFont boldSystemFontOfSize:14]];
         dayButton.frame = CGRectMake(xCoord, yCoord, xVal, yVal);
         [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
