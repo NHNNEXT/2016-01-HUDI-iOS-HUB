@@ -168,7 +168,8 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[1]  isEqual: @NO]){
             _mddm.isChecked[1] = @YES;
             _mddm.chosenMoodCount++;
-            [self.happyFilterBtn setBackgroundImage: _happyChecked forState:UIControlStateNormal];        } else {
+            [self.happyFilterBtn setBackgroundImage: _happyChecked forState:UIControlStateNormal];
+        } else {
             _mddm.isChecked[1] = @NO;
             _mddm.chosenMoodCount--;
             [self.happyFilterBtn setBackgroundImage: _happyUnchecked forState:UIControlStateNormal];
@@ -180,7 +181,8 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[2]  isEqual: @NO]){
             _mddm.isChecked[2] = @YES;
             _mddm.chosenMoodCount++;
-             [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];        } else {
+             [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
+        } else {
             _mddm.isChecked[2] = @NO;
             _mddm.chosenMoodCount--;
              [self.sadFilterBtn setBackgroundImage: _sadUnchecked forState:UIControlStateNormal];
