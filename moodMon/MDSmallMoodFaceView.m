@@ -27,6 +27,7 @@
 
 
 - (void)awakeFromNib {
+    [self setup];
     _chosenMoods = [[NSMutableArray alloc] initWithArray:@[@0]];
     _moodName = @[@"", @"angry", @"joy", @"sad", @"excited", @"tired"];
     _animationDuration = 0.4;

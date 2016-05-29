@@ -2469,7 +2469,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="clickedDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-vu-nqY">
-                                <rect key="frame" x="30" y="392" width="90" height="21"/>
+                                <rect key="frame" x="30" y="442" width="90" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2478,7 +2478,7 @@
                                 <rect key="frame" x="-1" y="416" width="415" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kCc-hW-Vsq" secondAttribute="height" multiplier="4.5:3" id="rKp-DC-Ufk"/>
+                                    <constraint firstAttribute="width" secondItem="kCc-hW-Vsq" secondAttribute="height" multiplier="5.5:3" id="rKp-DC-Ufk"/>
                                     <constraint firstAttribute="height" constant="202" id="yA6-Qt-xaE"/>
                                 </constraints>
                                 <prototypes>
@@ -2876,7 +2876,7 @@
     <resources>
         <image name="angry_eyebrow_degree1.png" width="225" height="50"/>
         <image name="angry_mouth_degree1.png" width="150" height="150"/>
-        <image name="angry_unfilter.png" width="24" height="25"/>
+        <image name="angry_unfilter.png" width="29" height="29"/>
         <image name="angry_unselect.png" width="261" height="265"/>
         <image name="basic shadow.png" width="280" height="280"/>
         <image name="check.png" width="42" height="42"/>
@@ -2886,15 +2886,15 @@
         <image name="cross.png" width="42" height="42"/>
         <image name="darkcircle_degree1.png" width="162" height="13"/>
         <image name="default_eye.png" width="146" height="24"/>
-        <image name="excited_unfilter.png" width="24" height="25"/>
+        <image name="excited_unfilter.png" width="29" height="29"/>
         <image name="excited_unselect.png" width="261" height="261"/>
         <image name="joy_degree1.png" width="225" height="225"/>
-        <image name="joy_unfilter.png" width="25" height="25"/>
+        <image name="joy_unfilter.png" width="29" height="29"/>
         <image name="joy_unselect.png" width="261" height="261"/>
-        <image name="sad_unfilter.png" width="25" height="25"/>
+        <image name="sad_unfilter.png" width="29" height="29"/>
         <image name="sad_unselect.png" width="261" height="261"/>
         <image name="tear_degree1.png" width="185" height="99"/>
-        <image name="tired_unfilter.png" width="24" height="25"/>
+        <image name="tired_unfilter.png" width="29" height="29"/>
         <image name="tired_unselect.png" width="260" height="261"/>
         <image name="wrinkle_degree1.png" width="117" height="47"/>
     </resources>
