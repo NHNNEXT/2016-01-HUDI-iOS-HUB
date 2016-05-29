@@ -80,7 +80,6 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="eem-Df-1R1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="9.5" id="Hms-4J-wXB"/>
                 <constraint firstItem="joH-PG-K7S" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-10.5" id="Om9-fz-awh"/>

@@ -13,7 +13,7 @@
 #import "MDMoodColorView.h"
 #import "MDSaveMoodMon.h"
 #import "MDMakeMoodMonView.h"
-#import "MDMoodFaceView.h"
+#import "MDSmallMoodFaceView.h"
 #import "MDCustomStoryboardSegue.h"
 #import "MDCustomStoryboardunwindSegue.h"
 
