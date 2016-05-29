@@ -12,6 +12,7 @@
 #import "MDMoodColorView.h"
 #import "MDDataManager.h"
 #import "MDNavController.h"
+#import "MDMonthViewController.h"
 @interface MDYearViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @end
@@ -22,13 +23,13 @@ int thisYear;
 NSArray *createdAt;
 int weekday;
 int tag;
+int thisMonth=0;
 
 @implementation MDYearViewController
 @synthesize yearly;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     MDDataManager *mddm = [MDDataManager sharedDataManager];
     createdAt=[mddm moodCollection];
@@ -38,6 +39,7 @@ int tag;
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [swipeUp setDirection:UISwipeGestureRecognizerDirectionUp];
     [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
+//    UITapGestureRecognizer *tab = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(monthTouch:)];
     
     [self myCalView];
     
@@ -64,17 +66,16 @@ int tag;
     }
     
 }
-- (IBAction)unwindeBackbtn:(id)sender {
-    [self performSegueWithIdentifier:@"UnwindingSegueID" sender:self];
-//    [self.navigationitem removeFromSuperview];
-
-}
-- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
-    // Instantiate a new CustomUnwindSegue
-    MDCustomStoryboardUnwindSegue *segue = [[MDCustomStoryboardUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
-    // Set the target point for the animation to the center of the button in this VC
-    return segue;
-}
+//- (IBAction)unwindeBackbtn:(id)sender {
+//    [self performSegueWithIdentifier:@"UnwindingSegueID" sender:self];
+////    [self.navigationitem removeFromSuperview];
+//}
+//- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+//    // Instantiate a new CustomUnwindSegue
+//    MDCustomStoryboardUnwindSegue *segue = [[MDCustomStoryboardUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+//    // Set the target point for the animation to the center of the button in this VC
+//    return segue;
+//}
 
 -(void)removeTags{
     int x=1;
@@ -82,6 +83,57 @@ int tag;
         [[self.view viewWithTag:x]removeFromSuperview];
         x++;
     }
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[MDMonthViewController class]]) {
+        MDMonthViewController *mainViewConroller = segue.destinationViewController;
+        if (thisMonth) {
+            mainViewConroller.thisMonth = thisMonth;
+        }
+    }
+}
+- (IBAction)monthTouch:(id)sender {
+    CGPoint point = [sender locationInView:[self.view superview]];
+    double xVal=CGRectGetWidth(self.view.bounds)/3,yVal=CGRectGetHeight(self.view.bounds)/5;
+    if(point.x <= xVal*1&&point.y<=yVal*1+84){
+        thisMonth=1;
+//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+    }else if(point.x <= xVal*2 && point.y<=yVal*1+84){
+        thisMonth=2;
+        
+    }else if(point.x <= xVal*3 && point.y<=yVal*1+84){
+        thisMonth=3;
+    
+    }else if(point.x <= xVal*1 && point.y<=yVal*2+84){
+        
+        thisMonth=4;
+    }else if(point.x <= xVal*2 && point.y<=yVal*2+84){
+        
+        thisMonth=5;
+    }else if(point.x <= xVal*3 && point.y<=yVal*2+84){
+        
+        thisMonth=6;
+    }else if(point.x <= xVal*1 && point.y<=yVal*3+84){
+        
+        thisMonth=7;
+    }else if(point.x <= xVal*2 && point.y<=yVal*3+84){
+        
+        thisMonth=8;
+    }else if(point.x <= xVal*3 && point.y<=yVal*3+84){
+        
+        thisMonth=9;
+    }else if(point.x <= xVal*1 && point.y<=yVal*4+84){
+        
+        thisMonth=10;
+    }else if(point.x <= xVal*2 && point.y<=yVal*4+84){
+        
+        thisMonth=11;
+    }else if(point.x < xVal*3 && point.y<=yVal*4+84){
+        
+        thisMonth=12;
+    }
+    
+    [self performSegueWithIdentifier:@"JSUnwindView" sender:self];
 }
 -(void)myCalView{
     tag=1;

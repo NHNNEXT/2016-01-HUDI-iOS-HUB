@@ -54,6 +54,10 @@
 @property UIImage *exhaustUnchecked;
 
 
+
+@property int thisYear;
+@property int thisMonth;
+
 -(IBAction)expandButtonTouched;
 -(IBAction)collapseButtontouched;
 //filtering

@@ -13,22 +13,24 @@
     BOOL toolbarIsOpen;
     BOOL toolbarIsAnimating;
     NSInteger myDay;
-    
+
 }
 
 @end
 
 extern NSUInteger numDays;
-extern int thisYear;
-int thisMonth;
 extern int weekday;
 extern int tag;
 NSArray *createdAt;
 int count;
 NSMutableArray *moodmonConf;
 
+
 @implementation MDMonthViewController{
+
 }
+@synthesize thisYear;
+@synthesize thisMonth;
 
 -(void)awakeFromNib{
     
@@ -79,10 +81,6 @@ NSMutableArray *moodmonConf;
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
     
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear, thisMonth];
-    _clickedDate.text = @" ";
-    myDay = 0;
-    
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [swipeUp setDirection:UISwipeGestureRecognizerDirectionUp];
@@ -95,6 +93,10 @@ NSMutableArray *moodmonConf;
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self removeTags];
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear, thisMonth];
+    _clickedDate.text = @" ";
+    myDay = 0;
+
     [self moreDateInfo];
     
     
