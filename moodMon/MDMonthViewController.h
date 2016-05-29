@@ -35,7 +35,23 @@
 @property (weak, nonatomic) IBOutlet UIButton *happyFilterBtn;
 @property (weak, nonatomic) IBOutlet UIButton *exhaustFilterBtn;
 @property (weak, nonatomic) IBOutlet UIButton *exciteFilterBtn;
-
+/*
+ 0 - angry - 11~15
+ 1 - happy - 21~25
+ 2 - sad - 31~35
+ 3 - excited - 41~45
+ 4 - exhausted - 51~55
+ */
+@property UIImage *angryChecked;
+@property UIImage *angryUnchecked;
+@property UIImage *happyChecked;
+@property UIImage *happyUnchecked;
+@property UIImage *sadChecked;
+@property UIImage *sadUnchecked;
+@property UIImage *exciteChecked;
+@property UIImage *exciteUnchecked;
+@property UIImage *exhaustChecked;
+@property UIImage *exhaustUnchecked;
 
 
 -(IBAction)expandButtonTouched;
