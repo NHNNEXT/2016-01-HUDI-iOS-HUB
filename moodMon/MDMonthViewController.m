@@ -71,7 +71,7 @@ NSMutableArray *moodmonConf;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:_mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:_mddm ];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:_mddm];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDatxaAdded" object:_mddm];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"iCloudSyncFinished" object:_mddm];
     
     
@@ -97,7 +97,8 @@ NSMutableArray *moodmonConf;
     self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", thisYear, thisMonth];
     _clickedDate.text = @" ";
     myDay = 0;
-    
+//    [self.toolbarContainer
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Quicksand" size:18]}];
     [self resetTimeTable];
     [self moreDateInfo];
     
@@ -270,6 +271,7 @@ NSMutableArray *moodmonConf;
         NSLog(@"up Swipe");
     }
     self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", (unsigned long)thisYear,thisMonth];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Quicksand" size:18]}];
     [self resetTimeTable];
 }
 
@@ -513,7 +515,7 @@ NSMutableArray *moodmonConf;
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
-    cell.timeLabel.text repla
+//    cell.timeLabel.text repla
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
     cell.delegate = self;
     
@@ -672,7 +674,7 @@ NSMutableArray *moodmonConf;
     MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
     [smm saveMoodMon:itemText];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"SAVE" message:@"SAVE" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"SAVE" message:@"저장되었습니다." preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:defaultAction];
     [self presentViewController:alertController animated:YES completion:nil];
