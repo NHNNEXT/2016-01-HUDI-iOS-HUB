@@ -21,7 +21,7 @@
 @property (nonatomic, weak) id <SwipeableCellDelegate> delegate;
 @property (nonatomic, weak) NSString *itemText;
 
-@property (strong, nonatomic) IBOutlet MDMoodColorView *MCView;
+@property MDMoodColorView *MCView;
 //@property (nonatomic, weak)IBOutlet UIButton *editBtn;
 @property (nonatomic, weak)IBOutlet UIButton *saveMoodmonBtn;
 @property (nonatomic, weak)IBOutlet UIView *myContentView;

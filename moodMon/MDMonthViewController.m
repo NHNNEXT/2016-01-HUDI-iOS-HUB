@@ -26,6 +26,9 @@ int count;
 NSMutableArray *moodmonConf;
 UITableViewHeaderFooterView *headerView;
 NSMutableArray <NSIndexPath *> *indexPathsToDelete;
+UIFont *quicksand;
+UIFont *boldQuicksand;
+
 
 @implementation MDMonthViewController{
 
@@ -63,8 +66,13 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
     self.toolbarContainer.translatesAutoresizingMaskIntoConstraints = YES;
     [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 49), self.view.frame.size.width, 49.0)];
     [self collapseToolbarWithoutBounce];
-    [_angryFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-    [_happyFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.angryFilterBtn setImage: _angryUnchecked forState:UIControlStateNormal];
+    [self.happyFilterBtn setImage: _happyUnchecked forState:UIControlStateNormal];
+    [self.sadFilterBtn setImage: _sadUnchecked forState:UIControlStateNormal];
+    [self.exciteFilterBtn setImage: _exciteUnchecked forState:UIControlStateNormal];
+    [self.exhaustFilterBtn setImage: _exhaustUnchecked forState:UIControlStateNormal];
+    [_angryFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [_happyFilterBtn.imageView setContentMode:UIViewContentModeScaleToFill];
     [_sadFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_exciteFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_exhaustFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -72,16 +80,15 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"failTosaveIntoSql" object:_mddm ];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"moodNotChosen" object:_mddm ];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:_mddm];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDatxaAdded" object:_mddm];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"iCloudSyncFinished" object:_mddm];
     
-    
-    
+    quicksand = [UIFont fontWithName:@"Quicksand" size:16];
+    boldQuicksand = [UIFont fontWithDescriptor:[[quicksand fontDescriptor] fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:quicksand.pointSize];
     
     createdAt=[_mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
-    
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -96,13 +103,26 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self removeTags];
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear, thisMonth];
     myDay = 0;
+    
+    [_filterButton setFont:quicksand];
+//    [_dataButton setTitleTextAttributes:@{NSFontAttributeName:quicksand} forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                         [UIColor colorWithRed:91/255.0 green:88/255.0 blue:85/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                         quicksand, NSFontAttributeName, nil]
+                                               forState:UIControlStateNormal];
+    UILabel *topItem = [[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.width)];
+    topItem.backgroundColor = [UIColor clearColor];
+    topItem.font = boldQuicksand;
+    topItem.textAlignment = NSTextAlignmentCenter;
+    topItem.text = [NSString stringWithFormat:@"     %d년 %d월", thisYear, thisMonth];
+    self.navigationItem.titleView = topItem;
+    
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:boldQuicksand} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:boldQuicksand} forState:UIControlStateNormal];
     
     [self resetTimeTable];
     [self moreDateInfo];
-    
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -161,12 +181,12 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         if([_mddm.isChecked[0]  isEqual: @NO]){
             _mddm.isChecked[0] = @YES;
             _mddm.chosenMoodCount++;
-            [self.angryFilterBtn setBackgroundImage: _angryChecked forState:UIControlStateNormal];
+            [self.angryFilterBtn setImage: _angryChecked forState:UIControlStateNormal];
             
         } else {
             _mddm.isChecked[0] = @NO;
             _mddm.chosenMoodCount--;
-            [self.angryFilterBtn setBackgroundImage: _angryUnchecked forState:UIControlStateNormal];
+            [self.angryFilterBtn setImage: _angryUnchecked forState:UIControlStateNormal];
         }
         
         
@@ -175,11 +195,11 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         if([_mddm.isChecked[1]  isEqual: @NO]){
             _mddm.isChecked[1] = @YES;
             _mddm.chosenMoodCount++;
-            [self.happyFilterBtn setBackgroundImage: _happyChecked forState:UIControlStateNormal];
+            [self.happyFilterBtn setImage: _happyChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[1] = @NO;
             _mddm.chosenMoodCount--;
-            [self.happyFilterBtn setBackgroundImage: _happyUnchecked forState:UIControlStateNormal];
+            [self.happyFilterBtn setImage: _happyUnchecked forState:UIControlStateNormal];
         }
         
         
@@ -188,11 +208,12 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         if([_mddm.isChecked[2]  isEqual: @NO]){
             _mddm.isChecked[2] = @YES;
             _mddm.chosenMoodCount++;
-            [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
+            [self.sadFilterBtn setImage:_sadChecked forState:UIControlStateNormal];
+//            [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[2] = @NO;
             _mddm.chosenMoodCount--;
-            [self.sadFilterBtn setBackgroundImage: _sadUnchecked forState:UIControlStateNormal];
+            [self.sadFilterBtn setImage: _sadUnchecked forState:UIControlStateNormal];
         }
         
     } else if (sender == self.exciteFilterBtn){
@@ -200,12 +221,12 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         if([_mddm.isChecked[3]  isEqual: @NO]){
             _mddm.isChecked[3] = @YES;
             _mddm.chosenMoodCount++;
-            [self.exciteFilterBtn setBackgroundImage: _exciteChecked forState:UIControlStateNormal];
+            [self.exciteFilterBtn setImage: _exciteChecked forState:UIControlStateNormal];
             
         } else {
             _mddm.isChecked[3] = @NO;
             _mddm.chosenMoodCount--;
-            [self.exciteFilterBtn setBackgroundImage: _exciteUnchecked forState:UIControlStateNormal];
+            [self.exciteFilterBtn setImage: _exciteUnchecked forState:UIControlStateNormal];
         }
         
     } else if (sender == self.exhaustFilterBtn){
@@ -213,11 +234,11 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         if([_mddm.isChecked[4]  isEqual: @NO]){
             _mddm.isChecked[4] = @YES;
             _mddm.chosenMoodCount++;
-            [self.exhaustFilterBtn setBackgroundImage: _exhaustChecked forState:UIControlStateNormal];
+            [self.exhaustFilterBtn setImage: _exhaustChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[4] = @NO;
             _mddm.chosenMoodCount--;
-            [self.exhaustFilterBtn setBackgroundImage: _exhaustUnchecked forState:UIControlStateNormal];
+            [self.exhaustFilterBtn setImage: _exhaustUnchecked forState:UIControlStateNormal];
         }
         
     } else {
@@ -272,7 +293,12 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         [self moreDateInfo];
         NSLog(@"up Swipe");
     }
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear,thisMonth];
+    UILabel *topItem = [[UILabel alloc] initWithFrame:CGRectMake(0,0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.width)];
+    topItem.backgroundColor = [UIColor clearColor];
+    topItem.font = boldQuicksand;
+    topItem.textAlignment = NSTextAlignmentCenter;
+    topItem.text = [NSString stringWithFormat:@"     %d년 %d월", thisYear, thisMonth];
+    self.navigationItem.titleView = topItem;
     [self resetTimeTable];
 }
 
@@ -353,25 +379,25 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
         UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord-10, xVal, yVal)];
         switch (i) {
             case 1:
-                [monthLabel setText:[NSString stringWithFormat:@"MON"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Mon"]];
                 break;
             case 2:
-                [monthLabel setText:[NSString stringWithFormat:@"TUE"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Tue"]];
                 break;
             case 3:
-                [monthLabel setText:[NSString stringWithFormat:@"WED"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Wed"]];
                 break;
             case 4:
-                [monthLabel setText:[NSString stringWithFormat:@"THU"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Thu"]];
                 break;
             case 5:
-                [monthLabel setText:[NSString stringWithFormat:@"FRI"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Fri"]];
                 break;
             case 6:
-                [monthLabel setText:[NSString stringWithFormat:@"SAT"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Sat"]];
                 break;
             case 0:
-                [monthLabel setText:[NSString stringWithFormat:@"SUN"]];
+                [monthLabel setText:[NSString stringWithFormat:@"Sun"]];
                 break;
             default:
                 break;
@@ -550,7 +576,7 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
 //    timeText = [timeText stringByReplacingOccurrencesOfString:@"분 " withString:@" : "];
 //    timeText = [timeText stringByReplacingOccurrencesOfString:@"초" withString:@"   "];
     cell.timeLabel.text = timeText;
-    cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
+    cell.itemText = [moodmonConf[indexPath.row] valueForKey:@"_moodComment"];
     cell.delegate = self;
     
     UIView *viewForFrame =  [cell viewWithTag:100];
@@ -673,16 +699,14 @@ NSMutableArray <NSIndexPath *> *indexPathsToDelete;
 
 #pragma mark - MDSwipeableCellDelegate
 - (void)buttonOneActionForItemText:(NSString *)itemText {
-    NSLog(@"In the delegate, Clicked button one for %@", itemText);
 }
 
 - (void)buttonTwoActionForItemText:(MDMoodColorView *)itemText {
-    NSLog(@"In the delegate, Clicked button two");
-    MDSaveMoodMon *smm = [[MDSaveMoodMon alloc]init];
+    MDSaveMoodMon *smm = [[MDSaveMoodMon alloc] init];
     [smm saveMoodMon:itemText];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"SAVE" message:@"SAVE" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"SAVE" message:@"저장되었습니다." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:defaultAction];
     [self presentViewController:alertController animated:YES completion:nil];
     

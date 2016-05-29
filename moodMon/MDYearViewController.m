@@ -138,7 +138,7 @@ int thisMonth=0;
 -(void)myCalView{
     tag=1;
     _titleLabel.text= [NSString stringWithFormat:@"%lu년", thisYear];
-    
+    [_titleLabel setFont:[UIFont fontWithName:@"Quicksand-Regular" size:19]];
 
     double xVal=CGRectGetWidth(self.view.bounds)/3,yVal=CGRectGetHeight(self.view.bounds)/5;
     

@@ -41,7 +41,7 @@
                         <constraints>
                             <constraint firstItem="aXi-WU-Nbr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HAt-3S-lWx"/>
                             <constraint firstItem="aXi-WU-Nbr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="nHf-P0-tdK">
-                                <variation key="widthClass=compact" constant="-12"/>
+                                <variation key="widthClass=compact" constant="11"/>
                             </constraint>
                         </constraints>
                         <variation key="default">

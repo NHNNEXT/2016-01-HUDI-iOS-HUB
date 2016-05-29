@@ -196,7 +196,13 @@ static CGFloat const kBounceValue = 40.0f;
 //        
 //    } else
     if (sender == self.saveMoodmonBtn) {
-         [self.delegate buttonTwoActionForItemText:self.MCView];
+//        MDMoodColorView *saveMCView = [[MDMoodColorView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+//        saveMCView.bounds = saveMCView.frame;
+//        saveMCView.chosenMoods = [self.MCView.chosenMoods copy];
+//        [saveMCView setNeedsDisplay];
+//        [self.delegate buttonTwoActionForItemText:saveMCView];
+        MDMoodColorView *colorView = (MDMoodColorView *)[self viewWithTag:100].subviews[0];
+        [self.delegate buttonTwoActionForItemText:colorView];
     } else {
         NSLog(@"Clicked unknown button!");
     }

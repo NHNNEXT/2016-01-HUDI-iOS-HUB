@@ -32,6 +32,8 @@
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Filter"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(moodDidChoose)];
     navItems.rightBarButtonItem = doneBtn;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Quicksand" size:15]}];
+    
     NSArray *items =[[NSArray alloc]initWithObjects:navItems,nil];
     
     [self.navigationController.navigationBar setItems:items];

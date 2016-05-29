@@ -18,11 +18,11 @@
     [super viewDidLoad];
     
     tableTitles = @[@[@"iCloud Sync"], @[@"Erase All Local Data"]];
-    
     self.dataManager = [MDDataManager sharedDataManager];
     
     UINavigationItem *navItems = [[UINavigationItem alloc] initWithTitle:@"Data Setting"];
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dataDidFinish)];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Quicksand" size:18]}];
     navItems.rightBarButtonItem = doneBtn;
     NSArray *items =[[NSArray alloc]initWithObjects:navItems,nil];
     [self.navigationController.navigationBar setItems:items];
@@ -56,7 +56,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.textLabel.text = tableTitles[indexPath.section][indexPath.row];
-    
+    [cell.textLabel setFont:[UIFont fontWithName:@"Quicksand" size:16.5]];
     if(indexPath.section == 0){
         cell.accessoryType = UITableViewCellAccessoryNone;
         
@@ -120,7 +120,7 @@
     footerLabel.frame = CGRectMake(5, 2, tableView.frame.size.width - 5, 18);
     footerLabel.backgroundColor = [UIColor clearColor];
     footerLabel.textColor = [UIColor blackColor];
-    footerLabel.font = [UIFont boldSystemFontOfSize:16.0];
+    footerLabel.font = [UIFont fontWithName:@"Quicksand" size:14];
     footerLabel.textColor = [UIColor redColor];
     footerLabel.text = @"모든 데이터를 지웁니다!";
     footerLabel.textAlignment = NSTextAlignmentLeft;

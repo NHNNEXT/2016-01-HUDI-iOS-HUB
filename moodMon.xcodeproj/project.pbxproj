@@ -149,6 +149,8 @@
 		E9A93B901CFB197400421076 /* launch screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B8F1CFB197400421076 /* launch screen@2x.png */; };
 		E9A93B931CFB2FC500421076 /* NanumGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B911CFB2FC500421076 /* NanumGothic.otf */; };
 		E9A93B941CFB2FC500421076 /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B921CFB2FC500421076 /* NanumGothicLight.otf */; };
+		E9A97AB21CFBA29700346DBF /* MDSaveMoodFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A97AB11CFBA29700346DBF /* MDSaveMoodFaceView.m */; };
+		E9A97AB41CFBA2BE00346DBF /* MDSaveMoodFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A97AB31CFBA2BE00346DBF /* MDSaveMoodFaceView.xib */; };
 		E9B03E1B1CF1FD700069741F /* angry_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E021CF1FD700069741F /* angry_degree1@2x.png */; };
 		E9B03E1C1CF1FD700069741F /* angry_degree2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E031CF1FD700069741F /* angry_degree2@2x.png */; };
 		E9B03E1D1CF1FD700069741F /* angry_degree3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E041CF1FD700069741F /* angry_degree3@2x.png */; };
@@ -375,6 +377,9 @@
 		E9A93B8F1CFB197400421076 /* launch screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch screen@2x.png"; sourceTree = "<group>"; };
 		E9A93B911CFB2FC500421076 /* NanumGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothic.otf; sourceTree = "<group>"; };
 		E9A93B921CFB2FC500421076 /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
+		E9A97AB01CFBA29700346DBF /* MDSaveMoodFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSaveMoodFaceView.h; sourceTree = "<group>"; };
+		E9A97AB11CFBA29700346DBF /* MDSaveMoodFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSaveMoodFaceView.m; sourceTree = "<group>"; };
+		E9A97AB31CFBA2BE00346DBF /* MDSaveMoodFaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDSaveMoodFaceView.xib; sourceTree = "<group>"; };
 		E9B03E021CF1FD700069741F /* angry_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree1@2x.png"; sourceTree = "<group>"; };
 		E9B03E031CF1FD700069741F /* angry_degree2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree2@2x.png"; sourceTree = "<group>"; };
 		E9B03E041CF1FD700069741F /* angry_degree3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree3@2x.png"; sourceTree = "<group>"; };
@@ -876,6 +881,9 @@
 				E9B03E341CF229140069741F /* MDSmallMoodFaceView.h */,
 				E9B03E351CF229140069741F /* MDSmallMoodFaceView.m */,
 				E9514B751CF353B6008B99CA /* MDSmallMoodFaceView.xib */,
+				E9A97AB01CFBA29700346DBF /* MDSaveMoodFaceView.h */,
+				E9A97AB11CFBA29700346DBF /* MDSaveMoodFaceView.m */,
+				E9A97AB31CFBA2BE00346DBF /* MDSaveMoodFaceView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1126,6 +1134,7 @@
 				E986ED921CDFBE2F00792C55 /* joy_mouth_degree4@2x.png in Resources */,
 				E986ED651CDFBE2F00792C55 /* sad_eyebrow_degree4@2x.png in Resources */,
 				E9B03E2F1CF1FD700069741F /* tired_degree1@2x.png in Resources */,
+				E9A97AB41CFBA2BE00346DBF /* MDSaveMoodFaceView.xib in Resources */,
 				E986ED5D1CDFBE2F00792C55 /* angry_eyebrow_degree1@2x.png in Resources */,
 				E986ED8C1CDFBE2F00792C55 /* excited_mouth_degree3@2x.png in Resources */,
 				E986ED961CDFBE2F00792C55 /* sad_mouth_degree3@2x.png in Resources */,
@@ -1162,6 +1171,7 @@
 				658BE7321CB4CE98006EB718 /* MDWheelView.m in Sources */,
 				658BE7311CB4CE98006EB718 /* MDNewMoodViewController.m in Sources */,
 				CEABEFEE1CFAD7AC00AA4E60 /* MDDocument.m in Sources */,
+				E9A97AB21CFBA29700346DBF /* MDSaveMoodFaceView.m in Sources */,
 				65980E2E1CC0D1DF0092EA18 /* MDMonthViewController.m in Sources */,
 				CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */,
 				CE4A8A3B1CABCCB1006B73B7 /* AppDelegate.m in Sources */,

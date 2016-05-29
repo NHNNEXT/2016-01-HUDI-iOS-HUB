@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "MDMoodColorView.h"
+#import "MDSaveMoodFaceView.h"
 
 @interface MDSaveMoodMon : NSObject
 
