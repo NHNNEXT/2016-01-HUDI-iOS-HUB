@@ -218,14 +218,11 @@
         }
         
         temp.layer.cornerRadius = temp.frame.size.width/2;
+        faceTemp.layer.cornerRadius = faceTemp.frame.size.width/2;
         [cell addSubview:temp];
-       // faceTemp.layer.cornerRadius = faceTemp.frame.size.width/2;
         [cell addSubview:faceTemp];
-        [temp setNeedsDisplay];
         [faceTemp setNeedsDisplay];
-
-        
-        
+        [temp setNeedsDisplay];
 
     }
     return cell;

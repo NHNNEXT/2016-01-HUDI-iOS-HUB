@@ -34,6 +34,11 @@
     [self drawRecentMoodView];
     [self textLabelInit];
     [self menuControllerInit];
+    
+    [_smallView.chosenMoods addObject:@12];
+    [_smallView.chosenMoods addObject:@34];
+    [_smallView.chosenMoods addObject:@24];
+    [_smallView setNeedsDisplay];
 }
 
 
@@ -63,7 +68,7 @@
     [dateFormatter setDateFormat:@"EEEE"];
     [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
     _day.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
-    [dateFormatter setDateFormat:@"d MMMM yyyy"];
+    [dateFormatter setDateFormat:@"d MMMM"];
     _date.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:today]];
 }
 
@@ -154,11 +159,6 @@
     
     /* UI init */
     UIColor *color = [[UIColor grayColor] colorWithAlphaComponent:0.7];
-    self.textField.layer.borderColor = color.CGColor;
-    self.textField.layer.borderWidth = 0.7;
-    self.textField.layer.cornerRadius = self.textField.frame.size.height/2;
-    self.textField.clipsToBounds = YES;
-    self.textField.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
     // self.mood가 nil이 아니라는 것은 edit mode라는 뜻.
     // edit mode일 때는 self.mood에 들어있는 코멘트를 placeholder와 self.comment에 지정함.
     if(self.mood) {

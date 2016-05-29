@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GN2-Fj-BDm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -382,7 +381,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="46" id="vwC-eL-hgc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -401,12 +400,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wJ-1Q-qR5">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="MrI-RO-57h"/>
+                                    <constraint firstAttribute="height" constant="17" id="MrI-RO-57h">
+                                        <variation key="widthClass=compact" constant="26"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" constant="187" id="daZ-OP-9YZ"/>
                                 </constraints>
-                                <string key="text">19th March 2016
+                                <string key="text">19 March
 </string>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1184,13 +1185,13 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you feel today?" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A1Q-op-boq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What do you feel today?" textAlignment="center" minimumFontSize="17" background="comment box.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A1Q-op-boq">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7R1-Dw-JZf"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="pfj-aj-GZa"/>
                                     <constraint firstAttribute="width" constant="194" id="ywx-cT-tPq">
-                                        <variation key="widthClass=compact" constant="200"/>
+                                        <variation key="widthClass=compact" constant="185"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="13"/>
@@ -1220,9 +1221,11 @@
                             <constraint firstItem="A1Q-op-boq" firstAttribute="top" secondItem="tGU-vm-7co" secondAttribute="bottom" constant="14" id="7CJ-gq-LK9"/>
                             <constraint firstItem="6iM-UI-yZ0" firstAttribute="centerX" secondItem="ati-L3-kaM" secondAttribute="centerX" id="AaQ-V6-Ean"/>
                             <constraint firstItem="jsq-UW-sGh" firstAttribute="centerY" secondItem="QSZ-GO-o3D" secondAttribute="centerY" id="Ccm-bK-wjB">
-                                <variation key="widthClass=compact" constant="-55"/>
+                                <variation key="widthClass=compact" constant="-40"/>
                             </constraint>
-                            <constraint firstItem="3wJ-1Q-qR5" firstAttribute="top" secondItem="QSZ-GO-o3D" secondAttribute="bottom" constant="2" id="DxO-CP-ziM"/>
+                            <constraint firstItem="3wJ-1Q-qR5" firstAttribute="top" secondItem="QSZ-GO-o3D" secondAttribute="bottom" constant="2" id="DxO-CP-ziM">
+                                <variation key="widthClass=compact" constant="-7"/>
+                            </constraint>
                             <constraint firstItem="3wJ-1Q-qR5" firstAttribute="centerX" secondItem="ati-L3-kaM" secondAttribute="centerX" id="ESQ-P0-qTm"/>
                             <constraint firstItem="tGU-vm-7co" firstAttribute="centerY" secondItem="ati-L3-kaM" secondAttribute="centerY" id="Eop-YE-rz0">
                                 <variation key="widthClass=compact" constant="33"/>
@@ -1232,14 +1235,14 @@
                                 <variation key="widthClass=compact" constant="116"/>
                             </constraint>
                             <constraint firstItem="tGU-vm-7co" firstAttribute="top" secondItem="QSZ-GO-o3D" secondAttribute="bottom" constant="65" id="SWe-im-2vG">
-                                <variation key="widthClass=compact" constant="34"/>
+                                <variation key="widthClass=compact" constant="49"/>
                             </constraint>
                             <constraint firstItem="tGU-vm-7co" firstAttribute="centerX" secondItem="ati-L3-kaM" secondAttribute="centerX" id="fVc-34-5fV">
                                 <variation key="widthClass=compact" constant="1"/>
                             </constraint>
                             <constraint firstItem="A1Q-op-boq" firstAttribute="centerX" secondItem="ati-L3-kaM" secondAttribute="centerX" id="fbw-pg-XNn"/>
                             <constraint firstItem="F92-gM-ZdI" firstAttribute="centerY" secondItem="QSZ-GO-o3D" secondAttribute="centerY" id="k0l-Mv-DFy">
-                                <variation key="widthClass=compact" constant="-55"/>
+                                <variation key="widthClass=compact" constant="-40"/>
                             </constraint>
                             <constraint firstItem="F92-gM-ZdI" firstAttribute="centerX" secondItem="QSZ-GO-o3D" secondAttribute="centerX" id="lwa-cF-XpX">
                                 <variation key="widthClass=compact" constant="-116.5"/>
@@ -1340,7 +1343,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmx-3E-Jpj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmx-3E-Jpj">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="Q4V-3I-xnU"/>
@@ -1348,7 +1351,7 @@
                                         <variation key="widthClass=compact" constant="245"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="34"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1361,6 +1364,34 @@
                                     <mask key="constraints">
                                         <include reference="Q4V-3I-xnU"/>
                                         <include reference="Soh-SX-Vkx"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96Q-cZ-hzE">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="A0O-ns-i7w">
+                                        <variation key="widthClass=compact" constant="160"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="17" id="v7d-4f-3F6">
+                                        <variation key="widthClass=compact" constant="42"/>
+                                    </constraint>
+                                </constraints>
+                                <string key="text">19 March
+</string>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="A0O-ns-i7w"/>
+                                        <exclude reference="v7d-4f-3F6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="A0O-ns-i7w"/>
+                                        <include reference="v7d-4f-3F6"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -2116,16 +2147,16 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you feel today?" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-2m-ArN">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What do you feel today?" textAlignment="center" minimumFontSize="17" background="comment box.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-2m-ArN">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="194" id="6Nk-so-xbk">
-                                        <variation key="widthClass=compact" constant="240"/>
+                                        <variation key="widthClass=compact" constant="185"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="30" id="DYt-Py-LXC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6Nk-so-xbk"/>
@@ -2143,34 +2174,6 @@
                                     <action selector="didTextFieldActivate:" destination="TL5-nJ-UfS" eventType="editingDidBegin" id="vbR-Yj-3Tn"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96Q-cZ-hzE">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="187" id="A0O-ns-i7w">
-                                        <variation key="widthClass=compact" constant="226"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="17" id="v7d-4f-3F6">
-                                        <variation key="widthClass=compact" constant="42"/>
-                                    </constraint>
-                                </constraints>
-                                <string key="text">19 March 2016
-</string>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="29"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="A0O-ns-i7w"/>
-                                        <exclude reference="v7d-4f-3F6"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="A0O-ns-i7w"/>
-                                        <include reference="v7d-4f-3F6"/>
-                                    </mask>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -2179,29 +2182,29 @@
                                 <variation key="widthClass=compact" constant="-18"/>
                             </constraint>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="top" secondItem="gmx-3E-Jpj" secondAttribute="bottom" constant="2" id="EuY-zO-OWz">
-                                <variation key="widthClass=compact" constant="-10"/>
+                                <variation key="widthClass=compact" constant="-15"/>
                             </constraint>
                             <constraint firstItem="zuU-2m-ArN" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Mhj-Re-3Dr"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="top" secondItem="zuU-2m-ArN" secondAttribute="bottom" constant="9" id="PJ1-1Y-iQT">
-                                <variation key="widthClass=compact" constant="8"/>
+                                <variation key="widthClass=compact" constant="37"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="lrv-gQ-GRi" secondAttribute="bottom" constant="157" id="VuF-ve-Oh6">
-                                <variation key="widthClass=compact" constant="163"/>
+                                <variation key="widthClass=compact" constant="142"/>
                             </constraint>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="YQ0-gl-eM6"/>
                             <constraint firstItem="96Q-cZ-hzE" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="Yc1-MW-s0P"/>
                             <constraint firstItem="dHR-wz-XeA" firstAttribute="width" secondItem="J26-NR-hzB" secondAttribute="width" id="Zil-cv-FOb"/>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerY" secondItem="J26-NR-hzB" secondAttribute="centerY" id="cJM-bG-KaB">
-                                <variation key="widthClass=compact" constant="25"/>
+                                <variation key="widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="A0I-t8-oas" secondAttribute="bottom" constant="157" id="g7e-3g-Krf">
-                                <variation key="widthClass=compact" constant="163"/>
+                                <variation key="widthClass=compact" constant="142"/>
                             </constraint>
                             <constraint firstItem="Z7r-3v-MSx" firstAttribute="top" secondItem="dHR-wz-XeA" secondAttribute="bottom" constant="752" id="gcM-WE-PDN">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="top" secondItem="gmx-3E-Jpj" secondAttribute="bottom" constant="65" id="h7d-63-w48">
-                                <variation key="widthClass=compact" constant="96"/>
+                                <variation key="widthClass=compact" constant="70"/>
                             </constraint>
                             <constraint firstItem="8WY-Ar-NXR" firstAttribute="centerX" secondItem="J26-NR-hzB" secondAttribute="centerX" id="kcQ-zz-OBG"/>
                             <constraint firstItem="lrv-gQ-GRi" firstAttribute="leading" secondItem="8WY-Ar-NXR" secondAttribute="trailing" constant="-9" id="x6X-na-boQ">
@@ -2211,12 +2214,12 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="gmx-3E-Jpj"/>
+                                <exclude reference="96Q-cZ-hzE"/>
                                 <exclude reference="8WY-Ar-NXR"/>
                                 <exclude reference="dHR-wz-XeA"/>
                                 <exclude reference="lrv-gQ-GRi"/>
                                 <exclude reference="A0I-t8-oas"/>
                                 <exclude reference="zuU-2m-ArN"/>
-                                <exclude reference="96Q-cZ-hzE"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="gcM-WE-PDN"/>
@@ -2239,12 +2242,12 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="gmx-3E-Jpj"/>
+                                <include reference="96Q-cZ-hzE"/>
                                 <include reference="8WY-Ar-NXR"/>
                                 <include reference="dHR-wz-XeA"/>
                                 <include reference="lrv-gQ-GRi"/>
                                 <include reference="A0I-t8-oas"/>
                                 <include reference="zuU-2m-ArN"/>
-                                <include reference="96Q-cZ-hzE"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="gcM-WE-PDN"/>
@@ -2896,6 +2899,7 @@
         <image name="check.png" width="42" height="42"/>
         <image name="cheek_degree5.png" width="190" height="19"/>
         <image name="circle.png" width="734" height="735"/>
+        <image name="comment box.png" width="92" height="15"/>
         <image name="cross.png" width="42" height="42"/>
         <image name="darkcircle_degree1.png" width="162" height="13"/>
         <image name="default_eye.png" width="146" height="24"/>
