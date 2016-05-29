@@ -62,8 +62,13 @@ NSMutableArray *moodmonConf;
     self.toolbarContainer.translatesAutoresizingMaskIntoConstraints = YES;
     [self.toolbarContainer setFrame:CGRectMake(0, (self.view.frame.size.height - 49), self.view.frame.size.width, 49.0)];
     [self collapseToolbarWithoutBounce];
-    [_angryFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
-    [_happyFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.angryFilterBtn setImage: _angryUnchecked forState:UIControlStateNormal];
+    [self.happyFilterBtn setImage: _happyUnchecked forState:UIControlStateNormal];
+    [self.sadFilterBtn setImage: _sadUnchecked forState:UIControlStateNormal];
+    [self.exciteFilterBtn setImage: _exciteUnchecked forState:UIControlStateNormal];
+    [self.exhaustFilterBtn setImage: _exhaustUnchecked forState:UIControlStateNormal];
+    [_angryFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [_happyFilterBtn.imageView setContentMode:UIViewContentModeScaleToFill];
     [_sadFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_exciteFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [_exhaustFilterBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -163,12 +168,12 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[0]  isEqual: @NO]){
             _mddm.isChecked[0] = @YES;
             _mddm.chosenMoodCount++;
-            [self.angryFilterBtn setBackgroundImage: _angryChecked forState:UIControlStateNormal];
+            [self.angryFilterBtn setImage: _angryChecked forState:UIControlStateNormal];
             
         } else {
             _mddm.isChecked[0] = @NO;
             _mddm.chosenMoodCount--;
-            [self.angryFilterBtn setBackgroundImage: _angryUnchecked forState:UIControlStateNormal];
+            [self.angryFilterBtn setImage: _angryUnchecked forState:UIControlStateNormal];
         }
         
         
@@ -177,11 +182,11 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[1]  isEqual: @NO]){
             _mddm.isChecked[1] = @YES;
             _mddm.chosenMoodCount++;
-            [self.happyFilterBtn setBackgroundImage: _happyChecked forState:UIControlStateNormal];
+            [self.happyFilterBtn setImage: _happyChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[1] = @NO;
             _mddm.chosenMoodCount--;
-            [self.happyFilterBtn setBackgroundImage: _happyUnchecked forState:UIControlStateNormal];
+            [self.happyFilterBtn setImage: _happyUnchecked forState:UIControlStateNormal];
         }
         
         
@@ -190,11 +195,12 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[2]  isEqual: @NO]){
             _mddm.isChecked[2] = @YES;
             _mddm.chosenMoodCount++;
-            [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
+            [self.sadFilterBtn setImage:_sadChecked forState:UIControlStateNormal];
+//            [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[2] = @NO;
             _mddm.chosenMoodCount--;
-            [self.sadFilterBtn setBackgroundImage: _sadUnchecked forState:UIControlStateNormal];
+            [self.sadFilterBtn setImage: _sadUnchecked forState:UIControlStateNormal];
         }
         
     } else if (sender == self.exciteFilterBtn){
@@ -202,12 +208,12 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[3]  isEqual: @NO]){
             _mddm.isChecked[3] = @YES;
             _mddm.chosenMoodCount++;
-            [self.exciteFilterBtn setBackgroundImage: _exciteChecked forState:UIControlStateNormal];
+            [self.exciteFilterBtn setImage: _exciteChecked forState:UIControlStateNormal];
             
         } else {
             _mddm.isChecked[3] = @NO;
             _mddm.chosenMoodCount--;
-            [self.exciteFilterBtn setBackgroundImage: _exciteUnchecked forState:UIControlStateNormal];
+            [self.exciteFilterBtn setImage: _exciteUnchecked forState:UIControlStateNormal];
         }
         
     } else if (sender == self.exhaustFilterBtn){
@@ -215,11 +221,11 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[4]  isEqual: @NO]){
             _mddm.isChecked[4] = @YES;
             _mddm.chosenMoodCount++;
-            [self.exhaustFilterBtn setBackgroundImage: _exhaustChecked forState:UIControlStateNormal];
+            [self.exhaustFilterBtn setImage: _exhaustChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[4] = @NO;
             _mddm.chosenMoodCount--;
-            [self.exhaustFilterBtn setBackgroundImage: _exhaustUnchecked forState:UIControlStateNormal];
+            [self.exhaustFilterBtn setImage: _exhaustUnchecked forState:UIControlStateNormal];
         }
         
     } else {
