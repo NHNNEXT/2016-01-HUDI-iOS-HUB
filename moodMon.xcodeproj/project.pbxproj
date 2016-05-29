@@ -31,6 +31,16 @@
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
+		CE780F601CFACD0200EA7E5D /* angry_filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F561CFACD0200EA7E5D /* angry_filter@2x.png */; };
+		CE780F611CFACD0200EA7E5D /* angry_unfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F571CFACD0200EA7E5D /* angry_unfilter@2x.png */; };
+		CE780F621CFACD0200EA7E5D /* excited_filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F581CFACD0200EA7E5D /* excited_filter@2x.png */; };
+		CE780F631CFACD0200EA7E5D /* excited_unfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F591CFACD0200EA7E5D /* excited_unfilter@2x.png */; };
+		CE780F641CFACD0200EA7E5D /* joy_filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5A1CFACD0200EA7E5D /* joy_filter@2x.png */; };
+		CE780F651CFACD0200EA7E5D /* joy_unfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5B1CFACD0200EA7E5D /* joy_unfilter@2x.png */; };
+		CE780F661CFACD0200EA7E5D /* sad_filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5C1CFACD0200EA7E5D /* sad_filter@2x.png */; };
+		CE780F671CFACD0200EA7E5D /* sad_unfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5D1CFACD0200EA7E5D /* sad_unfilter@2x.png */; };
+		CE780F681CFACD0200EA7E5D /* tired_filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5E1CFACD0200EA7E5D /* tired_filter@2x.png */; };
+		CE780F691CFACD0200EA7E5D /* tired_unfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE780F5F1CFACD0200EA7E5D /* tired_unfilter@2x.png */; };
 		CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */; };
 		CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */; };
 		CEBA98721CDF1C79006D2FFD /* MDSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA98711CDF1C79006D2FFD /* MDSearchTableViewCell.m */; };
@@ -227,6 +237,16 @@
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
+		CE780F561CFACD0200EA7E5D /* angry_filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_filter@2x.png"; sourceTree = "<group>"; };
+		CE780F571CFACD0200EA7E5D /* angry_unfilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_unfilter@2x.png"; sourceTree = "<group>"; };
+		CE780F581CFACD0200EA7E5D /* excited_filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_filter@2x.png"; sourceTree = "<group>"; };
+		CE780F591CFACD0200EA7E5D /* excited_unfilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "excited_unfilter@2x.png"; sourceTree = "<group>"; };
+		CE780F5A1CFACD0200EA7E5D /* joy_filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_filter@2x.png"; sourceTree = "<group>"; };
+		CE780F5B1CFACD0200EA7E5D /* joy_unfilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_unfilter@2x.png"; sourceTree = "<group>"; };
+		CE780F5C1CFACD0200EA7E5D /* sad_filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_filter@2x.png"; sourceTree = "<group>"; };
+		CE780F5D1CFACD0200EA7E5D /* sad_unfilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad_unfilter@2x.png"; sourceTree = "<group>"; };
+		CE780F5E1CFACD0200EA7E5D /* tired_filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_filter@2x.png"; sourceTree = "<group>"; };
+		CE780F5F1CFACD0200EA7E5D /* tired_unfilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tired_unfilter@2x.png"; sourceTree = "<group>"; };
 		CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomStoryboardSegue.h; sourceTree = "<group>"; };
 		CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
 		CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewController.h; sourceTree = "<group>"; };
@@ -503,6 +523,23 @@
 			path = moodMonUITests;
 			sourceTree = "<group>";
 		};
+		CE780F551CFACCEA00EA7E5D /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				CE780F561CFACD0200EA7E5D /* angry_filter@2x.png */,
+				CE780F571CFACD0200EA7E5D /* angry_unfilter@2x.png */,
+				CE780F581CFACD0200EA7E5D /* excited_filter@2x.png */,
+				CE780F591CFACD0200EA7E5D /* excited_unfilter@2x.png */,
+				CE780F5A1CFACD0200EA7E5D /* joy_filter@2x.png */,
+				CE780F5B1CFACD0200EA7E5D /* joy_unfilter@2x.png */,
+				CE780F5C1CFACD0200EA7E5D /* sad_filter@2x.png */,
+				CE780F5D1CFACD0200EA7E5D /* sad_unfilter@2x.png */,
+				CE780F5E1CFACD0200EA7E5D /* tired_filter@2x.png */,
+				CE780F5F1CFACD0200EA7E5D /* tired_unfilter@2x.png */,
+			);
+			name = filter;
+			sourceTree = "<group>";
+		};
 		CE87EC4F1CCE109900329E16 /* otherFunction */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +564,7 @@
 		E986ECCE1CDFBE2F00792C55 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE780F551CFACCEA00EA7E5D /* filter */,
 				E9B06CCD1CF2D13F000E8C7B /* icons */,
 				E986ECCF1CDFBE2F00792C55 /* basic shadow@2x.png */,
 				E986ECD61CDFBE2F00792C55 /* circle@2x.png */,
@@ -957,6 +995,7 @@
 				E9B06CDD1CF2D14A000E8C7B /* Icon@2x.png in Resources */,
 				E986ED8D1CDFBE2F00792C55 /* excited_mouth_degree4@2x.png in Resources */,
 				CE4A8A461CABCCB1006B73B7 /* LaunchScreen.storyboard in Resources */,
+				CE780F631CFACD0200EA7E5D /* excited_unfilter@2x.png in Resources */,
 				E986ED9B1CDFBE2F00792C55 /* tired_mouth_degree3@2x.png in Resources */,
 				E986EDAD1CDFBE2F00792C55 /* sad_unselect@2x.png in Resources */,
 				E986ED9A1CDFBE2F00792C55 /* tired_mouth_degree2@2x.png in Resources */,
@@ -970,10 +1009,12 @@
 				E9B03E2B1CF1FD700069741F /* sad_degree2@2x.png in Resources */,
 				E986ED591CDFBE2F00792C55 /* excited_eye_degree2@2x.png in Resources */,
 				E9CD997F1CE8E2AB00C9DBB7 /* sad_wheel@2x.png in Resources */,
+				CE780F621CFACD0200EA7E5D /* excited_filter@2x.png in Resources */,
 				E986ED8E1CDFBE2F00792C55 /* excited_mouth_degree5@2x.png in Resources */,
 				E9B03E221CF1FD700069741F /* excited_degree3@2x.png in Resources */,
 				E9B03E2A1CF1FD700069741F /* sad_degree1@2x.png in Resources */,
 				E986ED9C1CDFBE2F00792C55 /* tired_mouth_degree4@2x.png in Resources */,
+				CE780F611CFACD0200EA7E5D /* angry_unfilter@2x.png in Resources */,
 				E9B03E301CF1FD700069741F /* tired_degree2@2x.png in Resources */,
 				E986ED9E1CDFBE2F00792C55 /* check@2x.png in Resources */,
 				E986EDA71CDFBE2F00792C55 /* tear_degree3@2x.png in Resources */,
@@ -983,15 +1024,18 @@
 				E986ED4E1CDFBE2F00792C55 /* cheek_degree4@2x.png in Resources */,
 				E986EDA21CDFBE2F00792C55 /* joy_selected@2x.png in Resources */,
 				E9B03E241CF1FD700069741F /* excited_degree5@2x.png in Resources */,
+				CE780F681CFACD0200EA7E5D /* tired_filter@2x.png in Resources */,
 				E986EDA01CDFBE2F00792C55 /* angry_selected@2x.png in Resources */,
 				E986ED621CDFBE2F00792C55 /* sad_eyebrow_degree1@2x.png in Resources */,
 				E986ED951CDFBE2F00792C55 /* sad_mouth_degree2@2x.png in Resources */,
 				E986EDA51CDFBE2F00792C55 /* tear_degree1@2x.png in Resources */,
+				CE780F691CFACD0200EA7E5D /* tired_unfilter@2x.png in Resources */,
 				E986ED4A1CDFBE2F00792C55 /* basic shadow@2x.png in Resources */,
 				E986EDA81CDFBE2F00792C55 /* tear_degree4@2x.png in Resources */,
 				E986EDAE1CDFBE2F00792C55 /* tired_unselect@2x.png in Resources */,
 				E9514B761CF353B6008B99CA /* MDSmallMoodFaceView.xib in Resources */,
 				E9B06CDE1CF2D14A000E8C7B /* iTunesArtwork.png in Resources */,
+				CE780F671CFACD0200EA7E5D /* sad_unfilter@2x.png in Resources */,
 				E986ED661CDFBE2F00792C55 /* sad_eyebrow_degree5@2x.png in Resources */,
 				E9CD997D1CE8E25900C9DBB7 /* tired_wheel@2x.png in Resources */,
 				E9B03E311CF1FD700069741F /* tired_degree3@2x.png in Resources */,
@@ -1004,6 +1048,7 @@
 				E986ED871CDFBE2F00792C55 /* angry_mouth_degree3@2x.png in Resources */,
 				658BE7331CB4CE98006EB718 /* Quicksand-Bold.otf in Resources */,
 				658BE7351CB4CE98006EB718 /* Quicksand-Regular.otf in Resources */,
+				CE780F651CFACD0200EA7E5D /* joy_unfilter@2x.png in Resources */,
 				E9B06CD81CF2D14A000E8C7B /* Icon-72.png in Resources */,
 				E986ED5A1CDFBE2F00792C55 /* excited_eye_degree3@2x.png in Resources */,
 				E9B06CDB1CF2D14A000E8C7B /* Icon-Small-50@2x.png in Resources */,
@@ -1015,6 +1060,7 @@
 				E986EDB81CDFBE2F00792C55 /* wrinkle_degree5@2x.png in Resources */,
 				E9B03E2D1CF1FD700069741F /* sad_degree4@2x.png in Resources */,
 				E986EDA61CDFBE2F00792C55 /* tear_degree2@2x.png in Resources */,
+				CE780F641CFACD0200EA7E5D /* joy_filter@2x.png in Resources */,
 				E986ED861CDFBE2F00792C55 /* angry_mouth_degree2@2x.png in Resources */,
 				E986ED5B1CDFBE2F00792C55 /* excited_eye_degree4@2x.png in Resources */,
 				E986ED4D1CDFBE2F00792C55 /* cheek_degree3@2x.png in Resources */,
@@ -1029,12 +1075,14 @@
 				E9CD997B1CE8E25900C9DBB7 /* joy_wheel@2x.png in Resources */,
 				E9B06CD71CF2D14A000E8C7B /* Icon-60.png in Resources */,
 				E986ED8F1CDFBE2F00792C55 /* joy_mouth_degree1@2x.png in Resources */,
+				CE780F661CFACD0200EA7E5D /* sad_filter@2x.png in Resources */,
 				E9B03E251CF1FD700069741F /* joy_degree1@2x.png in Resources */,
 				E9B03E261CF1FD700069741F /* joy_degree2@2x.png in Resources */,
 				E9B03E2C1CF1FD700069741F /* sad_degree3@2x.png in Resources */,
 				E986EDA31CDFBE2F00792C55 /* sad_selected@2x.png in Resources */,
 				E986EDB61CDFBE2F00792C55 /* wrinkle_degree3@2x.png in Resources */,
 				E986ED921CDFBE2F00792C55 /* joy_mouth_degree4@2x.png in Resources */,
+				CE780F601CFACD0200EA7E5D /* angry_filter@2x.png in Resources */,
 				E986ED651CDFBE2F00792C55 /* sad_eyebrow_degree4@2x.png in Resources */,
 				E9B03E2F1CF1FD700069741F /* tired_degree1@2x.png in Resources */,
 				E986ED5D1CDFBE2F00792C55 /* angry_eyebrow_degree1@2x.png in Resources */,

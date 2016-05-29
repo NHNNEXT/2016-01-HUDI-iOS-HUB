@@ -2616,43 +2616,43 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yz-hJ-4MX" userLabel="buttonContainer">
                                         <rect key="frame" x="0.0" y="16" width="0.0" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzc-ty-5Zd">
-                                                <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="angry"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzc-ty-5Zd">
+                                                <rect key="frame" x="-42" y="3" width="84" height="38"/>
+                                                <state key="normal" image="angry_unfilter.png"/>
                                                 <connections>
                                                     <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="dYp-ol-mNw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiD-L9-Eyj">
-                                                <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="happy"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiD-L9-Eyj">
+                                                <rect key="frame" x="-44" y="3" width="88" height="38"/>
+                                                <state key="normal" image="joy_unfilter.png"/>
                                                 <connections>
                                                     <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="1fk-NQ-W5H"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81B-RH-DgN">
-                                                <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="sad"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81B-RH-DgN">
+                                                <rect key="frame" x="-34" y="3" width="69" height="38"/>
+                                                <state key="normal" image="sad_unfilter.png"/>
                                                 <connections>
                                                     <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="WkY-wa-d8u"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYj-ha-Kfd">
-                                                <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="excit"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYj-ha-Kfd">
+                                                <rect key="frame" x="-38" y="3" width="76" height="38"/>
+                                                <state key="normal" image="excited_unfilter.png"/>
                                                 <connections>
                                                     <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="ZZs-CQ-H6O"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-8g-Qcy">
-                                                <rect key="frame" x="-23" y="7" width="46" height="30"/>
-                                                <state key="normal" title="exhau"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-8g-Qcy">
+                                                <rect key="frame" x="-43" y="3" width="87" height="38"/>
+                                                <state key="normal" image="tired_unfilter.png"/>
                                                 <connections>
                                                     <action selector="filterButtonClicked:" destination="XeT-CV-5As" eventType="touchUpInside" id="qrw-qz-XRD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-CM-s1a">
-                                                <rect key="frame" x="-23" y="7" width="46" height="30"/>
+                                                <rect key="frame" x="-23" y="7" width="46" height="31"/>
                                                 <state key="normal" title="done">
                                                     <color key="titleColor" red="0.35686274509999999" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -2665,32 +2665,32 @@
                                         <constraints>
                                             <constraint firstItem="LgH-CM-s1a" firstAttribute="centerX" secondItem="4yz-hJ-4MX" secondAttribute="centerX" id="86a-lm-4p2"/>
                                             <constraint firstItem="5gV-8g-Qcy" firstAttribute="centerX" secondItem="4yz-hJ-4MX" secondAttribute="centerX" id="DWA-A7-elx"/>
-                                            <constraint firstItem="nzc-ty-5Zd" firstAttribute="leading" secondItem="4yz-hJ-4MX" secondAttribute="leading" constant="10" id="IFx-HH-ZNi"/>
+                                            <constraint firstItem="nzc-ty-5Zd" firstAttribute="leading" secondItem="4yz-hJ-4MX" secondAttribute="leading" constant="30" id="IFx-HH-ZNi"/>
                                             <constraint firstItem="nzc-ty-5Zd" firstAttribute="centerX" secondItem="4yz-hJ-4MX" secondAttribute="centerX" id="NiW-Dv-Drq"/>
                                             <constraint firstItem="eiD-L9-Eyj" firstAttribute="centerX" secondItem="4yz-hJ-4MX" secondAttribute="centerX" id="ODE-sg-cok"/>
-                                            <constraint firstItem="5gV-8g-Qcy" firstAttribute="leading" secondItem="uYj-ha-Kfd" secondAttribute="trailing" constant="10" id="QQI-oW-nAQ"/>
-                                            <constraint firstItem="LgH-CM-s1a" firstAttribute="leading" secondItem="5gV-8g-Qcy" secondAttribute="trailing" constant="10" id="REy-1l-lDy"/>
+                                            <constraint firstItem="5gV-8g-Qcy" firstAttribute="leading" secondItem="uYj-ha-Kfd" secondAttribute="trailing" constant="15" id="QQI-oW-nAQ"/>
+                                            <constraint firstItem="LgH-CM-s1a" firstAttribute="leading" secondItem="5gV-8g-Qcy" secondAttribute="trailing" constant="30" id="REy-1l-lDy"/>
                                             <constraint firstAttribute="height" constant="49" id="Rch-NU-xMd"/>
                                             <constraint firstItem="uYj-ha-Kfd" firstAttribute="centerX" secondItem="4yz-hJ-4MX" secondAttribute="centerX" id="RhB-m2-agf"/>
-                                            <constraint firstItem="81B-RH-DgN" firstAttribute="leading" secondItem="eiD-L9-Eyj" secondAttribute="trailing" constant="10" id="Sa9-dv-xPp"/>
+                                            <constraint firstItem="81B-RH-DgN" firstAttribute="leading" secondItem="eiD-L9-Eyj" secondAttribute="trailing" constant="15" id="Sa9-dv-xPp"/>
                                             <constraint firstItem="nzc-ty-5Zd" firstAttribute="centerY" secondItem="4yz-hJ-4MX" secondAttribute="centerY" id="VKe-vR-qQD"/>
                                             <constraint firstItem="uYj-ha-Kfd" firstAttribute="centerY" secondItem="4yz-hJ-4MX" secondAttribute="centerY" id="Xgi-ba-JMZ"/>
                                             <constraint firstItem="LgH-CM-s1a" firstAttribute="centerY" secondItem="4yz-hJ-4MX" secondAttribute="centerY" id="egS-c6-R8z"/>
-                                            <constraint firstItem="uYj-ha-Kfd" firstAttribute="leading" secondItem="81B-RH-DgN" secondAttribute="trailing" constant="10" id="evd-s9-Rsx"/>
+                                            <constraint firstItem="uYj-ha-Kfd" firstAttribute="leading" secondItem="81B-RH-DgN" secondAttribute="trailing" constant="15" id="evd-s9-Rsx"/>
                                             <constraint firstItem="81B-RH-DgN" firstAttribute="centerX" secondItem="4yz-hJ-4MX" secondAttribute="centerX" id="jMM-Vn-eMy"/>
                                             <constraint firstItem="81B-RH-DgN" firstAttribute="centerY" secondItem="4yz-hJ-4MX" secondAttribute="centerY" id="oHT-7b-dgt"/>
                                             <constraint firstItem="5gV-8g-Qcy" firstAttribute="centerY" secondItem="4yz-hJ-4MX" secondAttribute="centerY" id="usF-WF-Irc"/>
                                             <constraint firstItem="eiD-L9-Eyj" firstAttribute="centerY" secondItem="4yz-hJ-4MX" secondAttribute="centerY" id="vwh-qA-kJA"/>
-                                            <constraint firstItem="eiD-L9-Eyj" firstAttribute="leading" secondItem="nzc-ty-5Zd" secondAttribute="trailing" constant="10" id="y5N-Jz-8HZ"/>
+                                            <constraint firstItem="eiD-L9-Eyj" firstAttribute="leading" secondItem="nzc-ty-5Zd" secondAttribute="trailing" constant="15" id="y5N-Jz-8HZ"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="DWA-A7-elx"/>
-                                                <exclude reference="jMM-Vn-eMy"/>
                                                 <exclude reference="86a-lm-4p2"/>
-                                                <exclude reference="ODE-sg-cok"/>
-                                                <exclude reference="NiW-Dv-Drq"/>
+                                                <exclude reference="jMM-Vn-eMy"/>
                                                 <exclude reference="RhB-m2-agf"/>
+                                                <exclude reference="NiW-Dv-Drq"/>
+                                                <exclude reference="DWA-A7-elx"/>
+                                                <exclude reference="ODE-sg-cok"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -2863,6 +2863,7 @@
     <resources>
         <image name="angry_eyebrow_degree1.png" width="225" height="50"/>
         <image name="angry_mouth_degree1.png" width="150" height="150"/>
+        <image name="angry_unfilter.png" width="24" height="25"/>
         <image name="angry_unselect.png" width="261" height="265"/>
         <image name="basic shadow.png" width="280" height="280"/>
         <image name="check.png" width="42" height="42"/>
@@ -2871,11 +2872,15 @@
         <image name="cross.png" width="42" height="42"/>
         <image name="darkcircle_degree1.png" width="162" height="13"/>
         <image name="default_eye.png" width="146" height="24"/>
+        <image name="excited_unfilter.png" width="24" height="25"/>
         <image name="excited_unselect.png" width="261" height="261"/>
         <image name="joy_degree1.png" width="225" height="225"/>
+        <image name="joy_unfilter.png" width="25" height="25"/>
         <image name="joy_unselect.png" width="261" height="261"/>
+        <image name="sad_unfilter.png" width="25" height="25"/>
         <image name="sad_unselect.png" width="261" height="261"/>
         <image name="tear_degree1.png" width="185" height="99"/>
+        <image name="tired_unfilter.png" width="24" height="25"/>
         <image name="tired_unselect.png" width="260" height="261"/>
         <image name="wrinkle_degree1.png" width="117" height="47"/>
     </resources>
