@@ -343,13 +343,12 @@ NSMutableArray *moodmonConf;
     
     NSInteger yCount=1;
     NSInteger xCoord=0;
-    NSInteger yCoord=(yCount*yVal);
-    
-    UILabel *backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord, yCoord+10, CGRectGetWidth(self.view.bounds),yVal*2/3)];
+    NSInteger yCoord=self.navigationController.navigationBar.frame.size.height+20;
+    UILabel *backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds),yVal*2/3)];
     [backgroundLabel setBackgroundColor:[UIColor colorWithRed:222.0f/255.0f green:212.0f/255.0f blue:198.0f/255.0f alpha:1.0f]];
     [self.view addSubview:backgroundLabel];
     for(int i=0;i<7;i++){
-        UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
+        UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord-10, xVal, yVal)];
         switch (i) {
             case 1:
                 [monthLabel setText:[NSString stringWithFormat:@"MON"]];
@@ -376,7 +375,6 @@ NSMutableArray *moodmonConf;
                 break;
         }
         [monthLabel setFont:[UIFont fontWithName:@"Quicksand" size:13]];
-        [monthLabel setFont:[UIFont boldSystemFontOfSize:13]];
         monthLabel.tag = tag++;
         [monthLabel setTextColor:[UIColor blackColor]];
         [self.view addSubview:monthLabel];
@@ -396,7 +394,6 @@ NSMutableArray *moodmonConf;
             yCount++;
         }
         [dayButton setFont:[UIFont fontWithName:@"Quicksand" size:14]];
-        [dayButton setFont:[UIFont boldSystemFontOfSize:14]];
         dayButton.frame = CGRectMake(xCoord, yCoord, xVal, yVal);
         [dayButton setTitle:[NSString stringWithFormat:@"%d",startDay]forState:UIControlStateNormal];
         [dayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
