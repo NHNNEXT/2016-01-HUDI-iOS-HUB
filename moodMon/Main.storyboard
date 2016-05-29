@@ -2485,11 +2485,14 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="addButton" destination="d5j-x9-gTB" id="Vl6-nk-Wlp"/>
                         <outlet property="angryFilterBtn" destination="nzc-ty-5Zd" id="fp3-7p-oxg"/>
                         <outlet property="buttonContainer" destination="4yz-hJ-4MX" id="qBe-fV-oyI"/>
                         <outlet property="clickedDate" destination="W2P-vu-nqY" id="NgF-AL-zpz"/>
+                        <outlet property="dataButton" destination="aoa-DX-TC2" id="oWg-VE-DQu"/>
                         <outlet property="exciteFilterBtn" destination="uYj-ha-Kfd" id="VWS-0S-0bj"/>
                         <outlet property="exhaustFilterBtn" destination="5gV-8g-Qcy" id="eJD-xQ-93d"/>
+                        <outlet property="filterButton" destination="bmg-yH-qOD" id="t4L-Km-Zua"/>
                         <outlet property="happyFilterBtn" destination="eiD-L9-Eyj" id="sWt-B7-lT2"/>
                         <outlet property="sadFilterBtn" destination="81B-RH-DgN" id="CaL-Cy-PaE"/>
                         <outlet property="tableViews" destination="kCc-hW-Vsq" id="Ped-2u-kEC"/>

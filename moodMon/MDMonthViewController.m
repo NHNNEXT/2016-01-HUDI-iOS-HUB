@@ -98,6 +98,8 @@ NSMutableArray *moodmonConf;
     _clickedDate.text = @" ";
     myDay = 0;
 //    [self.toolbarContainer
+    [_dataButton setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Quicksand" size:18]} forState:UIControlStateNormal];
+    [_filterButton setFont:[UIFont fontWithName:@"Quicksand" size:18]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Quicksand" size:18]}];
     [self resetTimeTable];
     [self moreDateInfo];

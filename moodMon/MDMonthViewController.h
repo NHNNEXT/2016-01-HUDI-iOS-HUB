@@ -61,6 +61,9 @@
 - (IBAction)filterButtonClicked:(id)sender;
 /****************************/
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (strong, nonatomic) IBOutlet UIButton *filterButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *dataButton;
 -(void) showAlert:(NSNotification*)notification;
 -(void)timeTableReload;
 -(void)resetTimeTable;
