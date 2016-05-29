@@ -17,7 +17,7 @@
 #import "MDCustomStoryboardunwindSegue.h"
 #import "MDMonthTimeLineCellTableViewCell.h"
 
-@interface MDMonthViewController : UIViewController <SwipeableCellDelegate>
+@interface MDMonthViewController : UIViewController <SwipeableCellDelegate, UITableViewDelegate>
 
 @property (strong, nonatomic)MDDataManager *mddm;
 
