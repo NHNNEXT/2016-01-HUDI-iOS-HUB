@@ -2400,7 +2400,9 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2mm-kM-bLX" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="56" id="6OC-lh-cGA"/>
+                                        <constraint firstItem="2mm-kM-bLX" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="56" id="6OC-lh-cGA">
+                                            <variation key="widthClass=compact" constant="68"/>
+                                        </constraint>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2mm-kM-bLX" secondAttribute="trailing" constant="90" id="IFU-ZD-OW2"/>
                                         <constraint firstItem="qdJ-j2-V7A" firstAttribute="leading" secondItem="aIw-TD-xuP" secondAttribute="leadingMargin" constant="8" id="QSu-F1-Kvh"/>
                                         <constraint firstItem="2mm-kM-bLX" firstAttribute="centerY" secondItem="aIw-TD-xuP" secondAttribute="centerY" id="XWn-lR-XzP"/>
