@@ -13,7 +13,7 @@
     BOOL toolbarIsOpen;
     BOOL toolbarIsAnimating;
     NSInteger myDay;
-
+    
 }
 
 @end
@@ -28,10 +28,10 @@ int count;
 NSMutableArray *moodmonConf;
 
 @implementation MDMonthViewController{
-   }
+}
 
 -(void)awakeFromNib{
-  
+    
     //image loading
     _angryChecked = [UIImage imageNamed:@"angry_filter@2x"];
     _angryUnchecked = [UIImage imageNamed:@"angry_unfilter@2x"];
@@ -49,7 +49,7 @@ NSMutableArray *moodmonConf;
 
 
 - (void)viewDidLoad {
-
+    
     count=0;
     [super viewDidLoad];
     _mddm = [MDDataManager sharedDataManager];
@@ -72,13 +72,13 @@ NSMutableArray *moodmonConf;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(timeTableReload) name:@"newDataAdded" object:_mddm];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlert:) name:@"iCloudSyncFinished" object:_mddm];
     
-
     
-
+    
+    
     createdAt=[_mddm moodCollection];
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
-
+    
     self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear, thisMonth];
     _clickedDate.text = @" ";
     myDay = 0;
@@ -96,13 +96,13 @@ NSMutableArray *moodmonConf;
     [super viewWillAppear:animated];
     [self removeTags];
     [self moreDateInfo];
-   
-
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-   
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,7 +116,7 @@ NSMutableArray *moodmonConf;
     if (!toolbarIsAnimating) {
         toolbarIsAnimating = YES;
         [self expandToolbarWithoutBounce];
-
+        
     }
 }
 
@@ -127,7 +127,7 @@ NSMutableArray *moodmonConf;
     }
     
     [_mddm getFilteredMoodmons];
-   // NSLog(@" %d", _mddm.chosenMoodCount);
+    // NSLog(@" %d", _mddm.chosenMoodCount);
 }
 
 - (void)collapseToolbarWithoutBounce{
@@ -146,7 +146,7 @@ NSMutableArray *moodmonConf;
     } completion:^(BOOL finished) {
         toolbarIsOpen = YES;
         toolbarIsAnimating = NO;
-       // [self.collapseButton setTitle:@"\u2B07" forState:UIControlStateNormal];
+        // [self.collapseButton setTitle:@"\u2B07" forState:UIControlStateNormal];
     }];
 }
 //filtering
@@ -183,20 +183,20 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[2]  isEqual: @NO]){
             _mddm.isChecked[2] = @YES;
             _mddm.chosenMoodCount++;
-             [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
+            [self.sadFilterBtn setBackgroundImage: _sadChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[2] = @NO;
             _mddm.chosenMoodCount--;
-             [self.sadFilterBtn setBackgroundImage: _sadUnchecked forState:UIControlStateNormal];
-             }
-    
+            [self.sadFilterBtn setBackgroundImage: _sadUnchecked forState:UIControlStateNormal];
+        }
+        
     } else if (sender == self.exciteFilterBtn){
         
         if([_mddm.isChecked[3]  isEqual: @NO]){
             _mddm.isChecked[3] = @YES;
             _mddm.chosenMoodCount++;
-             [self.exciteFilterBtn setBackgroundImage: _exciteChecked forState:UIControlStateNormal];
-
+            [self.exciteFilterBtn setBackgroundImage: _exciteChecked forState:UIControlStateNormal];
+            
         } else {
             _mddm.isChecked[3] = @NO;
             _mddm.chosenMoodCount--;
@@ -208,11 +208,11 @@ NSMutableArray *moodmonConf;
         if([_mddm.isChecked[4]  isEqual: @NO]){
             _mddm.isChecked[4] = @YES;
             _mddm.chosenMoodCount++;
-           [self.exhaustFilterBtn setBackgroundImage: _exhaustChecked forState:UIControlStateNormal];
+            [self.exhaustFilterBtn setBackgroundImage: _exhaustChecked forState:UIControlStateNormal];
         } else {
             _mddm.isChecked[4] = @NO;
             _mddm.chosenMoodCount--;
-           [self.exhaustFilterBtn setBackgroundImage: _exhaustUnchecked forState:UIControlStateNormal];
+            [self.exhaustFilterBtn setBackgroundImage: _exhaustUnchecked forState:UIControlStateNormal];
         }
         
     } else {
@@ -237,7 +237,7 @@ NSMutableArray *moodmonConf;
     
     if(day == myDay){
         [self showClickedDateMoodmonAtDay:myDay];
-    }    
+    }
 }
 
 
@@ -256,7 +256,7 @@ NSMutableArray *moodmonConf;
         [self removeTags];
         [self moreDateInfo];
         NSLog(@"down Swipe");
-       
+        
     }
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionDown) {
@@ -274,7 +274,7 @@ NSMutableArray *moodmonConf;
     myDay = 0;
     _clickedDate.text = @" ";
     [_tableViews reloadData];
-
+    
 }
 
 
@@ -283,8 +283,8 @@ NSMutableArray *moodmonConf;
     int height = [UIScreen mainScreen].bounds.size.height;
     NSString *identifier = (height<=568)?@"newMoodmonVC_4inch":@"newMoodmonVC";
     UIViewController *newMoodVC = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-//    MDCustomStoryboardSegue *segue = [[MDCustomStoryboardSegue alloc] initWithIdentifier:@"toNewMoodVC" source:self destination:newMoodVC];
-//    [segue perform];
+    //    MDCustomStoryboardSegue *segue = [[MDCustomStoryboardSegue alloc] initWithIdentifier:@"toNewMoodVC" source:self destination:newMoodVC];
+    //    [segue perform];
     [self presentViewController:newMoodVC animated:YES completion:nil];
 }
 
@@ -345,7 +345,7 @@ NSMutableArray *moodmonConf;
     [backgroundLabel setBackgroundColor:[UIColor colorWithRed:222.0f/255.0f green:212.0f/255.0f blue:198.0f/255.0f alpha:1.0f]];
     [self.view addSubview:backgroundLabel];
     for(int i=0;i<7;i++){
-    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
+        UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord+(xVal*i)+xVal/3, yCoord, xVal, yVal)];
         switch (i) {
             case 1:
                 [monthLabel setText:[NSString stringWithFormat:@"MON"]];
@@ -371,15 +371,15 @@ NSMutableArray *moodmonConf;
             default:
                 break;
         }
-    monthLabel.tag = tag++;
-    [monthLabel setFont:[UIFont systemFontOfSize:16]];
-    [monthLabel setTextColor:[UIColor blackColor]];
-    [self.view addSubview:monthLabel];
+        monthLabel.tag = tag++;
+        [monthLabel setFont:[UIFont systemFontOfSize:16]];
+        [monthLabel setTextColor:[UIColor blackColor]];
+        [self.view addSubview:monthLabel];
     }
     //
     yCount++;
-//    _yearLabel.text=[NSString stringWithFormat:@"%d",thisYear];
-//    [_monthLabel setText:[NSString stringWithFormat:@"%d",thisMonth]];
+    //    _yearLabel.text=[NSString stringWithFormat:@"%d",thisYear];
+    //    [_monthLabel setText:[NSString stringWithFormat:@"%d",thisMonth]];
     for(int startDay=1; startDay<=numDays;startDay++){
         UIButton *dayButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         xCoord=(newWeekDay*xVal);
@@ -399,19 +399,19 @@ NSMutableArray *moodmonConf;
         int checkFalg =0;
         for(int parseNum=0; parseNum<createdAt.count; parseNum++){
             NSDictionary *parseDate = createdAt[parseNum];
-           int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
+            int parseMonth=[[parseDate valueForKey:@"_moodMonth"] intValue];
             int parseYear=[[parseDate valueForKey:@"_moodYear"] intValue];
             int parseDay=[[parseDate valueForKey:@"_moodDay"] intValue];
             
             if((parseYear==thisYear)&&(parseMonth==thisMonth)&&(parseDay==startDay)&&(checkFalg==0)){
-               
-//                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
-//                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
-//                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
-//                    }
-//                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
-                    //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
-                    //                }
+                
+                //                    [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen1"]];
+                //                    if([createdAt[parseNum] valueForKey:@"_moodChosen2"]!=0){
+                //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen2"]];
+                //                    }
+                //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
+                //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
+                //                }
                 
                 
                 
@@ -426,70 +426,70 @@ NSMutableArray *moodmonConf;
                 [mfv awakeFromNib];
                 //                mcv.backgroundColor = [UIColor clearColor];
                 NSArray *dayRepresenatationColors = [_mddm representationOfMoodAtYear:(NSInteger)parseYear Month:(NSInteger)parseMonth andDay:parseDay];
-               
-                NSNumber *tempMoodChosen = dayRepresenatationColors[0];
+                
+                NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
                 if(tempMoodChosen.intValue > 0){
                     [mfv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
                 }
-                tempMoodChosen = dayRepresenatationColors[1];
+                tempMoodChosen = [parseDate valueForKey:kChosen2 ];
                 if(tempMoodChosen.intValue > 0){
                     [mfv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
                 }
-                tempMoodChosen = dayRepresenatationColors[2];
+                tempMoodChosen =[parseDate valueForKey:kChosen3 ];
                 if(tempMoodChosen.intValue > 0){
                     [mfv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
                     [mcv.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
                 }
                 mfv.backgroundColor =[UIColor clearColor];
                 
-//                    mmm = [[MDMakeMoodMonView alloc]init];
-//                    mcv = [self.view viewWithTag:7];
-//                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
+                //                    mmm = [[MDMakeMoodMonView alloc]init];
+                //                    mcv = [self.view viewWithTag:7];
+                //                    [dayButton setImage:[mmm makeMoodMon:createdAt[parseNum] view:mcv] forState:UIControlStateNormal];
                 int visualble = 0;
                 
                 if([_mddm.isChecked[0] isEqual:@NO]&&[_mddm.isChecked[1] isEqual:@NO]&&[_mddm.isChecked[2] isEqual:@NO]&&[_mddm.isChecked[3] isEqual:@NO]&&[_mddm.isChecked[4] isEqual:@NO]){
                     visualble=1;
                 }
                 else{
-                if([_mddm.isChecked[0] isEqual:@YES]){
-                    for (NSString *checked in mfv.chosenMoods) {
-                        if(checked.intValue /10 ==1)
-                            visualble = 1;
+                    if([_mddm.isChecked[0] isEqual:@YES]){
+                        for (NSString *checked in mfv.chosenMoods) {
+                            if(checked.intValue /10 ==1)
+                                visualble = 1;
+                        }
+                    }if([_mddm.isChecked[1] isEqual:@YES]){
+                        for (NSString *checked in mfv.chosenMoods) {
+                            if(checked.intValue /10 ==2)
+                                visualble = 1;
+                        }
+                    }if([_mddm.isChecked[2] isEqual:@YES]){
+                        for (NSString *checked in mfv.chosenMoods) {
+                            if(checked.intValue /10 ==3)
+                                visualble = 1;
+                        }
+                    }if([_mddm.isChecked[3] isEqual:@YES]){
+                        for (NSString *checked in mfv.chosenMoods) {
+                            if(checked.intValue /10 ==4)
+                                visualble = 1;
+                        }
+                    }if([_mddm.isChecked[4] isEqual:@YES]){
+                        for (NSString *checked in mfv.chosenMoods) {
+                            if(checked.intValue /10 ==5)
+                                visualble = 1;
+                        }
                     }
-                }if([_mddm.isChecked[1] isEqual:@YES]){
-                    for (NSString *checked in mfv.chosenMoods) {
-                        if(checked.intValue /10 ==2)
-                            visualble = 1;
-                    }
-                }if([_mddm.isChecked[2] isEqual:@YES]){
-                    for (NSString *checked in mfv.chosenMoods) {
-                        if(checked.intValue /10 ==3)
-                            visualble = 1;
-                    }
-                }if([_mddm.isChecked[3] isEqual:@YES]){
-                    for (NSString *checked in mfv.chosenMoods) {
-                        if(checked.intValue /10 ==4)
-                            visualble = 1;
-                    }
-                }if([_mddm.isChecked[4] isEqual:@YES]){
-                    for (NSString *checked in mfv.chosenMoods) {
-                        if(checked.intValue /10 ==5)
-                            visualble = 1;
-                    }
-                }
                 }
                 if(visualble ==1){
                     [dayButton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-                checkFalg=1;
-                mcv.tag=tag++;
-                mfv.tag=tag++;
-                mcv.layer.cornerRadius = xVal*5/12;
-                [mcv setNeedsDisplay];
-                [mfv setNeedsDisplay];
-                [self.view addSubview:mcv];
-                [self.view addSubview:mfv];
+                    checkFalg=1;
+                    mcv.tag=tag++;
+                    mfv.tag=tag++;
+                    mcv.layer.cornerRadius = xVal*5/12;
+                    [mcv setNeedsDisplay];
+                    [mfv setNeedsDisplay];
+                    [self.view addSubview:mcv];
+                    [self.view addSubview:mfv];
                 }
             }
         }
@@ -513,9 +513,9 @@ NSMutableArray *moodmonConf;
     //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
-   
+    
     cell.delegate = self;
-   
+    
     
     MDMoodColorView *temp = [cell viewWithTag:100];
     //NSLog(@"before : %@",temp.chosenMoods);
@@ -524,7 +524,7 @@ NSMutableArray *moodmonConf;
         for(int i = 0 ; i < usedChosenMoodsCount-1 ; i++){
             [temp.chosenMoods removeLastObject];
         }
-       // NSLog(@"after :%@",temp.chosenMoods);
+        // NSLog(@"after :%@",temp.chosenMoods);
         [temp setNeedsDisplay];
     }
     
@@ -593,7 +593,7 @@ NSMutableArray *moodmonConf;
 -(void)buttonTouch:(id)sender{
     UIButton* btn = (UIButton *)sender;
     [self showClickedDateMoodmonAtDay:btn.currentTitle.intValue];
-   
+    
 }
 
 
@@ -604,8 +604,8 @@ NSMutableArray *moodmonConf;
     _clickedDate.text = clickedDateString;
     myDay = day;
     
-   
-
+    
+    
     
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
@@ -627,7 +627,7 @@ NSMutableArray *moodmonConf;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableViews deselectRowAtIndexPath:indexPath animated:NO];
-
+    
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -641,7 +641,7 @@ NSMutableArray *moodmonConf;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-       // [_objects removeObjectAtIndex:indexPath.row];
+        // [_objects removeObjectAtIndex:indexPath.row];
         [self.tableViews deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else {
         NSLog(@"Unhandled editing style! %ld",(long)editingStyle);
@@ -663,7 +663,7 @@ NSMutableArray *moodmonConf;
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:defaultAction];
     [self presentViewController:alertController animated:YES completion:nil];
-
+    
     //뷰를 넘겨주면 그대로 저장
 }
 - (IBAction) exitFromSecondViewController:(UIStoryboardSegue *)segue

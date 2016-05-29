@@ -11,8 +11,9 @@
 #import "MDMoodFaceView.h"
 #import "MDMoodColorView.h"
 #import "MDDataManager.h"
+#import "MDNavController.h"
 @interface MDYearViewController ()
-
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @end
 
 
@@ -33,8 +34,7 @@ int tag;
     createdAt=[mddm moodCollection];
     
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
-    
-    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+        UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     [swipeUp setDirection:UISwipeGestureRecognizerDirectionUp];
     [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
@@ -78,13 +78,16 @@ int tag;
 
 -(void)removeTags{
     int x=1;
-    while(x<=365){
+    while(x<=900){
         [[self.view viewWithTag:x]removeFromSuperview];
         x++;
     }
 }
 -(void)myCalView{
     tag=1;
+    _titleLabel.text= [NSString stringWithFormat:@"%d년", thisYear];
+    
+
     double xVal=CGRectGetWidth(self.view.bounds)/3,yVal=CGRectGetHeight(self.view.bounds)/5;
     
     [self moreDateInfo:1 xVal:0 yVal:yVal*0+84];
@@ -128,13 +131,13 @@ int tag;
     int yCount=1;
     
     yearly.text=[NSString stringWithFormat:@"%d",thisYear];
-    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6-10, yVal-10, 20, 20)];
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6, yVal-10, 20, 20)];
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
     [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
         UILabel *dayButton = [[UILabel alloc]init];
-        int xCoord=(newWeekDay*CGRectGetWidth(self.view.bounds)/2.8/10)+xVal+10;
-        int yCoord=(yCount*14)+yVal;
+        int xCoord=(newWeekDay*CGRectGetWidth(self.view.bounds)/2.8/8)+xVal+5;
+        int yCoord=(yCount*CGRectGetWidth(self.view.bounds)/2.8/8)+yVal;
         
         newWeekDay++;
         if(newWeekDay>6){
@@ -142,7 +145,7 @@ int tag;
             yCount++;
         }
         
-        dayButton.frame = CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/10, CGRectGetWidth(self.view.bounds)/2.8/10);
+        dayButton.frame = CGRectMake(xCoord+(CGRectGetWidth(self.view.bounds)/2.8/8/5), yCoord, CGRectGetWidth(self.view.bounds)/2.8/8, CGRectGetWidth(self.view.bounds)/2.8/8);
         [dayButton setText:[NSString stringWithFormat:@"%d",startDay]];
         [dayButton setFont:[UIFont systemFontOfSize:CGRectGetWidth(self.view.bounds)/2.8/13]];
         [dayButton setTextColor:[UIColor blackColor]];
@@ -165,7 +168,7 @@ int tag;
                 //                    if([createdAt[parseNum] valueForKey:@"_moodChosen3"]!=0){
                 //                        [self.moodColor.chosenMoods addObject:[createdAt[parseNum] valueForKey:@"_moodChosen3"]];
                 //                }
-                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/10, CGRectGetWidth(self.view.bounds)/2.8/10)];
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoord, yCoord, CGRectGetWidth(self.view.bounds)/2.8/8, CGRectGetWidth(self.view.bounds)/2.8/8)];
                 
                 [mcv awakeFromNib];
                 MDMoodFaceView *mfv = [[MDMoodFaceView alloc]initWithFrame:CGRectMake(xCoord, yCoord, xVal, yVal)];

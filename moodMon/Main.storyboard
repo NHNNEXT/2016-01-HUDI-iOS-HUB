@@ -2301,7 +2301,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p07-Mr-Fwp">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p07-Mr-Fwp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="7ab-Rl-Puz"/>
@@ -2321,13 +2321,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoW-co-fOf">
+                                <rect key="frame" x="158" y="11" width="98" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="21" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="p07-Mr-Fwp" secondAttribute="trailing" constant="-20" id="4E4-vg-Sy4"/>
-                            <constraint firstItem="p07-Mr-Fwp" firstAttribute="leading" secondItem="P6o-Am-0hL" secondAttribute="leadingMargin" constant="-20" id="i6O-Gz-h1X"/>
+                            <constraint firstItem="uoW-co-fOf" firstAttribute="centerX" secondItem="p07-Mr-Fwp" secondAttribute="centerX" id="9FW-xc-ULa"/>
                             <constraint firstItem="p07-Mr-Fwp" firstAttribute="top" secondItem="P6o-Am-0hL" secondAttribute="topMargin" id="uMV-Yf-v9X"/>
+                            <constraint firstItem="uoW-co-fOf" firstAttribute="top" secondItem="P6o-Am-0hL" secondAttribute="topMargin" constant="22" id="woO-WO-dmV"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QP7-7f-6Mr" appends="YES" id="GYL-xs-v67"/>
@@ -2335,6 +2349,9 @@
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="uoW-co-fOf" id="FvC-Ie-ZKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1V-a2-Sxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WBc-a8-YuF" userLabel="Exit" sceneMemberID="exit"/>
@@ -2349,7 +2366,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1982" y="676"/>
+            <point key="canvasLocation" x="1977" y="692"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="VSh-RE-7sg">
@@ -2873,7 +2890,7 @@
     <resources>
         <image name="angry_eyebrow_degree1.png" width="225" height="50"/>
         <image name="angry_mouth_degree1.png" width="150" height="150"/>
-        <image name="angry_unfilter.png" width="24" height="25"/>
+        <image name="angry_unfilter.png" width="29" height="29"/>
         <image name="angry_unselect.png" width="261" height="265"/>
         <image name="basic shadow.png" width="280" height="280"/>
         <image name="check.png" width="42" height="42"/>
@@ -2882,15 +2899,15 @@
         <image name="cross.png" width="42" height="42"/>
         <image name="darkcircle_degree1.png" width="162" height="13"/>
         <image name="default_eye.png" width="146" height="24"/>
-        <image name="excited_unfilter.png" width="24" height="25"/>
+        <image name="excited_unfilter.png" width="29" height="29"/>
         <image name="excited_unselect.png" width="261" height="261"/>
         <image name="joy_degree1.png" width="225" height="225"/>
-        <image name="joy_unfilter.png" width="25" height="25"/>
+        <image name="joy_unfilter.png" width="29" height="29"/>
         <image name="joy_unselect.png" width="261" height="261"/>
-        <image name="sad_unfilter.png" width="25" height="25"/>
+        <image name="sad_unfilter.png" width="29" height="29"/>
         <image name="sad_unselect.png" width="261" height="261"/>
         <image name="tear_degree1.png" width="185" height="99"/>
-        <image name="tired_unfilter.png" width="24" height="25"/>
+        <image name="tired_unfilter.png" width="29" height="29"/>
         <image name="tired_unselect.png" width="260" height="261"/>
         <image name="wrinkle_degree1.png" width="117" height="47"/>
     </resources>
