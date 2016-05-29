@@ -145,6 +145,10 @@
 		E9A93B881CFAD37800421076 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B7F1CFAD37800421076 /* iTunesArtwork.png */; };
 		E9A93B891CFAD37800421076 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B801CFAD37800421076 /* iTunesArtwork@2x.png */; };
 		E9A93B8B1CFAEE4800421076 /* comment box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B8A1CFAEE4800421076 /* comment box@2x.png */; };
+		E9A93B8E1CFB182B00421076 /* launch icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B8D1CFB182B00421076 /* launch icon@2x.png */; };
+		E9A93B901CFB197400421076 /* launch screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B8F1CFB197400421076 /* launch screen@2x.png */; };
+		E9A93B931CFB2FC500421076 /* NanumGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B911CFB2FC500421076 /* NanumGothic.otf */; };
+		E9A93B941CFB2FC500421076 /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9A93B921CFB2FC500421076 /* NanumGothicLight.otf */; };
 		E9B03E1B1CF1FD700069741F /* angry_degree1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E021CF1FD700069741F /* angry_degree1@2x.png */; };
 		E9B03E1C1CF1FD700069741F /* angry_degree2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E031CF1FD700069741F /* angry_degree2@2x.png */; };
 		E9B03E1D1CF1FD700069741F /* angry_degree3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B03E041CF1FD700069741F /* angry_degree3@2x.png */; };
@@ -367,6 +371,10 @@
 		E9A93B7F1CFAD37800421076 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		E9A93B801CFAD37800421076 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		E9A93B8A1CFAEE4800421076 /* comment box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment box@2x.png"; sourceTree = "<group>"; };
+		E9A93B8D1CFB182B00421076 /* launch icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch icon@2x.png"; sourceTree = "<group>"; };
+		E9A93B8F1CFB197400421076 /* launch screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch screen@2x.png"; sourceTree = "<group>"; };
+		E9A93B911CFB2FC500421076 /* NanumGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothic.otf; sourceTree = "<group>"; };
+		E9A93B921CFB2FC500421076 /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
 		E9B03E021CF1FD700069741F /* angry_degree1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree1@2x.png"; sourceTree = "<group>"; };
 		E9B03E031CF1FD700069741F /* angry_degree2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree2@2x.png"; sourceTree = "<group>"; };
 		E9B03E041CF1FD700069741F /* angry_degree3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry_degree3@2x.png"; sourceTree = "<group>"; };
@@ -582,6 +590,7 @@
 				E986ECD71CDFBE2F00792C55 /* dark circle */,
 				E986ECDD1CDFBE2F00792C55 /* eye */,
 				E986ECE51CDFBE2F00792C55 /* eyebrow */,
+				E9A93B8C1CFB181800421076 /* launch screen */,
 				E986ECF51CDFBE2F00792C55 /* intensity */,
 				E986ED0F1CDFBE2F00792C55 /* mouth */,
 				E986ED291CDFBE2F00792C55 /* save & reset */,
@@ -799,6 +808,15 @@
 			name = "new moodmon";
 			sourceTree = "<group>";
 		};
+		E9A93B8C1CFB181800421076 /* launch screen */ = {
+			isa = PBXGroup;
+			children = (
+				E9A93B8F1CFB197400421076 /* launch screen@2x.png */,
+				E9A93B8D1CFB182B00421076 /* launch icon@2x.png */,
+			);
+			name = "launch screen";
+			sourceTree = "<group>";
+		};
 		E9B06CCD1CF2D13F000E8C7B /* icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -818,6 +836,8 @@
 		E9CC1F521CB4D347003099D8 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E9A93B911CFB2FC500421076 /* NanumGothic.otf */,
+				E9A93B921CFB2FC500421076 /* NanumGothicLight.otf */,
 				658BE71B1CB4CE98006EB718 /* Quicksand-Bold.otf */,
 				658BE71C1CB4CE98006EB718 /* Quicksand-Light.otf */,
 				658BE71D1CB4CE98006EB718 /* Quicksand-Regular.otf */,
@@ -931,7 +951,7 @@
 						DevelopmentTeam = 39WT95YDMW;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -994,6 +1014,7 @@
 				E986ED8A1CDFBE2F00792C55 /* excited_mouth_degree1@2x.png in Resources */,
 				E986ED561CDFBE2F00792C55 /* angry_eye@2x.png in Resources */,
 				E9B03E211CF1FD700069741F /* excited_degree2@2x.png in Resources */,
+				E9A93B901CFB197400421076 /* launch screen@2x.png in Resources */,
 				E9A93B881CFAD37800421076 /* iTunesArtwork.png in Resources */,
 				658BE7341CB4CE98006EB718 /* Quicksand-Light.otf in Resources */,
 				E986ED971CDFBE2F00792C55 /* sad_mouth_degree4@2x.png in Resources */,
@@ -1011,6 +1032,7 @@
 				CE4A8A461CABCCB1006B73B7 /* LaunchScreen.storyboard in Resources */,
 				E986ED9B1CDFBE2F00792C55 /* tired_mouth_degree3@2x.png in Resources */,
 				CEABEFFC1CFAF2DC00AA4E60 /* excited_unfilter@2x.png in Resources */,
+				E9A93B931CFB2FC500421076 /* NanumGothic.otf in Resources */,
 				E986EDAD1CDFBE2F00792C55 /* sad_unselect@2x.png in Resources */,
 				E986ED9A1CDFBE2F00792C55 /* tired_mouth_degree2@2x.png in Resources */,
 				E986EDB71CDFBE2F00792C55 /* wrinkle_degree4@2x.png in Resources */,
@@ -1048,6 +1070,7 @@
 				E986ED951CDFBE2F00792C55 /* sad_mouth_degree2@2x.png in Resources */,
 				E986EDA51CDFBE2F00792C55 /* tear_degree1@2x.png in Resources */,
 				E986ED4A1CDFBE2F00792C55 /* basic shadow@2x.png in Resources */,
+				E9A93B8E1CFB182B00421076 /* launch icon@2x.png in Resources */,
 				E986EDA81CDFBE2F00792C55 /* tear_degree4@2x.png in Resources */,
 				E986EDAE1CDFBE2F00792C55 /* tired_unselect@2x.png in Resources */,
 				CEABF0001CFAF2DC00AA4E60 /* sad_unfilter@2x.png in Resources */,
@@ -1079,6 +1102,7 @@
 				E986EDA61CDFBE2F00792C55 /* tear_degree2@2x.png in Resources */,
 				E9A93B8B1CFAEE4800421076 /* comment box@2x.png in Resources */,
 				E986ED861CDFBE2F00792C55 /* angry_mouth_degree2@2x.png in Resources */,
+				E9A93B941CFB2FC500421076 /* NanumGothicLight.otf in Resources */,
 				E986ED5B1CDFBE2F00792C55 /* excited_eye_degree4@2x.png in Resources */,
 				E986ED4D1CDFBE2F00792C55 /* cheek_degree3@2x.png in Resources */,
 				E9B03E281CF1FD700069741F /* joy_degree4@2x.png in Resources */,
@@ -1295,7 +1319,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = moodMon/moodMon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_NO_COMMON_BLOCKS = NO;
@@ -1312,7 +1335,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = moodMon/moodMon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_NO_COMMON_BLOCKS = NO;

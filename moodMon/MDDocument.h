@@ -13,5 +13,5 @@
 
 @property (strong, nonatomic) NSMutableArray<MDMoodmon*>* moodmonCollection;
 
--(instancetype)initMoodCollection;
+//-(instancetype)initMoodCollection;
 @end

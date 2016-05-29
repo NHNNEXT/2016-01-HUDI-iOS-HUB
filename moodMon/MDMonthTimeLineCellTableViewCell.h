@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MDMoodColorView.h"
+#import "MDMonthViewController.h"
 
 @protocol SwipeableCellDelegate <NSObject>
 - (void)buttonOneActionForItemText:(NSString *)itemText;

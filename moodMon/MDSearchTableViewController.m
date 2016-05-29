@@ -199,42 +199,44 @@
     viewForFrame.layer.cornerRadius = viewForFrame.frame.size.width/2;
     viewForFrame.layer.masksToBounds = YES;
     
-    MDMoodColorView *temp = [[MDMoodColorView alloc]init];
-    [temp setFrame:viewForFrame.frame];
-    MDSmallMoodFaceView *faceTemp = [[MDSmallMoodFaceView alloc]init];
-    [faceTemp setFrame:viewForFrame.frame];
+    MDMoodColorView *colorView = [[MDMoodColorView alloc]init];
+    MDSmallMoodFaceView *faceView = [[MDSmallMoodFaceView alloc]init];
+    [cell addSubview:colorView];
+    [cell addSubview:faceView];
+    CGRect frame = CGRectMake(viewForFrame.frame.origin.x, 8, viewForFrame.frame.size.width, viewForFrame.frame.size.height);
+    [colorView setFrame:frame];
+    [faceView setFrame:frame];
     
-    for(int i = 1 ;i <temp.chosenMoods.count ; i++){
-        [temp.chosenMoods removeObjectAtIndex:i];
-        [faceTemp.chosenMoods removeObjectAtIndex:i];
+    for(int i = 1 ;i <colorView.chosenMoods.count ; i++){
+        [colorView.chosenMoods removeObjectAtIndex:i];
+        [faceView.chosenMoods removeObjectAtIndex:i];
         
     }
     
-    [faceTemp awakeFromNib];
+    [faceView awakeFromNib];
     
     NSNumber *tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen1];
     if(tempMoodChosen.intValue != 0){
-        [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
-        [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+        [colorView.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+        [faceView.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
     }
     tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen2];
     if(tempMoodChosen.intValue != 0){
-        [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
-        [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+        [colorView.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+        [faceView.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
     }
     tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen3];
     if(tempMoodChosen.intValue != 0){
-        [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
-        [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+        [colorView.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+        [faceView.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
     }
     
-    temp.layer.cornerRadius = temp.frame.size.width/2;
-    temp.layer.masksToBounds = YES;
+    colorView.layer.cornerRadius = colorView.frame.size.width/2;
+    colorView.layer.masksToBounds = YES;
     
-    [cell addSubview:temp];
-    [cell addSubview:faceTemp];
-    [faceTemp setNeedsDisplay];
-    [temp setNeedsDisplay];
+
+    [faceView setNeedsDisplay];
+    [colorView setNeedsDisplay];
 
     return cell;
 }

@@ -12,15 +12,15 @@
 @interface MDMonthViewController (){
     BOOL toolbarIsOpen;
     BOOL toolbarIsAnimating;
-    NSInteger myDay;
+    int myDay;
     
 }
 
 @end
 
 extern NSUInteger numDays;
-extern int thisYear;
-int thisMonth;
+extern NSUInteger thisYear;
+NSUInteger thisMonth;
 extern int weekday;
 extern int tag;
 NSArray *createdAt;
@@ -79,7 +79,7 @@ NSMutableArray *moodmonConf;
     thisYear =[[[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:[NSDate date]]year];
     thisMonth =[[[NSCalendar currentCalendar]components:NSCalendarUnitMonth fromDate:[NSDate date]]month];
     
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear, thisMonth];
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", thisYear, (unsigned long)thisMonth];
     _clickedDate.text = @" ";
     myDay = 0;
     
@@ -247,7 +247,7 @@ NSMutableArray *moodmonConf;
 -(void)goToYearView{
     MDYearViewController *yvc = [[MDYearViewController alloc]initWithNibName:@"yearVC" bundle:nil];
     [yvc setModalTransitionStyle:UIModalTransitionStylePartialCurl];
-    [self presentModalViewController:yvc animated:YES];
+    [self presentViewController:yvc animated:YES completion:nil];
 }
 
 - (IBAction)handleSwipe:(UISwipeGestureRecognizer *)swipe {
@@ -265,7 +265,7 @@ NSMutableArray *moodmonConf;
         [self moreDateInfo];
         NSLog(@"up Swipe");
     }
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%d년 %d월", thisYear,thisMonth];
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", (unsigned long)thisYear,thisMonth];
     [self resetTimeTable];
 }
 
@@ -600,12 +600,9 @@ NSMutableArray *moodmonConf;
 -(void)showClickedDateMoodmonAtDay:(int)day{
     NSMutableArray* moodmonConfig = [[NSMutableArray alloc]init];
     count=0;
-    NSString *clickedDateString =[NSString stringWithFormat:@"%d년 %d월 %d일", thisYear, thisMonth, day];
+    NSString *clickedDateString =[NSString stringWithFormat:@"%lu년 %lu월 %d일", thisYear, (unsigned long)thisMonth, day];
     _clickedDate.text = clickedDateString;
     myDay = day;
-    
-    
-    
     
     for(int parseNum=0; parseNum<createdAt.count; parseNum++){
         NSDictionary *parseDate = createdAt[parseNum];
@@ -623,6 +620,14 @@ NSMutableArray *moodmonConf;
     [_tableViews reloadData];
     
 }
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -17,10 +17,10 @@
 @end
 
 
-NSUInteger numDays;
-int thisYear;
+NSInteger numDays;
+NSInteger thisYear;
 NSArray *createdAt;
-int weekday;
+NSInteger weekday;
 int tag;
 
 @implementation MDYearViewController
@@ -85,7 +85,7 @@ int tag;
 }
 -(void)myCalView{
     tag=1;
-    _titleLabel.text= [NSString stringWithFormat:@"%d년", thisYear];
+    _titleLabel.text= [NSString stringWithFormat:@"%lu년", thisYear];
     
 
     double xVal=CGRectGetWidth(self.view.bounds)/3,yVal=CGRectGetHeight(self.view.bounds)/5;
@@ -125,12 +125,12 @@ int tag;
     
     numDays=[self getCurrDateInfo:newDate];
     
-    int newWeekDay=weekday-1;
+    NSInteger newWeekDay=weekday-1;
     //    NSLog(@"Day week %d",newWeekDay);
     
     int yCount=1;
     
-    yearly.text=[NSString stringWithFormat:@"%d",thisYear];
+    yearly.text=[NSString stringWithFormat:@"%lu",thisYear];
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6, yVal-10, 20, 20)];
     monthLabel.tag=tag++;
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];

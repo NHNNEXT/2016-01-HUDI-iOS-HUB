@@ -207,6 +207,10 @@
 
 
 - (void)moodButtonTouchedDown:(UIGestureRecognizer *)recognizer {
+    if(self.textField.isFirstResponder) {
+        return;
+    }
+    
     MDMoodButtonView *moodButton = (MDMoodButtonView *)recognizer.view;
     if(self.moodCount<3 || moodButton.isSelected) {     // 이미 감정을 세 개 이상 골랐으면 더 선택할 수 없음. 단 기존에 선택한 것을 해제하는건 됨.
         [self changeMoodButtonImage:moodButton];
