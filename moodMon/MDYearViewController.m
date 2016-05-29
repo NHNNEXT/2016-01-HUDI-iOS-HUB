@@ -132,6 +132,7 @@ int tag;
     
     yearly.text=[NSString stringWithFormat:@"%d",thisYear];
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(xVal+CGRectGetWidth(self.view.bounds)/6, yVal-10, 20, 20)];
+    monthLabel.tag=tag++;
     [monthLabel setText:[NSString stringWithFormat:@"%d",showMonth]];
     [self.view addSubview:monthLabel];
     for(int startDay=1; startDay<=numDays;startDay++){
