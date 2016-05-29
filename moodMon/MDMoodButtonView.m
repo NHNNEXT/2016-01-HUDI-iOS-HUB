@@ -16,4 +16,9 @@
     self.isSelected = NO;
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+
 @end

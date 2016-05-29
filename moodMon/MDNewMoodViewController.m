@@ -33,6 +33,7 @@
     [self addWheelGestureRecognizer];
     [self drawRecentMoodView];
     [self textLabelInit];
+    [self menuControllerInit];
 }
 
 
@@ -176,6 +177,12 @@
 }
 
 
+- (void)menuControllerInit {
+    _menuController = [UIMenuController sharedMenuController];
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+}
+
+
 - (void)showAlert:(NSNotification*)notification{
     NSDictionary *userInfo = [notification userInfo];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
@@ -214,21 +221,94 @@
                         } else {
                             self.mixedMoodFace.hidden = NO;
                         }
-                        self.textField.hidden = YES;
                         [self setChoosingMoodImageByNum:moodButton.num];
+                        [_menuController setMenuVisible:NO animated:YES];
                     }
                     completion:nil];
     if(moodButton.isSelected) {     // 감정을 선택하기 위해 버튼을 누른 경우 휠을 띄워줌.
+        _startTime = CACurrentMediaTime();
         [self showWheelView:moodButton];
         [self addNewChosenMood:moodButton.num];
+        self.textField.hidden = YES;
     } else {      // 감정선택을 해제하기 위해 버튼을 누른 경우, 해당 감정을 chosenMoods 배열에서 제거함.
         [self deleteFromChosenMoods:moodButton.num];
     }
 }
 
 
+- (void)menuControllerDisappear {
+    [_menuController setMenuVisible:NO animated:YES];
+}
+
+
+- (void)menuControllerAppear:(MDMoodButtonView *)moodButton {
+//    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:moodButton.superview];
+//    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[moodButton]];
+//    gravityBehavior.magnitude = 0.2;
+//    [self.animator addBehavior:gravityBehavior];
+//    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[moodButton]];
+//    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+//    [self.animator addBehavior:collisionBehavior];
+//    UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[moodButton]];
+//    elasticityBehavior.elasticity = 0.7f;
+//    [self.animator addBehavior:elasticityBehavior];
+//
+//    
+//    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Press and wheel to choose your mood" action:@selector(menuControllerDisappear)];
+//    _menuController.menuItems = [NSArray arrayWithObjects:menuItem, nil];
+//    [_menuController setTargetRect:moodButton.frame inView:moodButton.superview];
+//    [_menuController setMenuVisible:YES animated:YES];
+    
+    
+    __block CGRect movingFrame = moodButton.frame;
+    CGFloat movingDistance = 5;
+    CGFloat growingSize = 4;
+    [UIView animateWithDuration:0.35
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                            movingFrame.origin.y -= movingDistance;
+                            movingFrame.size.height += growingSize;
+                            movingFrame.size.width += growingSize;
+                            moodButton.frame = movingFrame;
+                        }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:1
+                                               delay:0
+                              usingSpringWithDamping:0.2
+                               initialSpringVelocity:0.2
+                                             options:0
+                                          animations:^{
+                                                movingFrame.origin.y += movingDistance;
+                                                movingFrame.size.height -= growingSize;
+                                                movingFrame.size.width -= growingSize;
+                                                moodButton.frame = movingFrame;
+                                             }
+                                          completion:nil];
+                         
+                         UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Press and wheel to choose your mood" action:@selector(menuControllerDisappear)];
+                         _menuController.menuItems = [NSArray arrayWithObjects:menuItem, nil];
+                         [_menuController setTargetRect:moodButton.frame inView:moodButton.superview];
+                         [_menuController setMenuVisible:YES animated:YES];
+                         
+                         // hide menu controller after 1 second
+                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                             [self menuControllerDisappear];
+                         });
+                     }];
+}
+
 
 - (void)moodButtonTouchedUp:(UIGestureRecognizer *)recognizer {
+    
+    CFTimeInterval elapsedTime = CACurrentMediaTime() - _startTime;
+    NSLog(@"%f", elapsedTime);
+    
+    MDMoodButtonView *moodButton = (MDMoodButtonView *)recognizer.view;
+    if(elapsedTime < 0.7 && [moodButton becomeFirstResponder]) {
+        [self menuControllerAppear:moodButton];
+    }
+    
     [UIView transitionWithView:self.view
                       duration:0.2
                        options:UIViewAnimationOptionTransitionCrossDissolve
@@ -337,14 +417,10 @@
     if(self.moodIntensityView.hidden) {     // wheelGesture와 tapGesture가 동시에 동작하는 거 방지
         return;
     }
-    
     MDWheelGestureRecognizer *recognizer = (MDWheelGestureRecognizer *)sender;
     
     //wheel 회전
     CGFloat angle = recognizer.currentAngle - recognizer.previousAngle;
-//    if([self didReachWheelBoundary:angle]) {
-//        angle = 0;
-//    }
     [self transformWheelWithAngle:angle];
     [self setWheelDegreeWithAngle:angle];
     
@@ -361,34 +437,7 @@
 }
 
 
-
-- (BOOL)didReachWheelBoundary:(CGFloat)angle {
-    CGFloat expectedDegree = self.wheelDegree + angle * 180 / M_PI;
-    if(expectedDegree < -0.5) {
-        expectedDegree += 360;
-    } else if (expectedDegree > 359.5) {
-        expectedDegree -= 360;
-    }
-    
-    if(angle < 0 && expectedDegree > self.wheelDegree) {
-        return YES;
-    }
-    if(angle > 0 && expectedDegree < self.wheelDegree) {
-        return YES;
-    }
-    return NO;
-}
-
-
-
 - (void)setWheelDegreeWithAngle:(CGFloat)angle {
-//    if(self.wheelDegree >= 0 && self.wheelDegree <= 4 && angle < 0) {
-//        return;
-//    }
-//    if(self.wheelDegree >= 356 && self.wheelDegree <= 360 && angle > 0) {
-//        return;
-//    }
-    
     self.wheelDegree += angle * 180 / M_PI;
     if(self.wheelDegree < -0.5) {
         self.wheelDegree += 360;
@@ -396,19 +445,11 @@
     else if (self.wheelDegree > 359.5) {
         self.wheelDegree -= 360;
     }
-//    NSLog(@"%f"   ,self.wheelDegree);
 }
 
 
 
 - (void)transformWheelWithAngle:(CGFloat)angle {
-//    if(self.wheelDegree >= 0 && self.wheelDegree <= 4 && angle < 0) {
-//        return;
-//    }
-//    if(self.wheelDegree >= 356 && self.wheelDegree <= 360 && angle > 0) {
-//        return;
-//    }
-    
     CGAffineTransform wheelTransform = self.wheel.transform;
     CGAffineTransform newWheelTransform = CGAffineTransformRotate(wheelTransform, angle);
     [self.wheel setTransform:newWheelTransform];

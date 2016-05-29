@@ -27,9 +27,16 @@
 /* DataManager */
 @property MDDataManager *dataManager;
 
+/* Timer */
+@property CFTimeInterval startTime; // store time when mood button view clicked
+
 /* Date */
 @property (strong, nonatomic) IBOutlet UILabel *day;
 @property (strong, nonatomic) IBOutlet UILabel *date;
+
+/* Tool Tip */
+@property UIMenuController *menuController;
+@property UIDynamicAnimator *animator;
 
 /* Mood Buttons */
 @property (strong, nonatomic) IBOutlet MDMoodButtonView *angry;
