@@ -9,6 +9,7 @@
 #import "MDSearchTableViewController.h"
 #import "MDSearchTableViewCell.h"
 #import "MDMoodColorView.h"
+#import "MDSmallMoodFaceView.h"
 
 @implementation MDSearchTableViewController{
     BOOL isFirstVisit;
@@ -190,26 +191,41 @@
         UIView *viewForFrame =  [cell viewWithTag:100];
         MDMoodColorView *temp = [[MDMoodColorView alloc]init];
         [temp setFrame:viewForFrame.frame];
+        
+        MDSmallMoodFaceView *faceTemp = [[MDSmallMoodFaceView alloc]init];
+        [faceTemp setFrame:viewForFrame.frame];
+
         for(int i = 1 ;i <temp.chosenMoods.count ; i++){
             [temp.chosenMoods removeObjectAtIndex:i];
+            [faceTemp.chosenMoods removeObjectAtIndex:i];
+            
         }
         //NSLog(@"%@",temp);
         NSNumber *tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen1];
         if(tempMoodChosen.intValue != 0){
             [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+             [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
         }
         tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen2];
         if(tempMoodChosen.intValue != 0){
             [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+             [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
         }
         tempMoodChosen = [self.filteredProducts[indexPath.row]valueForKey:kChosen3];
         if(tempMoodChosen.intValue != 0){
             [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+            [faceTemp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
         }
         
         temp.layer.cornerRadius = temp.frame.size.width/2;
-        [temp setNeedsDisplay];
         [cell addSubview:temp];
+       // faceTemp.layer.cornerRadius = faceTemp.frame.size.width/2;
+        [cell addSubview:faceTemp];
+        [temp setNeedsDisplay];
+        [faceTemp setNeedsDisplay];
+
+        
+        
 
     }
     return cell;
