@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDMonthTimeLineCellTableViewCell.h"
 #import "MDDataManager.h"
 #import "MDYearViewController.h"
 #import "MDMoodColorView.h"
@@ -16,7 +15,7 @@
 #import "MDSmallMoodFaceView.h"
 #import "MDCustomStoryboardSegue.h"
 #import "MDCustomStoryboardunwindSegue.h"
-
+#import "MDMonthTimeLineCellTableViewCell.h"
 
 @interface MDMonthViewController : UIViewController <SwipeableCellDelegate>
 
@@ -24,8 +23,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
 @property (weak, nonatomic) IBOutlet UILabel *clickedDate;
-
-
 
 /*for filter tool bar animation*/
 @property (nonatomic, weak) IBOutlet UIView *toolbarContainer;
@@ -53,6 +50,10 @@
 @property UIImage *exhaustChecked;
 @property UIImage *exhaustUnchecked;
 
+
+
+@property NSInteger thisYear;
+@property NSInteger thisMonth;
 
 -(IBAction)expandButtonTouched;
 -(IBAction)collapseButtontouched;

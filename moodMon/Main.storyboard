@@ -2002,6 +2002,7 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QP7-7f-6Mr" appends="YES" id="GYL-xs-v67"/>
                             <outletCollection property="gestureRecognizers" destination="kxC-bZ-R20" appends="YES" id="Sga-dJ-wvg"/>
+                            <outletCollection property="gestureRecognizers" destination="UIf-Xg-IAK" appends="YES" id="QL7-Wf-tkw"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -2021,6 +2022,11 @@
                         <action selector="handleSwipe:" destination="COX-hV-sA8" id="Ecc-Mp-C19"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="UIf-Xg-IAK">
+                    <connections>
+                        <action selector="monthTouch:" destination="COX-hV-sA8" id="uas-Zh-C3G"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1977" y="692"/>
         </scene>

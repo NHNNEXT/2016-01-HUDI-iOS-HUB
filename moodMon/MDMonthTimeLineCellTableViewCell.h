@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MDMoodColorView.h"
-#import "MDMonthViewController.h"
+//#import "MDMonthViewController.h"
 
 @protocol SwipeableCellDelegate <NSObject>
 - (void)buttonOneActionForItemText:(NSString *)itemText;
-- (void)buttonTwoActionForItemText:(NSString *)itemText;
+- (void)buttonTwoActionForItemText:(MDMoodColorView *)itemText;
 @end
 
 @interface MDMonthTimeLineCellTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
-
-
 @property (nonatomic, weak) id <SwipeableCellDelegate> delegate;
 @property (nonatomic, weak) NSString *itemText;
 
@@ -25,7 +23,6 @@
 //@property (nonatomic, weak)IBOutlet UIButton *editBtn;
 @property (nonatomic, weak)IBOutlet UIButton *saveMoodmonBtn;
 @property (nonatomic, weak)IBOutlet UIView *myContentView;
-
 
 @property (strong, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;

@@ -7,28 +7,30 @@
 //
 
 #import "MDMonthViewController.h"
-#import "MDMoodColorView.h"
 
 @interface MDMonthViewController (){
     BOOL toolbarIsOpen;
     BOOL toolbarIsAnimating;
     int myDay;
-    
 }
 
 @end
 
 extern NSUInteger numDays;
-extern NSUInteger thisYear;
+extern NSInteger thisYear;
 NSUInteger thisMonth;
-extern int weekday;
+extern NSInteger weekday;
 extern int tag;
 NSArray *createdAt;
 int count;
 NSMutableArray *moodmonConf;
 
+
 @implementation MDMonthViewController{
+
 }
+@synthesize thisYear;
+@synthesize thisMonth;
 
 -(void)awakeFromNib{
     
@@ -95,6 +97,10 @@ NSMutableArray *moodmonConf;
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self removeTags];
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%lu년 %lu월", thisYear, thisMonth];
+    _clickedDate.text = @" ";
+    myDay = 0;
+
     [self moreDateInfo];
     
     
@@ -334,12 +340,12 @@ NSMutableArray *moodmonConf;
     
     numDays=[self getCurrDateInfo:newDate];
     
-    int newWeekDay=weekday-1;
+    NSInteger newWeekDay=weekday-1;
     //    NSLog(@"Day week %d",newWeekDay);
     
-    int yCount=1;
-    int xCoord=0;
-    int yCoord=(yCount*yVal)+20;
+    NSInteger yCount=1;
+    NSInteger xCoord=0;
+    NSInteger yCoord=(yCount*yVal)+20;
     
     UILabel *backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(xCoord, yCoord+10, CGRectGetWidth(self.view.bounds),yVal*2/3)];
     [backgroundLabel setBackgroundColor:[UIColor colorWithRed:222.0f/255.0f green:212.0f/255.0f blue:198.0f/255.0f alpha:1.0f]];
@@ -415,17 +421,17 @@ NSMutableArray *moodmonConf;
                 
                 
                 
-                int yCoordCenter = yVal/2+yCoord-xVal*4/10;
-                int xCoordCenter = xVal/2+xCoord-xVal*4/10;
-                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
-                
-                [mcv awakeFromNib];
-                MDSmallMoodFaceView *mfv = [[MDSmallMoodFaceView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, xVal*4/5, xVal*4/5)];
-                
+                NSInteger yCoordCenter = yVal/2+yCoord-xVal*4/10;
+                NSInteger xCoordCenter = xVal/2+xCoord-xVal*4/10;
+                MDSmallMoodFaceView *mfv = [[MDSmallMoodFaceView alloc]initWithFrame:CGRectMake(0,0, xVal*4/5, xVal*4/5)];
                 
                 [mfv awakeFromNib];
+                MDMoodColorView *mcv = [[MDMoodColorView alloc]initWithFrame:CGRectMake(xCoordCenter,yCoordCenter, CGRectGetWidth(mfv.bounds)-2 , CGRectGetWidth(mfv.bounds)-2)];
+                
+                [mcv awakeFromNib];
+                
                 //                mcv.backgroundColor = [UIColor clearColor];
-                NSArray *dayRepresenatationColors = [_mddm representationOfMoodAtYear:(NSInteger)parseYear Month:(NSInteger)parseMonth andDay:parseDay];
+//                NSArray *dayRepresenatationColors = [_mddm representationOfMoodAtYear:(NSInteger)parseYear Month:(NSInteger)parseMonth andDay:parseDay];
                 
                 NSNumber *tempMoodChosen = [parseDate valueForKey:kChosen1 ];
                 if(tempMoodChosen.intValue > 0){
@@ -485,11 +491,12 @@ NSMutableArray *moodmonConf;
                     checkFalg=1;
                     mcv.tag=tag++;
                     mfv.tag=tag++;
-                    mcv.layer.cornerRadius = xVal*5/12;
+                    mcv.layer.cornerRadius = mcv.frame.size.width/2;
                     [mcv setNeedsDisplay];
                     [mfv setNeedsDisplay];
+                    [mcv addSubview:mfv];
+                    mcv.layer.masksToBounds=YES;
                     [self.view addSubview:mcv];
-                    [self.view addSubview:mfv];
                 }
             }
         }
@@ -519,7 +526,7 @@ NSMutableArray *moodmonConf;
     
     MDMoodColorView *temp = [cell viewWithTag:100];
     //NSLog(@"before : %@",temp.chosenMoods);
-    int usedChosenMoodsCount = temp.chosenMoods.count;
+    NSInteger usedChosenMoodsCount = temp.chosenMoods.count;
     if( usedChosenMoodsCount > 1){
         for(int i = 0 ; i < usedChosenMoodsCount-1 ; i++){
             [temp.chosenMoods removeLastObject];
@@ -654,7 +661,7 @@ NSMutableArray *moodmonConf;
 }
 
 
-#pragma mark - SwipeableCellDelegate
+#pragma mark - MDSwipeableCellDelegate
 - (void)buttonOneActionForItemText:(NSString *)itemText {
     NSLog(@"In the delegate, Clicked button one for %@", itemText);
 }
