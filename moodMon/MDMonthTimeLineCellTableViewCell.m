@@ -14,7 +14,7 @@ static CGFloat const kBounceValue = 40.0f;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.isFiltered = NO;
     self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panThisCell:)];
     self.panRecognizer.delegate = self;
     [self.myContentView addGestureRecognizer:self.panRecognizer];

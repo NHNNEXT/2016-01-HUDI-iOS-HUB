@@ -9,10 +9,13 @@
     <customFonts key="customFonts">
         <mutableArray key="NanumGothic.otf">
             <string>NanumGothicOTF</string>
+            <string>NanumGothicOTF</string>
+        </mutableArray>
+        <mutableArray key="NanumGothicLight.otf">
+            <string>NanumGothicOTFLight</string>
+            <string>NanumGothicOTFLight</string>
         </mutableArray>
         <mutableArray key="Quicksand-Regular.otf">
-            <string>Quicksand-Regular</string>
-            <string>Quicksand-Regular</string>
             <string>Quicksand-Regular</string>
             <string>Quicksand-Regular</string>
             <string>Quicksand-Regular</string>
@@ -2054,18 +2057,12 @@
                                                 <constraint firstAttribute="width" constant="44" id="xCR-f0-WdV"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25R-mL-I0L">
-                                            <rect key="frame" x="373" y="14" width="25" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mm-kM-bLX">
                                             <rect key="frame" x="72" y="11" width="73" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="kra-tU-hBo"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -2073,6 +2070,12 @@
                                                     <exclude reference="kra-tU-hBo"/>
                                                 </mask>
                                             </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25R-mL-I0L">
+                                            <rect key="frame" x="373" y="14" width="25" height="15"/>
+                                            <fontDescription key="fontDescription" name="NanumGothicOTFLight" family="NanumGothicOTF" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -2278,30 +2281,6 @@
                                     <constraint firstItem="4yz-hJ-4MX" firstAttribute="width" secondItem="6Wu-vp-s1m" secondAttribute="width" id="zRM-Or-Pfh"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="25 May" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-vu-nqY">
-                                <rect key="frame" x="30" y="442" width="90" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="oyc-oe-jeq">
-                                        <variation key="widthClass=compact" constant="192"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="21" id="tBG-RS-fjY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="oyc-oe-jeq"/>
-                                        <exclude reference="tBG-RS-fjY"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="oyc-oe-jeq"/>
-                                        <include reference="tBG-RS-fjY"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-hW-Vsq">
                                 <rect key="frame" x="-1" y="416" width="415" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2311,7 +2290,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MDMonthTimeLineCellTableViewCell" id="v2g-lF-DOc" customClass="MDMonthTimeLineCellTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="415" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="415" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v2g-lF-DOc" id="UjD-II-JKf">
                                             <rect key="frame" x="0.0" y="0.0" width="415" height="43"/>
@@ -2336,12 +2315,9 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHk-0F-gNl">
                                                             <rect key="frame" x="380" y="14" width="25" height="15"/>
-                                                            <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="NanumGothicOTFLight" family="NanumGothicOTF" pointSize="10"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="380" y="15" width="24" height="14"/>
-                                                            </variation>
                                                         </label>
                                                         <view tag="100" contentMode="scaleToFill" restorationIdentifier="MCView" translatesAutoresizingMaskIntoConstraints="NO" id="wve-XH-Ut5" customClass="MDMoodColorView">
                                                             <rect key="frame" x="10" y="0.0" width="44" height="44"/>
@@ -2355,6 +2331,7 @@
                                                             <rect key="frame" x="64" y="11" width="73" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="Bm0-U5-8bU"/>
+                                                                <constraint firstAttribute="width" constant="164" id="I5C-Mk-P9q"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="NanumGothicOTF" family="NanumGothicOTF" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2362,10 +2339,13 @@
                                                             <variation key="default">
                                                                 <mask key="constraints">
                                                                     <exclude reference="Bm0-U5-8bU"/>
+                                                                    <exclude reference="I5C-Mk-P9q"/>
                                                                 </mask>
                                                             </variation>
-                                                            <variation key="widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="74" y="13" width="122" height="18"/>
+                                                            <variation key="widthClass=compact">
+                                                                <mask key="constraints">
+                                                                    <include reference="I5C-Mk-P9q"/>
+                                                                </mask>
                                                             </variation>
                                                         </label>
                                                     </subviews>
@@ -2373,13 +2353,15 @@
                                                     <constraints>
                                                         <constraint firstItem="YHk-0F-gNl" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="DpN-T5-bLb"/>
                                                         <constraint firstItem="hyP-2L-cNV" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="SYy-Qk-3j4"/>
-                                                        <constraint firstItem="hyP-2L-cNV" firstAttribute="leading" secondItem="wve-XH-Ut5" secondAttribute="trailing" constant="20" id="hlS-Zd-k1w"/>
-                                                        <constraint firstAttribute="trailing" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="10" id="jCg-rG-Rhz">
+                                                        <constraint firstItem="hyP-2L-cNV" firstAttribute="leading" secondItem="wve-XH-Ut5" secondAttribute="trailing" constant="20" id="hlS-Zd-k1w">
                                                             <variation key="widthClass=compact" constant="11"/>
+                                                        </constraint>
+                                                        <constraint firstAttribute="trailing" secondItem="YHk-0F-gNl" secondAttribute="trailing" constant="10" id="jCg-rG-Rhz">
+                                                            <variation key="widthClass=compact" constant="18"/>
                                                         </constraint>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="centerY" secondItem="odc-hj-2hU" secondAttribute="centerY" id="m6X-r3-2i0"/>
                                                         <constraint firstItem="wve-XH-Ut5" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="10" id="sjp-mM-5a5"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hyP-2L-cNV" secondAttribute="trailing" constant="80" id="tfp-Sa-FA8"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hyP-2L-cNV" secondAttribute="trailing" constant="70" id="tfp-Sa-FA8"/>
                                                         <constraint firstItem="YHk-0F-gNl" firstAttribute="leading" secondItem="odc-hj-2hU" secondAttribute="leading" constant="200" id="yTA-7c-8Sr"/>
                                                     </constraints>
                                                     <variation key="default">
@@ -2440,28 +2422,22 @@
                             <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" id="Bjv-05-TPy"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-21" id="Czp-3U-3gc"/>
                             <constraint firstItem="hmy-DR-MdY" firstAttribute="top" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="-49" id="Q0w-N4-8Fa"/>
-                            <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="44" id="R43-de-cL3"/>
-                            <constraint firstItem="kCc-hW-Vsq" firstAttribute="top" secondItem="W2P-vu-nqY" secondAttribute="bottom" constant="3" id="UpA-Gf-Sv6">
-                                <variation key="widthClass=compact" constant="8"/>
+                            <constraint firstAttribute="bottom" secondItem="kCc-hW-Vsq" secondAttribute="bottom" constant="44" id="R43-de-cL3">
+                                <variation key="widthClass=compact" constant="57"/>
                             </constraint>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerY" secondItem="8Tw-nI-bq1" secondAttribute="centerY" id="fsa-7Z-Bwu"/>
                             <constraint firstItem="kCc-hW-Vsq" firstAttribute="leading" secondItem="8Tw-nI-bq1" secondAttribute="leadingMargin" constant="-20" id="qAI-UW-lGV"/>
                             <constraint firstItem="K4a-au-hDp" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="rB7-sC-7WU"/>
-                            <constraint firstItem="kCc-hW-Vsq" firstAttribute="width" secondItem="8Tw-nI-bq1" secondAttribute="width" multiplier="1:1" id="rOV-3s-5Hg"/>
-                            <constraint firstItem="W2P-vu-nqY" firstAttribute="centerX" secondItem="8Tw-nI-bq1" secondAttribute="centerX" id="zr6-P6-3Jb"/>
+                            <constraint firstItem="kCc-hW-Vsq" firstAttribute="width" secondItem="8Tw-nI-bq1" secondAttribute="width" multiplier="1:1" id="rOV-3s-5Hg">
+                                <variation key="widthClass=compact" constant="1"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Bjv-05-TPy"/>
                                 <exclude reference="qAI-UW-lGV"/>
-                                <exclude reference="zr6-P6-3Jb"/>
                                 <exclude reference="fsa-7Z-Bwu"/>
                                 <exclude reference="Q0w-N4-8Fa"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="zr6-P6-3Jb"/>
                             </mask>
                         </variation>
                         <connections>
@@ -2486,7 +2462,6 @@
                     <connections>
                         <outlet property="angryFilterBtn" destination="nzc-ty-5Zd" id="fp3-7p-oxg"/>
                         <outlet property="buttonContainer" destination="4yz-hJ-4MX" id="qBe-fV-oyI"/>
-                        <outlet property="clickedDate" destination="W2P-vu-nqY" id="NgF-AL-zpz"/>
                         <outlet property="exciteFilterBtn" destination="uYj-ha-Kfd" id="VWS-0S-0bj"/>
                         <outlet property="exhaustFilterBtn" destination="5gV-8g-Qcy" id="eJD-xQ-93d"/>
                         <outlet property="happyFilterBtn" destination="eiD-L9-Eyj" id="sWt-B7-lT2"/>

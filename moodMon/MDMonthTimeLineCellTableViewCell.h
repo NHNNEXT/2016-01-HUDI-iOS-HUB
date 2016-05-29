@@ -16,6 +16,8 @@
 @end
 
 @interface MDMonthTimeLineCellTableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
+
+@property BOOL isFiltered;
 @property (nonatomic, weak) id <SwipeableCellDelegate> delegate;
 @property (nonatomic, weak) NSString *itemText;
 

@@ -22,7 +22,6 @@
 @property (strong, nonatomic)MDDataManager *mddm;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViews;
-@property (weak, nonatomic) IBOutlet UILabel *clickedDate;
 
 /*for filter tool bar animation*/
 @property (nonatomic, weak) IBOutlet UIView *toolbarContainer;
