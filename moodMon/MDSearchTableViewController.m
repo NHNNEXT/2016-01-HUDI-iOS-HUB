@@ -181,11 +181,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MDSearchTableViewCell *cell = (MDSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"searchTableCell" forIndexPath:indexPath];
-//    
-//    if(cell == nil){
-//        cell = [[MDSearchTableViewCell alloc] init];
-//    }
-//    
+
     if([self.filteredProducts count] <= 0){
         return cell;
     }
@@ -241,13 +237,11 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 #pragma mark - UIStateRestoration

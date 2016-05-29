@@ -515,40 +515,46 @@ NSMutableArray *moodmonConf;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
-    
-    
-    //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
     cell.timeLabel.text = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
     cell.itemText = [moodmonConf[indexPath.row]valueForKey:@"_moodComment" ];
-    
     cell.delegate = self;
     
+    UIView *viewForFrame =  [cell viewWithTag:100];
+    viewForFrame.layer.cornerRadius = viewForFrame.frame.size.width/2;
+    viewForFrame.layer.masksToBounds = YES;
     
-    MDMoodColorView *temp = [cell viewWithTag:100];
-    //NSLog(@"before : %@",temp.chosenMoods);
-    NSInteger usedChosenMoodsCount = temp.chosenMoods.count;
-    if( usedChosenMoodsCount > 1){
-        for(int i = 0 ; i < usedChosenMoodsCount-1 ; i++){
-            [temp.chosenMoods removeLastObject];
-        }
-        // NSLog(@"after :%@",temp.chosenMoods);
-        [temp setNeedsDisplay];
+    MDMoodColorView *colorView = [[MDMoodColorView alloc] init];
+    MDSmallMoodFaceView *faceView = [[MDSmallMoodFaceView alloc] init];
+
+    CGRect frame = CGRectMake(0, 0, viewForFrame.frame.size.width, viewForFrame.frame.size.height);
+    [colorView setFrame:frame];
+    [faceView setFrame:frame];
+    
+    [viewForFrame addSubview:colorView];
+    [viewForFrame addSubview:faceView];
+    
+    
+    for(int i = 1 ;i <colorView.chosenMoods.count ; i++){
+        [colorView.chosenMoods removeObjectAtIndex:i];
+        [faceView.chosenMoods removeObjectAtIndex:i];
     }
     
+    [faceView awakeFromNib];
     
-    NSNumber *tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
-    if(tempMoodChosen.intValue != 0){
-        [temp.chosenMoods insertObject: tempMoodChosen atIndex:1 ];
+    NSNumber *moodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen1];
+    if(moodChosen.intValue != 0){
+        [colorView.chosenMoods insertObject: moodChosen atIndex:1 ];
+        [faceView.chosenMoods insertObject: moodChosen atIndex:1 ];
     }
-    
-    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen2];
-    if(tempMoodChosen.intValue != 0){
-        [temp.chosenMoods insertObject: tempMoodChosen atIndex:2 ];
+    moodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen2];
+    if(moodChosen.intValue != 0){
+        [colorView.chosenMoods insertObject: moodChosen atIndex:2 ];
+        [faceView.chosenMoods insertObject: moodChosen atIndex:2 ];
     }
-    
-    tempMoodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3];
-    if(tempMoodChosen.intValue != 0){
-        [temp.chosenMoods insertObject: tempMoodChosen atIndex:3 ];
+    moodChosen = [moodmonConf[indexPath.row] valueForKey:kChosen3];
+    if(moodChosen.intValue != 0){
+        [colorView.chosenMoods insertObject: moodChosen atIndex:3 ];
+        [faceView.chosenMoods insertObject: moodChosen atIndex:3 ];
     }
     
     int visualble=0;
@@ -557,40 +563,37 @@ NSMutableArray *moodmonConf;
     }
     else{
         if([_mddm.isChecked[0] isEqual:@YES]){
-            for (NSString *checked in temp.chosenMoods) {
+            for (NSString *checked in colorView.chosenMoods) {
                 if(checked.intValue /10 ==1)
                     visualble = 1;
             }
         }if([_mddm.isChecked[1] isEqual:@YES]){
-            for (NSString *checked in temp.chosenMoods) {
+            for (NSString *checked in colorView.chosenMoods) {
                 if(checked.intValue /10 ==2)
                     visualble = 1;
             }
         }if([_mddm.isChecked[2] isEqual:@YES]){
-            for (NSString *checked in temp.chosenMoods) {
+            for (NSString *checked in colorView.chosenMoods) {
                 if(checked.intValue /10 ==3)
                     visualble = 1;
             }
         }if([_mddm.isChecked[3] isEqual:@YES]){
-            for (NSString *checked in temp.chosenMoods) {
+            for (NSString *checked in colorView.chosenMoods) {
                 if(checked.intValue /10 ==4)
                     visualble = 1;
             }
         }if([_mddm.isChecked[4] isEqual:@YES]){
-            for (NSString *checked in temp.chosenMoods) {
+            for (NSString *checked in colorView.chosenMoods) {
                 if(checked.intValue /10 ==5)
                     visualble = 1;
             }
         }
     }
     
-    temp.layer.cornerRadius = (int)temp.frame.size.width/2;
-    temp.layer.masksToBounds = YES;
-    temp.hidden = NO;
-    [temp setBackgroundColor:[UIColor clearColor]];
-    //NSLog(@"colorview : %@, chosenMood:%@",temp, temp.chosenMoods);
-    [temp setNeedsDisplay];
-    [cell.myContentView addSubview:temp];
+    colorView.layer.cornerRadius = (int)colorView.frame.size.width/2;
+    colorView.layer.masksToBounds = YES;
+    [colorView setNeedsDisplay];
+    [faceView setNeedsDisplay];
     
     return cell;
 }
