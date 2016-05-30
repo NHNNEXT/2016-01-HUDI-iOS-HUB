@@ -17,7 +17,7 @@
 
 -(void)dataDidFinish;
 -(void)showAlert:(NSNotification*)notification;
-
+-(void)deleteAllData;
 
 
 

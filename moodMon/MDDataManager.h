@@ -55,7 +55,7 @@
 -(void)saveIntoDBNewMoodmon:(MDMoodmon*)moodmon;
 -(void)readJustSavedMoodMon;
 
-
+-(void)deleteAllData;
 
 
 
