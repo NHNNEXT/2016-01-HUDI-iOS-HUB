@@ -35,8 +35,8 @@
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;
     [self.navigationController setNavigationBarHidden:YES];
-    //[self.navigationController set]
-
+   
+    self.searchController.searchBar.placeholder = @"Search a word or text!";
     self.filteredProducts = nil;
     
 }
