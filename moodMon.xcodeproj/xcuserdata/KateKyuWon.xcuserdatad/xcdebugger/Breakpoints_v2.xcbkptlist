@@ -184,7 +184,7 @@
                   moduleName = "moodMon"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/KateKyuWon/Documents/moodMon/moodMon/MDMonthTimeLineCellTableViewCell.h"
-                  timestampString = "486262896.964642"
+                  timestampString = "486265093.787111"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -199,7 +199,7 @@
                   moduleName = "moodMon"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/KateKyuWon/Documents/moodMon/moodMon/MDMonthTimeLineCellTableViewCell.h"
-                  timestampString = "486262896.964778"
+                  timestampString = "486265093.787293"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -237,7 +237,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "-viewDidLoad"
+            landmarkName = "-awakeFromNib"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -253,7 +253,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "494"
             endingLineNumber = "494"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkName = "-moreDateInfo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -64,7 +64,7 @@
         if(sqlite3_open(dbpath, &_moodmonDB) == SQLITE_OK){
             char *errMsg;
             
-//            NSLog(@"no1 : open DB" );
+            NSLog(@"no1 : open DB" );
             const char *sql_stmt = "CREATE TABLE IF NOT EXISTS moodmon(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, moodComment VARCHAR(150) NULL, moodDate Datetime NOT NULL, moodChosen1 INTEGER NOT NULL DEFAULT 0, moodChosen2 INTEGER NOT NULL DEFAULT 0, moodChosen3 INTEGER NOT NULL DEFAULT 0, isDeleted BOOL DEFAULT false);";
             
             /* 
@@ -473,51 +473,51 @@
 }
 
 -(void)deleteAllData{
-    sqlite3_stmt *statement;
-    const char *dbpath = [_dataBasePath UTF8String];
-    
-    if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
-        //        NSLog(@"yes5 : Start to save new into SQL");
-        
-        /* COLUME_NUM & property
-         0 - id / int
-         1 - moodComment / varchar(150)
-         2 - moodDate / dateTime
-         3 - moodChosen1 / int
-         4 - moodChosen2 / int
-         5 - moodChosen3 / int
-         6 - isDeleted / bool
-         */
-        
-      
-        NSString *deleteSQL = @"DROP TABLE moodmon;";
-        
-        const char* delete_stmt = [deleteSQL UTF8String];
-        sqlite3_prepare_v2(_moodmonDB, delete_stmt, -1, &statement, NULL);
-        
-        
-        if(sqlite3_step(statement) == SQLITE_DONE){
-                        NSLog(@"DELETE");
-            
-            
-        } else {
+//    sqlite3_stmt *statement;
+//    const char *dbpath = [_dataBasePath UTF8String];
+//    
+//    if(sqlite3_open( dbpath, &_moodmonDB) == SQLITE_OK ){
+//        //        NSLog(@"yes5 : Start to save new into SQL");
+//        
+//        /* COLUME_NUM & property
+//         0 - id / int
+//         1 - moodComment / varchar(150)
+//         2 - moodDate / dateTime
+//         3 - moodChosen1 / int
+//         4 - moodChosen2 / int
+//         5 - moodChosen3 / int
+//         6 - isDeleted / bool
+//         */
+//        
+//      
+//        NSString *deleteSQL = @"DROP TABLE moodmon;";
+//        
+//        const char* delete_stmt = [deleteSQL UTF8String];
+//        sqlite3_prepare_v2(_moodmonDB, delete_stmt, -1, &statement, NULL);
+//        
+//        
+//        if(sqlite3_step(statement) == SQLITE_DONE){
+//                        NSLog(@"DELETE");
 //            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"failTosaveIntoSql" object:self userInfo:@{@"message" : @"Fail to save into Sqlite"}];
-            printf("??? %d   zzz\n", sqlite3_step(statement) );
-            NSLog(@"ERRor : %s", sqlite3_errmsg(_moodmonDB));
-        }
-        
-        
-        //_status.text = @"SQL doesn't work";
-        sqlite3_finalize(statement);
-        sqlite3_close(_moodmonDB);
-    }
-
-    
-    
-    self.moodCollection = [[NSMutableArray alloc] init];
-    [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
-    [self createDB];
+//            
+//        } else {
+////            
+////            [[NSNotificationCenter defaultCenter] postNotificationName:@"failTosaveIntoSql" object:self userInfo:@{@"message" : @"Fail to save into Sqlite"}];
+//            printf("??? %d   zzz\n", sqlite3_step(statement) );
+//            NSLog(@"ERRor : %s", sqlite3_errmsg(_moodmonDB));
+//        }
+//        
+//        
+//        //_status.text = @"SQL doesn't work";
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_moodmonDB);
+//    }
+//
+//    
+//    
+//    self.moodCollection = [[NSMutableArray alloc] init];
+//    [self.moodCollection insertObject:[[MDMoodmon alloc] init] atIndex:0];
+//    [self createDB];
 
 }
 
