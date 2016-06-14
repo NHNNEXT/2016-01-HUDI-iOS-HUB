@@ -65,6 +65,9 @@
         return cell;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        
+        UITapGestureRecognizer *tapDelete = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deleteAllData)];
+        [cell addGestureRecognizer:tapDelete];
     }
     
 
@@ -72,10 +75,13 @@
 }
 
 
-///!!!!!!!!! 해야 할 일
-///alert view겁나 느림 - dispatch로 바꿈
-///select류 일회적이다. select정보 저장해서 일관성있게 보여주기
-/// ㄴ select시 iCloud 시작or계속 deselect시 중단
+-(void)deleteAllData{
+    NSLog(@"delete all");
+    [_dataManager deleteAllData];
+}
+
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section != 0) return;
@@ -89,6 +95,7 @@
      }
     
 }
+
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section != 0) return;
@@ -143,7 +150,9 @@
     }];
     
 }
+
 -(void)showAlert:(NSNotification*)notification{
+    
     NSDictionary *userInfo = [notification userInfo];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Data" message:[userInfo objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
@@ -159,3 +168,4 @@
 
 
 @end
+
