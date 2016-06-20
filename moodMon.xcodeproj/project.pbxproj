@@ -31,6 +31,7 @@
 		CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */; };
 		CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */; };
 		CE4B234F1CB201B1007D0B3B /* MDMoodmon.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */; };
+		CE4D804B1D17D7EA000A1D98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4D804A1D17D7EA000A1D98 /* CloudKit.framework */; };
 		CE7FFD5A1CE023D300B7139C /* MDCustomStoryboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */; };
 		CE87EC521CCE118500329E16 /* MDSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87EC511CCE118500329E16 /* MDSearchTableViewController.m */; };
 		CEABEFEE1CFAD7AC00AA4E60 /* MDDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = CEABEFED1CFAD7AC00AA4E60 /* MDDocument.m */; };
@@ -245,6 +246,7 @@
 		CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CE4B234D1CB201B1007D0B3B /* MDMoodmon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDMoodmon.h; sourceTree = "<group>"; };
 		CE4B234E1CB201B1007D0B3B /* MDMoodmon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDMoodmon.m; sourceTree = "<group>"; };
+		CE4D804A1D17D7EA000A1D98 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE7FFD581CE023D300B7139C /* MDCustomStoryboardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomStoryboardSegue.h; sourceTree = "<group>"; };
 		CE7FFD591CE023D300B7139C /* MDCustomStoryboardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomStoryboardSegue.m; sourceTree = "<group>"; };
 		CE87EC501CCE118500329E16 /* MDSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSearchTableViewController.h; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4D804B1D17D7EA000A1D98 /* CloudKit.framework in Frameworks */,
 				CE4A8A6E1CABCE05006B73B7 /* libsqlite3.0.tbd in Frameworks */,
 				CE4A8A6F1CABCE05006B73B7 /* libsqlite3.tbd in Frameworks */,
 			);
@@ -474,6 +477,7 @@
 		CE4A8A2A1CABCCB1006B73B7 = {
 			isa = PBXGroup;
 			children = (
+				CE4D804A1D17D7EA000A1D98 /* CloudKit.framework */,
 				CE4A8A6C1CABCE05006B73B7 /* libsqlite3.0.tbd */,
 				CE4A8A6D1CABCE05006B73B7 /* libsqlite3.tbd */,
 				CE4A8A351CABCCB1006B73B7 /* moodMon */,
