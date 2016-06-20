@@ -176,6 +176,13 @@
     return 60;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+}
+
+
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
@@ -185,6 +192,8 @@
     if([self.filteredProducts count] <= 0){
         return cell;
     }
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     cell.commentLabel.text = [self.filteredProducts[indexPath.row] valueForKey:kComment];
     //NSLog(@"time is : %@", [moodmonConf[indexPath.row] valueForKey:kTime]);
@@ -237,12 +246,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-}
+
 
 #pragma mark - UIStateRestoration
 

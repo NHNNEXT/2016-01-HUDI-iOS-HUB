@@ -569,6 +569,7 @@ UIFont *boldQuicksand;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     MDMonthTimeLineCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDMonthTimeLineCellTableViewCell" forIndexPath:indexPath];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@",[moodmonConf[indexPath.row]valueForKey:@"_moodComment" ]];
     NSString *timeText = [NSString stringWithFormat:@"%@", [moodmonConf[indexPath.row] valueForKey:kTime]];
@@ -578,6 +579,7 @@ UIFont *boldQuicksand;
     cell.timeLabel.text = timeText;
     cell.itemText = [moodmonConf[indexPath.row] valueForKey:@"_moodComment"];
     cell.delegate = self;
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     UIView *viewForFrame =  [cell viewWithTag:100];
     viewForFrame.layer.cornerRadius = viewForFrame.frame.size.width/2;
@@ -675,8 +677,6 @@ UIFont *boldQuicksand;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableViews deselectRowAtIndexPath:indexPath animated:NO];
-    
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
