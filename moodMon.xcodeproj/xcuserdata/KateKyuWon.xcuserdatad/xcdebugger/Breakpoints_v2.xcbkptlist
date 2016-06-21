@@ -164,54 +164,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "moodMon/MDMonthTimeLineCellTableViewCell.h"
-            timestampString = "484459101.359389"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "startingRightLayoutConstraintConstant"
-            landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MDMonthTimeLineCellTableViewCell startingRightLayoutConstraintConstant]"
-                  moduleName = "moodMon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/KateKyuWon/Documents/moodMon/moodMon/MDMonthTimeLineCellTableViewCell.h"
-                  timestampString = "486265093.787111"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MDMonthTimeLineCellTableViewCell setStartingRightLayoutConstraintConstant:]"
-                  moduleName = "moodMon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/KateKyuWon/Documents/moodMon/moodMon/MDMonthTimeLineCellTableViewCell.h"
-                  timestampString = "486265093.787293"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "38">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
